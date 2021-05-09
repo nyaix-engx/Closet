@@ -11,6 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		4A0EDE4726478E0C00AE8D6D /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 4A0EDE4626478E0C00AE8D6D /* fonts */; };
 		4A64D1272646E555001A317E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A64D1262646E555001A317E /* File.swift */; };
 		4D4376339EC53C2B5C518BA7 /* libPods-Closet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 608056CDD55FC0B060FF6111 /* libPods-Closet.a */; };
 		6E40972068AB68BFACCD3E40 /* libPods-Closet-ClosetTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99FC4C3343AEFCAE41D53AF0 /* libPods-Closet-ClosetTests.a */; };
@@ -37,6 +38,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Closet/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Closet/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Closet/main.m; sourceTree = "<group>"; };
+		4A0EDE4626478E0C00AE8D6D /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		4A64D1252646E554001A317E /* Closet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Closet-Bridging-Header.h"; sourceTree = "<group>"; };
 		4A64D1262646E555001A317E /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		608056CDD55FC0B060FF6111 /* libPods-Closet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Closet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				4A0EDE4626478E0C00AE8D6D /* fonts */,
 				13B07FAE1A68108700A75B9A /* Closet */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* ClosetTests */,
@@ -247,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A0EDE4726478E0C00AE8D6D /* fonts in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
