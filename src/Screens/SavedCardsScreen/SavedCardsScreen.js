@@ -6,9 +6,10 @@ import Feather from 'react-native-vector-icons/Feather';
 import Card from '../../Assets/Svg/card.svg';
 import BackButtonTitle from '../../Components/BackButtonTitle';
 import CreditCard from '../../Components/CreditCard';
+import LottieView from 'lottie-react-native';
 
 const SavedCardsScreen = ({navigation}) => {
-  const [cardsCount, setCardsCount] = useState(1);
+  const [cardsCount, setCardsCount] = useState(0);
 
   const getContent = () => {
     return (
@@ -21,7 +22,7 @@ const SavedCardsScreen = ({navigation}) => {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <Card width={hp(12)} height={hp(12)} />
+               <LottieView source={require('../../Assets/lottie/cc.json')} style={{height:hp(15),width:hp(15)}} autoPlay loop={false} />
             </View>
             <View style={{paddingVertical: hp(2)}}>
               <Text

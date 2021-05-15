@@ -4,6 +4,8 @@ import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import BackButtonTitle from '../../Components/BackButtonTitle';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import LottieView from 'lottie-react-native';
+
 
 const NotificationsScreen = ({navigation}) => {
   return (
@@ -18,11 +20,7 @@ const NotificationsScreen = ({navigation}) => {
             alignItems: 'center',
             height: hp(50),
           }}>
-          <Ionicons
-            name="md-notifications"
-            size={hp(8)}
-            style={{color: 'grey'}}
-          />
+          <LottieView source={require('../../Assets/lottie/empty.json')} style={{height:hp(15),width:hp(15)}} autoPlay loop={false} />
           <View style={{paddingVertical:hp(2)}}>
             <Text
               style={{

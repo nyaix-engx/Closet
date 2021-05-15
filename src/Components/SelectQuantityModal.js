@@ -7,7 +7,7 @@ import Number from './number';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 
-const SizeSelectModal = props => {
+const SelectQuantityModal = props => {
   const [selected,setSelected]=useState(null);
   const insets=useSafeAreaInsets()
   return (
@@ -35,7 +35,7 @@ const SizeSelectModal = props => {
               fontSize: hp(2),
               marginBottom: hp(2),
             }}>
-            Select Size
+            Select Quantity
           </Text>
           <Pressable onPress={props.setShowModal} style={{marginBottom:hp(2)}}>
             <Fontisto
@@ -47,22 +47,15 @@ const SizeSelectModal = props => {
         </View>
         <View style={{marginBottom:hp(2)}}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} bounces={false} >
-              <Number selected={selected} setSelected={setSelected} size={26} />
-              <Number selected={selected} setSelected={setSelected} size={28} />
-              <Number selected={selected} setSelected={setSelected} size={30} />
-              <Number selected={selected} setSelected={setSelected} size={32} />
-              <Number selected={selected} setSelected={setSelected} size={34} />
-              <Number selected={selected} setSelected={setSelected} size={36} />
-              <Number selected={selected} setSelected={setSelected} size={38} />
+              <Number selected={selected} setSelected={setSelected} size={1} />
+              <Number selected={selected} setSelected={setSelected} size={2} />
+              <Number selected={selected} setSelected={setSelected} size={3} />
+              <Number selected={selected} setSelected={setSelected} size={4} />
+              <Number selected={selected} setSelected={setSelected} size={5} />
+              <Number selected={selected} setSelected={setSelected} size={6} />
+              <Number selected={selected} setSelected={setSelected} size={7} />
             </ScrollView>
         </View>
-        {/* <View style={{paddingHorizontal:hp(2),flexDirection:'row',marginBottom:hp(2)}}> 
-          <Text style={{fontFamily:'ProductSans-Regular',fontSize:hp(2),marginRight:hp(1)}}>$20</Text>
-          <View style={{flexDirection:'row'}}>
-          <Text style={{fontFamily:'ProductSans-Regular',fontSize:hp(2),textDecorationLine:'line-through',textDecorationStyle: 'solid',color:'grey'}}>$25</Text>
-            <Text style={{fontFamily:'ProductSans-Regular',fontSize:hp(2),color:'#fb7ca0'}}>(50%) OFF</Text>
-          </View>
-        </View> */}
         <Pressable style={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.3),marginBottom:insets.bottom}}>
           <Text style={{textAlign:'center',fontSize:hp(2),fontFamily:'ProductSans-Bold',color:'white'}}>DONE</Text>
         </Pressable>
@@ -71,4 +64,4 @@ const SizeSelectModal = props => {
   );
 };
 
-export default SizeSelectModal;
+export default SelectQuantityModal;

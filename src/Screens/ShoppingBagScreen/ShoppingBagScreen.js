@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {
   View,
   Text,
@@ -9,14 +9,14 @@ import {
 } from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ShoppingBagCard from '../../Components/ShoppingBagCard';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import BackButtonTitle from '../../Components/BackButtonTitle';
+import ChangeDeliveryModal from '../../Components/ChangeDeliveryModal';
 
 const ShoppingBagScreen = ({navigation}) => {
-
+  const[showDeliveryModal,setShowDeliveryModal]=useState(false)
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{flex: 0.8}}>
@@ -100,7 +100,7 @@ const ShoppingBagScreen = ({navigation}) => {
                 110062
               </Text>
             </View>
-            <Pressable>
+            <Pressable onPress={()=>setShowDeliveryModal(true)} >
               <Text
                 style={{
                   fontFamily: 'ProductSans-Bold',
@@ -108,50 +108,6 @@ const ShoppingBagScreen = ({navigation}) => {
                   color: '#fb7ca0',
                 }}>
                 CHANGE
-              </Text>
-            </Pressable>
-          </View>
-          <View
-            style={{
-              backgroundColor: 'white',
-              paddingHorizontal: hp(1.5),
-              paddingVertical: hp(2),
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginBottom: hp(2),
-            }}>
-            <View
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-              }}>
-              <MaterialCommunityIcons
-                name="truck-fast-outline"
-                size={hp(3)}
-                style={{marginRight: hp(0.5)}}
-              />
-              <Text
-                style={{
-                  fontFamily: 'ProductSans-Regular',
-                  fontSize: hp(2),
-                  marginRight: hp(0.5),
-                }}>
-                Item(s) not deliverable to
-              </Text>
-              <Text style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2)}}>
-                110062.
-              </Text>
-            </View>
-            <Pressable>
-              <Text
-                style={{
-                  fontFamily: 'ProductSans-Bold',
-                  fontSize: hp(1.9),
-                  color: '#fb7ca0',
-                }}>
-                VIEW
               </Text>
             </Pressable>
           </View>
@@ -443,6 +399,10 @@ const ShoppingBagScreen = ({navigation}) => {
           </Text>
         </Pressable>
       </View>
+      <ChangeDeliveryModal
+      showModal={showDeliveryModal}
+      setShowModal={()=>setShowDeliveryModal(false)}
+      />
     </SafeAreaView>
   );
 };

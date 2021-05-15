@@ -1,14 +1,17 @@
+
 import React,{useState} from 'react';
 import {View, Text, Image, useWindowDimensions, Pressable} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SizeSelectModal from './SizeSelectModal';
 import Modal from 'react-native-modal';
+import SelectQuantityModal from './SelectQuantityModal';
 
 const ShoppingBagCard = () => {
   const {width} = useWindowDimensions();
   const [showSizeModal,setShowSizeModal]=useState(false)
   const [isModalVisible, setModalVisible] = useState(false);
+  const [showQuantityModal,setShowQuantityModal]=useState(false)
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -84,6 +87,7 @@ const ShoppingBagCard = () => {
               </View>
             </Pressable>
             <Pressable
+              onPress={()=>setShowQuantityModal(true)}
               style={{
                 alignSelf: 'flex-start',
                 paddingHorizontal: hp(0.5),
@@ -138,22 +142,13 @@ const ShoppingBagCard = () => {
         </View>
       </View>
       <SizeSelectModal
-        showSizeModal={showSizeModal}
-        setShowSizeModal={() => setShowSizeModal(false)}
-        position="middle"
-        animationType="BottomToTop"
-        height={hp(50)}
-        animationTime={250}
+        showModal={showSizeModal}
+        setShowModal={() => setShowSizeModal(false)}
       />    
-      {/* <Modal isVisible={isModalVisible}>
-        <View style={{flex: 1}}>
-          <Text>Hello!</Text>
-
-          <Pressable onPress={toggleModal} >
-            <Text>Hide</Text>
-            </Pressable>
-        </View>
-      </Modal> */}
+      <SelectQuantityModal
+      showModal={showQuantityModal}
+      setShowModal={()=>setShowQuantityModal(false)}
+      />
       </View>
   );
 };
