@@ -637,3 +637,54 @@ export const interestArray=[
     image:require('../Assets/Images/shirt.jpg')
   },
 ]
+
+export const offers=[
+  '10% Instant Discount on Bank Of Baroda Credit Cards on a min spend of Rs 2,500. TCA',
+  '10% Cashback on Slice Visa Card on a min spend of Rs 500. TCA',
+  '5% Unlimited Cashback on Flipkart Axis Bank Credit Card. TCA',
+  '10% Cashback upto Rs 250 on a minimum spend of Rs 1,000 with PayZapp. TCA',
+  'Upto Rs 500 Cashback on Mobikwik wallet transaction of min Rs 999. Use Code MBK500 on Mobikwik. TCA'
+]
+
+export const addresses=[
+  {
+    name:"Alec Benjamin",
+    type:"HOME",
+    address:"A-23,Viking Street, New Delhi",
+    state:"New Delhi",
+    pincode:"110045",
+    district:"South Delhi"
+  },
+  {
+    name:"Natasha Romanoff",
+    type:"HOME",
+    address:"A-23,New York, USA",
+    state:"New York",
+    pincode:"2637828",
+    district:"New York"
+  },
+  {
+    name:"Manoj Kumar",
+    type:"OFFICE",
+    address:"A-112,Defence Colony, New Delhi",
+    state:"New Delhi",
+    pincode:"110015",
+    district:"East Delhi"
+  }
+]
+
+export const size=[
+  '26',
+  '28',
+  '30',
+  '32',
+  '34',
+  '36',
+  '38',
+  '40',
+  '42',
+  '44',
+  '46'
+]
+
+export const quantity=['1','2','3','4','5','6','7','8','9','10']

@@ -5,11 +5,17 @@ import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Number from './number';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {quantity} from '../Utils/arrays';
 
 
 const SelectQuantityModal = props => {
-  const [selected,setSelected]=useState(null);
   const insets=useSafeAreaInsets()
+  const [tempQuantity,setTempQuantity]=useState(props.quantity)
+  const getQuantity=()=>{
+    return quantity.map((data,index)=>{
+      return <Number key={index} size={data} selected={tempQuantity} setSelected={setTempQuantity}/>
+    })
+  }
   return (
     <Modal
       isVisible={props.showModal}
@@ -47,16 +53,10 @@ const SelectQuantityModal = props => {
         </View>
         <View style={{marginBottom:hp(2)}}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} bounces={false} >
-              <Number selected={selected} setSelected={setSelected} size={1} />
-              <Number selected={selected} setSelected={setSelected} size={2} />
-              <Number selected={selected} setSelected={setSelected} size={3} />
-              <Number selected={selected} setSelected={setSelected} size={4} />
-              <Number selected={selected} setSelected={setSelected} size={5} />
-              <Number selected={selected} setSelected={setSelected} size={6} />
-              <Number selected={selected} setSelected={setSelected} size={7} />
+              {getQuantity()}
             </ScrollView>
         </View>
-        <Pressable style={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.3),marginBottom:insets.bottom}}>
+        <Pressable onPress={()=>{props.setShowModal();props.setQuantity(tempQuantity)}} style={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.3),marginBottom:insets.bottom}}>
           <Text style={{textAlign:'center',fontSize:hp(2),fontFamily:'ProductSans-Bold',color:'white'}}>DONE</Text>
         </Pressable>
       </View>

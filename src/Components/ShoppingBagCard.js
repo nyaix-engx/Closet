@@ -1,23 +1,27 @@
-
-import React,{useState} from 'react';
+import React, {useState} from 'react';
 import {View, Text, Image, useWindowDimensions, Pressable} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SizeSelectModal from './SizeSelectModal';
-import Modal from 'react-native-modal';
 import SelectQuantityModal from './SelectQuantityModal';
 
 const ShoppingBagCard = () => {
-  const {width} = useWindowDimensions();
-  const [showSizeModal,setShowSizeModal]=useState(false)
-  const [isModalVisible, setModalVisible] = useState(false);
-  const [showQuantityModal,setShowQuantityModal]=useState(false)
+  const [showSizeModal, setShowSizeModal] = useState(false);
+  const [showQuantityModal, setShowQuantityModal] = useState(false);
+  const [size, setSize] = useState('26');
+  const [quantity, setQuantity] = useState('1');
 
-  const toggleModal = () => {
-    setModalVisible(!isModalVisible);
-  };
   return (
-    <View style={{height: hp(30), paddingHorizontal: hp(1), backgroundColor: 'white',borderRadius:hp(0.5),borderColor:'#fb7ca0',borderWidth:hp(0.1),marginBottom:hp(1)}}>
+    <View
+      style={{
+        height: hp(30),
+        paddingHorizontal: hp(1),
+        backgroundColor: 'white',
+        borderRadius: hp(0.5),
+        borderColor: '#fb7ca0',
+        borderWidth: hp(0.1),
+        marginBottom: hp(1),
+      }}>
       <View
         style={{
           flex: 5,
@@ -65,14 +69,14 @@ const ShoppingBagCard = () => {
               marginBottom: hp(1),
             }}>
             <Pressable
-              onPress={()=>setShowSizeModal(true)}
+              onPress={() => setShowSizeModal(true)}
               style={{
                 alignSelf: 'flex-start',
                 paddingHorizontal: hp(0.5),
                 paddingVertical: hp(0.5),
                 borderRadius: hp(0.2),
                 marginRight: hp(1),
-                backgroundColor:'#d4d4d4'
+                backgroundColor: '#d4d4d4',
               }}>
               <View
                 style={{
@@ -81,19 +85,19 @@ const ShoppingBagCard = () => {
                   alignItems: 'center',
                 }}>
                 <Text style={{fontSize: hp(1.6), fontWeight: 'bold'}}>
-                  Size: 6.5
+                  Size: {size}
                 </Text>
                 <Ionicons name="caret-down-sharp" size={hp(1.5)} />
               </View>
             </Pressable>
             <Pressable
-              onPress={()=>setShowQuantityModal(true)}
+              onPress={() => setShowQuantityModal(true)}
               style={{
                 alignSelf: 'flex-start',
                 paddingHorizontal: hp(0.5),
                 paddingVertical: hp(0.5),
                 borderRadius: hp(0.2),
-                backgroundColor:'#d4d4d4'
+                backgroundColor: '#d4d4d4',
               }}>
               <View
                 style={{
@@ -102,7 +106,7 @@ const ShoppingBagCard = () => {
                   alignItems: 'center',
                 }}>
                 <Text style={{fontSize: hp(1.6), fontWeight: 'bold'}}>
-                  Qty: 1
+                  Qty: {quantity}
                 </Text>
                 <Ionicons name="caret-down-sharp" size={hp(1.5)} />
               </View>
@@ -122,7 +126,7 @@ const ShoppingBagCard = () => {
               justifyContent: 'center',
               alignItems: 'center',
               borderRightColor: '#757575',
-              borderRightWidth:hp(0.025)
+              borderRightWidth: hp(0.025),
             }}>
             <Text style={{fontFamily: 'ProductSans-Bold'}}>REMOVE</Text>
           </Pressable>
@@ -133,9 +137,9 @@ const ShoppingBagCard = () => {
               justifyContent: 'center',
               alignItems: 'center',
               borderLeftColor: '#757575',
-              borderLeftWidth:hp(0.025)
+              borderLeftWidth: hp(0.025),
             }}>
-            <Text style={{fontFamily: 'ProductSans-Bold',color:'#fb7ca0'}}>
+            <Text style={{fontFamily: 'ProductSans-Bold', color: '#fb7ca0'}}>
               MOVE TO WISHLIST
             </Text>
           </Pressable>
@@ -143,13 +147,17 @@ const ShoppingBagCard = () => {
       </View>
       <SizeSelectModal
         showModal={showSizeModal}
+        size={size}
+        setSize={setSize}
         setShowModal={() => setShowSizeModal(false)}
-      />    
-      <SelectQuantityModal
-      showModal={showQuantityModal}
-      setShowModal={()=>setShowQuantityModal(false)}
       />
-      </View>
+      <SelectQuantityModal
+        showModal={showQuantityModal}
+        quantity={quantity}
+        setQuantity={setQuantity}
+        setShowModal={() => setShowQuantityModal(false)}
+      />
+    </View>
   );
 };
 

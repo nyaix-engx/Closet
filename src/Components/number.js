@@ -3,7 +3,6 @@ import {View, Text, Pressable} from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const Number = ({state,selected,setSelected,size}) => {
-
   return (
     <Pressable onPress={()=>setSelected(size)}>
     <View

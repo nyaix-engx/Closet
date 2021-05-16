@@ -1,8 +1,7 @@
-import React,{useState} from 'react';
+import React, {useState,useRef} from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   Pressable,
   ScrollView,
   Image,
@@ -14,9 +13,35 @@ import ShoppingBagCard from '../../Components/ShoppingBagCard';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import BackButtonTitle from '../../Components/BackButtonTitle';
 import ChangeDeliveryModal from '../../Components/ChangeDeliveryModal';
+import Animated,{EasingNode} from 'react-native-reanimated';
+import {offers,addresses} from '../../Utils/arrays';
 
 const ShoppingBagScreen = ({navigation}) => {
-  const[showDeliveryModal,setShowDeliveryModal]=useState(false)
+  const [showDeliveryModal, setShowDeliveryModal] = useState(false);
+  const [showOffers, setShowOffers] = useState(false);
+  const height=useRef(new Animated.Value(hp(5.5)))  
+  const [address,setAddress]=useState(addresses[0])
+  const item = () => {
+    return offers.map((data,index) => {
+      return (
+        <View key={index} style={{paddingVertical: hp(0.5),justifyContent:'center',alignItems:'center'}}>
+          <Text style={{textAlign:'justify'}}>
+           {data}
+          </Text>
+        </View>
+      );
+    });
+  };
+
+  const resize=()=>{
+    Animated.timing(height.current,{
+      toValue:showOffers?hp(5.5):hp(27),
+      duration:250,
+      easing: EasingNode.inOut(EasingNode.cubic),
+    }).start();
+    setShowOffers(!showOffers);
+  }
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{flex: 0.8}}>
@@ -97,10 +122,10 @@ const ShoppingBagScreen = ({navigation}) => {
                 Deliver to:
               </Text>
               <Text style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2)}}>
-                110062
+                {address.pincode}
               </Text>
             </View>
-            <Pressable onPress={()=>setShowDeliveryModal(true)} >
+            <Pressable onPress={() => setShowDeliveryModal(true)}>
               <Text
                 style={{
                   fontFamily: 'ProductSans-Bold',
@@ -136,13 +161,8 @@ const ShoppingBagScreen = ({navigation}) => {
                 </Text>
               </View>
             </View>
-            <View style={{marginBottom: hp(2)}}>
-              <Text>
-                10% Instant Discount on Bank Of Baroda Credit Cards on a min
-                spend of Rs 2,500. TCA
-              </Text>
-            </View>
-            <Pressable>
+            <Animated.ScrollView style={{height:height.current}}>{item()}</Animated.ScrollView>
+            <Pressable onPress={() => resize()}>
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <Text
                   style={{
@@ -400,22 +420,13 @@ const ShoppingBagScreen = ({navigation}) => {
         </Pressable>
       </View>
       <ChangeDeliveryModal
-      showModal={showDeliveryModal}
-      setShowModal={()=>setShowDeliveryModal(false)}
+        showModal={showDeliveryModal}
+        setShowModal={() => setShowDeliveryModal(false)}
+        setAddress={setAddress}
       />
     </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({
-  titleHeader: {
-    display: 'flex',
-    flexDirection: 'row',
-    flex: 1,
-    borderBottomColor: '#c7c7c7',
-    borderBottomWidth: hp(0.1),
-    backgroundColor: 'white',
-  },
-});
 
 export default ShoppingBagScreen;

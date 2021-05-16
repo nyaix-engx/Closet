@@ -9,12 +9,12 @@ import CreditCard from '../../Components/CreditCard';
 import LottieView from 'lottie-react-native';
 
 const SavedCardsScreen = ({navigation}) => {
-  const [cardsCount, setCardsCount] = useState(0);
-
+  const [cards, setCards] = useState([{title:"hello"}]);
+  console.log("Card------>",cards)
   const getContent = () => {
     return (
       <>
-        {!cardsCount > 0 ? (
+        {!cards.length > 0 ? (
           <View style={{flex: 1, backgroundColor: 'white'}}>
             <View
               style={{
@@ -45,7 +45,10 @@ const SavedCardsScreen = ({navigation}) => {
             </View>
             <View style={{paddingVertical: hp(3), alignItems: 'center'}}>
               <Pressable
-                onPress={() => navigation.navigate('AddCardPage')}
+                onPress={() => navigation.navigate('AddCardPage',{
+                  cards,
+                  setCards
+                })}
                 style={{
                   backgroundColor: 'white',
                   paddingVertical: hp(2),
@@ -71,7 +74,10 @@ const SavedCardsScreen = ({navigation}) => {
             bounces={false}>
             <View style={{padding: hp(2)}}>
               <Pressable
-                onPress={()=>navigation.navigate('AddCardPage')}
+                onPress={()=>navigation.navigate('AddCardPage',{
+                  cards,
+                  setCards
+                })}
                 style={{
                   backgroundColor: 'white',
                   paddingVertical: hp(1.8),

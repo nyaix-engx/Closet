@@ -12,7 +12,6 @@ import {Layout} from '@ui-kitten/components';
 import HM from '../../Assets/Svg/hm.svg';
 
 const ContentCards = (props) => {
-  console.log("Props",props)
   return (
     <Pressable style={{height:props.height}}>
     <Layout level="2" style={styles.card}>

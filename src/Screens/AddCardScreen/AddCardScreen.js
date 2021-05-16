@@ -1,18 +1,30 @@
-import React, {useState} from 'react';
+import React, {useState,useRef} from 'react';
 import {View, Text, Pressable} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import Feather from 'react-native-vector-icons/Feather';
-import {Datepicker, Avatar, Input} from '@ui-kitten/components';
 import {
   CreditCardInput,
-  LiteCreditCardInput,
 } from 'react-native-credit-card-input';
 import BackButtonTitle from '../../Components/BackButtonTitle';
 
-const AddCardScreen = ({navigation}) => {
+const AddCardScreen = ({route,navigation}) => {
+  const [cardData,setCardData]=useState({})
+  const ccRef=useRef()
+  const { cards,setCards } = route.params;
   const _onChange=(data)=>{
-    console.log("Dta",data)
+    setCardData(data)
+    // console.log("data",data)
+  }
+
+  const handlePress=()=>{
+    setCards(cards.concat(cardData))
+    if(cardData.valid){
+      ccRef.current.setValues({cvc:'',expiry:'',number:'',name:''})
+      // console.log("current",ccRef)
+      setCards(cards.concat(cardData.values))
+      navigation.goBack()
+      // ccRef.current.focus("number")
+    }
   }
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -32,10 +44,12 @@ const AddCardScreen = ({navigation}) => {
           </Text>
         </View>
         <CreditCardInput
+          ref={ccRef}
           onChange={_onChange}
+          autoFocus
           requiresName
           allowScroll	
-          requiresCVC={false}	
+          requiresCVC
           labelStyle={{fontFamily: 'ProductSans-Bold', fontSize: hp(1.7)}}
           inputStyle={{fontFamily: 'ProductSans-Regular', fontSize: hp(1.9)}}
           inputContainerStyle={{borderBottomColor:'#cfcfcf',borderBottomWidth:hp(0.1)}}
@@ -51,7 +65,7 @@ const AddCardScreen = ({navigation}) => {
           }	
         />
         <View style={{paddingVertical:hp(5),paddingHorizontal:hp(2)}}>
-          <Pressable style={{backgroundColor:'#34a880',borderRadius:hp(0.2)}}>
+          <Pressable onPress={handlePress} style={{backgroundColor:'#34a880',borderRadius:hp(0.2)}}>
             <Text style={{textAlign:'center',paddingVertical:hp(1.5),fontFamily:'ProductSans-Bold',fontSize:hp(2),color:'white'}}>Save</Text>
           </Pressable>
         </View>
