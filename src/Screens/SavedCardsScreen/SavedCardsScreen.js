@@ -22,7 +22,7 @@ const SavedCardsScreen = ({navigation}) => {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-               <LottieView source={require('../../Assets/lottie/cc.json')} style={{height:hp(15),width:hp(15)}} autoPlay loop={false} />
+               <LottieView source={require('../../Assets/lottie/visa_master.json')} style={{height:hp(15),width:hp(15)}} autoPlay loop={false} />
             </View>
             <View style={{paddingVertical: hp(2)}}>
               <Text

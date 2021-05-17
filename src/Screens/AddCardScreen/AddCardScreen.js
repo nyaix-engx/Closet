@@ -18,7 +18,7 @@ const AddCardScreen = ({route, navigation}) => {
     setCardNumber(number.replace(/\s?/g, '').replace(/(\d{4})/g, '$1 ').trim())
   }
   const _handlingCardExpiry=(expiry)=>{
-    
+    setExpiry(expiry.replace(/\s?/g, '').replace(/(\d{2})/g, '$1 ').trim())
   }
   return (
     <SafeAreaView style={{flex: 1}}>
