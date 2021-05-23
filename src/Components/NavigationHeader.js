@@ -35,21 +35,10 @@ const NavigationHeader = (props) => {
             {props.title}
           </Text>
         </View>
-        <View style={{flex: 3,display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+        <View style={{flex: 2,display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
           <View style={{flex: 1,display:'flex',justifyContent:'center',alignItems:'center'}}>
             <Pressable onPress={()=>navigation.push('SearchPage')} >
               <Feather name="search" size={hp(2.8)} style={{color:'#363636'}} />
-            </Pressable>
-          </View>
-          <View style={{flex: 1,display:'flex',justifyContent:'center',alignItems:'center'}}>
-            <Pressable>
-              <Feather
-                name="heart"
-                style={{
-                  fontSize: hp(2.8),
-                  color:'#363636'
-                }}
-              />
             </Pressable>
           </View>
           <View style={{flex: 1,display:'flex',justifyContent:'center',alignItems:'center'}}>

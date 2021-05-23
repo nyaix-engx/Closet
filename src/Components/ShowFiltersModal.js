@@ -7,7 +7,8 @@ import Number from './number';
 import FilterCheck from './FilterCheck';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Discount, filterCategories, sizes, colors,Brands,DeliveryTime} from '../Utils/arrays';
-
+import FilterRadio from './WishlistScreenComps/FilterRadio';
+import PriceSlider from '../Components/PriceSlider';
 
 const ShowFiltersModal = props => {
   const [selected,setSelected]=useState(null);
@@ -64,7 +65,7 @@ const ShowFiltersModal = props => {
       case 4:
         return <FilterRadio data={DeliveryTime} deliveryTime={deliveryTime} setDeliveryTime={setDeliveryTime} category={'Delivery Time'} />
       case 5:
-        return <PriceSlider/>
+        return <PriceSlider min={0} max={2000}/>
       case 0:
       default:
         return <FilterCheck data={sizes} sizeFilters={sizeFilters} setSizeFilters={setSizeFilters} category={'Size'}/>

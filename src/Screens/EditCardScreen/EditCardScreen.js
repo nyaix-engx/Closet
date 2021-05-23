@@ -7,23 +7,28 @@ import LottieView from 'lottie-react-native';
 import {Input} from '@ui-kitten/components';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import valid from "card-validator";
+import {cardData} from '../../Utils/arrays';
 
-const AddCardScreen = ({route, navigation}) => {
-  const [cardData, setCardData] = useState({});
-  const {cards, setCards} = route.params;
-  const [name, setName] = useState('');
-  const [cardNumber,setCardNumber]=useState('')
-  const [expiry,setExpiry]=useState('')
-  const [nameBorder,setNameBorder]=useState('grey')
-  const [cardBorder,setCardBorder]=useState('grey')
-  const [expiryBorder,setExpiryBorder]=useState('grey')
-  const [cardType,setCardType]=useState('')
-  console.log("CardType",cardType)
+
+const EditCardScreen = ({route, navigation}) => {
+  const {data,index,setCards} = route.params;
+  const [name, setName] = useState(data.name);
+  const [cardNumber,setCardNumber]=useState(data.number)
+  const [expiry,setExpiry]=useState(data.expiry)
+  const [nameBorder,setNameBorder]=useState('green')
+  const [cardBorder,setCardBorder]=useState('green')
+  const [expiryBorder,setExpiryBorder]=useState('green')
+  const [cardType,setCardType]=useState(data.type)
+  console.log("CardType",cardData,data)
   const handlePress = () => {
     if(nameBorder === 'green' && cardBorder === 'green' && expiryBorder ==='green'){
-      setCards([...cards,{name,number:cardNumber,expiry,type:cardType}])
-      navigation.goBack()
-  }
+        cardData[index].name=name
+        cardData[index].number=cardNumber
+        cardData[index].expiry=expiry
+        cardData[index].type=cardType
+        setCards([...cardData])
+        navigation.goBack()
+    }
   };
 
   const handleName=(cardHolderName)=>{
@@ -86,7 +91,7 @@ const AddCardScreen = ({route, navigation}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{flex: 0.8}}>
-        <BackButtonTitle title="ADD CARD" />
+        <BackButtonTitle title="EDIT CARD" />
       </View>
       <View
         style={{
@@ -97,7 +102,7 @@ const AddCardScreen = ({route, navigation}) => {
         }}>
         <View style={{marginBottom: hp(2), paddingVertical: hp(2)}}>
           <Text style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2.1)}}>
-            Add New Credit/ Debit Card
+            Edit Card Details
           </Text>
         </View>
         <ImageBackground
@@ -240,4 +245,4 @@ const AddCardScreen = ({route, navigation}) => {
   );
 };
 
-export default AddCardScreen;
+export default EditCardScreen;

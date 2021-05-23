@@ -2,8 +2,33 @@ import React from 'react';
 import {View, Text, Pressable} from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import {CreditCardsLogo} from '../Utils/arrays'
+import { useNavigation } from '@react-navigation/native';
 
-const CreditCard = () => {
+const CreditCard = ({data,index,setCards}) => {
+  const navigation = useNavigation();
+
+  const getLogo=(type)=>{
+    switch(type){
+      case "visa":
+        return CreditCardsLogo[0].logo;
+      case "mastercard":
+        return CreditCardsLogo[1].logo;
+      case "american-express":
+        return CreditCardsLogo[2].logo;
+      case "diners-club":
+        return CreditCardsLogo[3].logo;
+      case "discover":
+        return CreditCardsLogo[4].logo;
+      case "jcb":
+        return CreditCardsLogo[5].logo;
+      case "unionpay":
+        return CreditCardsLogo[6].logo;
+      case "maestro":
+        return CreditCardsLogo[7].logo;
+      default:
+        return null;
+    }
+  }
   return (
     <View
       style={{
@@ -17,7 +42,7 @@ const CreditCard = () => {
         marginBottom:hp(2)
       }}>
       <View style={{alignItems: 'flex-end'}}>
-        {CreditCardsLogo[1].logo}
+        {getLogo(data.type)}
       </View>
       <View style={{marginBottom: hp(2)}}>
         <Text
@@ -34,7 +59,7 @@ const CreditCard = () => {
             fontFamily: 'ProductSans-Regular',
             fontSize: hp(2.4),
           }}>
-          5555 55** **** 4444
+          {data.number}
         </Text>
       </View>
       <View
@@ -58,7 +83,7 @@ const CreditCard = () => {
               fontFamily: 'ProductSans-Regular',
               fontSize: hp(2.4),
             }}>
-            Alan Walker
+            {data.name}
           </Text>
         </View>
         <View>
@@ -77,7 +102,7 @@ const CreditCard = () => {
               fontSize: hp(2.4),
               textAlign: 'center',
             }}>
-            **/**
+            {data.expiry}
           </Text>
         </View>
       </View>
@@ -89,6 +114,13 @@ const CreditCard = () => {
           paddingVertical: hp(1),
         }}>
         <Pressable
+          onPress={()=>{
+            navigation.navigate('EditCardPage',{
+              data,
+              index,
+              setCards
+            })
+          }}
           style={{
             flex: 1,
             borderRightColor: '#cfcfcf',

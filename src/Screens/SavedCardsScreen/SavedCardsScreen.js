@@ -2,14 +2,13 @@ import React, {useState} from 'react';
 import {View, Text, Pressable, ScrollView} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import Feather from 'react-native-vector-icons/Feather';
-import Card from '../../Assets/Svg/card.svg';
 import BackButtonTitle from '../../Components/BackButtonTitle';
 import CreditCard from '../../Components/CreditCard';
 import LottieView from 'lottie-react-native';
+import {cardData} from '../../Utils/arrays';
 
 const SavedCardsScreen = ({navigation}) => {
-  const [cards, setCards] = useState([{title:"hello"}]);
+  const [cards, setCards] = useState(cardData);
   console.log("Card------>",cards)
   const getContent = () => {
     return (
@@ -96,7 +95,9 @@ const SavedCardsScreen = ({navigation}) => {
                 </Text>
               </Pressable>
               <View>
-                <CreditCard/>
+                {cards.map((data,index)=>{
+                  return <CreditCard data={data} key={index} index={index} setCards={setCards}/>
+                })}
               </View>
             </View>
           </ScrollView>

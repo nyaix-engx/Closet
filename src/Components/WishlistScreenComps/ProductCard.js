@@ -1,18 +1,23 @@
-import React from 'react';
-import {Button, Card, Layout, Text} from '@ui-kitten/components';
+import React,{useEffect, useState} from 'react';
 import {
   Pressable,
   View,
   useWindowDimensions,
   Image,
   Platform,
+  Text
 } from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 
-const ProductCard = () => {
+const ProductCard = (props) => {
   const {width} = useWindowDimensions();
+  const [originalPrice,setOriginalPrice]=useState(0)
+
+  useEffect(()=>{
+    setOriginalPrice(props.data.price + (props.data.discount*0.01*props.data.price))
+  },[])
 
   return (
     <View
@@ -32,7 +37,7 @@ const ProductCard = () => {
             borderTopLeftRadius: hp(0.5),
             borderTopRightRadius: hp(0.5),
           }}
-          source={require('../../Assets/Images/men.jpg')}
+          source={props.data.image}
         />
         <View style={{position:'absolute',right:hp(0.5),top:hp(0.5)}}><MaterialIcons name="cancel" style={{fontSize:hp(2.7),color:'#c7c7c7'}} /></View>
       </View>
@@ -50,7 +55,7 @@ const ProductCard = () => {
           <View style={{padding: hp(0.3)}}>
             <Text
               style={{fontFamily: 'ProductSans-Regular', fontSize: hp(1.8),marginBottom:hp(0.5),fontWeight:'100'}}>
-              Roadster
+              {props.data.brand}
             </Text>
           </View>
           <View style={{display: 'flex', flexDirection: 'row',alignItems:'center'}}>
@@ -61,7 +66,16 @@ const ProductCard = () => {
                 fontWeight: 'bold',
                 fontSize: hp(1.6),
               }}>
-              $50
+              ${props.data.price}
+            </Text>
+            <Text
+              style={{
+                fontFamily: 'ProductSans-Regular',
+                marginRight: hp(0.6),
+                fontSize: hp(1.6),
+                textDecorationLine:'line-through'
+              }}>
+              ${originalPrice}
             </Text>
             <Text
               style={{
@@ -69,7 +83,7 @@ const ProductCard = () => {
                 color: '#fb56c1',
                 fontSize: hp(1.6),
               }}>
-              (45 % OFF)
+              ({props.data.discount} % OFF)
             </Text>
           </View>
         </View>

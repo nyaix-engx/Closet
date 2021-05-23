@@ -15,7 +15,6 @@ import {Avatar} from '@ui-kitten/components';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {Divider, List, ListItem} from '@ui-kitten/components';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -34,17 +33,6 @@ const ProfileScreen = (props) => {
         />
       ),
     },
-    // {
-    //   title: 'Help Center',
-    //   description: 'Help regarding your recent purchases',
-    //   accessory: () => (
-    //     <MaterialCommunityIcons
-    //       style={{paddingHorizontal: hp(1)}}
-    //       name="account-question-outline"
-    //       size={hp(3)}
-    //     />
-    //   ),
-    // },
     {
       title: 'Wishlist',
       description: 'Your most loved styles',

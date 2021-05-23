@@ -13,9 +13,20 @@ const SizeSelectModal = props => {
   const insets=useSafeAreaInsets()
   const [tempSize,setTempSize]=useState(props.size)
   const getNumber=()=>{
-    return size.map((data,index)=>{
-      return <Number key={index} size={data} selected={tempSize} setSelected={setTempSize}/>
-    })
+    switch(props.type){
+      case 'type1':
+        return size.type1.map((data,index)=>{
+          return <Number key={index} size={data} selected={tempSize} setSelected={setTempSize}/>
+        })
+      case 'type2':
+        return size.type2.map((data,index)=>{
+          return <Number key={index} size={data} selected={tempSize} setSelected={setTempSize}/>
+        })
+    }
+  }
+  const handlePress=()=>{
+    props.setShowModal();
+    props.setSize(tempSize)
   }
   return (
     <Modal
@@ -57,7 +68,7 @@ const SizeSelectModal = props => {
               {getNumber()}
             </ScrollView>
         </View>
-        <Pressable onPress={()=>{props.setShowModal();props.setSize(tempSize)}} style={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.3),marginBottom:insets.bottom}}>
+        <Pressable onPress={handlePress} style={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.3),marginBottom:insets.bottom}}>
           <Text style={{textAlign:'center',fontSize:hp(2),fontFamily:'ProductSans-Bold',color:'white'}}>DONE</Text>
         </Pressable>
       </View>

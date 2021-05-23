@@ -13,10 +13,12 @@ import ProductCard from '../../Components/WishlistScreenComps/ProductCard';
 import BackButtonTitle from '../../Components/BackButtonTitle';
 import RemoveAllModal from '../../Components/RemoveAllModal';
 import ShowSimilarModal from '../../Components/ShowSimilarModal';
+import { wishlistItems } from '../../Utils/arrays';
 
 const WishlistScreen = ({route}) => {
   const [showSimilarModal, setShowSimilarModal] = useState(false);
   const [showRemoveModal, setShowRemoveModal] = useState(false);
+  const [wishlist,setWishlist] = useState(wishlistItems)
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
       <View style={{flex: 0.8}}>
@@ -34,11 +36,9 @@ const WishlistScreen = ({route}) => {
               flexWrap: 'wrap',
               backgroundColor: 'white',
             }}>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            {wishlist.map((data,index)=>{
+              return <ProductCard key={index} data={data} index={index} />
+            })}  
           </View>
           <View>
             <View

@@ -4,13 +4,17 @@ import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SizeSelectModal from './SizeSelectModal';
 import SelectQuantityModal from './SelectQuantityModal';
+import ConfirmModal from './ConfirmModal';
 
-const ShoppingBagCard = () => {
+const ShoppingBagCard = ({data,index,setShoppingItems,shoppingItems,scrollRef,scrollY}) => {
   const [showSizeModal, setShowSizeModal] = useState(false);
   const [showQuantityModal, setShowQuantityModal] = useState(false);
-  const [size, setSize] = useState('26');
-  const [quantity, setQuantity] = useState('1');
-
+  const [size, setSize] = useState(data.size);
+  const [quantity, setQuantity] = useState(data.qty);
+  const [showConfirmModal,setShowConfirmModal]=useState(false)
+  const handlePress=()=>{
+    setShowConfirmModal(true)
+  }  
   return (
     <View
       style={{
@@ -33,7 +37,7 @@ const ShoppingBagCard = () => {
         }}>
         <View style={{flex: 4}}>
           <Image
-            source={require('../Assets/Images/men.jpg')}
+            source={data.image}
             style={{width: '100%', height: '100%'}}
           />
         </View>
@@ -49,14 +53,14 @@ const ShoppingBagCard = () => {
                 fontWeight: 'bold',
                 marginBottom: hp(0.3),
               }}>
-              Jack & Jones
+              {data.company}
             </Text>
             <Text
               style={{
                 fontFamily: 'ProductSans-Regular',
                 marginBottom: hp(0.3),
               }}>
-              Men Blue Ben Skinny Fit
+              {data.title}
             </Text>
             <Text style={{fontFamily: 'ProductSans-Regular', color: 'grey'}}>
               Sold By: BEST UNITED PVT LTD
@@ -113,13 +117,14 @@ const ShoppingBagCard = () => {
             </Pressable>
           </View>
           <View>
-            <Text style={{fontSize: hp(1.8), fontWeight: 'bold'}}>$43</Text>
+            <Text style={{fontSize: hp(1.8), fontWeight: 'bold'}}>${data.price}</Text>
           </View>
         </View>
       </View>
       <View style={{flex: 1.5, display: 'flex', flexDirection: 'row'}}>
         <View style={{flex: 1, flexDirection: 'row', paddingVertical: hp(0.5)}}>
           <Pressable
+            onPress={handlePress}
             style={{
               flex: 2,
               display: 'flex',
@@ -147,7 +152,9 @@ const ShoppingBagCard = () => {
       </View>
       <SizeSelectModal
         showModal={showSizeModal}
+        type={data.type}
         size={size}
+        index={index}
         setSize={setSize}
         setShowModal={() => setShowSizeModal(false)}
       />
@@ -156,6 +163,16 @@ const ShoppingBagCard = () => {
         quantity={quantity}
         setQuantity={setQuantity}
         setShowModal={() => setShowQuantityModal(false)}
+      />
+      <ConfirmModal
+        showModal={showConfirmModal}
+        setShowModal={()=>setShowConfirmModal(false)}
+        items={shoppingItems}
+        setItems={setShoppingItems}
+        index={index}
+        scrollY={scrollY}
+        scrollRef={scrollRef}
+        image={data.image}
       />
     </View>
   );
