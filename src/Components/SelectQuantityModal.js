@@ -6,6 +6,8 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import Number from './number';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {quantity} from '../Utils/arrays';
+import ScaleAnimation from './ScaleAnimation';
+import Button from './Button';
 
 
 const SelectQuantityModal = props => {
@@ -56,9 +58,11 @@ const SelectQuantityModal = props => {
               {getQuantity()}
             </ScrollView>
         </View>
-        <Pressable onPress={()=>{props.setShowModal();props.setQuantity(tempQuantity)}} style={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.3),marginBottom:insets.bottom}}>
-          <Text style={{textAlign:'center',fontSize:hp(2),fontFamily:'ProductSans-Bold',color:'white'}}>DONE</Text>
-        </Pressable>
+        <ScaleAnimation onPress={()=>{props.setShowModal();props.setQuantity(tempQuantity)}} scaleTo={0.9} >
+          <Button viewProps={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.3),marginBottom:insets.bottom}} >
+            <Text style={{textAlign:'center',fontSize:hp(2),fontFamily:'ProductSans-Bold',color:'white'}}>DONE</Text>
+          </Button>
+        </ScaleAnimation>
       </View>
     </Modal>
   );

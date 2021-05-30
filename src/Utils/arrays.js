@@ -782,3 +782,21 @@ export const wishlistItems = [
     image:require('../Assets/Images/trousers.jpg')
   }
 ]
+
+export const outOfStockItems=[
+  {
+    brand:'ether',
+    price:23,
+    image:require('../Assets/Images/trousers.jpg')
+  },
+  {
+    brand:'Nike',
+    price:17,
+    image:require('../Assets/Images/footwear.jpg')
+  },
+  {
+    brand:'Adidas',
+    price:28,
+    image:require('../Assets/Images/polo.png')
+  },
+]

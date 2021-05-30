@@ -18,7 +18,9 @@ import {imageArray} from '../../Utils/arrays';
 import CustomerReview from '../../Components/CustomerReviewComp';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Animated from 'react-native-reanimated';
-import SimilarStylesCard from '../../Components/WishlistScreenComps/SimilarStylesCard'
+import SimilarStylesCard from '../../Components/WishlistScreenComps/SimilarStylesCard';
+import ScaleAnimation from '../../Components/ScaleAnimation';
+import Button from '../../Components/Button';
 
 const DescriptionScreen = () => {
   const {width} = useWindowDimensions();
@@ -38,7 +40,7 @@ const DescriptionScreen = () => {
       outputColorRange: ['rgba(255,255,255,1)', 'rgba(255,255,255,0)'],
     },
   );
-  const handleScroll = (e) => {
+  const handleScroll = e => {
     //   console.log("SCroll",e)
     //  if(e[0]>270.76666666666666667){
     //    setDisplay('none')
@@ -54,7 +56,7 @@ const DescriptionScreen = () => {
           {
             nativeEvent: {
               contentOffset: {
-                y: (y) =>
+                y: y =>
                   Animated.block([
                     Animated.set(scrollY.current, y),
                     Animated.call([y], handleScroll),
@@ -272,59 +274,68 @@ const DescriptionScreen = () => {
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                 }}>
-                <Pressable style={{width: '45%'}}>
-                  <View
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      backgroundColor: 'white',
-                      justifyContent: 'center',
-                      paddingVertical: hp(1.2),
-                      borderRadius: hp(0.5),
-                      borderColor: '#d6d6d6',
-                      borderWidth: hp(0.1),
-                    }}>
-                    <AntDesign
-                      name="hearto"
-                      size={hp(3)}
-                      style={{marginRight: hp(1)}}
-                    />
-                    <Text
-                      style={{
-                        fontSize: hp(1.8),
-                        fontFamily: 'ProductSans-Bold',
+                <View style={{width: '45%'}}>
+                  <ScaleAnimation onPress={() => {}} scaleTo={0.9}>
+                    <Button
+                      viewProps={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        backgroundColor: 'white',
+                        justifyContent: 'center',
+                        paddingVertical: hp(1.2),
+                        borderRadius: hp(0.5),
+                        borderColor: '#d6d6d6',
+                        borderWidth: hp(0.1),
                       }}>
-                      WISHLIST
-                    </Text>
-                  </View>
-                </Pressable>
-                <Pressable style={{width: '50%'}}>
-                  <View
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      paddingVertical: hp(1.2),
-                      backgroundColor: '#fb7ca0',
-                      borderRadius: hp(0.5),
-                    }}>
-                    <Feather
-                      name="shopping-bag"
-                      size={hp(3)}
-                      style={{marginRight: hp(1), color: 'white'}}
-                    />
-                    <Text
-                      style={{
-                        fontSize: hp(1.8),
-                        fontFamily: 'ProductSans-Bold',
-                        color: 'white',
+                      <>
+                        <AntDesign
+                          name="hearto"
+                          size={hp(3)}
+                          style={{marginRight: hp(1)}}
+                        />
+                        <Text
+                          style={{
+                            fontSize: hp(1.8),
+                            fontFamily: 'ProductSans-Bold',
+                          }}>
+                          WISHLIST
+                        </Text>
+                      </>
+                    </Button>
+                  </ScaleAnimation>
+                </View>
+
+                <View style={{width: '45%'}}>
+                  <ScaleAnimation onPress={() => {}} scaleTo={0.9}>
+                    <Button
+                      viewProps={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        paddingVertical: hp(1.2),
+                        backgroundColor: '#fb7ca0',
+                        borderRadius: hp(0.5),
                       }}>
-                      ADD TO BAG
-                    </Text>
-                  </View>
-                </Pressable>
+                      <>
+                        <Feather
+                          name="shopping-bag"
+                          size={hp(3)}
+                          style={{marginRight: hp(1), color: 'white'}}
+                        />
+                        <Text
+                          style={{
+                            fontSize: hp(1.8),
+                            fontFamily: 'ProductSans-Bold',
+                            color: 'white',
+                          }}>
+                          ADD TO BAG
+                        </Text>
+                      </>
+                    </Button>
+                  </ScaleAnimation>
+                </View>
               </View>
             </View>
           </View>
@@ -493,7 +504,9 @@ const DescriptionScreen = () => {
             <CustomerReview />
             <CustomerReview />
           </View>
-          <Pressable onPress={()=>navigation.push('ReviewsPage')} style={{paddingVertical: hp(1.5)}}>
+          <Pressable
+            onPress={() => navigation.push('ReviewsPage')}
+            style={{paddingVertical: hp(1.5)}}>
             <Text
               style={{
                 fontFamily: 'ProductSans-Bold',
@@ -625,11 +638,16 @@ const DescriptionScreen = () => {
             </View>
           </View>
         </View>
-        <View style={{backgroundColor:"white",marginBottom:hp(2),paddingVertical:hp(2)}}>
+        <View
+          style={{
+            backgroundColor: 'white',
+            marginBottom: hp(2),
+            paddingVertical: hp(2),
+          }}>
           <View
             style={{
               paddingHorizontal: hp(2),
-              marginBottom:hp(2)
+              marginBottom: hp(2),
             }}>
             <Text
               style={{

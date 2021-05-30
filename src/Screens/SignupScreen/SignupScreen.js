@@ -4,7 +4,6 @@ import Facebook from '../../Assets/Svg/Facebook.svg';
 import Google from '../../Assets/Svg/Google.svg';
 import Apple from '../../Assets/Svg/Apple.svg';
 import SocialIconWrapper from '../../Components/Authentication/SocialIconWrapper';
-import {Button} from '@ui-kitten/components';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import AuthInput from '../../Components/Authentication/AuthInput';
 import Fontisto from 'react-native-vector-icons/Fontisto';

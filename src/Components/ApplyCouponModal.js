@@ -6,12 +6,14 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Input} from '@ui-kitten/components';
+import ScaleAnimation from './ScaleAnimation';
+import Button from './Button';
 
 const ApplyCouponModal = props => {
   const insets = useSafeAreaInsets();
   const [coupon, setCoupon] = useState('');
   const handlePress = () => {
-    coupon? props.setCouponApplied(true): props.setCouponApplied(false);   
+    coupon ? props.setCouponApplied(true) : props.setCouponApplied(false);
     props.setShowModal();
   };
   return (
@@ -66,39 +68,44 @@ const ApplyCouponModal = props => {
             }}
             accessoryRight={() => {
               return (
-                <Pressable 
-                  onPress={()=>setCoupon('')}
+                <Pressable
+                  onPress={() => setCoupon('')}
                   style={{
                     paddingHorizontal: hp(1),
                     height: hp(4),
                     justifyContent: 'center',
                     alignItems: 'center',
                   }}>
-                  <Entypo name="circle-with-cross" size={hp(3)} style={{color:'grey'}} />
+                  <Entypo
+                    name="circle-with-cross"
+                    size={hp(3)}
+                    style={{color: 'grey'}}
+                  />
                 </Pressable>
               );
             }}
             onChangeText={nextValue => setCoupon(nextValue)}
           />
         </View>
-        <Pressable
-          onPress={handlePress}
-          style={{
-            backgroundColor: '#fb7ca0',
-            paddingVertical: hp(1.4),
-            borderRadius: hp(0.3),
-            marginBottom: insets.bottom,
-          }}>
-          <Text
-            style={{
-              textAlign: 'center',
-              fontSize: hp(2),
-              fontFamily: 'ProductSans-Bold',
-              color: 'white',
+        <ScaleAnimation onPress={handlePress} scaleTo={0.9}>
+          <Button
+            viewProps={{
+              backgroundColor: '#fb7ca0',
+              paddingVertical: hp(1.4),
+              borderRadius: hp(0.3),
+              marginBottom: insets.bottom,
             }}>
-            DONE
-          </Text>
-        </Pressable>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontSize: hp(2),
+                fontFamily: 'ProductSans-Bold',
+                color: 'white',
+              }}>
+              DONE
+            </Text>
+          </Button>
+        </ScaleAnimation>
       </View>
     </Modal>
   );

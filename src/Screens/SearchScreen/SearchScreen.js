@@ -14,13 +14,10 @@ import Feather from 'react-native-vector-icons/Feather';
 import FadingBackScroll from '../../Components/FadingbackScroll';
 import {useNavigation} from '@react-navigation/native';
 import FadingBackScrollCard from '../../Components/FadingBackScrollCard';
-import ContentContainer from '../../Components/HomeScreenComps/ContentContainer';
 import {
   Avatar,
-  Button,
   ListItem,
   List,
-  Icon,
   Input,
 } from '@ui-kitten/components';
 import {interestArray} from '../../Utils/arrays';

@@ -5,6 +5,8 @@ import Feather from 'react-native-vector-icons/Feather';
 import {Input, Radio, RadioGroup, CheckBox} from '@ui-kitten/components';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import BackButtonTitle from '../../Components/BackButtonTitle';
+import ScaleAnimation from '../../Components/ScaleAnimation';
+import Button from '../../Components/Button';
 
 const AddNewAddressScreen = ({navigation}) => {
   const [name, setName] = useState('');
@@ -42,7 +44,7 @@ const AddNewAddressScreen = ({navigation}) => {
                 fontFamily: 'ProductSans-Bold',
               }}
               placeholder="Name"
-              onChangeText={(nextValue) => setName(nextValue)}
+              onChangeText={nextValue => setName(nextValue)}
             />
             <Input
               value={mobile}
@@ -52,7 +54,7 @@ const AddNewAddressScreen = ({navigation}) => {
                 fontFamily: 'ProductSans-Bold',
               }}
               placeholder="Mobile"
-              onChangeText={(nextValue) => setMobile(nextValue)}
+              onChangeText={nextValue => setMobile(nextValue)}
             />
           </View>
           <View
@@ -77,7 +79,7 @@ const AddNewAddressScreen = ({navigation}) => {
                   fontFamily: 'ProductSans-Bold',
                 }}
                 placeholder="Pincode"
-                onChangeText={(nextValue) => setPincode(nextValue)}
+                onChangeText={nextValue => setPincode(nextValue)}
               />
               <Input
                 style={{width: '45%'}}
@@ -88,7 +90,7 @@ const AddNewAddressScreen = ({navigation}) => {
                   fontFamily: 'ProductSans-Bold',
                 }}
                 placeholder="State"
-                onChangeText={(nextValue) => setState(nextValue)}
+                onChangeText={nextValue => setState(nextValue)}
               />
             </View>
             <Input
@@ -100,7 +102,7 @@ const AddNewAddressScreen = ({navigation}) => {
                 fontFamily: 'ProductSans-Bold',
               }}
               placeholder="Address (House No, Building, Street, Area)"
-              onChangeText={(nextValue) => setAddress(nextValue)}
+              onChangeText={nextValue => setAddress(nextValue)}
             />
             <Input
               value={town}
@@ -111,7 +113,7 @@ const AddNewAddressScreen = ({navigation}) => {
                 fontFamily: 'ProductSans-Bold',
               }}
               placeholder="Locality/ Town"
-              onChangeText={(nextValue) => setTown(nextValue)}
+              onChangeText={nextValue => setTown(nextValue)}
             />
             <Input
               value={city}
@@ -121,7 +123,7 @@ const AddNewAddressScreen = ({navigation}) => {
                 fontFamily: 'ProductSans-Bold',
               }}
               placeholder="City/ District"
-              onChangeText={(nextValue) => setCity(nextValue)}
+              onChangeText={nextValue => setCity(nextValue)}
             />
           </View>
           <View
@@ -143,7 +145,7 @@ const AddNewAddressScreen = ({navigation}) => {
               <RadioGroup
                 selectedIndex={selectedIndex}
                 style={{flexDirection: 'row'}}
-                onChange={(index) => setSelectedIndex(index)}>
+                onChange={index => setSelectedIndex(index)}>
                 <Radio
                   style={{marginRight: hp(3)}}
                   children={() => (
@@ -183,7 +185,7 @@ const AddNewAddressScreen = ({navigation}) => {
               <View style={{marginBottom: hp(2)}}>
                 <CheckBox
                   checked={openSat}
-                  onChange={(nextChecked) => setOpenSat(nextChecked)}
+                  onChange={nextChecked => setOpenSat(nextChecked)}
                   style={{marginBottom: hp(1.5)}}
                   children={() => (
                     <Text
@@ -198,7 +200,7 @@ const AddNewAddressScreen = ({navigation}) => {
                 />
                 <CheckBox
                   checked={openSun}
-                  onChange={(nextChecked) => setOpenSun(nextChecked)}
+                  onChange={nextChecked => setOpenSun(nextChecked)}
                   children={() => (
                     <Text
                       style={{
@@ -219,7 +221,7 @@ const AddNewAddressScreen = ({navigation}) => {
                 }}>
                 <CheckBox
                   checked={openSun}
-                  onChange={(nextChecked) => setOpenSun(nextChecked)}
+                  onChange={nextChecked => setOpenSun(nextChecked)}
                   children={() => (
                     <Text
                       style={{
@@ -235,13 +237,48 @@ const AddNewAddressScreen = ({navigation}) => {
             </View>
           </View>
         </ScrollView>
-        <View style={{flexDirection:'row'}}>
-            <Pressable onPress={()=>navigation.goBack()} style={{flex:1,paddingVertical:hp(1.8),alignItems:'center',backgroundColor:'white'}}>
-                <Text style={{textAlign:'center',fontFamily:"ProductSans-Bold",fontSize:hp(2)}}>CANCEL</Text>
-            </Pressable>
-            <Pressable style={{flex:1,alignItems:'center',paddingVertical:hp(1.8),backgroundColor:'grey'}}>
-                <Text style={{textAlign:'center',fontFamily:"ProductSans-Bold",color:'white',fontSize:hp(2)}}>SAVE</Text>        
-            </Pressable>
+        <View style={{flexDirection: 'row',paddingHorizontal:hp(2),justifyContent:'space-between'}}>
+          <View style={{width: '48%'}}>
+            <ScaleAnimation onPress={() => navigation.goBack()} scaleTo={0.9}>
+              <Button
+                viewProps={{
+                  paddingVertical: hp(1.8),
+                  alignItems: 'center',
+                  backgroundColor: 'white',
+                  borderRadius:hp(0.5)
+                }}>
+                <Text
+                  style={{
+                    textAlign: 'center',
+                    fontFamily: 'ProductSans-Bold',
+                    fontSize: hp(2),
+                  }}>
+                  CANCEL
+                </Text>
+              </Button>
+            </ScaleAnimation>
+          </View>
+          <View style={{width: '48%'}}>
+            <ScaleAnimation onPress={() => {}} scaleTo={0.9}>
+              <Button
+                viewProps={{
+                  alignItems: 'center',
+                  paddingVertical: hp(1.8),
+                  backgroundColor: 'grey',
+                  borderRadius:hp(0.5)
+                }}>
+                <Text
+                  style={{
+                    textAlign: 'center',
+                    fontFamily: 'ProductSans-Bold',
+                    color: 'white',
+                    fontSize: hp(2),
+                  }}>
+                  SAVE
+                </Text>
+              </Button>
+            </ScaleAnimation>
+          </View>
         </View>
       </View>
     </SafeAreaView>

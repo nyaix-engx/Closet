@@ -1,14 +1,13 @@
 import React from 'react';
-import {Button, Card, Layout, Text} from '@ui-kitten/components';
 import {
   Pressable,
   View,
   useWindowDimensions,
   Image,
+  Text,
   Platform,
 } from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { useNavigation } from '@react-navigation/native';
 

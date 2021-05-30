@@ -6,88 +6,102 @@ import BackButtonTitle from '../../Components/BackButtonTitle';
 import LottieView from 'lottie-react-native';
 import {Input} from '@ui-kitten/components';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import valid from "card-validator";
+import valid from 'card-validator';
 import {cardData} from '../../Utils/arrays';
-
+import ScaleAnimation from '../../Components/ScaleAnimation';
+import Button from '../../Components/Button';
 
 const EditCardScreen = ({route, navigation}) => {
-  const {data,index,setCards} = route.params;
+  const {data, index, setCards} = route.params;
   const [name, setName] = useState(data.name);
-  const [cardNumber,setCardNumber]=useState(data.number)
-  const [expiry,setExpiry]=useState(data.expiry)
-  const [nameBorder,setNameBorder]=useState('green')
-  const [cardBorder,setCardBorder]=useState('green')
-  const [expiryBorder,setExpiryBorder]=useState('green')
-  const [cardType,setCardType]=useState(data.type)
-  console.log("CardType",cardData,data)
+  const [cardNumber, setCardNumber] = useState(data.number);
+  const [expiry, setExpiry] = useState(data.expiry);
+  const [nameBorder, setNameBorder] = useState('green');
+  const [cardBorder, setCardBorder] = useState('green');
+  const [expiryBorder, setExpiryBorder] = useState('green');
+  const [cardType, setCardType] = useState(data.type);
+  console.log('CardType', cardData, data);
   const handlePress = () => {
-    if(nameBorder === 'green' && cardBorder === 'green' && expiryBorder ==='green'){
-        cardData[index].name=name
-        cardData[index].number=cardNumber
-        cardData[index].expiry=expiry
-        cardData[index].type=cardType
-        setCards([...cardData])
-        navigation.goBack()
+    if (
+      nameBorder === 'green' &&
+      cardBorder === 'green' &&
+      expiryBorder === 'green'
+    ) {
+      cardData[index].name = name;
+      cardData[index].number = cardNumber;
+      cardData[index].expiry = expiry;
+      cardData[index].type = cardType;
+      setCards([...cardData]);
+      navigation.goBack();
     }
   };
 
-  const handleName=(cardHolderName)=>{
-    setName(cardHolderName)
-    console.log(valid.cardholderName(cardHolderName))
-    if(valid.cardholderName(cardHolderName).isValid){
-      setNameBorder('green')
-    }else{
-      setNameBorder('red')
+  const handleName = cardHolderName => {
+    setName(cardHolderName);
+    console.log(valid.cardholderName(cardHolderName));
+    if (valid.cardholderName(cardHolderName).isValid) {
+      setNameBorder('green');
+    } else {
+      setNameBorder('red');
     }
-  }
-  const handleCardNumber=(number)=>{
-    let cardNumb=number.replace(/\s?/g, '').replace(/(\d{4})/g, '$1 ').trim()
-    setCardNumber(cardNumb)
-    valid.number(cardNumb).card?setCardType(valid.number(cardNumb).card.type):setCardType('')
-    console.log(valid.number(cardNumb))
-    if(valid.number(cardNumb).isValid){
-      setCardBorder('green')
-    }else{
-      setCardBorder('red')
+  };
+  const handleCardNumber = number => {
+    let cardNumb = number
+      .replace(/\s?/g, '')
+      .replace(/(\d{4})/g, '$1 ')
+      .trim();
+    setCardNumber(cardNumb);
+    valid.number(cardNumb).card
+      ? setCardType(valid.number(cardNumb).card.type)
+      : setCardType('');
+    console.log(valid.number(cardNumb));
+    if (valid.number(cardNumb).isValid) {
+      setCardBorder('green');
+    } else {
+      setCardBorder('red');
     }
-  }
-  const handleCardExpiry=(date)=>{
-    let newDate=date;
-    if(newDate.length>expiry.length){
-      if(newDate.length<=2){
-         setExpiry(newDate)
-      }else{
-        newDate=newDate.replace("/","")
-        setExpiry(newDate.substr(0,2)+"/"+newDate.substr(2))
+  };
+  const handleCardExpiry = date => {
+    let newDate = date;
+    if (newDate.length > expiry.length) {
+      if (newDate.length <= 2) {
+        setExpiry(newDate);
+      } else {
+        newDate = newDate.replace('/', '');
+        setExpiry(newDate.substr(0, 2) + '/' + newDate.substr(2));
       }
-    }else{
-      setExpiry(newDate)
+    } else {
+      setExpiry(newDate);
     }
-    console.log(valid.expirationDate(date))
-    if(valid.expirationDate(date).isValid){
-      setExpiryBorder('green')
-    }else{
-      setExpiryBorder('red')
+    console.log(valid.expirationDate(date));
+    if (valid.expirationDate(date).isValid) {
+      setExpiryBorder('green');
+    } else {
+      setExpiryBorder('red');
     }
-  }
+  };
 
-  const showAnimation=()=>{
-    if(cardType==='visa'){
-      return <LottieView
-      source={require('../../Assets/lottie/visaCard.json')}
-      style={{height: hp(6), width: hp(6)}}
-      autoPlay
-      loop={false}
-    />}
-    else if(cardType==='mastercard'){
-      return <LottieView
-      source={require('../../Assets/lottie/masterCard.json')}
-      style={{height: hp(6), width: hp(6)}}
-      autoPlay
-      loop={false}
-    />
+  const showAnimation = () => {
+    if (cardType === 'visa') {
+      return (
+        <LottieView
+          source={require('../../Assets/lottie/visaCard.json')}
+          style={{height: hp(6), width: hp(6)}}
+          autoPlay
+          loop={false}
+        />
+      );
+    } else if (cardType === 'mastercard') {
+      return (
+        <LottieView
+          source={require('../../Assets/lottie/masterCard.json')}
+          style={{height: hp(6), width: hp(6)}}
+          autoPlay
+          loop={false}
+        />
+      );
     }
-  }
+  };
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{flex: 0.8}}>
@@ -178,67 +192,73 @@ const EditCardScreen = ({route, navigation}) => {
             {showAnimation()}
           </View>
         </ImageBackground>
-          <View
-            style={{
-              paddingVertical: hp(2),
-              backgroundColor: 'white',
-            }}>
-              <Input
-                style={{marginBottom:hp(2),borderColor:nameBorder}}
-                value={name}
-                textStyle={{
-                  paddingVertical: hp(1),
-                  fontSize: hp(1.8),
-                  fontFamily: 'ProductSans-Bold',
-                }}
-                placeholder="Name on card"
-                maxLength={25}
-                autoCorrect={false}
-                onChangeText={handleName}
+        <View
+          style={{
+            paddingVertical: hp(2),
+            backgroundColor: 'white',
+          }}>
+          <Input
+            style={{marginBottom: hp(2), borderColor: nameBorder}}
+            value={name}
+            textStyle={{
+              paddingVertical: hp(1),
+              fontSize: hp(1.8),
+              fontFamily: 'ProductSans-Bold',
+            }}
+            placeholder="Name on card"
+            maxLength={25}
+            autoCorrect={false}
+            onChangeText={handleName}
+          />
+          <Input
+            style={{marginBottom: hp(2), borderColor: cardBorder}}
+            value={cardNumber}
+            textStyle={{
+              paddingVertical: hp(1),
+              fontSize: hp(1.8),
+              fontFamily: 'ProductSans-Bold',
+            }}
+            placeholder="Card Number"
+            textContentType="creditCardNumber"
+            keyboardType="number-pad"
+            maxLength={19}
+            accessoryLeft={() => (
+              <FontAwesome
+                name="credit-card"
+                size={hp(2)}
+                style={{marginRight: hp(0.5), color: 'grey'}}
               />
-              <Input
-                style={{marginBottom:hp(2),borderColor:cardBorder}}
-                value={cardNumber}
-                textStyle={{
-                  paddingVertical: hp(1),
-                  fontSize: hp(1.8),
-                  fontFamily: 'ProductSans-Bold',
-                }}
-                placeholder="Card Number"
-                textContentType="creditCardNumber"
-                keyboardType="number-pad"
-                maxLength={19}
-                accessoryLeft={()=><FontAwesome name="credit-card" size={hp(2)} style={{marginRight:hp(0.5),color:'grey'}} />}
-                onChangeText={handleCardNumber}
-              />
-            <Input
-              value={expiry}
-              style={{borderColor:expiryBorder}}
-              textStyle={{
-                paddingVertical: hp(1),
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
-              }}
-              placeholder="Expiry"
-              maxLength={5}
-              onChangeText={handleCardExpiry}
-            />
-          </View>
+            )}
+            onChangeText={handleCardNumber}
+          />
+          <Input
+            value={expiry}
+            style={{borderColor: expiryBorder}}
+            textStyle={{
+              paddingVertical: hp(1),
+              fontSize: hp(1.8),
+              fontFamily: 'ProductSans-Bold',
+            }}
+            placeholder="Expiry"
+            maxLength={5}
+            onChangeText={handleCardExpiry}
+          />
+        </View>
         <View style={{paddingVertical: hp(5), paddingHorizontal: hp(2)}}>
-          <Pressable
-            onPress={handlePress}
-            style={{backgroundColor: '#34a880', borderRadius: hp(0.2)}}>
-            <Text
-              style={{
-                textAlign: 'center',
-                paddingVertical: hp(1.5),
-                fontFamily: 'ProductSans-Bold',
-                fontSize: hp(2),
-                color: 'white',
-              }}>
-              Save
-            </Text>
-          </Pressable>
+          <ScaleAnimation onPress={handlePress} scaleTo={0.9}>
+            <Button viewProps={{backgroundColor: '#34a880', borderRadius: hp(0.2)}}>
+              <Text
+                style={{
+                  textAlign: 'center',
+                  paddingVertical: hp(1.8),
+                  fontFamily: 'ProductSans-Bold',
+                  fontSize: hp(2),
+                  color: 'white',
+                }}>
+                SAVE
+              </Text>
+            </Button>
+          </ScaleAnimation>
         </View>
       </View>
     </SafeAreaView>

@@ -3,9 +3,11 @@ import {View, Text, Pressable, ScrollView, Image} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Feather from 'react-native-vector-icons/Feather';
-import {Datepicker,Avatar, Input} from '@ui-kitten/components';
-import Octicons from 'react-native-vector-icons/Octicons'
+import {Datepicker, Avatar, Input} from '@ui-kitten/components';
+import Octicons from 'react-native-vector-icons/Octicons';
 import BackButtonTitle from '../../Components/BackButtonTitle';
+import ScaleAnimation from '../../Components/ScaleAnimation';
+import Button from '../../Components/Button';
 
 const EditProfileScreen = ({navigation}) => {
   const [mobile, setMobile] = useState('8976567809');
@@ -14,12 +16,16 @@ const EditProfileScreen = ({navigation}) => {
   const [gender, setGender] = useState('Male');
   const [location, setLocation] = useState('New Delhi,India');
   const [date, setDate] = useState(new Date());
-  const min=new Date('January 1, 1900')
-  const max=new Date()
-  const CalendarIcon = (props) => (
-    <Octicons name='calendar' size={hp(2.3)} style={{paddingHorizontal:hp(1),paddingVertical:hp(1)}} />
+  const min = new Date('January 1, 1900');
+  const max = new Date();
+  const CalendarIcon = props => (
+    <Octicons
+      name="calendar"
+      size={hp(2.3)}
+      style={{paddingHorizontal: hp(1), paddingVertical: hp(1)}}
+    />
   );
-  
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{flex: 0.8}}>
@@ -91,11 +97,15 @@ const EditProfileScreen = ({navigation}) => {
                   Mobile Number
                 </Text>
               )}
-              onChangeText={(nextValue) => setMobile(nextValue)}
+              onChangeText={nextValue => setMobile(nextValue)}
               accessoryRight={() => (
-                <Pressable onPress={()=>navigation.navigate('ProfileHelperPage',{
-                  topic:'CHANGE_MOBILE_NUMBER'
-                })} style={{paddingHorizontal: hp(1)}}>
+                <Pressable
+                  onPress={() =>
+                    navigation.navigate('ProfileHelperPage', {
+                      topic: 'CHANGE_MOBILE_NUMBER',
+                    })
+                  }
+                  style={{paddingHorizontal: hp(1)}}>
                   <Text
                     style={{
                       fontSize: hp(1.8),
@@ -127,7 +137,7 @@ const EditProfileScreen = ({navigation}) => {
                 </Text>
               )}
               placeholder="Place your Text"
-              onChangeText={(nextValue) => setName(nextValue)}
+              onChangeText={nextValue => setName(nextValue)}
             />
           </View>
           <View style={{paddingHorizontal: hp(3), marginBottom: hp(2)}}>
@@ -148,7 +158,7 @@ const EditProfileScreen = ({navigation}) => {
                   Email
                 </Text>
               )}
-              onChangeText={(nextValue) => setEmail(nextValue)}
+              onChangeText={nextValue => setEmail(nextValue)}
             />
           </View>
           <View
@@ -197,9 +207,9 @@ const EditProfileScreen = ({navigation}) => {
           </View>
           <View style={{paddingHorizontal: hp(3)}}>
             <Datepicker
-               min={min}
-               max={max}
-               label={() => (
+              min={min}
+              max={max}
+              label={() => (
                 <Text
                   style={{
                     fontSize: hp(1.8),
@@ -211,8 +221,7 @@ const EditProfileScreen = ({navigation}) => {
               )}
               date={date}
               accessoryRight={CalendarIcon}
-              
-              onSelect={(nextDate) => setDate(nextDate)}
+              onSelect={nextDate => setDate(nextDate)}
             />
           </View>
           <View style={{paddingHorizontal: hp(3), marginBottom: hp(2)}}>
@@ -233,15 +242,17 @@ const EditProfileScreen = ({navigation}) => {
                   Location
                 </Text>
               )}
-              onChangeText={(nextValue) => setLocation(nextValue)}
+              onChangeText={nextValue => setLocation(nextValue)}
             />
           </View>
           <View style={{paddingHorizontal: hp(3), marginBottom: hp(2)}}>
             <Pressable
-              onPress={()=>navigation.navigate('ProfileHelperPage',{
-                topic:'CHANGE_PASSWORD',
-                title:'Change Password'
-              })}
+              onPress={() =>
+                navigation.navigate('ProfileHelperPage', {
+                  topic: 'CHANGE_PASSWORD',
+                  title: 'Change Password',
+                })
+              }
               style={{
                 backgroundColor: 'white',
                 paddingVertical: hp(1.5),
@@ -264,17 +275,18 @@ const EditProfileScreen = ({navigation}) => {
             borderTopWidth: hp(0.2),
             backgroundColor: 'white',
           }}>
-          <Pressable
-            style={{backgroundColor: '#fb56c1', paddingVertical: hp(1.5)}}>
-            <Text
-              style={{
-                textAlign: 'center',
-                fontFamily: 'ProductSans-Bold',
-                color: 'white',
-              }}>
-              SAVE DETAILS
-            </Text>
-          </Pressable>
+          <ScaleAnimation onPress={()=>{}} scaleTo={0.9}>
+            <Button viewProps={{backgroundColor: '#fb56c1', paddingVertical: hp(1.8)}}>
+              <Text
+                style={{
+                  textAlign: 'center',
+                  fontFamily: 'ProductSans-Bold',
+                  color: 'white',
+                }}>
+                SAVE DETAILS
+              </Text>
+            </Button>
+          </ScaleAnimation>
         </View>
       </View>
     </SafeAreaView>

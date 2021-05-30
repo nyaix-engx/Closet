@@ -4,6 +4,8 @@ import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Feather from 'react-native-vector-icons/Feather';
 import {Input} from '@ui-kitten/components';
+import ScaleAnimation from '../../Components/ScaleAnimation';
+import Button from '../../Components/Button';
 
 const ProfileHelperScreen = ({navigation, route}) => {
   const [mobile, setMobile] = useState('8978938767');
@@ -42,7 +44,7 @@ const ProfileHelperScreen = ({navigation, route}) => {
                   fontFamily: 'ProductSans-Bold',
                   paddingVertical: hp(1),
                 }}
-                onChangeText={(nextValue) => setMobile(nextValue)}
+                onChangeText={nextValue => setMobile(nextValue)}
               />
             </View>
             <View style={{paddingHorizontal: hp(2), paddingVertical: hp(1)}}>
@@ -73,7 +75,7 @@ const ProfileHelperScreen = ({navigation, route}) => {
                   fontFamily: 'ProductSans-Bold',
                   paddingVertical: hp(1),
                 }}
-                onChangeText={(nextValue) => setOldPassword(nextValue)}
+                onChangeText={nextValue => setOldPassword(nextValue)}
               />
             </View>
             <View style={{paddingHorizontal: hp(2), marginBottom: hp(2)}}>
@@ -85,7 +87,7 @@ const ProfileHelperScreen = ({navigation, route}) => {
                   fontFamily: 'ProductSans-Bold',
                   paddingVertical: hp(1),
                 }}
-                onChangeText={(nextValue) => setNewPassword(nextValue)}
+                onChangeText={nextValue => setNewPassword(nextValue)}
               />
             </View>
             <View style={{paddingHorizontal: hp(2), marginBottom: hp(2)}}>
@@ -97,21 +99,23 @@ const ProfileHelperScreen = ({navigation, route}) => {
                   fontFamily: 'ProductSans-Bold',
                   paddingVertical: hp(1),
                 }}
-                onChangeText={(nextValue) => setConfirmPassword(nextValue)}
+                onChangeText={nextValue => setConfirmPassword(nextValue)}
               />
             </View>
             <View style={{paddingHorizontal: hp(2), paddingVertical: hp(1)}}>
-              <Pressable style={{backgroundColor: '#fb56c1'}}>
-                <Text
-                  style={{
-                    fontFamily: 'ProductSans-Bold',
-                    color: 'white',
-                    textAlign: 'center',
-                    paddingVertical: hp(1.5),
-                  }}>
-                  CHANGE PASSWORD
-                </Text>
-              </Pressable>
+              <ScaleAnimation onPress={()=>{}} scaleTo={0.9}>
+                <Button viewProps={{backgroundColor: '#fb56c1'}}>
+                  <Text
+                    style={{
+                      fontFamily: 'ProductSans-Bold',
+                      color: 'white',
+                      textAlign: 'center',
+                      paddingVertical: hp(1.8),
+                    }}>
+                    CHANGE PASSWORD
+                  </Text>
+                </Button>
+              </ScaleAnimation>
             </View>
           </View>
         );

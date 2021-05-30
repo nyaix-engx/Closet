@@ -3,20 +3,25 @@ import Modal from 'react-native-modal';
 import {View, Text, ScrollView, Pressable, Image, Platform} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import Entypo from 'react-native-vector-icons/Entypo';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {Input} from '@ui-kitten/components';
+import ScaleAnimation from './ScaleAnimation';
+import Button from './Button';
 
 const ConfirmModal = props => {
   const insets = useSafeAreaInsets();
-//   console.log("Scroll position",props.scrollRef.current) 
+  //   console.log("Scroll position",props.scrollRef.current)
   const handlePress = () => {
-    let x=props.items.filter((data,itemIndex)=>{
-      return itemIndex!==props.index
-    })
-    props.setItems([...x])
-    props.setShowModal()
-    Platform.OS ==='ios' && props.scrollRef.current.scrollTo({y:props.scrollY-hp(30),animated:true})
+    let x = props.items.filter((data, itemIndex) => {
+      return itemIndex !== props.index;
+    });
+    props.screenRef.current.animateNextTransition();
+    props.setItems([...x]);
+    props.setShowModal();
+    Platform.OS === 'ios' &&
+      props.scrollRef.current.scrollTo({
+        y: props.scrollY - hp(30),
+        animated: true,
+      });
   };
   return (
     <Modal
@@ -43,7 +48,13 @@ const ConfirmModal = props => {
             marginBottom: hp(2),
           }}>
           <View style={{flex: 2}}>
-            <View style={{height: hp(13), width: hp(10),borderColor:'#e0e0e0',borderWidth:hp(0.05)}}>
+            <View
+              style={{
+                height: hp(13),
+                width: hp(10),
+                borderColor: '#e0e0e0',
+                borderWidth: hp(0.05),
+              }}>
               <Image
                 style={{width: '100%', height: hp(12)}}
                 source={props.image}
@@ -57,11 +68,15 @@ const ConfirmModal = props => {
                 fontSize: hp(1.8),
                 paddingVertical: hp(1),
               }}>
-              Remove Item
+              {props.heading}
             </Text>
             <Text
-              style={{fontFamily: 'ProductSans-Regular', fontSize: hp(1.6),color:'#adadad'}}>
-              Are you sure you want to remove this item?
+              style={{
+                fontFamily: 'ProductSans-Regular',
+                fontSize: hp(1.6),
+                color: '#adadad',
+              }}>
+              {props.text}
             </Text>
           </View>
           <View style={{flex: 0.8}}>
@@ -81,46 +96,54 @@ const ConfirmModal = props => {
           style={{
             flexDirection: 'row',
             width: '100%',
-            justifyContent: 'space-around',
+            justifyContent: 'space-between',
+            marginBottom: insets.bottom,
           }}>
-          <Pressable
-            onPress={()=>props.setShowModal()}
+          <View style={{width: '48%'}}>
+            <ScaleAnimation onPress={() => props.setShowModal()} scaleTo={0.9}>
+              <Button
+                viewProps={{
+                  backgroundColor: 'grey',
+                  paddingVertical: hp(1.2),
+                  width: '100%',
+                  borderRadius: hp(0.3),
+                }}>
+                <Text
+                  style={{
+                    textAlign: 'center',
+                    fontSize: hp(1.8),
+                    fontFamily: 'ProductSans-Bold',
+                    color: 'white',
+                  }}>
+                  {props.cancelButtonText}
+                </Text>
+              </Button>
+            </ScaleAnimation>
+          </View>
+          <View
             style={{
-              backgroundColor: 'grey',
-              paddingVertical: hp(1.2),
-              width: '40%',
-              marginBottom: insets.bottom,
-              borderRadius: hp(0.3),
+              width: '48%',
             }}>
-            <Text
-              style={{
-                textAlign: 'center',
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
-                color: 'white',
-              }}>
-              CANCEL
-            </Text>
-          </Pressable>
-          <Pressable
-            onPress={handlePress}
-            style={{
-              backgroundColor: '#fb7ca0',
-              paddingVertical: hp(1.2),
-              width: '40%',
-              borderRadius: hp(0.3),
-              marginBottom: insets.bottom,
-            }}>
-            <Text
-              style={{
-                textAlign: 'center',
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
-                color: 'white',
-              }}>
-              REMOVE
-            </Text>
-          </Pressable>
+            <ScaleAnimation onPress={handlePress} scaleTo={0.9}>
+              <Button
+                viewProps={{
+                  backgroundColor: '#fb7ca0',
+                  paddingVertical: hp(1.2),
+                  width: '100%',
+                  borderRadius: hp(0.3),
+                }}>
+                <Text
+                  style={{
+                    textAlign: 'center',
+                    fontSize: hp(1.8),
+                    fontFamily: 'ProductSans-Bold',
+                    color: 'white',
+                  }}>
+                  {props.confirmButtonText}
+                </Text>
+              </Button>
+            </ScaleAnimation>
+          </View>
         </View>
       </View>
     </Modal>

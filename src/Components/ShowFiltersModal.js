@@ -6,35 +6,44 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import Number from './number';
 import FilterCheck from './FilterCheck';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {Discount, filterCategories, sizes, colors,Brands,DeliveryTime} from '../Utils/arrays';
+import {
+  Discount,
+  filterCategories,
+  sizes,
+  colors,
+  Brands,
+  DeliveryTime,
+} from '../Utils/arrays';
 import FilterRadio from './WishlistScreenComps/FilterRadio';
 import PriceSlider from '../Components/PriceSlider';
+import ScaleAnimation from './ScaleAnimation';
+import Button from './Button';
 
 const ShowFiltersModal = props => {
-  const [selected,setSelected]=useState(null);
-  const insets=useSafeAreaInsets()
-  const [filterState,setFilterState]=useState(0)
-  const [sizeFilters,setSizeFilters]=useState([])
-  const [colorFilters,setColorFilters]=useState([])
-  const [brandFilters,setBrandFilters]=useState([])
-  const [discount,setDiscount]=useState('10% and above')
-  const [deliveryTime,setDeliveryTime]=useState('By Tomorrow')
-  const [priceRange,setPriceRange]=useState({})
+  const [selected, setSelected] = useState(null);
+  const insets = useSafeAreaInsets();
+  const [filterState, setFilterState] = useState(0);
+  const [sizeFilters, setSizeFilters] = useState([]);
+  const [colorFilters, setColorFilters] = useState([]);
+  const [brandFilters, setBrandFilters] = useState([]);
+  const [discount, setDiscount] = useState('10% and above');
+  const [deliveryTime, setDeliveryTime] = useState('By Tomorrow');
+  const [priceRange, setPriceRange] = useState({});
 
-  const handlePress=()=>{
-    setSizeFilters([])
-    setColorFilters([])
-    setBrandFilters([])
-    setDiscount('')
-    setDeliveryTime('')
-    setPriceRange({})
-  }
+  const handlePress = () => {
+    setSizeFilters([]);
+    setColorFilters([]);
+    setBrandFilters([]);
+    setDiscount('');
+    setDeliveryTime('');
+    setPriceRange({});
+  };
   const getFilterCategories = () => {
     return filterCategories.map((data, index) => {
       return (
         <Pressable
           key={index}
-          onPress={()=>setFilterState(index)}
+          onPress={() => setFilterState(index)}
           style={{
             width: '100%',
             height: hp(8),
@@ -42,11 +51,16 @@ const ShowFiltersModal = props => {
             justifyContent: 'center',
             alignItems: 'flex-start',
             paddingHorizontal: hp(1),
-            backgroundColor: index===filterState?'white':'#f5f5f5',
-            borderBottomWidth:hp(0.05),
-            borderBottomColor:'#d1d1d1'
+            backgroundColor: index === filterState ? 'white' : '#f5f5f5',
+            borderBottomWidth: hp(0.05),
+            borderBottomColor: '#d1d1d1',
           }}>
-          <Text style={{fontSize: hp(2), fontFamily: 'ProductSans-Regular',fontWeight:index===filterState?'800':'100'}}>
+          <Text
+            style={{
+              fontSize: hp(2),
+              fontFamily: 'ProductSans-Regular',
+              fontWeight: index === filterState ? '800' : '100',
+            }}>
             {data}
           </Text>
         </Pressable>
@@ -54,23 +68,58 @@ const ShowFiltersModal = props => {
     });
   };
 
-  const getSelectedView=()=>{
-    switch(filterState){
+  const getSelectedView = () => {
+    switch (filterState) {
       case 1:
-        return <FilterCheck data={colors} colorFilters={colorFilters} setColorFilters={setColorFilters} category={'Color'} />
+        return (
+          <FilterCheck
+            data={colors}
+            colorFilters={colorFilters}
+            setColorFilters={setColorFilters}
+            category={'Color'}
+          />
+        );
       case 2:
-        return <FilterCheck data={Brands} brandFilters={brandFilters} setBrandFilters={setBrandFilters} category={'Brand'} />
+        return (
+          <FilterCheck
+            data={Brands}
+            brandFilters={brandFilters}
+            setBrandFilters={setBrandFilters}
+            category={'Brand'}
+          />
+        );
       case 3:
-        return <FilterRadio data={Discount} discount={discount} setDiscount={setDiscount} category={'Discount'} />
+        return (
+          <FilterRadio
+            data={Discount}
+            discount={discount}
+            setDiscount={setDiscount}
+            category={'Discount'}
+          />
+        );
       case 4:
-        return <FilterRadio data={DeliveryTime} deliveryTime={deliveryTime} setDeliveryTime={setDeliveryTime} category={'Delivery Time'} />
+        return (
+          <FilterRadio
+            data={DeliveryTime}
+            deliveryTime={deliveryTime}
+            setDeliveryTime={setDeliveryTime}
+            category={'Delivery Time'}
+          />
+        );
       case 5:
-        return <PriceSlider min={0} max={2000}/>
+        return <PriceSlider min={0} max={2000} />;
       case 0:
       default:
-        return <FilterCheck data={sizes} sizeFilters={sizeFilters} setSizeFilters={setSizeFilters} category={'Size'}/>
+        return (
+          <FilterCheck
+            data={sizes}
+            sizeFilters={sizeFilters}
+            setSizeFilters={setSizeFilters}
+            category={'Size'}
+          />
+        );
     }
-}
+  };
 
   return (
     <Modal
@@ -82,16 +131,16 @@ const ShowFiltersModal = props => {
         justifyContent: 'flex-end',
         padding: 0,
         margin: 0,
-        backgroundColor:'white'
+        backgroundColor: 'white',
       }}>
-      <View style={{flex: 1,marginTop:insets.top}}>
+      <View style={{flex: 1, marginTop: insets.top}}>
         <View
           style={{
             flex: 1,
             display: 'flex',
             flexDirection: 'row',
-            borderBottomWidth:hp(0.1),
-            borderBottomColor:'#c9c9c9'
+            borderBottomWidth: hp(0.1),
+            borderBottomColor: '#c9c9c9',
           }}>
           <View
             style={{
@@ -144,7 +193,7 @@ const ShowFiltersModal = props => {
             </ScrollView>
           </View>
           <View style={{flex: 6}}>
-          <ScrollView
+            <ScrollView
               style={{flex: 1}}
               showsVerticalScrollIndicator={false}
               bounces={false}>
@@ -157,64 +206,54 @@ const ShowFiltersModal = props => {
             flex: 1,
             display: 'flex',
             flexDirection: 'row',
-            marginBottom:insets.bottom
+            marginBottom: insets.bottom,
           }}>
-          <Pressable
-            onPress={() => props.setShowModal()}
-            style={{
-              flex: 1,
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
-              backgroundColor:'#c9c9c9',
-              paddingVertical: hp(1.5),
-            }}>
-            <View
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <Text
-                style={{
-                  fontSize: hp(1.8),
-                  fontFamily: 'ProductSans-Bold',
-                  color: 'white',
+          <View style={{flex: 1}}>
+            <ScaleAnimation onPress={() => props.setShowModal()} scaleTo={0.9}>
+              <Button
+                viewProps={{
+                  width: '100%',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  backgroundColor: '#c9c9c9',
+                  paddingVertical: hp(1.5),
                 }}>
-                CLOSE
-              </Text>
-            </View>
-          </Pressable>
-          <Pressable
-            style={{
-              flex: 1,
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
-              paddingVertical: hp(1.5),
-              backgroundColor:'#fb7ca0'
-            }}>
-            <View
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                flex: 1,
-                justifyContent: 'center',
-                borderLeftColor: '#c3c3c3',
-                alignItems: 'center',
-              }}>
-              <Text
-                style={{
-                  fontSize: hp(1.8),
-                  fontFamily: 'ProductSans-Bold',
-                  color: 'white',
+                <Text
+                  style={{
+                    fontSize: hp(1.8),
+                    fontFamily: 'ProductSans-Bold',
+                    color: 'white',
+                  }}>
+                  CLOSE
+                </Text>
+              </Button>
+            </ScaleAnimation>
+          </View>
+          <View style={{flex: 1}}>
+            <ScaleAnimation onPress={() => {}} scaleTo={0.9}>
+              <Button
+                viewProps={{
+                  width: '100%',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  paddingVertical: hp(1.5),
+                  backgroundColor: '#fb7ca0',
                 }}>
-                APPLY
-              </Text>
-            </View>
-          </Pressable>
+                <Text
+                  style={{
+                    fontSize: hp(1.8),
+                    fontFamily: 'ProductSans-Bold',
+                    color: 'white',
+                  }}>
+                  APPLY
+                </Text>
+              </Button>
+            </ScaleAnimation>
+          </View>
         </View>
       </View>
     </Modal>

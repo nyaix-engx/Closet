@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import Modal from 'react-native-modal';
-import {View, Text, Pressable} from 'react-native';
+import {View, Text, Pressable, Platform} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const RemoveAllModal = props => {
-  const [selected, setSelected] = useState(null);
-  const insets = useSafeAreaInsets();
+  const handlePress=()=>{
+    props.setOutOfStock([])
+    props.setShowModal()
+    Platform.OS ==='ios' && props.scrollRef.current.scrollTo({y:0,animated:true})
+  }
   return (
     <Modal
       isVisible={props.showModal}
@@ -46,7 +48,7 @@ const RemoveAllModal = props => {
               CANCEL
             </Text>
           </Pressable>
-          <Pressable style={{padding: hp(2)}}>
+          <Pressable onPress={handlePress} style={{padding: hp(2)}}>
             <Text
               style={{
                 fontFamily: 'ProductSans-Regular',

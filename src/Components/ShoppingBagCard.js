@@ -6,7 +6,7 @@ import SizeSelectModal from './SizeSelectModal';
 import SelectQuantityModal from './SelectQuantityModal';
 import ConfirmModal from './ConfirmModal';
 
-const ShoppingBagCard = ({data,index,setShoppingItems,shoppingItems,scrollRef,scrollY}) => {
+const ShoppingBagCard = ({data,index,setShoppingItems,shoppingItems,scrollRef,scrollY,screenRef}) => {
   const [showSizeModal, setShowSizeModal] = useState(false);
   const [showQuantityModal, setShowQuantityModal] = useState(false);
   const [size, setSize] = useState(data.size);
@@ -165,6 +165,10 @@ const ShoppingBagCard = ({data,index,setShoppingItems,shoppingItems,scrollRef,sc
         setShowModal={() => setShowQuantityModal(false)}
       />
       <ConfirmModal
+        heading="Remove Item"
+        text="Are you sure you want to remove this item?"
+        confirmButtonText="REMOVE"
+        cancelButtonText="CANCEL"
         showModal={showConfirmModal}
         setShowModal={()=>setShowConfirmModal(false)}
         items={shoppingItems}
@@ -172,6 +176,7 @@ const ShoppingBagCard = ({data,index,setShoppingItems,shoppingItems,scrollRef,sc
         index={index}
         scrollY={scrollY}
         scrollRef={scrollRef}
+        screenRef={screenRef}
         image={data.image}
       />
     </View>

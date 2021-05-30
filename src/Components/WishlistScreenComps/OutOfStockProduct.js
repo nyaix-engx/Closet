@@ -12,6 +12,17 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const OutOfStockProduct = (props) => {
   const {width} = useWindowDimensions();
+  // console.log(props)
+  const handlePress=()=>{
+    let x=props.outOfStock.filter((data,index)=>{
+      return props.index!==index
+    })
+    props.wishlistRef.current.animateNextTransition()
+    props.setOutOfStock([...x])
+    if(props.outOfStock.length==1){
+      Platform.OS ==='ios' && props.scrollRef.current.scrollTo({y:0,animated:true})
+    }
+  }
   return (
     <View
       style={{
@@ -30,7 +41,7 @@ const OutOfStockProduct = (props) => {
             borderTopLeftRadius: hp(0.5),
             borderTopRightRadius: hp(0.5),
           }}
-          source={require('../../Assets/Images/men.jpg')}
+          source={props.data.image}
         />
         <View
           style={{
@@ -50,7 +61,8 @@ const OutOfStockProduct = (props) => {
           }}>
           <Text style={{color: '#a3a3a3'}}>OUT OF STOCK</Text>
         </View>
-        <View
+        <Pressable
+          onPress={handlePress}
           style={{
             position: 'absolute',
             right: hp(0.5),
@@ -61,7 +73,7 @@ const OutOfStockProduct = (props) => {
             name="cancel"
             style={{fontSize: hp(2.7), color: '#c7c7c7'}}
           />
-        </View>
+        </Pressable>
       </View>
       <View
         style={{
@@ -83,7 +95,7 @@ const OutOfStockProduct = (props) => {
                 marginBottom: hp(0.5),
                 fontWeight: '100',
               }}>
-              Roadster
+              {props.data.brand}
             </Text>
           </View>
           <View
@@ -99,7 +111,7 @@ const OutOfStockProduct = (props) => {
                 fontWeight: 'bold',
                 fontSize: hp(1.6),
               }}>
-              $50
+              ${props.data.price}
             </Text>
           </View>
         </View>

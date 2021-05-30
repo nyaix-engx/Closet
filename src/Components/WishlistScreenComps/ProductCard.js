@@ -18,6 +18,14 @@ const ProductCard = (props) => {
   useEffect(()=>{
     setOriginalPrice(props.data.price + (props.data.discount*0.01*props.data.price))
   },[])
+  // console.log("Props",props)
+  const handlePress=()=>{
+    let x=props.wishlist.filter((item,index)=>{
+      return props.index!==index
+    })
+    props.wishlistRef.current.animateNextTransition()
+    props.setWishlist([...x])
+  }
 
   return (
     <View
@@ -39,7 +47,7 @@ const ProductCard = (props) => {
           }}
           source={props.data.image}
         />
-        <View style={{position:'absolute',right:hp(0.5),top:hp(0.5)}}><MaterialIcons name="cancel" style={{fontSize:hp(2.7),color:'#c7c7c7'}} /></View>
+        <Pressable onPress={handlePress} style={{position:'absolute',right:hp(0.5),top:hp(0.5)}}><MaterialIcons name="cancel" style={{fontSize:hp(2.7),color:'#c7c7c7'}} /></Pressable>
       </View>
       <View
         style={{
@@ -96,6 +104,7 @@ const ProductCard = (props) => {
           borderBottomLeftRadius: hp(0.5),
         }}>
         <Pressable
+          onPress={handlePress}
           style={{
             flex: 1,
             display: 'flex',

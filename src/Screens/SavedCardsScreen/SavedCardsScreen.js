@@ -6,10 +6,13 @@ import BackButtonTitle from '../../Components/BackButtonTitle';
 import CreditCard from '../../Components/CreditCard';
 import LottieView from 'lottie-react-native';
 import {cardData} from '../../Utils/arrays';
+import ScaleAnimation from '../../Components/ScaleAnimation';
+import Entypo from 'react-native-vector-icons/Entypo';
+import Button from '../../Components/Button';
 
 const SavedCardsScreen = ({navigation}) => {
   const [cards, setCards] = useState(cardData);
-  console.log("Card------>",cards)
+  console.log('Card------>', cards);
   const getContent = () => {
     return (
       <>
@@ -21,7 +24,12 @@ const SavedCardsScreen = ({navigation}) => {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-               <LottieView source={require('../../Assets/lottie/visa_master.json')} style={{height:hp(15),width:hp(15)}} autoPlay loop={false} />
+              <LottieView
+                source={require('../../Assets/lottie/visa_master.json')}
+                style={{height: hp(15), width: hp(15)}}
+                autoPlay
+                loop={false}
+              />
             </View>
             <View style={{paddingVertical: hp(2)}}>
               <Text
@@ -44,10 +52,12 @@ const SavedCardsScreen = ({navigation}) => {
             </View>
             <View style={{paddingVertical: hp(3), alignItems: 'center'}}>
               <Pressable
-                onPress={() => navigation.navigate('AddCardPage',{
-                  cards,
-                  setCards
-                })}
+                onPress={() =>
+                  navigation.navigate('AddCardPage', {
+                    cards,
+                    setCards,
+                  })
+                }
                 style={{
                   backgroundColor: 'white',
                   paddingVertical: hp(2),
@@ -72,31 +82,48 @@ const SavedCardsScreen = ({navigation}) => {
             showsVerticalScrollIndicator={false}
             bounces={false}>
             <View style={{padding: hp(2)}}>
-              <Pressable
-                onPress={()=>navigation.navigate('AddCardPage',{
-                  cards,
-                  setCards
-                })}
-                style={{
-                  backgroundColor: 'white',
-                  paddingVertical: hp(1.8),
-                  borderWidth: hp(0.1),
-                  borderColor: '#cfcfcf',
-                  borderRadius: hp(0.2),
-                  marginBottom: hp(2),
-                }}>
-                <Text
-                  style={{
-                    fontFamily: 'ProductSans-Bold',
-                    fontSize: hp(2),
-                    paddingHorizontal: hp(2),
+              <ScaleAnimation
+                onPress={() =>
+                  navigation.navigate('AddCardPage', {
+                    cards,
+                    setCards,
+                  })
+                }
+                scaleTo={0.9}>
+                <Button
+                  viewProps={{
+                    backgroundColor: '#fb56c1',
+                    paddingVertical: hp(1.8),
+                    borderRadius: hp(0.5),
+                    marginBottom: hp(2),
                   }}>
-                  Add Card
-                </Text>
-              </Pressable>
+                  <Entypo
+                    name="add-to-list"
+                    size={hp(3)}
+                    style={{ color: '#ffffff'}}
+                  />
+                  <Text
+                    style={{
+                      fontFamily: 'ProductSans-Bold',
+                      fontSize: hp(2),
+                      paddingHorizontal: hp(2),
+                      textAlign: 'center',
+                      color: '#ffffff',
+                    }}>
+                    ADD CARD
+                  </Text>
+                </Button>
+              </ScaleAnimation>
               <View>
-                {cards.map((data,index)=>{
-                  return <CreditCard data={data} key={index} index={index} setCards={setCards}/>
+                {cards.map((data, index) => {
+                  return (
+                    <CreditCard
+                      data={data}
+                      key={index}
+                      index={index}
+                      setCards={setCards}
+                    />
+                  );
                 })}
               </View>
             </View>

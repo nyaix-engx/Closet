@@ -19,8 +19,11 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import ScaleAnimation from '../../Components/ScaleAnimation';
+import Button from '../../Components/Button';
+import EntryAnimation from '../../Components/EntryAnimation';
 
-const ProfileScreen = (props) => {
+const ProfileScreen = props => {
   const data = [
     {
       title: 'Orders',
@@ -78,33 +81,33 @@ const ProfileScreen = (props) => {
       ),
     },
   ];
-  const renderItemAccessory = (props) => (
+  const renderItemAccessory = props => (
     <Entypo
       size={hp(3)}
       style={{paddingHorizontal: hp(1)}}
       name="chevron-small-right"
     />
   );
-   
-  const handlePress=(index)=>{
-    if(index===0){
-      props.navigation.navigate('OrdersPage')
-    }else if(index===1){
-      props.navigation.navigate('Wishlist',{backButton:true})
-    } else if(index===2){
-      props.navigation.navigate('SavedCardsPage')
-    }else if(index===3){
-      props.navigation.navigate('AddressPage')
+
+  const handlePress = index => {
+    if (index === 0) {
+      props.navigation.navigate('OrdersPage');
+    } else if (index === 1) {
+      props.navigation.navigate('Wishlist', {backButton: true});
+    } else if (index === 2) {
+      props.navigation.navigate('SavedCardsPage');
+    } else if (index === 3) {
+      props.navigation.navigate('AddressPage');
+    } else if (index === 4) {
+      props.navigation.navigate('EditProfilePage');
     }
-    else if(index===4){
-      props.navigation.navigate('EditProfilePage')
-    }
-  }
+  };
 
   const renderItem = ({item, index}) => (
-    <ListItem
-      onPress={()=>handlePress(index)}
-      title={(props) => (
+    <EntryAnimation index={index+1} key={index}>
+      <ListItem
+      onPress={() => handlePress(index)}
+      title={props => (
         <Text
           {...props}
           style={{
@@ -119,7 +122,7 @@ const ProfileScreen = (props) => {
         </Text>
       )}
       style={{height: hp(10)}}
-      description={(props) => (
+      description={props => (
         <Text
           {...props}
           style={{
@@ -134,6 +137,7 @@ const ProfileScreen = (props) => {
       accessoryRight={renderItemAccessory}
       accessoryLeft={item.accessory}
     />
+    </EntryAnimation>
   );
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
@@ -145,21 +149,23 @@ const ProfileScreen = (props) => {
             ItemSeparatorComponent={Divider}
             showsVerticalScrollIndicator={false}
             bounces={false}
-            contentContainerStyle={{paddingBottom:Platform.OS==='android'? hp(5):hp(1)}}
+            contentContainerStyle={{
+              paddingBottom: Platform.OS === 'android' ? hp(5) : hp(1),
+            }}
             ListFooterComponent={
               <View
                 style={{
                   paddingHorizontal: hp(4),
-                  display:'flex',
-                  justifyContent:'center',
+                  display: 'flex',
+                  justifyContent: 'center',
                   paddingVertical: hp(2),
                 }}>
-                <Pressable>
-                  <View
-                    style={{
+                <ScaleAnimation onPress={() => {}} scaleTo={0.9}>
+                  <Button
+                    viewProps={{
                       borderRadius: hp(0.5),
                       backgroundColor: '#fb56c1',
-                      paddingVertical: hp(1.5),
+                      paddingVertical: hp(1.8),
                       display: 'flex',
                       justifyContent: 'center',
                       alignItems: 'center',
@@ -167,13 +173,13 @@ const ProfileScreen = (props) => {
                     <Text
                       style={{
                         color: '#fb56c1',
-                        fontFamily: 'ProductSans-Regular',
+                        fontFamily: 'ProductSans-Bold',
                         color: 'white',
                       }}>
                       LOG OUT
                     </Text>
-                  </View>
-                </Pressable>
+                  </Button>
+                </ScaleAnimation>
               </View>
             }
             ListHeaderComponent={

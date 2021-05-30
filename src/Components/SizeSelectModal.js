@@ -6,6 +6,8 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import Number from './number';
 import {size} from '../Utils/arrays';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import ScaleAnimation from './ScaleAnimation';
+import Button from './Button';
 
 
 const SizeSelectModal = props => {
@@ -68,9 +70,11 @@ const SizeSelectModal = props => {
               {getNumber()}
             </ScrollView>
         </View>
-        <Pressable onPress={handlePress} style={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.3),marginBottom:insets.bottom}}>
-          <Text style={{textAlign:'center',fontSize:hp(2),fontFamily:'ProductSans-Bold',color:'white'}}>DONE</Text>
-        </Pressable>
+        <ScaleAnimation onPress={handlePress} scaleTo={0.9} >
+          <Button viewProps={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.3),marginBottom:insets.bottom}}>
+            <Text style={{textAlign:'center',fontSize:hp(2),fontFamily:'ProductSans-Bold',color:'white'}} >Button</Text>
+          </Button>
+        </ScaleAnimation>
       </View>
     </Modal>
   );

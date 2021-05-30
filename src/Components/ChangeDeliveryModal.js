@@ -7,23 +7,23 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 import {Radio} from '@ui-kitten/components';
 import {addresses} from '../Utils/arrays';
-
-
+import ScaleAnimation from './ScaleAnimation';
+import Button from './Button';
 
 const ChangeDeliveryModal = props => {
   const navigation = useNavigation();
   const insets = useSafeAreaInsets();
-  const [selected,setSelected]=useState(0)
-  const handlePress=(index)=>{
-    setSelected(index)
-    props.setAddress(addresses[index])
-    props.setShowModal()
-  }
+  const [selected, setSelected] = useState(0);
+  const handlePress = index => {
+    setSelected(index);
+    props.setAddress(addresses[index]);
+    props.setShowModal();
+  };
   const address = () => {
     return addresses.map((data, index) => {
       return (
         <Pressable
-          onPress={()=>handlePress(index)}
+          onPress={() => handlePress(index)}
           key={index}
           style={{
             paddingVertical: hp(2),
@@ -42,10 +42,10 @@ const ChangeDeliveryModal = props => {
             }}>
             <Radio
               status="success"
-              checked={selected===index?true:false}
+              checked={selected === index ? true : false}
             />
           </View>
-          <View style={{width:'90%'}}>
+          <View style={{width: '90%'}}>
             <View
               style={{
                 flexDirection: 'row',
@@ -62,9 +62,12 @@ const ChangeDeliveryModal = props => {
                   }}>
                   {data.name}
                 </Text>
-                {selected===index && (
+                {selected === index && (
                   <Text
-                    style={{fontSize: hp(2), fontFamily: 'ProductSans-Regular'}}>
+                    style={{
+                      fontSize: hp(2),
+                      fontFamily: 'ProductSans-Regular',
+                    }}>
                     (Default)
                   </Text>
                 )}
@@ -156,29 +159,32 @@ const ChangeDeliveryModal = props => {
           style={{marginBottom: hp(2)}}
           showsVerticalScrollIndicator={false}
           bounces={false}>
-            {address()}
+          {address()}
         </ScrollView>
-        <Pressable
+        <ScaleAnimation
           onPress={() => {
             props.setShowModal();
             navigation.navigate('AddNewAddressPage');
           }}
-          style={{
-            backgroundColor: '#34a880',
-            paddingVertical: hp(1.4),
-            borderRadius: hp(0.3),
-            marginBottom: insets.bottom,
-          }}>
-          <Text
-            style={{
-              textAlign: 'center',
-              fontSize: hp(2),
-              fontFamily: 'ProductSans-Bold',
-              color: 'white',
+          scaleTo={0.9}>
+          <Button
+            viewProps={{
+              backgroundColor: '#34a880',
+              paddingVertical: hp(1.4),
+              borderRadius: hp(0.3),
+              marginBottom: insets.bottom,
             }}>
-            ADD NEW ADDRESS
-          </Text>
-        </Pressable>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontSize: hp(2),
+                fontFamily: 'ProductSans-Bold',
+                color: 'white',
+              }}>
+              ADD NEW ADDRESS
+            </Text>
+          </Button>
+        </ScaleAnimation>
       </View>
     </Modal>
   );

@@ -9,11 +9,15 @@ import BackButtonTitle from '../../Components/BackButtonTitle';
 import ChangeDeliveryModal from '../../Components/ChangeDeliveryModal';
 import Animated, {
   EasingNode,
+  Easing,
   Extrapolate,
-  useAnimatedStyle,
+  Transitioning,
+  Transition,
   useSharedValue,
-  withRepeat,
   withTiming,
+  withRepeat,
+  useAnimatedStyle,
+  sub,
 } from 'react-native-reanimated';
 import {
   offers,
@@ -24,6 +28,8 @@ import {
 import LottieView from 'lottie-react-native';
 import {Avatar, ListItem, List} from '@ui-kitten/components';
 import ApplyCouponModal from '../../Components/ApplyCouponModal';
+import ScaleAnimation from '../../Components/ScaleAnimation';
+import Button from '../../Components/Button';
 
 const ShoppingBagScreen = ({navigation}) => {
   const [showDeliveryModal, setShowDeliveryModal] = useState(false);
@@ -37,8 +43,64 @@ const ShoppingBagScreen = ({navigation}) => {
   const [couponApplied, setCouponApplied] = useState(false);
   const [showCouponModal, setShowCouponModal] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const AnimatedText = Animated.createAnimatedComponent(Text);
-  // const liftPosition = useSharedValue(0);
+  const subtitleOpacity = useSharedValue(0);
+  const screenRef = useRef();
+  const translateY = useSharedValue(0);
+
+  const style = useAnimatedStyle(() => {
+    return {
+      opacity: withTiming(1, {
+        duration: 500,
+        easing: Easing.inOut(Easing.cubic),
+      }),
+    };
+  });
+  useEffect(() => {
+    let totalPrice = 0;
+    shoppingItems.forEach(data => {
+      totalPrice = totalPrice + data.price;
+    });
+    if (shoppingItems.length === 0) {
+      console.log('run');
+      translateY.value = withRepeat(
+        withTiming(hp(-2), {duration: 1200, easing: Easing.linear}),
+        -1,
+        true,
+      );
+      subtitleOpacity.value = withTiming(1, {
+        duration: 1200,
+        easing: Easing.linear,
+      });
+    }
+    setTotal(totalPrice);
+    if (couponApplied) {
+      let discountAmount = 0.05 * totalPrice;
+      setDiscount(discountAmount);
+      setTotalAmount(totalPrice - discountAmount);
+    } else {
+      setDiscount(0);
+      setTotalAmount(totalPrice);
+    }
+  }, [shoppingItems.length, couponApplied]);
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{translateY: translateY.value}],
+    };
+  });
+  const opacity = useAnimatedStyle(() => {
+    return {
+      opacity: subtitleOpacity.value,
+    };
+  });
+  const transition = (
+    <Transition.Sequence>
+      <Transition.Out type="slide-left" durationMs={500} />
+      <Transition.Change interpolation="easeIn" durationMs={500} />
+      <Transition.In type="fade" durationMs={500} />
+    </Transition.Sequence>
+  );
+
   const handleScroll = e => {
     setScrollY(e.nativeEvent.contentOffset.y);
   };
@@ -59,22 +121,6 @@ const ShoppingBagScreen = ({navigation}) => {
       );
     });
   };
-  // const style = useAnimatedStyle(() => {
-  //   return {
-  //     transform: [
-  //       {
-  //         translateY: withRepeat(
-  //           withTiming(liftPosition.value, {
-  //             duration: 500,
-  //             easing: Easing.bezier(0.25, 0.1, 0.25, 1),
-  //           }),
-  //           -1,
-  //           true
-  //         ),
-  //       },
-  //     ],
-  //   };
-  // });
   const renderItem = ({item, index}) => (
     <ListItem
       style={{paddingHorizontal: hp(2)}}
@@ -112,22 +158,6 @@ const ShoppingBagScreen = ({navigation}) => {
     />
   );
 
-  useEffect(() => {
-    let totalPrice = 0;
-    shoppingItems.forEach(data => {
-      totalPrice = totalPrice + data.price;
-    });
-    setTotal(totalPrice);
-    if (couponApplied) {
-      let discountAmount = 0.05 * totalPrice;
-      setDiscount(discountAmount);
-      setTotalAmount(totalPrice - discountAmount);
-    } else {
-      setDiscount(0);
-      setTotalAmount(totalPrice);
-    }
-  }, [shoppingItems.length, couponApplied]);
-
   let interpolatedValue = Animated.interpolateNode(height.current, {
     inputRange: [hp(5.5), hp(27)],
     outputRange: ['0deg', '180deg'],
@@ -144,7 +174,10 @@ const ShoppingBagScreen = ({navigation}) => {
   const getContent = () => {
     if (shoppingItems.length > 0) {
       return (
-        <View style={{flex: 1}}>
+        <Transitioning.View
+          ref={screenRef}
+          transition={transition}
+          style={{flex: 1}}>
           <View style={{flex: 8}}>
             <ScrollView
               style={{flex: 1}}
@@ -319,6 +352,7 @@ const ShoppingBagScreen = ({navigation}) => {
                 {shoppingItems.map((data, index) => {
                   return (
                     <ShoppingBagCard
+                      screenRef={screenRef}
                       data={data}
                       key={index}
                       index={index}
@@ -518,26 +552,31 @@ const ShoppingBagScreen = ({navigation}) => {
             style={{
               flex: 0.7,
               justifyContent: 'center',
-              paddingHorizontal: hp(1),
+              paddingHorizontal: hp(1.5),
               paddingVertical: hp(1),
             }}>
-            <Pressable
-              style={{
-                flex: 1,
-                borderRadius: hp(0.5),
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: '#fb7ca0',
-              }}>
-              <Text
-                style={{
-                  color: 'white',
-                  fontFamily: 'ProductSans-Bold',
-                  fontSize: hp(2),
+            <ScaleAnimation
+              onPress={() => console.log('hello')}
+              disabled={false}
+              scaleTo={0.9}>
+              <Button
+                viewProps={{
+                  borderRadius: hp(0.5),
+                  paddingVertical: hp(2),
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  backgroundColor: '#fb7ca0',
                 }}>
-                PLACE ORDER
-              </Text>
-            </Pressable>
+                <Text
+                  style={{
+                    color: 'white',
+                    fontFamily: 'ProductSans-Bold',
+                    fontSize: hp(2),
+                  }}>
+                  PLACE ORDER
+                </Text>
+              </Button>
+            </ScaleAnimation>
           </View>
           <ChangeDeliveryModal
             showModal={showDeliveryModal}
@@ -549,7 +588,7 @@ const ShoppingBagScreen = ({navigation}) => {
             setShowModal={() => setShowCouponModal(false)}
             setCouponApplied={setCouponApplied}
           />
-        </View>
+        </Transitioning.View>
       );
     } else {
       return (
@@ -567,7 +606,7 @@ const ShoppingBagScreen = ({navigation}) => {
               loop={false}
               style={{height: hp(25)}}
             />
-            <View style={{flexDirection: 'row'}}>
+            <Animated.View style={[{flexDirection: 'row'}, style]}>
               <Text
                 style={{
                   fontFamily: 'ProductSans-Bold',
@@ -577,26 +616,29 @@ const ShoppingBagScreen = ({navigation}) => {
                 }}>
                 Hey, it feels so
               </Text>
-              <Animated.View
-                style={{transform: [{translateY: liftPosition.current}]}}>
+              <Animated.View style={animatedStyle}>
                 <Text
                   style={{
                     fontFamily: 'ProductSans-Bold',
                     fontSize: hp(2.2),
                     marginBottom: hp(1),
+                    color: '#fb7ca0',
                   }}>
                   light!
                 </Text>
               </Animated.View>
-            </View>
-            <Text
-              style={{
-                fontFamily: 'ProductSans-Regular',
-                fontSize: hp(1.7),
-                color: 'grey',
-              }}>
+            </Animated.View>
+            <Animated.Text
+              style={[
+                {
+                  fontFamily: 'ProductSans-Regular',
+                  fontSize: hp(1.7),
+                  color: 'grey',
+                },
+                opacity,
+              ]}>
               There is nothing in your bag. Let's add some items.
-            </Text>
+            </Animated.Text>
           </View>
           <List
             bounces={false}

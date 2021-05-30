@@ -5,6 +5,8 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import Entypo from 'react-native-vector-icons/Entypo';
 import AddressCard from '../Components/AddressCard';
 import BackButtonTitle from '../Components/BackButtonTitle';
+import Button from '../Components/Button';
+import ScaleAnimation from '../Components/ScaleAnimation';
 
 const AddressScreen = ({navigation}) => {
   return (
@@ -14,31 +16,37 @@ const AddressScreen = ({navigation}) => {
       </View>
       <View style={{flex: 8}}>
         <View style={{padding: hp(2)}}>
-          <Pressable
-            onPress={()=>navigation.navigate('AddNewAddressPage')}
-            style={{
-              backgroundColor: 'white',
-              padding: hp(2),
-              borderWidth: hp(0.1),
-              borderColor: '#cfcfcf',
-              flexDirection: 'row',
-              alignItems: 'center',
-              borderRadius: hp(0.2),
-            }}>
-            <Entypo
-              name="add-to-list"
-              size={hp(3)}
-              style={{marginRight: hp(1), color: 'blue'}}
-            />
-            <Text
-              style={{
-                fontFamily: 'ProductSans-Bold',
-                fontSize: hp(2),
-                color: 'blue',
-              }}>
-              ADD NEW ADDRESS
-            </Text>
-          </Pressable>
+          <ScaleAnimation onPress={() => navigation.navigate('AddNewAddressPage')} scaleTo={0.9}>
+            <Button viewProps={
+              {
+                backgroundColor: 'white',
+                padding: hp(2),
+                backgroundColor: '#fb56c1',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: hp(0.5),
+              }
+            }
+            >
+              <>
+                <Entypo
+                  name="add-to-list"
+                  size={hp(3)}
+                  style={{marginRight: hp(1), color: '#ffffff'}}
+                />
+                <Text
+                  style={{
+                    fontFamily: 'ProductSans-Bold',
+                    fontSize: hp(2),
+                    textAlign: 'center',
+                    color: '#ffffff',
+                  }}>
+                  ADD NEW ADDRESS
+                </Text>
+              </>
+            </Button>
+          </ScaleAnimation>
         </View>
         <ScrollView
           style={{flex: 1}}
