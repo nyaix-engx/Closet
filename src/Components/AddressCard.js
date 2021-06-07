@@ -1,10 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, Pressable} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import AddressRemoveModal from './AddressRemoveModal';
+import {useNavigation} from '@react-navigation/native';
 
-const AddressCard = (props) => {
+const AddressCard = props => {
+  const navigation = useNavigation();
+  const [showRemoveAddressModal, setShowRemoveAddressModal] = useState(false);
+  const swapArray = (arr, indexA, indexB) => {
+    var temp = arr[indexA];
+    arr[indexA] = arr[indexB];
+    arr[indexB] = temp;
+  };
+  const handlePress = () => {
+    const newArray = props.userAddresses;
+    let defaultIndex, setDefaultIndex;
+    newArray.forEach((item, index) => {
+      if (item.default) {
+        defaultIndex = index;
+        newArray[index].default = false;
+      }
+      if (item.id === props.data.id) {
+        setDefaultIndex = index;
+        newArray[index].default = true;
+      }
+    });
+    swapArray(newArray, defaultIndex, setDefaultIndex);
+    props.addressRef.current.animateNextTransition();
+    props.setUserAddresses([...newArray]);
+  };
+
   return (
-    <View style={{padding: hp(2), backgroundColor: 'white',marginBottom:hp(2)}}>
+    <View
+      style={{padding: hp(2), backgroundColor: 'white', marginBottom: hp(2)}}>
       <View
         style={{
           flexDirection: 'row',
@@ -13,7 +41,7 @@ const AddressCard = (props) => {
           marginBottom: hp(2),
         }}>
         <Text style={{fontSize: hp(2), fontFamily: 'ProductSans-Bold'}}>
-          Alex Benjamin
+          {props.data.name}
         </Text>
         <View
           style={{
@@ -23,17 +51,16 @@ const AddressCard = (props) => {
             borderRadius: hp(2),
           }}>
           <Text style={{fontSize: hp(1.6), fontFamily: 'ProductSans-Bold'}}>
-            HOME
+            {props.data.type}
           </Text>
         </View>
       </View>
       <View style={{marginBottom: hp(2)}}>
         <Text style={{fontFamily: 'ProductSans-Regular', fontSize: hp(1.9)}}>
-          B-3, Ashok Vihar, East of Sainik Farm, New Delhi-81 Khanpur (South
-          Delhi)
+          {props.data.address}
         </Text>
         <Text style={{fontFamily: 'ProductSans-Regular', fontSize: hp(1.9)}}>
-          South Delhi - 110081
+          {props.data.district} - {props.data.pincode}
         </Text>
         <Text
           style={{
@@ -41,7 +68,7 @@ const AddressCard = (props) => {
             fontSize: hp(1.9),
             marginBottom: hp(2),
           }}>
-          New Delhi
+          {props.data.state}
         </Text>
         <View
           style={{
@@ -56,8 +83,8 @@ const AddressCard = (props) => {
             }}>
             Mobile: 8748279065
           </Text>
-          {!props.default && (
-            <Pressable>
+          {!props.data.default ? (
+            <Pressable onPress={handlePress}>
               <Text
                 style={{
                   fontFamily: 'ProductSans-Bold',
@@ -67,6 +94,15 @@ const AddressCard = (props) => {
                 SET AS DEFAULT
               </Text>
             </Pressable>
+          ) : (
+            <Text
+              style={{
+                fontFamily: 'ProductSans-Bold',
+                fontSize: hp(1.7),
+                color: '#34a880',
+              }}>
+              DEFAULT
+            </Text>
           )}
         </View>
       </View>
@@ -79,6 +115,13 @@ const AddressCard = (props) => {
             paddingTop: hp(1),
           }}>
           <Pressable
+            onPress={() =>
+              navigation.navigate('AddNewAddressPage', {
+                data: props.data,
+                setUserAddresses: props.setUserAddresses,
+                index:props.index
+              })
+            }
             style={{
               flex: 1,
               borderRightColor: '#cfcfcf',
@@ -96,6 +139,7 @@ const AddressCard = (props) => {
             </Text>
           </Pressable>
           <Pressable
+            onPress={() => setShowRemoveAddressModal(true)}
             style={{
               flex: 1,
               borderLeftColor: '#cfcfcf',
@@ -112,6 +156,20 @@ const AddressCard = (props) => {
               REMOVE
             </Text>
           </Pressable>
+          <AddressRemoveModal
+            heading="Remove Address"
+            text="Are you sure you want to delete this address?"
+            confirmButtonText="REMOVE"
+            cancelButtonText="CANCEL"
+            showModal={showRemoveAddressModal}
+            setShowModal={() => setShowRemoveAddressModal(false)}
+            items={props.userAddresses}
+            setItems={props.setUserAddresses}
+            index={props.index}
+            scrollY={props.scrollY}
+            scrollRef={props.scrollRef}
+            screenRef={props.addressRef}
+          />
         </View>
       </View>
     </View>

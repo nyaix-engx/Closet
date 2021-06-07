@@ -8,22 +8,21 @@ import BackButtonTitle from '../../Components/BackButtonTitle';
 import ScaleAnimation from '../../Components/ScaleAnimation';
 import Button from '../../Components/Button';
 
-const AddNewAddressScreen = ({navigation}) => {
-  const [name, setName] = useState('');
-  const [mobile, setMobile] = useState('');
-  const [pincode, setPincode] = useState('');
-  const [state, setState] = useState('');
-  const [address, setAddress] = useState('');
-  const [town, setTown] = useState('');
-  const [city, setCity] = useState('');
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [openSat, setOpenSat] = useState(false);
-  const [openSun, setOpenSun] = useState(false);
+const AddNewAddressScreen = ({navigation,route}) => {
 
+  const [name, setName] = useState(route.params.data.name || '');
+  const [mobile, setMobile] = useState(route.params.data.mobile || '');
+  const [pincode, setPincode] = useState(route.params.data.pincode || '');
+  const [state, setState] = useState(route.params.data.state || '');
+  const [address, setAddress] = useState(route.params.data.address || '');
+  const [city, setCity] = useState(route.params.data.district||'');
+  const [selectedIndex, setSelectedIndex] = useState(route.params.data.type==='HOME'?0:1 || 0);
+  const [isDefault,setIsDefault]=useState(route.params.data.default || '')
+  console.log(route.params.index,route.params.setUserAddresses)
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{flex: 0.8}}>
-        <BackButtonTitle title="ADD NEW ADDRESS" />
+        <BackButtonTitle title={route.params.data?"EDIT ADDRESS":"ADD NEW ADDRESS"} />
       </View>
       <View style={{flex: 8}}>
         <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
@@ -105,17 +104,6 @@ const AddNewAddressScreen = ({navigation}) => {
               onChangeText={nextValue => setAddress(nextValue)}
             />
             <Input
-              value={town}
-              style={{marginBottom: hp(2)}}
-              textStyle={{
-                paddingVertical: hp(1),
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
-              }}
-              placeholder="Locality/ Town"
-              onChangeText={nextValue => setTown(nextValue)}
-            />
-            <Input
               value={city}
               textStyle={{
                 paddingVertical: hp(1),
@@ -174,45 +162,6 @@ const AddNewAddressScreen = ({navigation}) => {
               </RadioGroup>
             </View>
             <View>
-              <Text
-                style={{
-                  fontFamily: 'ProductSans-Regular',
-                  fontSize: hp(2),
-                  marginBottom: hp(2),
-                }}>
-                Is your office open on weekends?
-              </Text>
-              <View style={{marginBottom: hp(2)}}>
-                <CheckBox
-                  checked={openSat}
-                  onChange={nextChecked => setOpenSat(nextChecked)}
-                  style={{marginBottom: hp(1.5)}}
-                  children={() => (
-                    <Text
-                      style={{
-                        fontFamily: 'ProductSans-Regular',
-                        fontSize: hp(2),
-                        paddingHorizontal: hp(1.5),
-                      }}>
-                      Open on Saturday
-                    </Text>
-                  )}
-                />
-                <CheckBox
-                  checked={openSun}
-                  onChange={nextChecked => setOpenSun(nextChecked)}
-                  children={() => (
-                    <Text
-                      style={{
-                        fontFamily: 'ProductSans-Regular',
-                        fontSize: hp(2),
-                        paddingHorizontal: hp(1.5),
-                      }}>
-                      Open on Sunday
-                    </Text>
-                  )}
-                />
-              </View>
               <View
                 style={{
                   paddingVertical: hp(3),
@@ -220,8 +169,8 @@ const AddNewAddressScreen = ({navigation}) => {
                   borderTopWidth: hp(0.1),
                 }}>
                 <CheckBox
-                  checked={openSun}
-                  onChange={nextChecked => setOpenSun(nextChecked)}
+                  checked={isDefault}
+                  onChange={nextChecked => setIsDefault(nextChecked)}
                   children={() => (
                     <Text
                       style={{

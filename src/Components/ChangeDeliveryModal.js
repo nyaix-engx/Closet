@@ -16,7 +16,7 @@ const ChangeDeliveryModal = props => {
   const [selected, setSelected] = useState(0);
   const handlePress = index => {
     setSelected(index);
-    props.setAddress(addresses[index]);
+    props.setAddress(addresses2[index]);
     props.setShowModal();
   };
   const address = () => {

@@ -7,13 +7,14 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import ScaleAnimation from './ScaleAnimation';
 import Button from './Button';
 
-const ConfirmModal = props => {
+const AddressRemoveModal = props => {
   const insets = useSafeAreaInsets();
   //   console.log("Scroll position",props.scrollRef.current)
   const handlePress = () => {
     let x = props.items.filter((data, itemIndex) => {
       return itemIndex !== props.index;
     });
+    x.length>0 ?x[0].default=true:null
     props.screenRef.current.animateNextTransition();
     props.setItems([...x]);
     props.setShowModal();
@@ -152,4 +153,4 @@ const ConfirmModal = props => {
   );
 };
 
-export default ConfirmModal;
+export default AddressRemoveModal;

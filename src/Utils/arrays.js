@@ -675,32 +675,42 @@ export const offers = [
   'Upto Rs 500 Cashback on Mobikwik wallet transaction of min Rs 999. Use Code MBK500 on Mobikwik. TCA',
 ];
 
-export const addresses = [
+
+export const addresses=[
   {
+    id:1,
     name: 'Alec Benjamin',
+    mobile:"8978675645",
     type: 'HOME',
     address: 'A-23,Viking Street, New Delhi',
     state: 'New Delhi',
     pincode: '110045',
     district: 'South Delhi',
+    default:true
   },
   {
+    id:2,
     name: 'Natasha Romanoff',
+    mobile:"8178675045",
     type: 'HOME',
     address: 'A-23,New York, USA',
     state: 'New York',
     pincode: '2637828',
     district: 'New York',
+    default:false
   },
   {
+    id:3,
     name: 'Manoj Kumar',
     type: 'OFFICE',
+    mobile:"9179067451",
     address: 'A-112,Defence Colony, New Delhi',
     state: 'New Delhi',
     pincode: '110015',
     district: 'East Delhi',
-  },
-];
+    default:false
+  }
+]
 
 export const size = 
   {

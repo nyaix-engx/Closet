@@ -32,7 +32,7 @@ import WriteReviewScreen from './src/Screens/WriteReviewScreen/WriteReviewScreen
 import ItemDetailsScreen from './src/Screens/ItemDetailsScreen/ItemDetailsScreen';
 import SavedCardsScreen from './src/Screens/SavedCardsScreen/SavedCardsScreen';
 import AddCardScreen from './src/Screens/AddCardScreen/AddCardScreen';
-import AddressScreen from './src/Screens/AddressScreen';
+import AddressScreen from './src/Screens/AddressScreen/AddressScreen';
 import AddNewAddressScreen from './src/Screens/AddNewAddressScreen/AddNewAddressScreen';
 import EditCardScreen from './src/Screens/EditCardScreen/EditCardScreen';
 import TransitionTesting from './src/Screens/TransitionTesting';

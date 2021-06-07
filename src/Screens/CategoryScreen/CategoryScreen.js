@@ -3,6 +3,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 import CategoryComp from '../../Components/CategoryScreenComps/CategoryComp';
 import TitleHeader from '../../Components/CategoryScreenComps/TitleHeader';
 import {categories} from '../../Utils/arrays';
+import {View} from 'react-native';
 import {Platform, SafeAreaView, useWindowDimensions} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import EntryAnimation from '../../Components/EntryAnimation';
@@ -44,6 +45,7 @@ const CategoryScreen = () => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         bounces={false}
+        style={{flex:1}}
         ref={scrollRef}>
         {getCategories()}
       </ScrollView>

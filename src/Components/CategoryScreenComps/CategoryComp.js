@@ -3,7 +3,7 @@ import Animated, {color, EasingNode, Extrapolate} from 'react-native-reanimated'
 import {View, Text, Pressable, Platform} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-const CategorySubComp = lazy(() => import('./CategorySubComp'));
+import CategorySubComp from './CategorySubComp';
 
 const CategoryComp = (props) => {
   const rowHeight1 = useRef(new Animated.Value(hp(0)));
@@ -91,9 +91,9 @@ const CategoryComp = (props) => {
   const getSubCategory = () => {
     return props.category.subCategory.map((sub, index) => {
       return (
-        <Suspense key={index} fallback={<></>}>
           <CategorySubComp
             index={index}
+            key={index}
             sub={sub}
             subTitleState={subTitleState}
             setSubTitleState={setSubTitleState}
@@ -106,7 +106,6 @@ const CategoryComp = (props) => {
             hideDrop={hideDrop}
             showDrop={showDrop}
           />
-        </Suspense>
       );
     });
   };
