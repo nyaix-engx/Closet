@@ -1,34 +1,35 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {View, Text, Pressable} from 'react-native';
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import {CreditCardsLogo} from '../Utils/arrays'
-import { useNavigation } from '@react-navigation/native';
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {CreditCardsLogo} from '../Utils/arrays';
+import {useNavigation} from '@react-navigation/native';
+import ConfirmModal from './ConfirmModal';
 
-const CreditCard = ({data,index,setCards}) => {
+const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRef}) => {
   const navigation = useNavigation();
-
-  const getLogo=(type)=>{
-    switch(type){
-      case "visa":
+  const [showRemoveCardModal,setShowRemoveCardModal]=useState(false)
+  const getLogo = type => {
+    switch (type) {
+      case 'visa':
         return CreditCardsLogo[0].logo;
-      case "mastercard":
+      case 'mastercard':
         return CreditCardsLogo[1].logo;
-      case "american-express":
+      case 'american-express':
         return CreditCardsLogo[2].logo;
-      case "diners-club":
+      case 'diners-club':
         return CreditCardsLogo[3].logo;
-      case "discover":
+      case 'discover':
         return CreditCardsLogo[4].logo;
-      case "jcb":
+      case 'jcb':
         return CreditCardsLogo[5].logo;
-      case "unionpay":
+      case 'unionpay':
         return CreditCardsLogo[6].logo;
-      case "maestro":
+      case 'maestro':
         return CreditCardsLogo[7].logo;
       default:
         return null;
     }
-  }
+  };
   return (
     <View
       style={{
@@ -39,11 +40,9 @@ const CreditCard = ({data,index,setCards}) => {
         borderRadius: hp(0.5),
         borderColor: '#cfcfcf',
         borderWidth: hp(0.1),
-        marginBottom:hp(2)
+        marginBottom: hp(2),
       }}>
-      <View style={{alignItems: 'flex-end'}}>
-        {getLogo(data.type)}
-      </View>
+      <View style={{alignItems: 'flex-end'}}>{getLogo(data.type)}</View>
       <View style={{marginBottom: hp(2)}}>
         <Text
           style={{
@@ -114,12 +113,13 @@ const CreditCard = ({data,index,setCards}) => {
           paddingVertical: hp(1),
         }}>
         <Pressable
-          onPress={()=>{
-            navigation.navigate('EditCardPage',{
+          onPress={() => {
+            navigation.navigate('AddCardPage', {
+              type: 'EDIT',
               data,
+              cards,
               index,
-              setCards
-            })
+            });
           }}
           style={{
             flex: 1,
@@ -138,6 +138,7 @@ const CreditCard = ({data,index,setCards}) => {
           </Text>
         </Pressable>
         <Pressable
+          onPress={()=>setShowRemoveCardModal(true)}
           style={{
             flex: 1,
             borderLeftColor: '#cfcfcf',
@@ -154,6 +155,20 @@ const CreditCard = ({data,index,setCards}) => {
             REMOVE
           </Text>
         </Pressable>
+        <ConfirmModal
+          heading="REMOVE CARD"
+          text="Are you sure you want to remove this card?"
+          confirmButtonText="REMOVE"
+          cancelButtonText="CANCEL"
+          showModal={showRemoveCardModal}
+          setShowModal={() => setShowRemoveCardModal(false)}
+          items={cards}
+          setItems={setCards}
+          index={index}
+          scrollY={scrollY}
+          scrollRef={scrollRef}
+          screenRef={savedScreenRef}
+        />
       </View>
     </View>
   );

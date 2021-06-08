@@ -1,5 +1,5 @@
-import React, {useState, useRef} from 'react';
-import {View, Text, Pressable, ScrollView} from 'react-native';
+import React, {useState, useRef, useEffect} from 'react';
+import {View, Text, ScrollView} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -11,10 +11,10 @@ import {addresses} from '../../Utils/arrays';
 import LottieView from 'lottie-react-native';
 import {Transitioning, Transition} from 'react-native-reanimated';
 
-const CustomButton = ({navigation, viewStyle, textStyle}) => {
+const CustomButton = ({navigation, viewStyle, textStyle,userAddresses}) => {
   return (
     <ScaleAnimation
-      onPress={() => navigation.navigate('AddNewAddressPage',{data:{}})}
+      onPress={() => navigation.navigate('AddNewAddressPage',{type:"ADD",userAddresses})}
       scaleTo={0.9}>
       <Button viewProps={viewStyle}>
         <>
@@ -30,11 +30,16 @@ const CustomButton = ({navigation, viewStyle, textStyle}) => {
   );
 };
 
-const AddressScreen = ({navigation}) => {
+const AddressScreen = ({navigation,route}) => {
   const [userAddresses, setUserAddresses] = useState(addresses);
   const addressRef = useRef();
   const [scrollY, setScrollY] = useState(0);
   const scrollRef = useRef();
+  useEffect(()=>{
+    if(route.params?.userAddresses){
+      setUserAddresses(route.params.userAddresses)
+    }
+  },[route.params?.userAddresses])
   const getAddress = () => {
     return userAddresses.map((data, index) => (
       <AddressCard
@@ -78,6 +83,7 @@ const AddressScreen = ({navigation}) => {
         <>
           <View style={{padding: hp(2)}}>
             <CustomButton
+              userAddresses={userAddresses}
               navigation={navigation}
               textStyle={{
                 fontFamily: 'ProductSans-Bold',
@@ -147,7 +153,7 @@ const AddressScreen = ({navigation}) => {
           </View>
           <View style={{marginVertical: hp(5), paddingHorizontal: hp(9)}}>
             <ScaleAnimation
-              onPress={() => navigation.navigate('AddNewAddressPage',{data:{}})}
+              onPress={() => navigation.navigate('AddNewAddressPage',{type:"ADD",userAddresses})}
               scaleTo={0.9}>
               <View
                 style={{

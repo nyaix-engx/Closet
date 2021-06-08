@@ -685,7 +685,7 @@ export const addresses=[
     address: 'A-23,Viking Street, New Delhi',
     state: 'New Delhi',
     pincode: '110045',
-    district: 'South Delhi',
+    city: 'South Delhi',
     default:true
   },
   {
@@ -696,7 +696,7 @@ export const addresses=[
     address: 'A-23,New York, USA',
     state: 'New York',
     pincode: '2637828',
-    district: 'New York',
+    city: 'New York',
     default:false
   },
   {
@@ -707,7 +707,7 @@ export const addresses=[
     address: 'A-112,Defence Colony, New Delhi',
     state: 'New Delhi',
     pincode: '110015',
-    district: 'East Delhi',
+    city: 'East Delhi',
     default:false
   }
 ]

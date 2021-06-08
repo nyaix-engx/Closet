@@ -34,7 +34,6 @@ import SavedCardsScreen from './src/Screens/SavedCardsScreen/SavedCardsScreen';
 import AddCardScreen from './src/Screens/AddCardScreen/AddCardScreen';
 import AddressScreen from './src/Screens/AddressScreen/AddressScreen';
 import AddNewAddressScreen from './src/Screens/AddNewAddressScreen/AddNewAddressScreen';
-import EditCardScreen from './src/Screens/EditCardScreen/EditCardScreen';
 import TransitionTesting from './src/Screens/TransitionTesting';
 
 const Stack = createStackNavigator();
@@ -72,7 +71,6 @@ const ScreenPage = () => {
       <Stack.Screen name="AddCardPage" component={AddCardScreen} />
       <Stack.Screen name="AddressPage" component={AddressScreen} />
       <Stack.Screen name="AddNewAddressPage" component={AddNewAddressScreen} />
-      <Stack.Screen name="EditCardPage" component={EditCardScreen} />
       <Stack.Screen name="Transition" component={TransitionTesting} />
     </Stack.Navigator>
   );

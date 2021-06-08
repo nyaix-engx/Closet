@@ -11,25 +11,51 @@ import ScaleAnimation from '../../Components/ScaleAnimation';
 import Button from '../../Components/Button';
 
 const AddCardScreen = ({route, navigation}) => {
-  const [cardData, setCardData] = useState({});
-  const {cards, setCards} = route.params;
-  const [name, setName] = useState('');
-  const [cardNumber, setCardNumber] = useState('');
-  const [expiry, setExpiry] = useState('');
-  const [nameBorder, setNameBorder] = useState('grey');
-  const [cardBorder, setCardBorder] = useState('grey');
-  const [expiryBorder, setExpiryBorder] = useState('grey');
-  const [cardType, setCardType] = useState('');
-  console.log('CardType', cardType);
+  const [name, setName] = useState(route.params.type==='EDIT'? route.params.data.name : '');
+  const [cardNumber, setCardNumber] = useState(route.params.type==='EDIT'? route.params.data.number : '');
+  const [expiry, setExpiry] = useState(route.params.type==='EDIT'? route.params.data.expiry : '');
+  const [nameBorder, setNameBorder] = useState(route.params.type==='EDIT'?'green':'grey');
+  const [cardBorder, setCardBorder] = useState(route.params.type==='EDIT'?'green':'grey');
+  const [expiryBorder, setExpiryBorder] = useState(route.params.type==='EDIT'?'green':'grey');
+  const [cardType, setCardType] = useState(route.params.type==='EDIT'? route.params.data.type : '');
   const handlePress = () => {
-    if (
-      nameBorder === 'green' &&
-      cardBorder === 'green' &&
-      expiryBorder === 'green'
-    ) {
-      setCards([...cards, {name, number: cardNumber, expiry, type: cardType}]);
-      navigation.goBack();
+    if(route.params.type==='ADD'){
+      if (
+        nameBorder === 'green' &&
+        cardBorder === 'green' &&
+        expiryBorder === 'green'
+      ) {
+        navigation.navigate({
+          name: 'SavedCardsPage',
+          params: {cards: route.params.cards.concat([{name, number: cardNumber, expiry, type: cardType}])},
+          merge: true,
+        });
+      }
+    }else{
+      console.log("here")
+      if (
+        nameBorder === 'green' &&
+        cardBorder === 'green' &&
+        expiryBorder === 'green'
+      ) {
+        const newArray=route.params.cards
+        newArray.forEach((item,index)=>{
+          if(index===route.params.index){
+            item.name=name
+            item.number=cardNumber
+            item.expiry=expiry
+            item.type=cardType
+          }
+        })
+        console.log("NewArr",newArray)
+        navigation.navigate({
+          name: 'SavedCardsPage',
+          params: {cards: newArray},
+          merge: true,
+        });
+      }
     }
+ 
   };
 
   const handleName = cardHolderName => {

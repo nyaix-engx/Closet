@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, Pressable, ScrollView, Image} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -8,16 +8,26 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import BackButtonTitle from '../../Components/BackButtonTitle';
 import ScaleAnimation from '../../Components/ScaleAnimation';
 import Button from '../../Components/Button';
+import UploadImageModal from '../../Components/UploadImageModal';
 
-const EditProfileScreen = ({navigation}) => {
-  const [mobile, setMobile] = useState('8976567809');
+const EditProfileScreen = ({navigation, route}) => {
+
+  const [mobile, setMobile] = useState('8978673456');
   const [name, setName] = useState('Alex Mahone');
   const [email, setEmail] = useState('alex_mahone@gmail.com');
   const [gender, setGender] = useState('Male');
-  const [location, setLocation] = useState('New Delhi,India');
+  const [location, setLocation] = useState('New York, USA');
   const [date, setDate] = useState(new Date());
+  const [uploadImageModal,setUploadImageModal]=useState(false);
   const min = new Date('January 1, 1900');
   const max = new Date();
+
+  useEffect(() => {
+    if (route.params?.mobile) {
+      setMobile(route.params.mobile);
+    }
+  }, [route.params?.mobile]);
+
   const CalendarIcon = props => (
     <Octicons
       name="calendar"
@@ -67,21 +77,22 @@ const EditProfileScreen = ({navigation}) => {
                   />
                 )}
               />
-              <Feather
-                name="edit"
-                size={hp(2.5)}
-                style={{
-                  position: 'absolute',
-                  right: 0,
-                  padding: hp(0.5),
-                  color: 'grey',
-                }}
-              />
+              <Pressable onPress={()=>setUploadImageModal(true)} style={{position:"absolute",right:0}}>
+                <Feather
+                  name="edit"
+                  size={hp(2.5)}
+                  style={{
+                    padding: hp(0.5),
+                    color: 'grey',
+                  }}
+                />
+              </Pressable>
             </View>
           </View>
           <View style={{paddingHorizontal: hp(3)}}>
             <Input
               value={mobile}
+              disabled
               textStyle={{
                 fontSize: hp(1.8),
                 fontFamily: 'ProductSans-Bold',
@@ -103,6 +114,7 @@ const EditProfileScreen = ({navigation}) => {
                   onPress={() =>
                     navigation.navigate('ProfileHelperPage', {
                       topic: 'CHANGE_MOBILE_NUMBER',
+                      mobile,
                     })
                   }
                   style={{paddingHorizontal: hp(1)}}>
@@ -275,8 +287,12 @@ const EditProfileScreen = ({navigation}) => {
             borderTopWidth: hp(0.2),
             backgroundColor: 'white',
           }}>
-          <ScaleAnimation onPress={()=>{}} scaleTo={0.9}>
-            <Button viewProps={{backgroundColor: '#fb56c1', paddingVertical: hp(1.8)}}>
+          <ScaleAnimation onPress={() => {}} scaleTo={0.9}>
+            <Button
+              viewProps={{
+                backgroundColor: '#fb56c1',
+                paddingVertical: hp(1.8),
+              }}>
               <Text
                 style={{
                   textAlign: 'center',
@@ -288,6 +304,10 @@ const EditProfileScreen = ({navigation}) => {
             </Button>
           </ScaleAnimation>
         </View>
+        <UploadImageModal
+         showModal={uploadImageModal}
+         setShowModal={()=>setUploadImageModal(false)}
+        />
       </View>
     </SafeAreaView>
   );

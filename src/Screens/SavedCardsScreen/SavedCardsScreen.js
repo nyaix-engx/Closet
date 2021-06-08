@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect,useRef} from 'react';
 import {View, Text, Pressable, ScrollView} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -9,10 +9,31 @@ import {cardData} from '../../Utils/arrays';
 import ScaleAnimation from '../../Components/ScaleAnimation';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Button from '../../Components/Button';
+import  {Transitioning, Transition, EasingNode,Extrapolate} from 'react-native-reanimated';
 
-const SavedCardsScreen = ({navigation}) => {
+const SavedCardsScreen = ({navigation,route}) => {
   const [cards, setCards] = useState(cardData);
-  console.log('Card------>', cards);
+  const scrollRef=useRef()
+  const [scrollY,setScrollY]=useState(0)
+  const savedScreenRef=useRef()
+  const handleScroll=(e)=>{
+    setScrollY(e.nativeEvent.contentOffset.y);
+  }
+  useEffect(()=>{
+    if(route.params?.cards){
+      setCards(route.params.cards)
+    }
+  },[route.params?.cards])
+  const transition = (
+    <Transition.Sequence>
+        <Transition.Out
+          type="fade"
+          durationMs={400}
+          interpolation="easeOut"
+          // delayMs={20}
+        />
+    </Transition.Sequence>
+  );
   const getContent = () => {
     return (
       <>
@@ -54,8 +75,8 @@ const SavedCardsScreen = ({navigation}) => {
               <Pressable
                 onPress={() =>
                   navigation.navigate('AddCardPage', {
-                    cards,
-                    setCards,
+                    type:"ADD",
+                    cards
                   })
                 }
                 style={{
@@ -79,14 +100,17 @@ const SavedCardsScreen = ({navigation}) => {
         ) : (
           <ScrollView
             style={{flex: 1}}
+            ref={scrollRef}
             showsVerticalScrollIndicator={false}
+            onScroll={handleScroll}
+            scrollEventThrottle={16}
             bounces={false}>
-            <View style={{padding: hp(2)}}>
+            <Transitioning.View style={{padding: hp(2)}} transition={transition} ref={savedScreenRef} >
               <ScaleAnimation
                 onPress={() =>
                   navigation.navigate('AddCardPage', {
-                    cards,
-                    setCards,
+                    type:"ADD",
+                    cards
                   })
                 }
                 scaleTo={0.9}>
@@ -121,12 +145,16 @@ const SavedCardsScreen = ({navigation}) => {
                       data={data}
                       key={index}
                       index={index}
+                      cards={cards}
                       setCards={setCards}
+                      scrollY={scrollY}
+                      scrollRef={scrollRef}
+                      savedScreenRef={savedScreenRef}
                     />
                   );
                 })}
               </View>
-            </View>
+            </Transitioning.View>
           </ScrollView>
         )}
       </>

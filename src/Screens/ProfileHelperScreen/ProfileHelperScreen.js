@@ -8,11 +8,20 @@ import ScaleAnimation from '../../Components/ScaleAnimation';
 import Button from '../../Components/Button';
 
 const ProfileHelperScreen = ({navigation, route}) => {
-  const [mobile, setMobile] = useState('8978938767');
+  const [mobile, setMobile] = useState(route.params.mobile);
   const {topic, title} = route.params;
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handlePress=()=>{
+    navigation.navigate({
+      name: 'EditProfilePage',
+      params: { mobile },
+      merge: true,
+    });
+  }
+
   const getContent = () => {
     switch (topic) {
       case 'CHANGE_MOBILE_NUMBER':
@@ -48,7 +57,7 @@ const ProfileHelperScreen = ({navigation, route}) => {
               />
             </View>
             <View style={{paddingHorizontal: hp(2), paddingVertical: hp(1)}}>
-              <Pressable style={{backgroundColor: '#fb56c1'}}>
+              <Pressable onPress={handlePress} style={{backgroundColor: '#fb56c1'}}>
                 <Text
                   style={{
                     fontFamily: 'ProductSans-Bold',

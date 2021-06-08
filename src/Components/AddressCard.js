@@ -60,7 +60,7 @@ const AddressCard = props => {
           {props.data.address}
         </Text>
         <Text style={{fontFamily: 'ProductSans-Regular', fontSize: hp(1.9)}}>
-          {props.data.district} - {props.data.pincode}
+          {props.data.city} - {props.data.pincode}
         </Text>
         <Text
           style={{
@@ -81,7 +81,7 @@ const AddressCard = props => {
               fontFamily: 'ProductSans-Regular',
               fontSize: hp(1.9),
             }}>
-            Mobile: 8748279065
+            Mobile: {props.data.mobile}
           </Text>
           {!props.data.default ? (
             <Pressable onPress={handlePress}>
@@ -117,9 +117,10 @@ const AddressCard = props => {
           <Pressable
             onPress={() =>
               navigation.navigate('AddNewAddressPage', {
+                type:"EDIT",
                 data: props.data,
-                setUserAddresses: props.setUserAddresses,
-                index:props.index
+                index:props.index,
+                userAddresses:props.userAddresses
               })
             }
             style={{
