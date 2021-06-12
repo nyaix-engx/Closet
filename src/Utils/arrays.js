@@ -93,7 +93,7 @@ export const CreditCardsLogo = [
 
 export const categories = [
   {
-    title: 'Men',
+    title: 'MEN',
     background: '',
     img: '',
     subCategory: [
@@ -110,7 +110,7 @@ export const categories = [
     ],
   },
   {
-    title: 'Women',
+    title: 'WOMEN',
     background: '',
     img: '',
     subCategory: [
@@ -127,7 +127,7 @@ export const categories = [
     ],
   },
   {
-    title: 'Kids',
+    title: 'KIDS',
     background: '',
     img: '',
     subCategory: [
@@ -144,7 +144,7 @@ export const categories = [
     ],
   },
   {
-    title: 'Beauty',
+    title: 'BEAUTY',
     background: '',
     img: '',
     subCategory: [
@@ -161,7 +161,7 @@ export const categories = [
     ],
   },
   {
-    title: 'Gadgets',
+    title: 'GADGETS',
     background: '',
     img: '',
     subCategory: [
@@ -682,7 +682,7 @@ export const addresses=[
     name: 'Alec Benjamin',
     mobile:"8978675645",
     type: 'HOME',
-    address: 'A-23,Viking Street, New Delhi',
+    address: 'A-23, Viking Street, New Delhi',
     state: 'New Delhi',
     pincode: '110045',
     city: 'South Delhi',
@@ -693,7 +693,7 @@ export const addresses=[
     name: 'Natasha Romanoff',
     mobile:"8178675045",
     type: 'HOME',
-    address: 'A-23,New York, USA',
+    address: 'A-23, New York, USA',
     state: 'New York',
     pincode: '2637828',
     city: 'New York',
@@ -704,7 +704,7 @@ export const addresses=[
     name: 'Manoj Kumar',
     type: 'OFFICE',
     mobile:"9179067451",
-    address: 'A-112,Defence Colony, New Delhi',
+    address: 'A-112, Defence Colony, New Delhi',
     state: 'New Delhi',
     pincode: '110015',
     city: 'East Delhi',
@@ -809,4 +809,36 @@ export const outOfStockItems=[
     price:28,
     image:require('../Assets/Images/polo.png')
   },
+]
+
+export const ordersData=[
+  {
+    type:"Delivered",
+    date:"On Tue, 15 Jan 2021",
+    iconImage:require('../Assets/Images/delivery.png'),
+    productTitle:"HRX by Hrithik Roshan",
+    productSubtitle:"Ultralyte Men Red Polo",
+    productImage:require('../Assets/Images/polo.png'),
+    size:"M"
+  },
+  {
+    type:"Cancelled",
+    date:"On Thu, 19 Feb 2021 as per your request",
+    iconImage:require('../Assets/Images/cancel.png'),
+    productTitle:"US Polo Assn.",
+    productSubtitle:"Men Navy Blue Shirt",
+    refund:"Rs 1379 on Sat, 20 Feb",
+    productImage:require('../Assets/Images/shirt.jpg'),
+    size:"M"
+  },
+  {
+    type:"Returned",
+    date:"On Thu, 19 Feb 2021 as per your request",
+    iconImage:require('../Assets/Images/back.png'),
+    refund:"Rs 600 on Sat, 23 Feb",
+    productTitle:"WROGN",
+    productSubtitle:"Men Navy Blue Shirt",
+    productImage:require('../Assets/Images/shirt.jpg'),
+    size:"M"
+  }
 ]

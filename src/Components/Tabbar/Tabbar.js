@@ -55,7 +55,7 @@ const MyTabBar = ({state, descriptors, navigation}) => {
                 style={
                   isFocused
                     ? {
-                        color: '#fb56c1',
+                        color: '#fb7ca0',
                         fontSize: hp(1.6),
                         textAlign: 'center',
                         fontFamily:'ProductSans-Bold'  

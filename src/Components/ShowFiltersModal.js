@@ -57,8 +57,8 @@ const ShowFiltersModal = props => {
           }}>
           <Text
             style={{
-              fontSize: hp(2),
-              fontFamily: 'ProductSans-Regular',
+              fontSize: hp(1.7),
+              fontFamily: 'Poppins-Medium',
               fontWeight: index === filterState ? '800' : '100',
             }}>
             {data}
@@ -151,11 +151,12 @@ const ShowFiltersModal = props => {
             }}>
             <Text
               style={{
-                fontFamily: 'ProductSans-Bold',
-                fontSize: hp(2.3),
+                fontFamily: 'RalewayRoman-Regular',
+                fontWeight:'600',
+                fontSize: hp(2),
                 color: '#363636',
               }}>
-              Filters
+              FILTERS
             </Text>
           </View>
           <View
@@ -169,7 +170,8 @@ const ShowFiltersModal = props => {
             <Pressable onPress={handlePress} style={{padding: hp(2)}}>
               <Text
                 style={{
-                  fontFamily: 'ProductSans-Bold',
+                  fontFamily: 'RalewayRoman-Regular',
+                  fontWeight:'600', 
                   fontSize: hp(1.8),
                   color: '#fb7ca0',
                 }}>
@@ -203,7 +205,7 @@ const ShowFiltersModal = props => {
         </View>
         <View
           style={{
-            flex: 1,
+            flex: 0.8,
             display: 'flex',
             flexDirection: 'row',
             marginBottom: insets.bottom,
@@ -218,12 +220,12 @@ const ShowFiltersModal = props => {
                   flexDirection: 'row',
                   justifyContent: 'center',
                   backgroundColor: '#c9c9c9',
-                  paddingVertical: hp(1.5),
                 }}>
                 <Text
                   style={{
-                    fontSize: hp(1.8),
-                    fontFamily: 'ProductSans-Bold',
+                    fontSize: hp(2),
+                    fontFamily: 'RalewayRoman-Regular',
+                    fontWeight:'600',
                     color: 'white',
                   }}>
                   CLOSE
@@ -240,13 +242,13 @@ const ShowFiltersModal = props => {
                   display: 'flex',
                   flexDirection: 'row',
                   justifyContent: 'center',
-                  paddingVertical: hp(1.5),
                   backgroundColor: '#fb7ca0',
                 }}>
                 <Text
                   style={{
-                    fontSize: hp(1.8),
-                    fontFamily: 'ProductSans-Bold',
+                    fontSize: hp(2),
+                    fontFamily: 'RalewayRoman-Regular',
+                    fontWeight:'600',
                     color: 'white',
                   }}>
                   APPLY

@@ -55,7 +55,7 @@ const FilterRadio = (props) => {
                 }}
               />
             )}
-            <Text style={{fontSize: hp(2), fontFamily: 'ProductSans-Regular'}}>
+            <Text style={{fontSize: hp(1.6), fontFamily: 'Poppins-Light'}}>
               {item.first}
             </Text>
           </View>
@@ -68,8 +68,8 @@ const FilterRadio = (props) => {
             }}>
             <Text
               style={{
-                fontSize: hp(2),
-                fontFamily: 'ProductSans-Regular',
+                fontSize: hp(1.6), 
+                fontFamily: 'Poppins-Light',
                 color: '#c9c9c9',
               }}>
               {item.second}

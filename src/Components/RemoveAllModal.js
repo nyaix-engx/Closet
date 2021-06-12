@@ -53,7 +53,7 @@ const RemoveAllModal = props => {
               style={{
                 fontFamily: 'ProductSans-Regular',
                 fontWeight: 'bold',
-                color: '#fb56c1',
+                color: '#fb7ca0',
               }}>
               REMOVE
             </Text>

@@ -39,6 +39,8 @@ const ConfirmModal = props => {
           backgroundColor: 'white',
           paddingTop: hp(2),
           paddingHorizontal: hp(2),
+          borderTopRightRadius:hp(1),
+          borderTopLeftRadius:hp(1)
         }}>
         <View
           style={{
@@ -66,7 +68,8 @@ const ConfirmModal = props => {
           <View style={{flex: 5, paddingHorizontal: hp(1)}}>
             <Text
               style={{
-                fontFamily: 'ProductSans-Bold',
+                fontFamily: 'RalewayRoman-Regular',
+                fontWeight:'600',
                 fontSize: hp(1.8),
                 paddingVertical: hp(1),
               }}>
@@ -74,9 +77,9 @@ const ConfirmModal = props => {
             </Text>
             <Text
               style={{
-                fontFamily: 'ProductSans-Regular',
-                fontSize: hp(1.8),
-                color: '#adadad',
+                fontFamily: 'Poppins-Light',
+                fontSize: hp(1.7),
+                color: 'grey',
               }}>
               {props.text}
             </Text>
@@ -93,20 +96,19 @@ const ConfirmModal = props => {
             </Pressable>
           </View>
         </View>
-
         <View
           style={{
             flexDirection: 'row',
             width: '100%',
-            justifyContent: 'space-between',
+            justifyContent: 'space-around',
             marginBottom: insets.bottom,
           }}>
-          <View style={{width: '48%'}}>
+          <View style={{width: '45%'}}>
             <ScaleAnimation onPress={() => props.setShowModal()} scaleTo={0.9}>
               <Button
                 viewProps={{
                   backgroundColor: 'grey',
-                  paddingVertical: hp(1.2),
+                  paddingVertical: hp(1.4),
                   width: '100%',
                   borderRadius: hp(0.3),
                 }}>
@@ -114,7 +116,8 @@ const ConfirmModal = props => {
                   style={{
                     textAlign: 'center',
                     fontSize: hp(1.8),
-                    fontFamily: 'ProductSans-Bold',
+                    fontFamily: 'RalewayRoman-Regular',
+                    fontWeight:'600',
                     color: 'white',
                   }}>
                   {props.cancelButtonText}
@@ -124,13 +127,13 @@ const ConfirmModal = props => {
           </View>
           <View
             style={{
-              width: '48%',
+              width: '45%',
             }}>
             <ScaleAnimation onPress={handlePress} scaleTo={0.9}>
               <Button
                 viewProps={{
                   backgroundColor: '#fb7ca0',
-                  paddingVertical: hp(1.2),
+                  paddingVertical: hp(1.4),
                   width: '100%',
                   borderRadius: hp(0.3),
                 }}>
@@ -138,7 +141,8 @@ const ConfirmModal = props => {
                   style={{
                     textAlign: 'center',
                     fontSize: hp(1.8),
-                    fontFamily: 'ProductSans-Bold',
+                    fontFamily: 'RalewayRoman-Regular',
+                    fontWeight:'600',
                     color: 'white',
                   }}>
                   {props.confirmButtonText}

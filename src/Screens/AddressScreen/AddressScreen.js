@@ -81,19 +81,20 @@ const AddressScreen = ({navigation,route}) => {
     if (userAddresses.length > 0) {
       return (
         <>
-          <View style={{padding: hp(2)}}>
+          <View style={{paddingHorizontal: hp(4),paddingVertical:hp(2)}}>
             <CustomButton
               userAddresses={userAddresses}
               navigation={navigation}
               textStyle={{
-                fontFamily: 'ProductSans-Bold',
-                fontSize: hp(2),
+                fontFamily: 'RalewayRoman-Regular',
+                fontSize: hp(1.8),
+                fontWeight:'600',
                 textAlign: 'center',
                 color: '#ffffff',
               }}
               viewStyle={{
-                padding: hp(2),
-                backgroundColor: '#fb56c1',
+                padding: hp(1.8),
+                backgroundColor: '#fb7ca0',
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -115,8 +116,9 @@ const AddressScreen = ({navigation,route}) => {
               <View style={{paddingHorizontal: hp(2), paddingVertical: hp(1)}}>
                 <Text
                   style={{
-                    fontFamily: 'ProductSans-Bold',
-                    fontSize: hp(2),
+                    fontFamily: 'RalewayRoman-Regular',
+                    fontSize: hp(1.9),
+                    fontWeight:'600'
                   }}>
                   ADDRESSES
                 </Text>

@@ -46,10 +46,10 @@ return props.data.map((item,index)=>{
             </View>
             <View style={{flex:2,paddingLeft:hp(1),display:'flex',flexDirection:"row",alignItems:"center"}}>
                 {props.category==='Color' && <View style={{height:hp(2.5),width:hp(2.5),backgroundColor:item.code,marginRight:hp(1)}} />}
-                <Text style={{fontSize:hp(2),fontFamily:'ProductSans-Regular'}}>{item.first}</Text>
+                <Text style={{fontSize:hp(1.6),fontFamily:'Poppins-Light'}}>{item.first}</Text>
             </View>
             <View style={{flex:1,justifyContent:'center',paddingLeft:hp(1),alignItems:'center'}}>
-                <Text style={{fontSize:hp(2),fontFamily:'ProductSans-Regular',color:'#c9c9c9'}}>{item.second}</Text> 
+                <Text style={{fontSize:hp(1.6),fontFamily:'Poppins-Light',color:'#c9c9c9'}}>{item.second}</Text> 
             </View>
         </View>
     </Pressable>

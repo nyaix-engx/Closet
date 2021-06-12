@@ -21,14 +21,19 @@ import Animated from 'react-native-reanimated';
 import SimilarStylesCard from '../../Components/WishlistScreenComps/SimilarStylesCard';
 import ScaleAnimation from '../../Components/ScaleAnimation';
 import Button from '../../Components/Button';
+import {addresses} from '../../Utils/arrays';
+import ChangeDeliveryModal from '../../Components/ChangeDeliveryModal';
 
 const DescriptionScreen = () => {
   const {width} = useWindowDimensions();
+  const [address,setAddress]=useState(addresses[0])
+  const [showDeliveryModal,setShowDeliveryModal]=useState(false)
   const navigation = useNavigation();
+  const [size,setSize]=useState('S')
   const insets = useSafeAreaInsets();
   let scrollY = useRef(new Animated.Value(0));
   const [display, setDisplay] = useState('flex');
-
+  const sizes=['S','M','L','XL','XXL']
   let backcolor = Animated.interpolateColors(
     scrollY.current,
     {
@@ -86,10 +91,10 @@ const DescriptionScreen = () => {
           }}>
           <View style={{display: 'flex'}}>
             <View style={{display: 'flex', marginBottom: hp(1)}}>
-              <Text style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2.5)}}>
+              <Text style={{fontFamily: 'RalewayRoman-Regular', fontSize: hp(2.5)}}>
                 Moda Rapido
               </Text>
-              <Text style={{color: '#363636', flexWrap: 'wrap'}}>
+              <Text style={{color: '#363636', flexWrap: 'wrap',marginTop:hp(0.5),fontFamily:'Poppins-Light',fontSize:hp(1.5)}}>
                 Men Maroon Printed Round Neck T-shirt
               </Text>
             </View>
@@ -97,20 +102,20 @@ const DescriptionScreen = () => {
               style={{
                 display: 'flex',
                 flexDirection: 'row',
-                marginBottom: hp(1),
+                marginBottom: hp(0.5),
               }}>
               <Text
                 style={{
                   marginRight: hp(1),
                   fontSize: hp(2),
-                  fontFamily: 'ProductSans-Regular',
+                  fontFamily: 'Poppins-Medium',
                 }}>
                 $50
               </Text>
               <Text
                 style={{
                   fontSize: hp(2),
-                  fontFamily: 'ProductSans-Regular',
+                  fontFamily: 'Poppins-light',
                   color: '#fb7ca0',
                 }}>
                 (40% OFF)
@@ -118,9 +123,10 @@ const DescriptionScreen = () => {
             </View>
             <Text
               style={{
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
+                fontSize: hp(1.7),
+                fontFamily: 'Poppins-Medium',
                 color: 'green',
+                paddingBottom:hp(2)
               }}>
               Inclusive of all taxes
             </Text>
@@ -128,7 +134,7 @@ const DescriptionScreen = () => {
         </View>
         <View
           style={{
-            height: hp(10),
+            paddingVertical:hp(2),
             paddingHorizontal: hp(1.5),
             display: 'flex',
             justifyContent: 'center',
@@ -137,8 +143,8 @@ const DescriptionScreen = () => {
           }}>
           <Text
             style={{
-              fontFamily: 'ProductSans-Bold',
-              fontSize: hp(1.8),
+              fontFamily: 'Poppins-Medium',
+              fontSize: hp(1.7),
               marginBottom: hp(1),
             }}>
             Easy 30 days returns and exchanges
@@ -146,8 +152,8 @@ const DescriptionScreen = () => {
           <View>
             <Text
               style={{
-                fontFamily: 'ProductSans-Regular',
-                fontSize: hp(1.7),
+                fontFamily: 'Poppins-light',
+                fontSize: hp(1.5),
                 color: '#757575',
               }}>
               Choose to return or exchange for a different size (if available)
@@ -170,7 +176,8 @@ const DescriptionScreen = () => {
               }}>
               <Text
                 style={{
-                  fontFamily: 'ProductSans-Regular',
+                  fontFamily: 'RalewayRoman-Regular',
+                  fontWeight:'bold',
                   fontSize: hp(1.8),
                   color: '#757575',
                   marginBottom: hp(2),
@@ -178,91 +185,40 @@ const DescriptionScreen = () => {
                 SELECT SIZE
               </Text>
               <View style={{display: 'flex', flexDirection: 'row'}}>
-                <View
+                {sizes.map((data,index)=>{
+                  return  <Pressable
+                  onPress={()=>setSize(data)}
+                  key={index}
                   style={{
                     borderWidth: hp(0.1),
-                    borderColor: 'black',
+                    borderColor: size==data?'#fb7ca0':'#000000',
+                    backgroundColor:size==data?'#fb7ca0':'#ffffff',
                     marginRight: hp(1),
-                    width: hp(5),
+                    width: hp(6),
                     height: hp(5),
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    borderRadius: hp(2.5),
+                    borderRadius: hp(3),
                   }}>
-                  <Text style={{fontSize: hp(2.4)}}>S</Text>
-                </View>
-                <View
-                  style={{
-                    borderWidth: hp(0.1),
-                    borderColor: 'black',
-                    marginRight: hp(1),
-                    width: hp(5),
-                    height: hp(5),
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: hp(2.5),
-                  }}>
-                  <Text style={{fontSize: hp(2.4)}}>M</Text>
-                </View>
-                <View
-                  style={{
-                    borderWidth: hp(0.1),
-                    borderColor: 'black',
-                    marginRight: hp(1),
-                    width: hp(5),
-                    height: hp(5),
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: hp(2.5),
-                  }}>
-                  <Text style={{fontSize: hp(2.4)}}>L</Text>
-                </View>
-                <View
-                  style={{
-                    borderWidth: hp(0.1),
-                    borderColor: 'black',
-                    marginRight: hp(1),
-                    width: hp(5),
-                    height: hp(5),
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: hp(2.5),
-                  }}>
-                  <Text style={{fontSize: hp(2.4)}}>XL</Text>
-                </View>
-                <View
-                  style={{
-                    borderWidth: hp(0.1),
-                    borderColor: 'black',
-                    marginRight: hp(1),
-                    width: hp(7),
-                    height: hp(5),
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: hp(2.5),
-                  }}>
-                  <Text style={{fontSize: hp(2.4)}}>XXL</Text>
-                </View>
+                  <Text style={{fontSize: hp(2.2),color:size==data?'#ffffff':'#000000',fontFamily:'RalewayRoman-Regular'}}>{data}</Text>
+                </Pressable>
+                })}
               </View>
             </View>
             <View style={{paddingVertical: hp(2)}}>
               <Text
                 style={{
-                  fontSize: hp(2),
-                  fontFamily: 'ProductSans-Bold',
+                  fontSize: hp(1.8),
+                  fontFamily: 'Poppins-Medium',
                   marginBottom: hp(1),
                 }}>
                 Model Size & Fit
               </Text>
               <Text
                 style={{
-                  fontSize: hp(2),
-                  fontFamily: 'ProductSans-Regular',
+                  fontSize: hp(1.6),
+                  fontFamily: 'Poppins-Light',
                   marginBottom: hp(2),
                   color: '#757575',
                 }}>
@@ -296,8 +252,9 @@ const DescriptionScreen = () => {
                         />
                         <Text
                           style={{
-                            fontSize: hp(1.8),
-                            fontFamily: 'ProductSans-Bold',
+                            fontSize: hp(1.7),
+                            fontFamily: 'RalewayRoman-Regular',
+                            fontWeight:'bold'
                           }}>
                           WISHLIST
                         </Text>
@@ -305,7 +262,6 @@ const DescriptionScreen = () => {
                     </Button>
                   </ScaleAnimation>
                 </View>
-
                 <View style={{width: '45%'}}>
                   <ScaleAnimation onPress={() => {}} scaleTo={0.9}>
                     <Button
@@ -326,8 +282,9 @@ const DescriptionScreen = () => {
                         />
                         <Text
                           style={{
-                            fontSize: hp(1.8),
-                            fontFamily: 'ProductSans-Bold',
+                            fontSize: hp(1.7),
+                            fontFamily: 'RalewayRoman-Regular',
+                            fontWeight:'bold',
                             color: 'white',
                           }}>
                           ADD TO BAG
@@ -343,20 +300,16 @@ const DescriptionScreen = () => {
         <View
           style={{
             paddingHorizontal: hp(1.5),
-            paddingVertical: hp(1),
+            paddingVertical: hp(2.5),
             backgroundColor: 'white',
             marginBottom: hp(2),
           }}>
-          <View
-            style={{
-              paddingVertical: hp(1),
-              borderBottomWidth: hp(0.1),
-              borderBottomColor: '#c9c9c9',
-            }}>
+          <View style={{marginBottom:hp(2)}}> 
             <Text
               style={{
-                fontSize: hp(2),
-                fontFamily: 'ProductSans-Bold',
+                fontSize: hp(1.9),
+                fontFamily: 'RalewayRoman-Regular',
+                fontWeight:'bold',
                 color: '#757575',
                 marginBottom: hp(0.5),
               }}>
@@ -364,20 +317,21 @@ const DescriptionScreen = () => {
             </Text>
             <Text
               style={{
-                fontSize: hp(2),
-                fontFamily: 'ProductSans-Regular',
+                fontSize: hp(1.7),
+                fontFamily: 'Poppins-light',
                 color: 'black',
                 marginBottom: hp(0.5),
               }}>
               Cotton
             </Text>
           </View>
-          <View style={{paddingTop: hp(3), marginBottom: hp(2)}}>
+          <View style={{marginBottom: hp(2)}}>
             <View>
               <Text
                 style={{
-                  fontSize: hp(2),
-                  fontFamily: 'ProductSans-Bold',
+                  fontSize: hp(1.9),
+                  fontFamily: 'RalewayRoman-Regular',
+                  fontWeight:'bold',
                   color: '#757575',
                   marginBottom: hp(0.5),
                 }}>
@@ -385,8 +339,8 @@ const DescriptionScreen = () => {
               </Text>
               <Text
                 style={{
-                  fontSize: hp(2),
-                  fontFamily: 'ProductSans-Regular',
+                  fontSize: hp(1.7),
+                  fontFamily: 'Poppins-light',
                   color: 'black',
                   marginBottom: hp(0.5),
                   textAlign: 'justify',
@@ -399,8 +353,9 @@ const DescriptionScreen = () => {
             <View>
               <Text
                 style={{
-                  fontSize: hp(2),
-                  fontFamily: 'ProductSans-Bold',
+                  fontSize: hp(1.9),
+                  fontFamily: 'RalewayRoman-Regular',
+                  fontWeight:'bold',
                   color: '#757575',
                   marginBottom: hp(0.5),
                 }}>
@@ -408,8 +363,8 @@ const DescriptionScreen = () => {
               </Text>
               <Text
                 style={{
-                  fontSize: hp(2),
-                  fontFamily: 'ProductSans-Regular',
+                  fontSize: hp(1.7),
+                  fontFamily: 'Poppins-light',
                   color: 'black',
                   marginBottom: hp(0.5),
                   textAlign: 'justify',
@@ -422,8 +377,9 @@ const DescriptionScreen = () => {
             <View>
               <Text
                 style={{
-                  fontSize: hp(2),
-                  fontFamily: 'ProductSans-Bold',
+                  fontSize: hp(1.9),
+                  fontFamily: 'RalewayRoman-Regular',
+                  fontWeight:'bold',
                   color: '#757575',
                   marginBottom: hp(0.5),
                 }}>
@@ -431,8 +387,8 @@ const DescriptionScreen = () => {
               </Text>
               <Text
                 style={{
-                  fontSize: hp(2),
-                  fontFamily: 'ProductSans-Regular',
+                  fontSize: hp(1.7),
+                  fontFamily: 'Poppins-light',
                   color: 'black',
                   marginBottom: hp(0.5),
                   textAlign: 'justify',
@@ -441,8 +397,8 @@ const DescriptionScreen = () => {
               </Text>
               <Text
                 style={{
-                  fontSize: hp(2),
-                  fontFamily: 'ProductSans-Regular',
+                  fontSize: hp(1.7),
+                  fontFamily: 'Poppins-light',
                   color: 'black',
                   marginBottom: hp(0.5),
                   textAlign: 'justify',
@@ -451,12 +407,13 @@ const DescriptionScreen = () => {
               </Text>
             </View>
           </View>
-          <View style={{marginBottom: hp(1)}}>
+          <View>
             <View>
               <Text
                 style={{
-                  fontSize: hp(2),
-                  fontFamily: 'ProductSans-Bold',
+                  fontSize: hp(1.9),
+                  fontFamily: 'RalewayRoman-Regular',
+                  fontWeight:'bold',
                   color: '#757575',
                   marginBottom: hp(0.5),
                   textAlign: 'justify',
@@ -465,8 +422,8 @@ const DescriptionScreen = () => {
               </Text>
               <Text
                 style={{
-                  fontSize: hp(2),
-                  fontFamily: 'ProductSans-Regular',
+                  fontSize: hp(1.7),
+                  fontFamily: 'Poppins-light',
                   color: 'black',
                   marginBottom: hp(0.5),
                   textAlign: 'justify',
@@ -489,14 +446,17 @@ const DescriptionScreen = () => {
           <View
             style={{
               paddingVertical: hp(1),
+              borderBottomWidth:hp(0.1),
+              borderBottomColor:"grey"
             }}>
             <Text
               style={{
                 fontSize: hp(2),
-                fontFamily: 'ProductSans-Bold',
+                fontFamily: 'RalewayRoman-Regular',
                 marginBottom: hp(1),
+                fontWeight:'bold'
               }}>
-              Customer Reviews (2098)
+              Customer Reviews
             </Text>
           </View>
           <View>
@@ -509,8 +469,8 @@ const DescriptionScreen = () => {
             style={{paddingVertical: hp(1.5)}}>
             <Text
               style={{
-                fontFamily: 'ProductSans-Bold',
-                fontSize: hp(1.8),
+                fontFamily: 'Poppins-Medium',
+                fontSize: hp(1.6),
                 color: '#fb7ca0',
               }}>
               View all 208 reviews
@@ -525,7 +485,7 @@ const DescriptionScreen = () => {
             marginBottom: hp(2),
           }}>
           <View style={{paddingVertical: hp(2)}}>
-            <Text style={{fontSize: hp(2), fontFamily: 'ProductSans-Regular'}}>
+            <Text style={{fontSize: hp(1.8), fontFamily: 'RalewayRoman-Regular',fontWeight:'bold'}}>
               DELIVERY & SERVICES FOR
             </Text>
           </View>
@@ -546,12 +506,13 @@ const DescriptionScreen = () => {
                 justifyContent: 'center',
                 paddingHorizontal: hp(1),
               }}>
-              <Text style={{fontSize: hp(2), fontFamily: 'ProductSans-Bold'}}>
-                110049
+              <Text style={{fontSize: hp(1.8), fontFamily: 'Poppins-Light',fontWeight:'bold'}}>
+                {address.pincode}
               </Text>
             </View>
             <View style={{flex: 1.5}}>
-              <Pressable
+              <Pressable 
+                onPress={()=>setShowDeliveryModal(true)}
                 style={{
                   flex: 1,
                   display: 'flex',
@@ -560,8 +521,9 @@ const DescriptionScreen = () => {
                 }}>
                 <Text
                   style={{
-                    fontSize: hp(2),
-                    fontFamily: 'ProductSans-Bold',
+                    fontSize: hp(1.8),
+                    fontFamily: 'RalewayRoman-Regular',
+                    fontWeight:'bold',
                     color: '#fb7ca0',
                   }}>
                   Change
@@ -585,8 +547,8 @@ const DescriptionScreen = () => {
               />
               <Text
                 style={{
-                  fontSize: hp(1.9),
-                  fontFamily: 'ProductSans-Bold',
+                  fontSize: hp(1.7),
+                  fontFamily: 'Poppins-Medium',
                   paddingVertical: hp(0.5),
                 }}>
                 Pay on delivery available
@@ -607,8 +569,8 @@ const DescriptionScreen = () => {
               />
               <Text
                 style={{
-                  fontSize: hp(1.9),
-                  fontFamily: 'ProductSans-Bold',
+                  fontSize: hp(1.7),
+                  fontFamily: 'Poppins-Medium',
                   paddingVertical: hp(0.5),
                 }}>
                 Easy 30 days return & exchange available
@@ -629,8 +591,8 @@ const DescriptionScreen = () => {
               />
               <Text
                 style={{
-                  fontSize: hp(1.9),
-                  fontFamily: 'ProductSans-Bold',
+                  fontSize: hp(1.7),
+                  fontFamily: 'Poppins-Medium',
                   paddingVertical: hp(0.5),
                 }}>
                 Try & Buy available
@@ -651,10 +613,10 @@ const DescriptionScreen = () => {
             }}>
             <Text
               style={{
-                fontFamily: 'ProductSans-Regular',
+                fontFamily: 'RalewayRoman-Regular',
                 fontWeight: 'bold',
                 color: 'grey',
-                fontSize: Platform.OS === 'ios' ? hp(1.6) : hp(1.7),
+                fontSize: Platform.OS === 'ios' ? hp(1.7) : hp(1.7),
               }}>
               VIEW SIMILAR
             </Text>
@@ -705,7 +667,7 @@ const DescriptionScreen = () => {
         </Pressable>
         <View style={{display: 'flex', flexDirection: 'row'}}>
           <Pressable
-            onPress={() => navigation.goBack()}
+            onPress={() => {}}
             style={{paddingVertical: hp(1), paddingHorizontal: hp(0.5)}}>
             <View
               style={{
@@ -721,7 +683,7 @@ const DescriptionScreen = () => {
             </View>
           </Pressable>
           <Pressable
-            onPress={() => navigation.goBack()}
+            onPress={() => {}}
             style={{paddingVertical: hp(1), paddingHorizontal: hp(0.5)}}>
             <View
               style={{
@@ -737,7 +699,7 @@ const DescriptionScreen = () => {
             </View>
           </Pressable>
           <Pressable
-            onPress={() => navigation.goBack()}
+            onPress={() => {}}
             style={{paddingVertical: hp(1), paddingHorizontal: hp(0.5)}}>
             <View
               style={{
@@ -754,73 +716,11 @@ const DescriptionScreen = () => {
           </Pressable>
         </View>
       </Animated.View>
-      {/* <View
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          backgroundColor:'white',
-          width:'100%',
-          paddingHorizontal:hp(1.5),
-          paddingVertical:hp(1),
-          position:'absolute',
-          display,
-          bottom:insets.bottom,
-          justifyContent: 'space-between',
-        }}>
-        <Pressable style={{width: '45%'}}>
-          <View
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              backgroundColor: 'white',
-              justifyContent: 'center',
-              paddingVertical: hp(1.2),
-              borderRadius: hp(0.5),
-              borderColor: '#d6d6d6',
-              borderWidth: hp(0.1),
-            }}>
-            <AntDesign
-              name="hearto"
-              size={hp(3)}
-              style={{marginRight: hp(1)}}
-            />
-            <Text
-              style={{
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
-              }}>
-              WISHLIST
-            </Text>
-          </View>
-        </Pressable>
-        <Pressable style={{width: '50%'}}>
-          <View
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-              paddingVertical: hp(1.2),
-              backgroundColor: '#fb7ca0',
-              borderRadius: hp(0.5),
-            }}>
-            <Feather
-              name="shopping-bag"
-              size={hp(3)}
-              style={{marginRight: hp(1), color: 'white'}}
-            />
-            <Text
-              style={{
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
-                color: 'white',
-              }}>
-              ADD TO BAG
-            </Text>
-          </View>
-        </Pressable>
-      </View> */}
+      <ChangeDeliveryModal
+      showModal={showDeliveryModal}
+      setShowModal={() => setShowDeliveryModal(false)}
+      setAddress={setAddress}
+      />
     </SafeAreaView>
   );
 };

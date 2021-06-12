@@ -17,7 +17,7 @@ const CategoryAvatar = (props) => {
         )}
       />
       <View style={styles.avatarTextWrap}>
-        <Text style={{fontFamily:'ProductSans-Regular',fontSize: Platform.OS==='android'? hp(1.4):hp(1.3),fontWeight:'100'}}>{props.text}</Text>
+        <Text style={{fontFamily:'NanumMyeongjoExtraBold',fontWeight:'bold', fontSize: Platform.OS==='android'? hp(1.4):hp(1.3),fontWeight:'100'}}>{props.text}</Text>
       </View>
     </Pressable>
   );
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     alignSelf:'center',
     padding: hp(1),
     borderRadius: hp(5),
-    borderColor:'#fb56c1',
+    borderColor:'#fb7ca0',
     borderWidth:hp(0.2)
   },
 });

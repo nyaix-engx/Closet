@@ -4,11 +4,11 @@ import { heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import { useNavigation } from '@react-navigation/native';
 
-const OrderCardItem = ({title,subtitle,image,size}) => {
+const OrderCardItem = ({data}) => {
   const navigation=useNavigation()
   return (
     <Pressable
-      onPress={() => navigation.navigate('ItemDetailsPage')}
+      onPress={() => navigation.navigate('ItemDetailsPage',{data})}
       style={{
         backgroundColor: '#e0e0e0',
         paddingVertical: hp(1),
@@ -25,38 +25,38 @@ const OrderCardItem = ({title,subtitle,image,size}) => {
           alignItems: 'center',
         }}>
         <Image
-          source={image}
+          source={data.productImage}
           style={{height: '100%', width: '100%'}}
         />
       </View>
       <View style={{flex: 8, paddingHorizontal: hp(1)}}>
         <Text
           style={{
-            fontFamily: 'ProductSans-Bold',
-            fontSize: hp(2),
-            paddingVertical: hp(1),
+            fontFamily: 'Poppins-Medium',
+            fontSize: hp(1.8),
+            paddingVertical: hp(0.5),
           }}>
-          {title}
+          {data.productTitle}
         </Text>
         <Text
           style={{
-            fontFamily: 'ProductSans-Regular',
-            fontSize: hp(1.9),
+            fontFamily: 'Poppins-Light',
+            fontSize: hp(1.6),
             color: 'grey',
           }}>
-          {subtitle}
+          {data.productSubtitle}
         </Text>
         <Text
           style={{
-            fontFamily: 'ProductSans-Regular',
-            fontSize: hp(1.9),
+            fontFamily: 'Poppins-Light',
+            fontSize: hp(1.6),
             color: 'grey',
           }}>
-          Size: {size}
+          Size: {data.size}
         </Text>
       </View>
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Fontisto name="angle-right" size={hp(2)} />
+        <Fontisto name="angle-right" size={hp(1.5)} />
       </View>
     </Pressable>
   );

@@ -40,7 +40,7 @@ const AddressCard = props => {
           alignItems: 'center',
           marginBottom: hp(2),
         }}>
-        <Text style={{fontSize: hp(2), fontFamily: 'ProductSans-Bold'}}>
+        <Text style={{fontSize: hp(1.8), fontFamily: 'Poppins-Medium'}}>
           {props.data.name}
         </Text>
         <View
@@ -50,22 +50,22 @@ const AddressCard = props => {
             paddingVertical: hp(0.5),
             borderRadius: hp(2),
           }}>
-          <Text style={{fontSize: hp(1.6), fontFamily: 'ProductSans-Bold'}}>
+          <Text style={{fontSize: hp(1.6), fontFamily: 'Poppins-Medium'}}>
             {props.data.type}
           </Text>
         </View>
       </View>
       <View style={{marginBottom: hp(2)}}>
-        <Text style={{fontFamily: 'ProductSans-Regular', fontSize: hp(1.9)}}>
+        <Text style={{fontFamily: 'Poppins-Light', fontSize: hp(1.7)}}>
           {props.data.address}
         </Text>
-        <Text style={{fontFamily: 'ProductSans-Regular', fontSize: hp(1.9)}}>
+        <Text style={{fontFamily: 'Poppins-Light', fontSize: hp(1.7)}}>
           {props.data.city} - {props.data.pincode}
         </Text>
         <Text
           style={{
-            fontFamily: 'ProductSans-Regular',
-            fontSize: hp(1.9),
+            fontFamily: 'Poppins-Light', 
+            fontSize: hp(1.7),
             marginBottom: hp(2),
           }}>
           {props.data.state}
@@ -78,8 +78,8 @@ const AddressCard = props => {
           }}>
           <Text
             style={{
-              fontFamily: 'ProductSans-Regular',
-              fontSize: hp(1.9),
+              fontFamily: 'Poppins-Light', 
+              fontSize: hp(1.7)
             }}>
             Mobile: {props.data.mobile}
           </Text>
@@ -87,7 +87,7 @@ const AddressCard = props => {
             <Pressable onPress={handlePress}>
               <Text
                 style={{
-                  fontFamily: 'ProductSans-Bold',
+                  fontFamily: 'Poppins-Medium',
                   fontSize: hp(1.7),
                   color: '#34a880',
                 }}>
@@ -97,9 +97,9 @@ const AddressCard = props => {
           ) : (
             <Text
               style={{
-                fontFamily: 'ProductSans-Bold',
+                fontFamily: 'Poppins-Medium',
                 fontSize: hp(1.7),
-                color: '#34a880',
+                color: '#fb7ca0',
               }}>
               DEFAULT
             </Text>
@@ -132,8 +132,9 @@ const AddressCard = props => {
             <Text
               style={{
                 textAlign: 'center',
-                fontFamily: 'ProductSans-Bold',
-                fontSize: hp(2),
+                fontFamily: 'RalewayRoman-Regular',
+                fontWeight:'600',
+                fontSize: hp(1.9),
                 color: 'blue',
               }}>
               EDIT
@@ -150,9 +151,9 @@ const AddressCard = props => {
             <Text
               style={{
                 textAlign: 'center',
-                fontFamily: 'ProductSans-Bold',
-                fontSize: hp(2),
-                color: 'blue',
+                fontFamily: 'RalewayRoman-Regular',
+                fontWeight:'600',
+                fontSize: hp(1.9),
               }}>
               REMOVE
             </Text>

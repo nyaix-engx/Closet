@@ -53,9 +53,9 @@ const ListingCard = () => {
             <View>
               <Text
                 style={{
-                  fontFamily: 'ProductSans-Bold',
-                  fontWeight: '700',
-                  fontSize: hp(1.8),
+                  fontFamily: 'RalewayRoman-Regular',
+                  fontWeight: '600',
+                  fontSize: hp(1.7),
                   color: '#363636',
                 }}>
                 WROGN
@@ -72,11 +72,11 @@ const ListingCard = () => {
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            <Text style={{fontSize:hp(1.5),color:'#9c9c9c',fontFamily:'ProductSans-Regular'}}>Men Slim Fit Jeans</Text>
+            <Text style={{fontSize:hp(1.5),color:'#9c9c9c',fontFamily:'Poppins-Light'}}>Men Slim Fit Jeans</Text>
           </View>
           <View style={{display:'flex',flexDirection:'row',justifyContent:'space-between',flex:2}}>
-              <Text style={{fontWeight:'bold'}}>$ 124</Text>
-              <Text style={{color:'#fb7ca0',fontSize:hp(1.7)}}>40% OFF</Text>
+              <Text style={{fontWeight:'bold',fontFamily:'Poppins-Medium'}}>$124</Text>
+              <Text style={{color:'#fb7ca0',fontSize:hp(1.5),fontFamily:'Poppins-Medium'}}>40% OFF</Text>
           </View>
         </View>
     </Pressable>

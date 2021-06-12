@@ -14,7 +14,7 @@ const ReviewStars = (props) => {
    return name.map((item,index) => {
       return (
         <Pressable onPress={()=>handlePress(index)} key={index} style={{paddingVertical: hp(1), paddingHorizontal: hp(0.5)}}>
-          <FontAwesome name='star' size={props.size || hp(2.6)} color={index<=pos && pos!==null?"#fb56c1":'#e0e0e0'}   />
+          <FontAwesome name='star' size={props.size || hp(2.6)} color={index<=pos && pos!==null?"#fb7ca0":'#e0e0e0'}   />
         </Pressable>
       );
     });

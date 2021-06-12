@@ -9,25 +9,25 @@ const PriceSlider = ({min,max}) => {
   return (
     <View style={{paddingVertical:hp(2)}}>
       <View style={{paddingHorizontal: hp(1), paddingVertical: hp(1)}}>
-        <Text style={{fontSize: hp(2), fontFamily: 'ProductSans-Regular'}}>
+        <Text style={{fontSize: hp(1.8), fontFamily: 'RalewayRoman-Regular',fontWeight:'500'}}>
           Selected Price Range
         </Text>
       </View>
       <View style={{paddingHorizontal: hp(1), paddingVertical: hp(2)}}>
         <View style={{display: 'flex', flexDirection: 'row'}}>
           <View style={{paddingHorizontal: hp(0.3)}}>
-            <Text style={{fontSize: hp(1.8), fontFamily: 'ProductSans-Bold'}}>
-              ${multiSliderValue[0]}
+            <Text style={{fontSize: hp(1.7), fontFamily: 'Poppins-Light'}}>
+              $ {multiSliderValue[0]}
             </Text>
           </View>
           <View style={{paddingHorizontal: hp(0.3)}}>
-            <Text style={{fontSize: hp(1.8), fontFamily: 'ProductSans-Bold'}}>
+            <Text style={{fontSize: hp(1.8), fontFamily: 'Poppins-Light'}}>
               -
             </Text>
           </View>
           <View style={{paddingHorizontal: hp(0.3)}}>
-            <Text style={{fontSize: hp(1.8), fontFamily: 'ProductSans-Bold'}}>
-              ${multiSliderValue[1]}
+            <Text style={{fontSize: hp(1.8), fontFamily: 'Poppins-Light'}}>
+              $ {multiSliderValue[1]}
             </Text>
           </View>
         </View>

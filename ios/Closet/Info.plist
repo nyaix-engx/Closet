@@ -24,24 +24,19 @@
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
 		<string>Fontisto.ttf</string>
-		<string>fonts/Proxima Nova Alt Regular.otf</string>
-		<string>fonts/ProximaNova-Regular.otf</string>
 		<string>fonts/ProductSansBoldItalic.ttf</string>
 		<string>fonts/ProductSansItalic.ttf</string>
 		<string>fonts/ProductSansBold.ttf</string>
 		<string>fonts/ProductSansRegular.ttf</string>
-		<string>fonts/RalewayItalic-Regular</string>
-		<string>fonts/RalewayRoman-Regular</string>
-		<string>fonts/Poppins-ExtraLight</string>
-		<string>fonts/Poppins-Italic</string>
-		<string>fonts/Poppins-Regular</string>
-		<string>fonts/Poppins-ExtraLightItalic</string>
-		<string>fonts/Poppins-Light</string>
-		<string>fonts/Poppins-LightItalic</string>
-		<string>fonts/Poppins-Thin</string>
-		<string>fonts/Poppins-ThinItalic</string>
-		<string>fonts/Poppins-Medium</string>
-		<string>fonts/Poppins-MediumItalic</string>
+		<string>fonts/Poppins-Light.ttf</string>
+		<string>fonts/Poppins-LightItalic.ttf</string>
+		<string>fonts/Poppins-Medium.ttf</string>
+		<string>fonts/NanumMyeongjo-Bold.ttf</string>
+		<string>fonts/NanumMyeongjo-Regular.ttf</string>
+		<string>fonts/NanumMyeongjo-ExtraBold.ttf</string>
+		<string>fonts/Raleway-Italic-VariableFont_wght.ttf</string>
+		<string>fonts/Raleway-VariableFont_wght.ttf</string>
+		<string>fonts/CormorantGaramond-Regular.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

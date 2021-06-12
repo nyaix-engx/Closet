@@ -1,13 +1,14 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {View, Text, ScrollView, Pressable, Image} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import BackButtonTitle from '../../Components/BackButtonTitle';
-import OrderCardItem from '../../Components/WishlistScreenComps/OrderCardItem';
+import PaymentInformationModal from '../../Components/PaymentInformationModal';
 
-const ItemDetailsScreen = ({navigation}) => {
+const ItemDetailsScreen = ({navigation, route}) => {
+  const {data} = route.params;
+  const [showModal,setShowModal]=useState(false)
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{flex: 0.8}}>
@@ -34,7 +35,7 @@ const ItemDetailsScreen = ({navigation}) => {
                 }}>
                 <Image
                   resizeMode="contain"
-                  source={require('../../Assets/Images/polo.png')}
+                  source={data.productImage}
                   style={{height: '90%', width: '100%'}}
                 />
               </View>
@@ -44,39 +45,40 @@ const ItemDetailsScreen = ({navigation}) => {
                 <Text
                   style={{
                     textAlign: 'center',
-                    fontFamily: 'ProductSans-Bold',
-                    fontSize: hp(2.3),
+                    fontFamily: 'Poppins-Medium',
+                    fontSize: hp(2),
                   }}>
-                  HRX by Hrithik Roshan
+                  {data.productTitle}
                 </Text>
               </View>
               <View style={{paddingVertical: hp(0.2)}}>
                 <Text
                   style={{
                     textAlign: 'center',
-                    fontFamily: 'ProductSans-Regular',
-                    fontSize: hp(2.1),
+                    fontFamily: 'Poppins-Light',
+                    fontSize: hp(1.8),
                     flexWrap: 'wrap',
                   }}>
-                  Ultralyte Men Yellow Running Regular Fit Tshirt
+                  {data.productSubtitle}
                 </Text>
               </View>
               <View style={{paddingVertical: hp(0.2)}}>
                 <Text
                   style={{
                     textAlign: 'center',
-                    fontFamily: 'ProductSans-Regular',
-                    fontSize: hp(2.1),
+                    fontFamily: 'Poppins-Light',
+                    fontSize: hp(1.8),
                   }}>
-                  Size: M
+                  Size: {data.size}
                 </Text>
               </View>
             </View>
             <View style={{paddingHorizontal: hp(2)}}>
               <View
                 style={{
-                  backgroundColor: '#34a880',
-                  borderRadius: hp(0.2),
+                  backgroundColor:
+                  data.type === 'Delivered' ? '#34a880' : '#eb4034',
+                  borderRadius: hp(0.5),
                   height: hp(9),
                   flexDirection: 'row',
                 }}>
@@ -90,8 +92,8 @@ const ItemDetailsScreen = ({navigation}) => {
                   }}>
                   <Image
                     resizeMethod="resize"
-                    source={require('../../Assets/Images/delivery.png')}
-                    style={{width: '50%', height: '50%'}}
+                    source={data.iconImage}
+                    style={{width: '60%', height: '80%'}}
                   />
                 </View>
                 <View
@@ -103,66 +105,126 @@ const ItemDetailsScreen = ({navigation}) => {
                   <View style={{paddingVertical: hp(0.2)}}>
                     <Text
                       style={{
-                        fontSize: hp(2),
-                        fontFamily: 'ProductSans-Bold',
+                        fontSize: hp(1.8),
+                        fontFamily: 'Poppins-Medium',
                         color: 'white',
                       }}>
-                      Delivered
+                      {data.type}
                     </Text>
                   </View>
                   <View style={{paddingVertical: hp(0.2)}}>
                     <Text
                       style={{
-                        fontSize: hp(1.9),
-                        fontFamily: 'ProductSans-Regular',
+                        fontSize: hp(1.6),
+                        fontFamily: 'Poppins-Light',
                         color: 'white',
                       }}>
-                      On Mon, 12 Oct
+                      {data.date}
                     </Text>
                   </View>
                 </View>
               </View>
             </View>
           </View>
-          <View
+          {data.type === 'Delivered' && (
+            <View
+              style={{
+                paddingVertical: hp(3),
+                backgroundColor: 'white',
+                marginBottom: hp(2),
+              }}>
+              <View style={{paddingHorizontal: hp(2), marginBottom: hp(2)}}>
+                <Text
+                  style={{fontFamily: 'RalewayRoman-Regular', fontSize: hp(1.9),fontWeight:'600'}}>
+                  Delivery Address
+                </Text>
+              </View>
+              <View style={{paddingHorizontal: hp(2)}}>
+                <View style={{flexDirection: 'row', marginBottom: hp(1)}}>
+                  <View
+                    style={{
+                      paddingRight: hp(1.2),
+                      borderRightWidth: hp(0.1),
+                      borderRightColor: '#d6d6d6',
+                    }}>
+                    <Text
+                      style={{fontSize: hp(1.6), fontFamily: 'Poppins-Light'}}>
+                      Austin
+                    </Text>
+                  </View>
+                  <View style={{paddingLeft: hp(1.2)}}>
+                    <Text
+                      style={{fontSize: hp(1.6), fontFamily: 'Poppins-Light'}}>
+                      8956723790
+                    </Text>
+                  </View>
+                </View>
+                <View>
+                  <Text
+                    style={{
+                      fontSize: hp(1.6),
+                      fontFamily: 'Poppins-Light',
+                    }}>
+                    B-3, Green Park, New Delhi-78
+                  </Text>
+                </View>
+              </View>
+            </View>
+          )}
+          
+          {data.type!=='Delivered' && <View
             style={{
-              paddingVertical: hp(3),
+              paddingVertical: hp(2),
               backgroundColor: 'white',
               marginBottom: hp(2),
             }}>
-            <View style={{paddingHorizontal: hp(2), marginBottom: hp(2)}}>
-              <Text style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2.2)}}>
-                Delivery Address
+            <View
+              style={{
+                marginBottom: hp(1),
+                paddingHorizontal: hp(2),
+                borderBottomColor: '#d6d6d6',
+                borderBottomWidth: hp(0.1),
+                paddingBottom: hp(1.5),
+              }}>
+              <Text style={{fontFamily: 'RalewayRoman-Regular', fontSize: hp(1.9),fontWeight:'600'}}>
+                Refund Details
               </Text>
             </View>
-            <View style={{paddingHorizontal: hp(2)}}>
-              <View style={{flexDirection: 'row', marginBottom: hp(1)}}>
-                <View
-                  style={{
-                    paddingRight: hp(1.2),
-                    borderRightWidth: hp(0.1),
-                    borderRightColor: 'grey',
-                  }}>
-                  <Text
-                    style={{fontSize: hp(2), fontFamily: 'ProductSans-Bold'}}>
-                    Austin
-                  </Text>
-                </View>
-                <View style={{paddingLeft: hp(1.2)}}>
-                  <Text
-                    style={{fontSize: hp(2), fontFamily: 'ProductSans-Bold'}}>
-                    8956723790
-                  </Text>
-                </View>
-              </View>
-              <View>
+            <View
+              style={{
+                paddingHorizontal: hp(2),
+                paddingVertical: hp(0.5),
+              }}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems:"center",
+                  marginBottom: hp(2),
+                }}>
                 <Text
-                  style={{fontSize: hp(2), fontFamily: 'ProductSans-Regular'}}>
-                  B-3, Green Park, New Delhi-78,
+                  style={{fontFamily: 'RalewayRoman-Regular', fontSize: hp(1.9),fontWeight:'600'}}>
+                  Total Refund Amount
+                </Text>
+                <Text
+                  style={{fontFamily: 'Poppins-Medium', fontSize: hp(1.9),color:"#34a880"}}>
+                  $1200
                 </Text>
               </View>
+              <View style={{flexDirection:"row",padding:hp(3),backgroundColor:"#e6ecf2",borderRadius:hp(0.5)}}>
+                <View style={{flex:1}}>
+                  <Text style={{fontSize:hp(1.9),fontFamily:"Poppins-Medium"}}>$20</Text>
+                </View>
+                <View style={{flex:4}}>
+                  <Text style={{fontSize:hp(1.7),fontFamily:"Poppins-Light",marginBottom:hp(1)}}>Added to SBI Bank Account</Text>
+                  <Text style={{fontSize:hp(1.7),fontFamily:"Poppins-Light"}}>Credit Instantly</Text>
+                </View>
+                <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+                  <Image source={require('../../Assets/Images/sbi.png')} style={{width:hp(4),height:hp(4)}} />
+                </View>
+              </View>
             </View>
-          </View>
+          </View>}
           <View
             style={{
               paddingVertical: hp(2),
@@ -174,13 +236,14 @@ const ItemDetailsScreen = ({navigation}) => {
                 paddingHorizontal: hp(2),
                 flexDirection: 'row',
                 justifyContent: 'space-between',
+                alignItems:'center',
                 marginBottom: hp(1),
               }}>
-              <Text style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2.2)}}>
+              <Text style={{fontFamily: 'RalewayRoman-Regular', fontSize: hp(1.9),fontWeight:'600'}}>
                 Total Item Price
               </Text>
-              <Text style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2.2)}}>
-                $20
+              <Text style={{fontFamily: 'Poppins-Medium', fontSize: hp(1.9)}}>
+                $1200
               </Text>
             </View>
             <View
@@ -188,182 +251,96 @@ const ItemDetailsScreen = ({navigation}) => {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 paddingHorizontal: hp(2),
+                alignItems:'center',
                 paddingVertical: hp(0.5),
               }}>
-              <View style={{flexDirection: 'row'}}>
+              <View style={{flexDirection: 'row',alignItems:'center'}}>
                 <Text
-                  style={{fontFamily: 'ProductSans-Regular', fontSize: hp(2)}}>
+                  style={{fontFamily: 'Poppins-Light', fontSize: hp(1.6)}}>
                   You saved{' '}
                 </Text>
                 <Text
                   style={{
-                    fontFamily: 'ProductSans-Bold',
-                    fontSize: hp(2),
+                    fontFamily: 'Poppins-Medium',
+                    fontSize: hp(1.9),
                     color: '#34a880',
                   }}>
-                  $5{' '}
+                  $300{' '}
                 </Text>
                 <Text
-                  style={{fontFamily: 'ProductSans-Regular', fontSize: hp(2)}}>
+                  style={{fontFamily: 'Poppins-Light', fontSize: hp(1.6)}}>
                   on this item
                 </Text>
               </View>
-              <Pressable>
+              <Pressable onPress={()=>setShowModal(true)}>
                 <Text
                   style={{
-                    fontFamily: 'ProductSans-Bold',
-                    fontSize: hp(2),
-                    color: '#fb56c1',
+                    fontFamily: 'RalewayRoman-Regular',
+                    fontSize: hp(1.8),
+                    fontWeight:'700',
+                    color: '#fb7ca0',
                   }}>
                   View Breakup
                 </Text>
               </Pressable>
             </View>
           </View>
-          <View
-            style={{
-              padding: hp(2),
-              backgroundColor: 'white',
-              marginBottom: hp(2),
-            }}>
-            <View style={{marginBottom: hp(2)}}>
-              <Text style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2.2)}}>
-                Other items in this order
-              </Text>
-              <Text
-                style={{
-                  fontFamily: 'ProductSans-Regular',
-                  fontSize: hp(2),
-                  paddingVertical: hp(0.5),
-                }}>
-                Order ID #11549041123
-              </Text>
-            </View>
-            <View style={{paddingVertical: hp(1)}}>
-              <View style={{marginBottom: hp(0.5)}}>
-                <OrderCardItem
-                  title="HRX by Hrithik Roshan"
-                  subtitle="Ultralyte Men Yellow Tshirt"
-                  size="M"
-                  image={require('../../Assets/Images/tshirts.jpg')}
-                />
+          {data.type === 'Delivered' && (
+            <View style={{padding: hp(2), backgroundColor: 'white'}}>
+              <View style={{marginBottom: hp(2)}}>
+                <Text
+                  style={{fontFamily: 'RalewayRoman-Regular', fontSize: hp(1.9),fontWeight:'600'}}>
+                  Updates sent to
+                </Text>
               </View>
-              <View style={{marginBottom: hp(1)}}>
-                <OrderCardItem
-                  title="HRX by Hrithik Roshan"
-                  subtitle="Ultralyte Men Yellow Tshirt"
-                  size="M"
-                  image={require('../../Assets/Images/tshirts.jpg')}
-                />
-              </View>
-            </View>
-            <View style={{borderTopWidth:hp(0.2),borderTopColor:'#e0e0e0'}}>
-              <View
-                style={{
-                  backgroundColor: 'white',
-                  paddingTop:hp(2)
-                }}>
+              <View>
                 <View
                   style={{
                     flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    marginBottom: hp(1),
+                    alignItems: 'center',
+                    marginBottom: hp(2),
                   }}>
+                  <MaterialIcons
+                    name="call"
+                    size={hp(3)}
+                    style={{marginRight: hp(2)}}
+                  />
                   <Text
-                    style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2.2)}}>
-                    Total Order Price
-                  </Text>
-                  <Text
-                    style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2.2)}}>
-                    $20
+                    style={{
+                      fontSize: hp(1.6),
+                      fontFamily: 'Poppins-Light',
+                    }}>
+                    8347734562
                   </Text>
                 </View>
                 <View
                   style={{
                     flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    paddingVertical: hp(0.5),
+                    alignItems: 'center',
+                    marginBottom: hp(2),
                   }}>
-                  <View style={{flexDirection: 'row'}}>
-                    <Text
-                      style={{
-                        fontFamily: 'ProductSans-Regular',
-                        fontSize: hp(2),
-                      }}>
-                      You saved{' '}
-                    </Text>
-                    <Text
-                      style={{
-                        fontFamily: 'ProductSans-Bold',
-                        fontSize: hp(2),
-                        color: '#34a880',
-                      }}>
-                      $5{' '}
-                    </Text>
-                    <Text
-                      style={{
-                        fontFamily: 'ProductSans-Regular',
-                        fontSize: hp(2),
-                      }}>
-                      on this item
-                    </Text>
-                  </View>
-                  <Pressable>
-                    <Text
-                      style={{
-                        fontFamily: 'ProductSans-Bold',
-                        fontSize: hp(2),
-                        color: '#fb56c1',
-                      }}>
-                      View Breakup
-                    </Text>
-                  </Pressable>
+                  <MaterialIcons
+                    name="mail"
+                    size={hp(3)}
+                    style={{marginRight: hp(2)}}
+                  />
+                  <Text
+                    style={{
+                      fontSize: hp(1.6),
+                      fontFamily: 'Poppins-Light',
+                    }}>
+                    austin_345@gmail.com
+                  </Text>
                 </View>
               </View>
             </View>
-          </View>
-          <View style={{padding: hp(2), backgroundColor: 'white'}}>
-            <View style={{marginBottom: hp(2)}}>
-              <Text style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2.2)}}>
-                Updates sent to
-              </Text>
-            </View>
-            <View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  marginBottom: hp(2),
-                }}>
-                <MaterialIcons
-                  name="call"
-                  size={hp(3)}
-                  style={{marginRight: hp(2)}}
-                />
-                <Text
-                  style={{fontSize: hp(2), fontFamily: 'ProductSans-Regular'}}>
-                  8347734562
-                </Text>
-              </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  marginBottom: hp(2),
-                }}>
-                <MaterialIcons
-                  name="mail"
-                  size={hp(3)}
-                  style={{marginRight: hp(2)}}
-                />
-                <Text
-                  style={{fontSize: hp(2), fontFamily: 'ProductSans-Regular'}}>
-                  austin_345@gmail.com
-                </Text>
-              </View>
-            </View>
-          </View>
+          )}
         </ScrollView>
+        <PaymentInformationModal
+          showModal={showModal}
+          image={data.productImage}
+          setShowModal={()=>setShowModal(false)}
+        />
       </View>
     </SafeAreaView>
   );

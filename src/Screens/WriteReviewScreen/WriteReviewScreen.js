@@ -4,7 +4,9 @@ import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Feather from 'react-native-vector-icons/Feather';
 import BackButtonTitle from '../../Components/BackButtonTitle';
+import Button from '../../Components/Button';
 import ReviewStars from '../../Components/ReviewStars';
+import ScaleAnimation from '../../Components/ScaleAnimation';
 
 const WriteReviewScreen = ({navigation}) => {
   const [text, setText] = useState('');
@@ -33,7 +35,7 @@ const WriteReviewScreen = ({navigation}) => {
               flex: 1,
               paddingHorizontal: hp(1),
             }}>
-            <Text style={{fontFamily: 'ProductSans-Regular', fontSize: hp(2)}}>
+            <Text style={{fontFamily: 'Poppins-Light', fontSize: hp(1.7)}}>
               HRX by Hrithik Roshan Ultralyte Men Yellow Running Regular Polo
             </Text>
             <ReviewStars size={hp(2)} />
@@ -42,21 +44,22 @@ const WriteReviewScreen = ({navigation}) => {
         <View style={{paddingHorizontal: hp(2),marginBottom:hp(3)}}>
           <Text
             style={{
-              fontFamily: 'ProductSans-Bold',
-              fontSize: hp(2.2),
+              fontFamily: 'RalewayRoman-Regular',
+              fontWeight:'500',
+              fontSize: hp(1.8),
               marginBottom: hp(2),
             }}>
             Write your review here
           </Text>
           <TextInput
             style={{
-              fontFamily:'ProductSans-Regular',
+              fontFamily:'Poppins-Light',
               height: hp(35),
               paddingTop: hp(2),
               padding: hp(2),
               paddingRight: hp(2),
               paddingBottom: hp(2),
-              fontSize: hp(2.2),
+              fontSize: hp(1.7),
               borderWidth:hp(0.1),
               borderColor:'grey'
             }}
@@ -69,9 +72,15 @@ const WriteReviewScreen = ({navigation}) => {
           />
         </View>
         <View style={{paddingHorizontal: hp(2),marginBottom:hp(3)}}>
-            <Pressable style={{backgroundColor:'#e3e3e3',paddingVertical:hp(2)}}>
-                <Text style={{textAlign:'center',fontFamily:'ProductSans-Bold',fontSize:hp(2)}}>SUBMIT</Text>
-            </Pressable>
+            <ScaleAnimation onPress={() => {}} scaleTo={0.9}>
+              <Button
+                viewProps={{backgroundColor:'#fb7ca0',paddingVertical:hp(2),borderRadius:hp(0.5)}}>
+                <Text
+                  style={{textAlign:'center',color:'white',fontFamily:'RalewayRoman-Regular',fontSize:hp(1.8),fontWeight:'600'}}>
+                  SUBMIT
+                </Text>
+              </Button>
+            </ScaleAnimation>
         </View>
       </View>
     </SafeAreaView>

@@ -77,18 +77,19 @@ const UploadImageModal = props => {
           <View style={{flex: 5, paddingHorizontal: hp(1)}}>
             <Text
               style={{
-                fontFamily: 'ProductSans-Bold',
+                fontFamily: 'RalewayRoman-Regular',
+                fontWeight:'600',
                 textAlign:'center',
-                fontSize: hp(2),
+                fontSize: hp(1.8),
                 paddingVertical: hp(1),
               }}>
-              Upload Photo
+              UPLOAD PHOTO
             </Text>
             <Text
               style={{
-                fontFamily: 'ProductSans-Regular',
+                fontFamily: 'Poppins-Light',
                 textAlign:'center',
-                fontSize: hp(1.8),
+                fontSize: hp(1.6),
                 color: '#adadad',
               }}>
               Choose your profile picture
@@ -113,8 +114,8 @@ const UploadImageModal = props => {
                 <Text
                   style={{
                     textAlign: 'center',
-                    fontSize: hp(1.8),
-                    fontFamily: 'ProductSans-Bold',
+                    fontSize: hp(1.7),
+                    fontFamily: 'Poppins-Medium',
                     color: 'white',
                   }}>
                   Take Photo
@@ -134,8 +135,8 @@ const UploadImageModal = props => {
                 <Text
                   style={{
                     textAlign: 'center',
-                    fontSize: hp(1.8),
-                    fontFamily: 'ProductSans-Bold',
+                    fontSize: hp(1.7),
+                    fontFamily: 'Poppins-Medium',
                     color: 'white',
                   }}>
                   Choose from library
@@ -155,8 +156,8 @@ const UploadImageModal = props => {
                 <Text
                   style={{
                     textAlign: 'center',
-                    fontSize: hp(1.8),
-                    fontFamily: 'ProductSans-Bold',
+                    fontSize: hp(1.7),
+                    fontFamily: 'Poppins-Medium',
                     color: 'white',
                   }}>
                   Cancel

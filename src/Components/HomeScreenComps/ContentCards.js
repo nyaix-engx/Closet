@@ -44,7 +44,7 @@ const ContentCards = (props) => {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <Text style={{fontFamily:'ProductSans-Regular',fontSize:hp(1.7)}}>{props.data.footerText}</Text>
+          <Text style={{fontFamily:'Poppins-Light',fontSize:hp(1.6)}}>{props.data.footerText}</Text>
         </View>
       )}
     </Layout>

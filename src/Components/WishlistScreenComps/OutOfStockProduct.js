@@ -148,7 +148,7 @@ const OutOfStockProduct = (props) => {
             style={{
               fontFamily: 'ProductSans-Bold',
               fontWeight: 'bold',
-              color: '#fb56c1',
+              color: '#fb7ca0',
               fontSize: Platform.OS === 'ios' ? hp(1.4) : hp(1.6),
             }}>
             SHOW SIMILAR

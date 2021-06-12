@@ -2,9 +2,7 @@ import React from 'react';
 import {View, Text, Image, Platform, Pressable} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-
 const FadingBackScrollCard = ({height}) => {
-    
   return (
     <Pressable
       style={{
@@ -31,43 +29,50 @@ const FadingBackScrollCard = ({height}) => {
           paddingHorizontal: hp(1),
           borderBottomColor: '#c7c7c7',
         }}>
-        <View style={{display: 'flex', flexDirection: 'column',justifyContent:'center'}}>
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+          }}>
           <Text
             style={{
-              fontFamily: 'ProductSans-Regular',
+              fontFamily: 'Poppins-Light',
               fontSize: hp(1.6),
               margin: hp(0.2),
-              fontWeight: '100',
             }}>
             Roadster
           </Text>
-          <View style={{margin: hp(0.2),flexDirection:'row'}}>
-          <Text
+          <View
             style={{
-              fontFamily: 'ProductSans-Regular',
-              fontWeight: 'bold',
-              fontSize: hp(1.6),
-              marginRight:hp(1)
+              flexDirection: 'row',
+              alignItems: 'center',
             }}>
-            $ 1000
-          </Text>
-          <Text
-            style={{
-              fontFamily: 'ProductSans-Regular',
-              fontWeight: 'bold',
-              fontSize: hp(1.6),
-              color:'#fca608'
-            }}>
-            20% OFF
-          </Text>
+            <Text
+              style={{
+                fontFamily: 'Poppins-Light',
+                fontSize: hp(1.6),
+                marginRight: hp(1),
+              }}>
+              $ 1000
+            </Text>
+            <Text
+              style={{
+                fontFamily: 'Poppins-Light',
+                fontWeight: 'bold',
+                fontSize: hp(1.6),
+                color: '#fca608',
+              }}>
+              20% OFF
+            </Text>
           </View>
           <Text
             style={{
-              fontFamily: 'ProductSans-Regular',
+              fontFamily: 'Poppins-Light',
               fontWeight: '100',
               color: 'grey',
-              margin:hp(0.2),
-              fontSize: hp(1.5),
+              margin: hp(0.2),
+              fontSize: hp(1.4),
             }}>
             Jeans
           </Text>

@@ -30,16 +30,17 @@ const ProfileHelperScreen = ({navigation, route}) => {
             <View style={{paddingHorizontal: hp(2), marginBottom: hp(2)}}>
               <Text
                 style={{
-                  fontFamily: 'ProductSans-Bold',
-                  fontSize: hp(2.5),
+                  fontFamily: 'RalewayRoman-Regular',
+                  fontSize: hp(2.2),
+                  fontWeight:'600',
                   marginBottom: hp(1),
                 }}>
                 Update your mobile number
               </Text>
               <Text
                 style={{
-                  fontFamily: 'ProductSans-Regular',
-                  fontSize: hp(1.8),
+                  fontFamily: 'Poppins-Light',
+                  fontSize: hp(1.7),
                   color: 'grey',
                 }}>
                 Will be verfied in the next step
@@ -49,20 +50,23 @@ const ProfileHelperScreen = ({navigation, route}) => {
               <Input
                 value={mobile}
                 textStyle={{
-                  fontSize: hp(1.8),
-                  fontFamily: 'ProductSans-Bold',
+                  fontSize: hp(1.7),
+                  fontFamily: 'Poppins-Light',
+                  fontWeight:'300',
                   paddingVertical: hp(1),
                 }}
                 onChangeText={nextValue => setMobile(nextValue)}
               />
             </View>
             <View style={{paddingHorizontal: hp(2), paddingVertical: hp(1)}}>
-              <Pressable onPress={handlePress} style={{backgroundColor: '#fb56c1'}}>
+              <Pressable onPress={handlePress} style={{backgroundColor: '#fb7ca0',borderRadius:hp(0.5)}}>
                 <Text
                   style={{
-                    fontFamily: 'ProductSans-Bold',
+                    fontFamily: 'RalewayRoman-Regular',
                     color: 'white',
                     textAlign: 'center',
+                    fontSize:hp(1.9),
+                    fontWeight:'600',
                     paddingVertical: hp(1.5),
                   }}>
                   CONTINUE
@@ -80,8 +84,9 @@ const ProfileHelperScreen = ({navigation, route}) => {
                 value={oldPassword}
                 placeholder="Old Password"
                 textStyle={{
-                  fontSize: hp(1.8),
-                  fontFamily: 'ProductSans-Bold',
+                  fontSize: hp(1.7),
+                  fontFamily: 'Poppins-Light',
+                  fontWeight:'300',
                   paddingVertical: hp(1),
                 }}
                 onChangeText={nextValue => setOldPassword(nextValue)}
@@ -92,8 +97,9 @@ const ProfileHelperScreen = ({navigation, route}) => {
                 value={newPassword}
                 placeholder="New Password"
                 textStyle={{
-                  fontSize: hp(1.8),
-                  fontFamily: 'ProductSans-Bold',
+                  fontSize: hp(1.7),
+                  fontFamily: 'Poppins-Light',
+                  fontWeight:'300',
                   paddingVertical: hp(1),
                 }}
                 onChangeText={nextValue => setNewPassword(nextValue)}
@@ -104,8 +110,9 @@ const ProfileHelperScreen = ({navigation, route}) => {
                 value={confirmPassword}
                 placeholder="Confirm Password"
                 textStyle={{
-                  fontSize: hp(1.8),
-                  fontFamily: 'ProductSans-Bold',
+                  fontSize: hp(1.7),
+                  fontFamily: 'Poppins-Light',
+                  fontWeight:'300',
                   paddingVertical: hp(1),
                 }}
                 onChangeText={nextValue => setConfirmPassword(nextValue)}
@@ -113,10 +120,12 @@ const ProfileHelperScreen = ({navigation, route}) => {
             </View>
             <View style={{paddingHorizontal: hp(2), paddingVertical: hp(1)}}>
               <ScaleAnimation onPress={()=>{}} scaleTo={0.9}>
-                <Button viewProps={{backgroundColor: '#fb56c1'}}>
+                <Button viewProps={{backgroundColor: '#fb7ca0',borderRadius:hp(0.5),}}>
                   <Text
                     style={{
-                      fontFamily: 'ProductSans-Bold',
+                      fontFamily: 'RalewayRoman-Regular',
+                      fontWeight:'600',
+                      fontSize:hp(1.7),
                       color: 'white',
                       textAlign: 'center',
                       paddingVertical: hp(1.8),
@@ -161,11 +170,12 @@ const ProfileHelperScreen = ({navigation, route}) => {
           <View style={{paddingHorizontal: hp(0.5)}}>
             <Text
               style={{
-                fontSize: hp(2.2),
-                fontFamily: 'ProductSans-Bold',
+                fontSize: hp(1.9),
+                fontFamily: 'RalewayRoman-Regular',
+                fontWeight:'600',
                 color: '#363636',
               }}>
-              Change Password
+              CHANGE PASSWORD
             </Text>
           </View>
         )}

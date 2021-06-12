@@ -15,7 +15,7 @@ const SortByModal = props => {
       title={(props) => (
         <Text
           {...props}
-          style={{fontSize: hp(1.8), fontFamily: 'ProductSans-Regular'}}>
+          style={{fontSize: hp(1.7), fontFamily: 'Poppins-Light'}}>
           {item.title}
         </Text>
       )}
@@ -52,7 +52,7 @@ const SortByModal = props => {
               justifyContent: 'center',
               paddingHorizontal: hp(2.5),
             }}>
-            <Text style={{fontSize: hp(2), fontFamily: 'ProductSans-Bold'}}>
+            <Text style={{fontSize: hp(2), fontFamily: 'RalewayRoman-Regular',fontWeight:'600'}}>
               SORT BY
             </Text>
           </View>
@@ -77,7 +77,7 @@ const SortByModal = props => {
                   flexDirection: 'row',
                   alignItems: 'center',
                 }}>
-                <Text style={{fontSize: hp(2), fontFamily: 'ProductSans-Bold'}}>
+                <Text style={{fontSize: hp(2), fontFamily: 'RalewayRoman-Regular',fontWeight:'600'}}>
                   ASC
                 </Text>
                 <FontAwesome5 name="sort-alpha-down" size={hp(2.3)} />
@@ -90,7 +90,7 @@ const SortByModal = props => {
                   flexDirection: 'row',
                   alignItems: 'center',
                 }}>
-                <Text style={{fontSize: hp(2), fontFamily: 'ProductSans-Bold'}}>
+                <Text style={{fontSize: hp(2), fontFamily: 'RalewayRoman-Regular',fontWeight:'600'}}>
                   DESC
                 </Text>
                 <FontAwesome5 name="sort-alpha-up" size={hp(2.3)} />

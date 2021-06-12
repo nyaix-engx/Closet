@@ -65,7 +65,8 @@ const FadingBackScroll = ({height,headingText,backgroundImage,coverText,array,ca
                 style={{
                   color: 'white',
                   fontSize: hp(3.5),
-                  fontFamily: 'ProductSans-Bold',
+                  fontWeight:'500',
+                  fontFamily: 'RalewayRoman-Regular',
                 }}>
                 {coverText}
               </Text>

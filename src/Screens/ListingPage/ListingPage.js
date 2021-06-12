@@ -83,7 +83,8 @@ const ListingPage = () => {
             <Text
               style={{
                 fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
+                fontFamily: 'RalewayRoman-Regular',
+                fontWeight:'600',
                 color: '#363636',
               }}>
               SORT
@@ -117,7 +118,8 @@ const ListingPage = () => {
             <Text
               style={{
                 fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
+                fontFamily: 'RalewayRoman-Regular',
+                fontWeight:'600',
                 color: '#363636',
               }}>
               FILTER

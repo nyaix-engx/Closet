@@ -62,7 +62,7 @@ const EditProfileScreen = ({navigation, route}) => {
                 padding: hp(0.2),
                 position: 'relative',
                 borderWidth: hp(0.1),
-                borderColor: '#fb56c1',
+                borderColor: '#fb7ca0',
                 borderRadius: hp(1),
               }}>
               <Avatar
@@ -94,18 +94,19 @@ const EditProfileScreen = ({navigation, route}) => {
               value={mobile}
               disabled
               textStyle={{
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
+                fontSize: hp(1.6),
+                fontWeight:'300',
+                fontFamily: 'Poppins-Light',
                 paddingVertical: hp(1),
               }}
               label={() => (
                 <Text
                   style={{
-                    fontSize: hp(1.8),
-                    fontFamily: 'ProductSans-Bold',
+                    fontSize: hp(1.7),
+                    fontFamily: 'Poppins-Medium',
                     paddingVertical: hp(1),
                   }}>
-                  Mobile Number
+                  MOBILE NUMBER
                 </Text>
               )}
               onChangeText={nextValue => setMobile(nextValue)}
@@ -120,9 +121,9 @@ const EditProfileScreen = ({navigation, route}) => {
                   style={{paddingHorizontal: hp(1)}}>
                   <Text
                     style={{
-                      fontSize: hp(1.8),
-                      fontFamily: 'ProductSans-Bold',
-                      color: '#fb56c1',
+                      fontSize: hp(1.7),
+                      fontFamily: 'Poppins-Medium',
+                      color: '#fb7ca0',
                     }}>
                     CHANGE
                   </Text>
@@ -135,17 +136,18 @@ const EditProfileScreen = ({navigation, route}) => {
               value={name}
               textStyle={{
                 paddingVertical: hp(1),
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
+                fontSize: hp(1.6),
+                fontWeight:'300',
+                fontFamily: 'Poppins-Light',
               }}
               label={() => (
                 <Text
                   style={{
-                    fontSize: hp(1.8),
-                    fontFamily: 'ProductSans-Bold',
+                    fontSize: hp(1.7),
+                    fontFamily: 'Poppins-Medium',
                     paddingVertical: hp(1),
                   }}>
-                  Full Name
+                  FULL NAME
                 </Text>
               )}
               placeholder="Place your Text"
@@ -157,17 +159,18 @@ const EditProfileScreen = ({navigation, route}) => {
               value={email}
               textStyle={{
                 paddingVertical: hp(1),
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
+                fontSize: hp(1.6),
+                fontWeight:'300',
+                fontFamily: 'Poppins-Light',
               }}
               label={() => (
                 <Text
                   style={{
-                    fontSize: hp(1.8),
-                    fontFamily: 'ProductSans-Bold',
+                    fontSize: hp(1.7),
+                    fontFamily: 'Poppins-Medium',
                     paddingVertical: hp(1),
                   }}>
-                  Email
+                  EMAIL
                 </Text>
               )}
               onChangeText={nextValue => setEmail(nextValue)}
@@ -187,15 +190,18 @@ const EditProfileScreen = ({navigation, route}) => {
                 alignItems: 'center',
                 flex: 1,
                 paddingVertical: hp(1.5),
-                backgroundColor: gender === 'Male' ? '#fb56c1' : '#ededed',
+                borderTopLeftRadius:hp(0.5),
+                borderBottomLeftRadius:hp(0.5),
+                backgroundColor: gender === 'Male' ? '#fb7ca0' : '#ededed',
               }}>
               <Text
                 style={{
-                  color: gender === 'Male' ? 'white' : '#fb56c1',
+                  color: gender === 'Male' ? 'white' : '#fb7ca0',
                   fontSize: hp(1.8),
-                  fontFamily: 'ProductSans-Bold',
+                  fontWeight:'600',
+                  fontFamily: 'RalewayRoman-Regular',
                 }}>
-                Male
+                MALE
               </Text>
             </Pressable>
             <Pressable
@@ -203,17 +209,20 @@ const EditProfileScreen = ({navigation, route}) => {
               style={{
                 display: 'flex',
                 justifyContent: 'center',
+                borderTopRightRadius:hp(0.5),
+                borderBottomRightRadius:hp(0.5),
                 alignItems: 'center',
                 flex: 1,
-                backgroundColor: gender === 'Female' ? '#fb56c1' : '#ededed',
+                backgroundColor: gender === 'Female' ? '#fb7ca0' : '#ededed',
               }}>
               <Text
                 style={{
                   fontSize: hp(1.8),
-                  fontFamily: 'ProductSans-Bold',
-                  color: gender === 'Female' ? 'white' : '#fb56c1',
+                  fontWeight:'600',
+                  fontFamily: 'RalewayRoman-Regular',
+                  color: gender === 'Female' ? 'white' : '#fb7ca0',
                 }}>
-                Female
+                FEMALE
               </Text>
             </Pressable>
           </View>
@@ -224,11 +233,11 @@ const EditProfileScreen = ({navigation, route}) => {
               label={() => (
                 <Text
                   style={{
-                    fontSize: hp(1.8),
-                    fontFamily: 'ProductSans-Bold',
+                    fontSize: hp(1.7),
+                    fontFamily: 'Poppins-Medium',
                     paddingVertical: hp(1),
                   }}>
-                  Birthday
+                  BIRTHDAY
                 </Text>
               )}
               date={date}
@@ -241,17 +250,18 @@ const EditProfileScreen = ({navigation, route}) => {
               value={location}
               textStyle={{
                 paddingVertical: hp(1),
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
+                fontWeight:'300',
+                fontSize: hp(1.6),
+                fontFamily: 'Poppins-Light',
               }}
               label={() => (
                 <Text
                   style={{
-                    fontSize: hp(1.8),
-                    fontFamily: 'ProductSans-Bold',
+                    fontSize: hp(1.7),
+                    fontFamily: 'Poppins-Medium',
                     paddingVertical: hp(1),
                   }}>
-                  Location
+                  LOCATION
                 </Text>
               )}
               onChangeText={nextValue => setLocation(nextValue)}
@@ -273,7 +283,7 @@ const EditProfileScreen = ({navigation, route}) => {
                 borderColor: '#e6e6e6',
               }}>
               <Text
-                style={{textAlign: 'center', fontFamily: 'ProductSans-Bold'}}>
+                style={{textAlign: 'center', fontFamily: 'Poppins-Medium',fontSize:hp(1.8)}}>
                 CHANGE PASSWORD
               </Text>
             </Pressable>
@@ -290,13 +300,16 @@ const EditProfileScreen = ({navigation, route}) => {
           <ScaleAnimation onPress={() => {}} scaleTo={0.9}>
             <Button
               viewProps={{
-                backgroundColor: '#fb56c1',
+                backgroundColor: '#fb7ca0',
                 paddingVertical: hp(1.8),
+                borderRadius:hp(0.5)
               }}>
               <Text
                 style={{
                   textAlign: 'center',
-                  fontFamily: 'ProductSans-Bold',
+                  fontFamily: 'RalewayRoman-Regular',
+                  fontSize:hp(1.9),
+                  fontWeight:'600',
                   color: 'white',
                 }}>
                 SAVE DETAILS

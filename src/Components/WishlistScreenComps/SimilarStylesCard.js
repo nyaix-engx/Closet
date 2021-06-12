@@ -32,17 +32,14 @@ const SimilarStylesCard = () => {
         <View style={{display: 'flex', flexDirection: 'column',justifyContent:'center'}}>
           <Text
             style={{
-              fontFamily: 'ProductSans-Regular',
-              fontSize: hp(1.6),
-              margin: hp(0.2),
-              fontWeight: '100',
+              fontFamily: 'Poppins-Medium',
+              fontSize: hp(1.5),
             }}>
             Roadster
           </Text>
           <Text
             style={{
-              fontFamily: 'ProductSans-Regular',
-              margin: hp(0.2),
+              fontFamily: 'Poppins-Medium',
               fontWeight: 'bold',
               fontSize: hp(1.6),
             }}>
@@ -50,13 +47,12 @@ const SimilarStylesCard = () => {
           </Text>
           <Text
             style={{
-              fontFamily: 'ProductSans-Regular',
-              fontWeight: '100',
+              fontFamily: 'Poppins-Light',
               color: 'grey',
               margin:hp(0.2),
-              fontSize: hp(1.5),
+              fontSize: hp(1.4),
             }}>
-            Sweater
+            Jeans
           </Text>
         </View>
       </View>

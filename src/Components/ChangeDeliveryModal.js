@@ -16,7 +16,7 @@ const ChangeDeliveryModal = props => {
   const [selected, setSelected] = useState(0);
   const handlePress = index => {
     setSelected(index);
-    props.setAddress(addresses2[index]);
+    props.setAddress(addresses[index]);
     props.setShowModal();
   };
   const address = () => {
@@ -41,7 +41,7 @@ const ChangeDeliveryModal = props => {
               marginRight: hp(1),
             }}>
             <Radio
-              status="success"
+              status="info"
               checked={selected === index ? true : false}
             />
           </View>
@@ -56,21 +56,12 @@ const ChangeDeliveryModal = props => {
               <View style={{flexDirection: 'row', justifyContent: 'center'}}>
                 <Text
                   style={{
-                    fontSize: hp(2),
-                    fontFamily: 'ProductSans-Bold',
+                    fontSize: hp(1.8),
+                    fontFamily: 'Poppins-Medium',
                     marginRight: hp(0.5),
                   }}>
                   {data.name}
                 </Text>
-                {selected === index && (
-                  <Text
-                    style={{
-                      fontSize: hp(2),
-                      fontFamily: 'ProductSans-Regular',
-                    }}>
-                    (Default)
-                  </Text>
-                )}
               </View>
               <View
                 style={{
@@ -79,13 +70,13 @@ const ChangeDeliveryModal = props => {
                   paddingVertical: hp(0.5),
                   borderRadius: hp(2),
                   borderWidth: hp(0.1),
-                  borderColor: '#34a880',
+                  borderColor: '#fb7ca0',
                 }}>
                 <Text
                   style={{
                     fontSize: hp(1.6),
-                    fontFamily: 'ProductSans-Bold',
-                    color: '#34a880',
+                    fontFamily: 'Poppins-Medium',
+                    color: '#fb7ca0',
                   }}>
                   {data.type}
                 </Text>
@@ -93,17 +84,17 @@ const ChangeDeliveryModal = props => {
             </View>
             <View>
               <Text
-                style={{fontFamily: 'ProductSans-Regular', fontSize: hp(1.9)}}>
+                style={{fontFamily: 'Poppins-light', fontSize: hp(1.7)}}>
                 {data.address}
               </Text>
               <Text
-                style={{fontFamily: 'ProductSans-Regular', fontSize: hp(1.9)}}>
-                {data.district} - {data.pincode}
+                style={{fontFamily: 'Poppins-light', fontSize: hp(1.7)}}>
+                {data.city} - {data.pincode}
               </Text>
               <Text
                 style={{
-                  fontFamily: 'ProductSans-Regular',
-                  fontSize: hp(1.9),
+                  fontFamily: 'Poppins-light',
+                  fontSize: hp(1.7),
                   marginBottom: hp(1),
                 }}>
                 {data.state}
@@ -130,6 +121,8 @@ const ChangeDeliveryModal = props => {
           backgroundColor: 'white',
           paddingTop: hp(2),
           paddingHorizontal: hp(2),
+          borderTopLeftRadius:hp(1),
+          borderTopRightRadius:hp(1),
           maxHeight: hp(50),
         }}>
         <View
@@ -141,11 +134,12 @@ const ChangeDeliveryModal = props => {
           }}>
           <Text
             style={{
-              fontFamily: 'ProductSans-Bold',
-              fontSize: hp(2),
+              fontFamily: 'RalewayRoman-Regular',
+              fontWeight:'bold',
+              fontSize: hp(1.9),
               marginBottom: hp(2),
             }}>
-            Change Delivery Address
+            CHANGE DELIVERY ADDRESS
           </Text>
           <Pressable onPress={props.setShowModal} style={{marginBottom: hp(2)}}>
             <Fontisto
@@ -164,12 +158,12 @@ const ChangeDeliveryModal = props => {
         <ScaleAnimation
           onPress={() => {
             props.setShowModal();
-            navigation.navigate('AddNewAddressPage');
+            navigation.navigate('AddNewAddressPage',{type:"ADD"});
           }}
           scaleTo={0.9}>
           <Button
             viewProps={{
-              backgroundColor: '#34a880',
+              backgroundColor: '#fb7ca0',
               paddingVertical: hp(1.4),
               borderRadius: hp(0.3),
               marginBottom: insets.bottom,
@@ -177,8 +171,9 @@ const ChangeDeliveryModal = props => {
             <Text
               style={{
                 textAlign: 'center',
-                fontSize: hp(2),
-                fontFamily: 'ProductSans-Bold',
+                fontSize: hp(1.8),
+                fontFamily: 'RalewayRoman-Regular',
+                fontWeight:'bold',
                 color: 'white',
               }}>
               ADD NEW ADDRESS

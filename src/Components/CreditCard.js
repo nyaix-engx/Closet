@@ -46,8 +46,8 @@ const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRe
       <View style={{marginBottom: hp(2)}}>
         <Text
           style={{
-            fontFamily: 'ProductSans-Regular',
-            fontSize: hp(2),
+            fontFamily: 'Poppins-Medium',
+            fontSize: hp(1.8),
             color: '#bababa',
             marginBottom: hp(0.5),
           }}>
@@ -55,8 +55,8 @@ const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRe
         </Text>
         <Text
           style={{
-            fontFamily: 'ProductSans-Regular',
-            fontSize: hp(2.4),
+            fontFamily: 'Poppins-Light',
+            fontSize: hp(2),
           }}>
           {data.number}
         </Text>
@@ -70,8 +70,8 @@ const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRe
         <View>
           <Text
             style={{
-              fontFamily: 'ProductSans-Regular',
-              fontSize: hp(2),
+              fontFamily: 'Poppins-Medium',
+              fontSize: hp(1.8),
               color: '#bababa',
               marginBottom: hp(0.5),
             }}>
@@ -79,8 +79,8 @@ const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRe
           </Text>
           <Text
             style={{
-              fontFamily: 'ProductSans-Regular',
-              fontSize: hp(2.4),
+              fontFamily: 'Poppins-Light',
+              fontSize: hp(2),
             }}>
             {data.name}
           </Text>
@@ -88,8 +88,8 @@ const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRe
         <View>
           <Text
             style={{
-              fontFamily: 'ProductSans-Regular',
-              fontSize: hp(2),
+              fontFamily: 'Poppins-Medium',
+              fontSize: hp(1.8),
               color: '#bababa',
               marginBottom: hp(0.5),
             }}>
@@ -97,8 +97,8 @@ const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRe
           </Text>
           <Text
             style={{
-              fontFamily: 'ProductSans-Regular',
-              fontSize: hp(2.4),
+              fontFamily: 'Poppins-Light',
+              fontSize: hp(2),
               textAlign: 'center',
             }}>
             {data.expiry}
@@ -130,8 +130,9 @@ const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRe
           <Text
             style={{
               textAlign: 'center',
-              fontFamily: 'ProductSans-Bold',
-              fontSize: hp(2),
+              fontFamily: 'RalewayRoman-Regular',
+              fontWeight:'600',
+              fontSize: hp(1.9),
               color: 'blue',
             }}>
             EDIT
@@ -148,8 +149,9 @@ const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRe
           <Text
             style={{
               textAlign: 'center',
-              fontFamily: 'ProductSans-Bold',
-              fontSize: hp(2),
+              fontFamily: 'RalewayRoman-Regular',
+              fontSize: hp(1.9),
+              fontWeight:'600',
               color: 'blue',
             }}>
             REMOVE

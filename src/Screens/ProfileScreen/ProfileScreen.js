@@ -26,7 +26,7 @@ import EntryAnimation from '../../Components/EntryAnimation';
 const ProfileScreen = props => {
   const data = [
     {
-      title: 'Orders',
+      title: 'ORDERS',
       description: 'Check your order status',
       accessory: () => (
         <SimpleLineIcons
@@ -37,7 +37,7 @@ const ProfileScreen = props => {
       ),
     },
     {
-      title: 'Wishlist',
+      title: 'WISHLIST',
       description: 'Your most loved styles',
       accessory: () => (
         <AntDesign
@@ -48,7 +48,7 @@ const ProfileScreen = props => {
       ),
     },
     {
-      title: 'Saved Cards',
+      title: 'SAVED CARDS',
       description: 'Save your cards for faster checkout',
       accessory: () => (
         <MaterialIcons
@@ -59,7 +59,7 @@ const ProfileScreen = props => {
       ),
     },
     {
-      title: 'Address',
+      title: 'ADDRESS',
       description: 'Save addresses for a hassle-free checkout',
       accessory: () => (
         <Ionicons
@@ -70,7 +70,7 @@ const ProfileScreen = props => {
       ),
     },
     {
-      title: 'Profile Details',
+      title: 'PROFILE DETAILS',
       description: 'Change your profile details & password',
       accessory: () => (
         <AntDesign
@@ -111,12 +111,10 @@ const ProfileScreen = props => {
         <Text
           {...props}
           style={{
-            fontSize: hp(1.8),
+            fontSize: hp(1.6),
             paddingHorizontal: hp(1),
-            fontFamily:
-              Platform.OS === 'android'
-                ? 'ProductSans-Bold'
-                : 'ProductSans-Regular',
+            fontFamily: 'RalewayRoman-Regular',
+            fontWeight:'500'
           }}>
           {item.title}
         </Text>
@@ -126,8 +124,9 @@ const ProfileScreen = props => {
         <Text
           {...props}
           style={{
-            paddingVertical: hp(1),
-            fontSize: hp(1.6),
+            paddingVertical: hp(0.5),
+            fontSize: hp(1.5),
+            fontFamily:'Poppins-Light',
             paddingHorizontal: hp(1),
             color: '#a3a3a3',
           }}>
@@ -164,7 +163,7 @@ const ProfileScreen = props => {
                   <Button
                     viewProps={{
                       borderRadius: hp(0.5),
-                      backgroundColor: '#fb56c1',
+                      backgroundColor: '#fb7ca0',
                       paddingVertical: hp(1.8),
                       display: 'flex',
                       justifyContent: 'center',
@@ -172,8 +171,10 @@ const ProfileScreen = props => {
                     }}>
                     <Text
                       style={{
-                        color: '#fb56c1',
-                        fontFamily: 'ProductSans-Bold',
+                        color: '#fb7ca0',
+                        fontFamily: 'RalewayRoman-Regular',
+                        fontWeight:'600',
+                        fontSize:hp(1.9),
                         color: 'white',
                       }}>
                       LOG OUT
@@ -216,10 +217,7 @@ const ProfileScreen = props => {
                   <View>
                     <Text
                       style={{
-                        fontFamily:
-                          Platform.OS === 'android'
-                            ? 'ProductSans-Bold'
-                            : 'ProductSans-Regular',
+                        fontFamily:'Poppins-Medium',
                         fontSize: hp(2),
                       }}>
                       Hugh Jackman

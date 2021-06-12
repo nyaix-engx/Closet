@@ -135,7 +135,7 @@ const CategoryComp = (props) => {
                   alignItems:'flex-start',
                   paddingLeft: hp(2),
                 }}>
-                <Text style={{fontSize:Platform.ios==='android'? hp(2):hp(1.8),fontFamily:'ProductSans-Regular'}}>{props.category.title}</Text>
+                <Text style={{fontSize:Platform.ios==='android'? hp(2):hp(1.8),fontFamily:'Poppins-Medium',fontWeight:'500'}}>{props.category.title}</Text>
               </View>
                 <View
                   style={{

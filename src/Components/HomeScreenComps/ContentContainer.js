@@ -16,7 +16,7 @@ const ContentContainer = (props) => {
           display: 'flex',
           justifyContent: 'center',
         }}>
-        <Text style={{fontFamily:'ProductSans-Regular',fontSize:Platform.OS==='ios'? hp(1.6):hp(1.7),fontWeight:'700',color:'#363636'}}>{props.heading}</Text>
+        <Text style={{fontFamily:'RalewayRoman-Regular', fontSize:Platform.OS==='ios'? hp(1.7):hp(1.7),color:'#363636',fontWeight:'600'}}>{props.heading}</Text>
       </View>
       <View style={{paddingBottom:hp(1.5)}}>{props.children}</View>
     </View>

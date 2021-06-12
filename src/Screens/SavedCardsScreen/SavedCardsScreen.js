@@ -1,4 +1,4 @@
-import React, {useState,useEffect,useRef} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {View, Text, Pressable, ScrollView} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -9,29 +9,34 @@ import {cardData} from '../../Utils/arrays';
 import ScaleAnimation from '../../Components/ScaleAnimation';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Button from '../../Components/Button';
-import  {Transitioning, Transition, EasingNode,Extrapolate} from 'react-native-reanimated';
+import {
+  Transitioning,
+  Transition,
+  EasingNode,
+  Extrapolate,
+} from 'react-native-reanimated';
 
-const SavedCardsScreen = ({navigation,route}) => {
+const SavedCardsScreen = ({navigation, route}) => {
   const [cards, setCards] = useState(cardData);
-  const scrollRef=useRef()
-  const [scrollY,setScrollY]=useState(0)
-  const savedScreenRef=useRef()
-  const handleScroll=(e)=>{
+  const scrollRef = useRef();
+  const [scrollY, setScrollY] = useState(0);
+  const savedScreenRef = useRef();
+  const handleScroll = e => {
     setScrollY(e.nativeEvent.contentOffset.y);
-  }
-  useEffect(()=>{
-    if(route.params?.cards){
-      setCards(route.params.cards)
+  };
+  useEffect(() => {
+    if (route.params?.cards) {
+      setCards(route.params.cards);
     }
-  },[route.params?.cards])
+  }, [route.params?.cards]);
   const transition = (
     <Transition.Sequence>
-        <Transition.Out
-          type="fade"
-          durationMs={400}
-          interpolation="easeOut"
-          // delayMs={20}
-        />
+      <Transition.Out
+        type="fade"
+        durationMs={400}
+        interpolation="easeOut"
+        // delayMs={20}
+      />
     </Transition.Sequence>
   );
   const getContent = () => {
@@ -75,8 +80,8 @@ const SavedCardsScreen = ({navigation,route}) => {
               <Pressable
                 onPress={() =>
                   navigation.navigate('AddCardPage', {
-                    type:"ADD",
-                    cards
+                    type: 'ADD',
+                    cards,
                   })
                 }
                 style={{
@@ -105,39 +110,45 @@ const SavedCardsScreen = ({navigation,route}) => {
             onScroll={handleScroll}
             scrollEventThrottle={16}
             bounces={false}>
-            <Transitioning.View style={{padding: hp(2)}} transition={transition} ref={savedScreenRef} >
-              <ScaleAnimation
-                onPress={() =>
-                  navigation.navigate('AddCardPage', {
-                    type:"ADD",
-                    cards
-                  })
-                }
-                scaleTo={0.9}>
-                <Button
-                  viewProps={{
-                    backgroundColor: '#fb56c1',
-                    paddingVertical: hp(1.8),
-                    borderRadius: hp(0.5),
-                    marginBottom: hp(2),
-                  }}>
-                  <Entypo
-                    name="add-to-list"
-                    size={hp(3)}
-                    style={{ color: '#ffffff'}}
-                  />
-                  <Text
-                    style={{
-                      fontFamily: 'ProductSans-Bold',
-                      fontSize: hp(2),
-                      paddingHorizontal: hp(2),
-                      textAlign: 'center',
-                      color: '#ffffff',
+            <Transitioning.View
+              style={{paddingHorizontal: hp(2), paddingVertical: hp(2)}}
+              transition={transition}
+              ref={savedScreenRef}>
+              <View style={{paddingHorizontal:hp(2)}}>
+                <ScaleAnimation
+                  onPress={() =>
+                    navigation.navigate('AddCardPage', {
+                      type: 'ADD',
+                      cards,
+                    })
+                  }
+                  scaleTo={0.9}>
+                  <Button
+                    viewProps={{
+                      backgroundColor: '#fb7ca0',
+                      paddingVertical: hp(1.8),
+                      borderRadius: hp(0.5),
+                      marginBottom: hp(2),
                     }}>
-                    ADD CARD
-                  </Text>
-                </Button>
-              </ScaleAnimation>
+                    <Entypo
+                      name="add-to-list"
+                      size={hp(3)}
+                      style={{color: '#ffffff'}}
+                    />
+                    <Text
+                      style={{
+                        fontFamily: 'RalewayRoman-Regular',
+                        fontWeight: '600',
+                        fontSize: hp(1.9),
+                        paddingHorizontal: hp(2),
+                        textAlign: 'center',
+                        color: '#ffffff',
+                      }}>
+                      ADD CARD
+                    </Text>
+                  </Button>
+                </ScaleAnimation>
+              </View>
               <View>
                 {cards.map((data, index) => {
                   return (

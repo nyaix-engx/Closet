@@ -115,17 +115,4 @@ const Carousel = (props) => {
   );
 };
 
-const styles = StyleSheet.create({
-  tab: {
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
-
 export default Carousel;

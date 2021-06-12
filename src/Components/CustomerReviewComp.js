@@ -13,9 +13,9 @@ const CustomerReview = () => {
       }}>
       <Text
         style={{
-          fontSize: hp(1.9),
+          fontSize: hp(2),
           textAlign: 'justify',
-          fontFamily: 'ProductSans-Regular',
+          fontFamily: 'CormorantGaramond-Regular',
           marginBottom: hp(1),
         }}>
         Fitting is kind of slim fit and is very good. Cloth quality is real good
@@ -36,13 +36,14 @@ const CustomerReview = () => {
         }}>
         <Text
           style={{
-            fontSize: hp(2),
-            fontFamily: 'ProductSans-Bold',
+            fontSize: hp(1.5),
+            fontFamily: 'Poppins-Light',
+            fontWeight:'bold',
             marginRight: hp(0.5),
           }}>
           Size bought:
         </Text>
-        <Text style={{fontSize: hp(2), fontFamily: 'ProductSans-Regular'}}>
+        <Text style={{fontSize: hp(1.5), fontFamily: 'Poppins-Medium'}}>
           M
         </Text>
       </View>
@@ -51,13 +52,14 @@ const CustomerReview = () => {
           style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
           <Text
             style={{
-              fontFamily: 'ProductSans-Bold',
-              fontSize: hp(2),
+              fontFamily: 'Poppins-Light',
+              fontWeight:'bold',
+              fontSize: hp(1.7),
               marginRight: hp(1),
             }}>
             Fit:
           </Text>
-          <Text style={{fontFamily: 'ProductSans-Regular', fontSize: hp(2)}}>
+          <Text style={{fontFamily: 'Poppins-Light', fontSize: hp(1.7)}}>
             As Expected
           </Text>
         </View>
@@ -65,20 +67,20 @@ const CustomerReview = () => {
           style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
           <Text
             style={{
-              fontFamily: 'ProductSans-Bold',
-              fontSize: hp(2),
+              fontFamily: 'Poppins-Light',
+              fontSize: hp(1.7),
+              fontWeight:'bold',
               marginRight: hp(1),
             }}>
             Length:
           </Text>
-          <Text style={{fontFamily: 'ProductSans-Regular', fontSize: hp(2)}}>
+          <Text style={{fontFamily: 'Poppins-Light', fontSize: hp(1.7)}}>
             As Expected
           </Text>
         </View>
       </View>
       <View
         style={{
-          //   paddingVertical: hp(1),
           display: 'flex',
           flex: 1,
           flexDirection: 'row',
@@ -100,10 +102,10 @@ const CustomerReview = () => {
             <Text
               style={{
                 paddingRight: hp(1),
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Regular',
+                fontSize: hp(1.6),
+                fontFamily: 'Poppins-Medium',
               }}>
-              Manav Chauhan
+              Manav 
             </Text>
           </View>
           <View
@@ -116,8 +118,8 @@ const CustomerReview = () => {
             <Text
               style={{
                 paddingLeft: hp(1),
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Regular',
+                fontSize: hp(1.6),
+                fontFamily: 'Poppins-Medium',
               }}>
               20 Jan, 2021
             </Text>
@@ -142,7 +144,7 @@ const CustomerReview = () => {
               size={hp(2.5)}
               style={{marginRight: hp(1)}}
             />
-            <Text>245</Text>
+            <Text style={{fontFamily:'Poppins-Light'}}>245</Text>
           </View>
           <View
             style={{
@@ -155,7 +157,7 @@ const CustomerReview = () => {
               size={hp(2.5)}
               style={{marginRight: hp(1)}}
             />
-            <Text>100</Text>
+            <Text style={{fontFamily:'Poppins-Light'}}>100</Text>
           </View>
         </View>
       </View>

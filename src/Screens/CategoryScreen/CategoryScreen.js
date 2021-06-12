@@ -12,7 +12,6 @@ const CategoryScreen = () => {
   const [categoryTitleState, setCategoryTitleState] = useState(
     new Array(categories.length).fill(false, 0, categories.length),
   );
-  // const [height,setHeight]=useState(null)
   const {height} = useWindowDimensions();
   const scrollRef = useRef();
   // const onLayout=(e)=>{

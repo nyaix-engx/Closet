@@ -91,8 +91,9 @@ const AddNewAddressScreen = ({navigation, route}) => {
               style={{marginBottom: hp(2)}}
               textStyle={{
                 paddingVertical: hp(1),
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
+                fontSize: hp(1.7),
+                fontFamily: 'Poppins-Light',
+                fontWeight:'300'
               }}
               placeholder="Name"
               onChangeText={nextValue => setName(nextValue)}
@@ -101,8 +102,9 @@ const AddNewAddressScreen = ({navigation, route}) => {
               value={mobile}
               textStyle={{
                 paddingVertical: hp(1),
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
+                fontSize: hp(1.7),
+                fontFamily: 'Poppins-Light',
+                fontWeight:'300'
               }}
               placeholder="Mobile"
               onChangeText={nextValue => setMobile(nextValue)}
@@ -126,8 +128,9 @@ const AddNewAddressScreen = ({navigation, route}) => {
                 value={pincode}
                 textStyle={{
                   paddingVertical: hp(1),
-                  fontSize: hp(1.8),
-                  fontFamily: 'ProductSans-Bold',
+                  fontSize: hp(1.7),
+                  fontFamily: 'Poppins-Light',
+                  fontWeight:'300'
                 }}
                 placeholder="Pincode"
                 onChangeText={nextValue => setPincode(nextValue)}
@@ -137,8 +140,9 @@ const AddNewAddressScreen = ({navigation, route}) => {
                 value={state}
                 textStyle={{
                   paddingVertical: hp(1),
-                  fontSize: hp(1.8),
-                  fontFamily: 'ProductSans-Bold',
+                  fontSize: hp(1.7),
+                  fontFamily: 'Poppins-Light',
+                  fontWeight:'300'
                 }}
                 placeholder="State"
                 onChangeText={nextValue => setState(nextValue)}
@@ -149,8 +153,9 @@ const AddNewAddressScreen = ({navigation, route}) => {
               style={{marginBottom: hp(2)}}
               textStyle={{
                 paddingVertical: hp(1),
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
+                fontSize: hp(1.7),
+                fontFamily: 'Poppins-Light',
+                fontWeight:'300'
               }}
               placeholder="Address (House No, Building, Street, Area)"
               onChangeText={nextValue => setAddress(nextValue)}
@@ -159,8 +164,9 @@ const AddNewAddressScreen = ({navigation, route}) => {
               value={city}
               textStyle={{
                 paddingVertical: hp(1),
-                fontSize: hp(1.8),
-                fontFamily: 'ProductSans-Bold',
+                fontSize: hp(1.7),
+                fontFamily: 'Poppins-Light',
+                fontWeight:'300'
               }}
               placeholder="City/ District"
               onChangeText={nextValue => setCity(nextValue)}
@@ -176,8 +182,8 @@ const AddNewAddressScreen = ({navigation, route}) => {
             <View style={{marginBottom: hp(2)}}>
               <Text
                 style={{
-                  fontSize: hp(2),
-                  fontFamily: 'ProductSans-Regular',
+                  fontSize: hp(1.8),
+                  fontFamily: 'Poppins-Medium',
                   marginBottom: hp(1),
                 }}>
                 Type of Address
@@ -191,8 +197,8 @@ const AddNewAddressScreen = ({navigation, route}) => {
                   children={() => (
                     <Text
                       style={{
-                        fontFamily: 'ProductSans-Regular',
-                        fontSize: hp(2),
+                        fontFamily: 'Poppins-Light',
+                        fontSize: hp(1.8),
                         paddingHorizontal: hp(1),
                       }}>
                       Home
@@ -203,8 +209,8 @@ const AddNewAddressScreen = ({navigation, route}) => {
                   children={() => (
                     <Text
                       style={{
-                        fontFamily: 'ProductSans-Regular',
-                        fontSize: hp(2),
+                        fontFamily: 'Poppins-Light',
+                        fontSize: hp(1.8),
                         paddingHorizontal: hp(1),
                       }}>
                       Office
@@ -217,7 +223,7 @@ const AddNewAddressScreen = ({navigation, route}) => {
               <View
                 style={{
                   paddingVertical: hp(3),
-                  borderTopColor: '#c7c7c7',
+                  borderTopColor: '#d6d6d6',
                   borderTopWidth: hp(0.1),
                 }}>
                 <CheckBox
@@ -227,8 +233,8 @@ const AddNewAddressScreen = ({navigation, route}) => {
                   children={() => (
                     <Text
                       style={{
-                        fontFamily: 'ProductSans-Regular',
-                        fontSize: hp(2),
+                        fontFamily: 'Poppins-Light',
+                        fontSize: hp(1.7),
                         paddingHorizontal: hp(1.5),
                       }}>
                       Make this as my default address
@@ -257,8 +263,9 @@ const AddNewAddressScreen = ({navigation, route}) => {
                 <Text
                   style={{
                     textAlign: 'center',
-                    fontFamily: 'ProductSans-Bold',
-                    fontSize: hp(2),
+                    fontFamily: 'RalewayRoman-Regular',
+                    fontSize: hp(1.9),
+                    fontWeight:'600'
                   }}>
                   CANCEL
                 </Text>
@@ -277,9 +284,10 @@ const AddNewAddressScreen = ({navigation, route}) => {
                 <Text
                   style={{
                     textAlign: 'center',
-                    fontFamily: 'ProductSans-Bold',
+                    fontFamily: 'RalewayRoman-Regular',
+                    fontWeight:'600',
                     color: 'white',
-                    fontSize: hp(2),
+                    fontSize: hp(1.9),
                   }}>
                   SAVE
                 </Text>

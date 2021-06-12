@@ -53,7 +53,7 @@ const CategorySubComp = (props) => {
               display: 'flex',
               justifyContent: 'center',
             }}>
-            <Text style={{fontSize:Platform.ios==='android'? hp(2):hp(1.7)}}>{item}</Text>
+            <Text style={{fontSize:Platform.ios==='android'? hp(2):hp(1.6),fontFamily:"Poppins-Light"}}>{item}</Text>
           </View>
           <Divider />
         </View>
@@ -72,7 +72,7 @@ const CategorySubComp = (props) => {
             flexDirection:'row'
           }}>
           <View style={{flex: 3,display:'flex',justifyContent:'center'}}>
-            <Text style={{fontSize:Platform.ios==='android'? hp(2):hp(1.7)}}>{props.sub.title}</Text>
+            <Text style={{fontSize:Platform.ios==='android'? hp(2):hp(1.6),fontFamily:"Poppins-Light"}}>{props.sub.title}</Text>
           </View>
           {props.sub.items && <Animated.View
             style={{
