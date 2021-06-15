@@ -10,7 +10,7 @@ import ListingCard from '../../Components/ListingCard';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import {SafeAreaView, useSafeAreaInsets} from 'react-native-safe-area-context';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import ShowFiltersModal from '../../Components/ShowFiltersModal';
 import SortByModal from '../../Components/SortByModal';
 
@@ -20,7 +20,7 @@ const ListingPage = () => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{flex: 0.9}}>
-        <NavigationHeader title="Myntra" />
+        <NavigationHeader title="MYNTRA" />
       </View>
       <View style={{flex: 8}}>
         <ScrollView

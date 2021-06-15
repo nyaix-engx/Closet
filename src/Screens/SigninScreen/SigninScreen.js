@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {StyleSheet, View, Text, Pressable, Platform} from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -18,7 +18,6 @@ const SigninScreen = () => {
       <View
         style={{
           flex: 1,
-          // backgroundColor: 'orange',
           display: 'flex',
           justifyContent: 'center',
         }}>
@@ -27,7 +26,6 @@ const SigninScreen = () => {
       <View
         style={{
           flex: 2,
-          // backgroundColor: 'grey',
           display: 'flex',
           justifyContent: 'center',
         }}>
@@ -35,7 +33,6 @@ const SigninScreen = () => {
       </View>
       <View
         style={{
-          // backgroundColor: 'purple',
           flex: 1,
           display: 'flex',
           justifyContent: 'center',
@@ -48,7 +45,6 @@ const SigninScreen = () => {
       <View
         style={{
           flex: 0.7,
-          // backgroundColor: 'green',
           display: 'flex',
           justifyContent: 'center',
         }}>
@@ -56,7 +52,6 @@ const SigninScreen = () => {
       </View>
       <View
         style={{
-          // backgroundColor: 'yellow',
           flex: 0.8,
           display: 'flex',
           justifyContent: 'center',
@@ -76,7 +71,6 @@ const SigninScreen = () => {
       <View
         style={{
           flex: 1,
-          // backgroundColor: 'grey',
           display: 'flex',
           justifyContent: 'center',
         }}>
@@ -85,7 +79,6 @@ const SigninScreen = () => {
             display: 'flex',
             flexDirection: 'row',
             flex: 1,
-            // backgroundColor: 'green',
           }}>
           <View
             style={{
@@ -96,9 +89,10 @@ const SigninScreen = () => {
             }}>
             <Text
               style={{
-                fontFamily: 'ProductSans-Bold',
-                fontWeight: '800',
+                fontFamily: 'RalewayRoman-Regular',
+                fontWeight: '600',
                 textAlign: 'center',
+                fontSize:hp(1.6)
               }}>
               SWIPE RIGHT FOR SIGN UP
             </Text>
@@ -109,7 +103,6 @@ const SigninScreen = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              // backgroundColor:'grey'
             }}>
             <Fontisto size={hp(2)} name="arrow-right" />
           </View>
@@ -122,15 +115,15 @@ export default SigninScreen;
 
 const styles = StyleSheet.create({
   headingText: {
-    fontWeight: '100',
-    fontFamily: 'ProductSans-Regular',
+    fontWeight: '500',
+    fontFamily: 'RalewayRoman-Regular',
     fontSize: hp(4),
   },
   signin: {
     fontSize: hp(2),
     color: 'white',
-    fontFamily: 'ProductSans-Regular',
-    fontWeight: '700',
+    fontFamily: 'RalewayRoman-Regular',
+    fontWeight: '600',
     textAlign: 'center',
   },
   button: {
@@ -142,8 +135,8 @@ const styles = StyleSheet.create({
   },
   choiceText: {
     textAlign: 'center',
-    fontSize: hp(2),
-    fontFamily:'ProductSans-Regular',
+    fontSize: hp(1.8),
+    fontFamily:'Poppins-Light',
     color: 'grey',
   },
   iconsContainer: {

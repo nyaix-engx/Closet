@@ -14,7 +14,6 @@ const SignupScreen = () => {
       <View
         style={{
           flex: Platform.OS === 'android' ? 1 : 1.4,
-          // backgroundColor: 'orange',
           display: 'flex',
           justifyContent: 'center',
         }}>
@@ -27,7 +26,6 @@ const SignupScreen = () => {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-around',
-            // backgroundColor:'purple',
             alignItems:'center'
           }}>
           <SocialIconWrapper>
@@ -46,19 +44,16 @@ const SignupScreen = () => {
           flex: Platform.OS==='android'? 0.5 :0.7,
           display: 'flex',
           justifyContent: 'center',
-          // backgroundColor: 'orange',
         }}>
         <Text style={styles.choiceText}>Or, register with email</Text>
       </View>
       <View
         style={{
           flex: 5,
-          // backgroundColor: 'green'
         }}>
         <View
           style={{
             flex: 2,
-            // backgroundColor: 'red',
             display: 'flex',
             justifyContent: 'center',
           }}>
@@ -67,7 +62,6 @@ const SignupScreen = () => {
         <View
           style={{
             flex: 0.7,
-            // backgroundColor: 'yellow',
             display: 'flex',
             alignItems: 'center',
             justifyContent:'center'
@@ -80,7 +74,6 @@ const SignupScreen = () => {
       <View
         style={{
           flex: 1,
-          // backgroundColor: 'grey',
           display: 'flex',
           justifyContent: 'center',
         }}>
@@ -89,7 +82,6 @@ const SignupScreen = () => {
             display: 'flex',
             flexDirection: 'row',
             flex: 1,
-            // backgroundColor: 'green',
           }}>
           <View
             style={{
@@ -109,9 +101,10 @@ const SignupScreen = () => {
             }}>
             <Text
               style={{
-                fontFamily: 'ProductSans-Bold',
-                fontWeight: '800',
+                fontFamily: 'RalewayRoman-Regular',
+                fontWeight: '500',
                 textAlign: 'center',
+                fontSize:hp(1.6)
               }}>
               SWIPE LEFT FOR SIGNIN
             </Text>
@@ -124,15 +117,15 @@ const SignupScreen = () => {
 
 const styles = StyleSheet.create({
   headingText: {
-    fontWeight: '100',
-    fontFamily: 'ProductSans-Regular',
+    fontWeight: '500',
+    fontFamily: 'RalewayRoman-Regular',
     fontSize: hp(4),
   },
   signup: {
     fontSize: hp(2),
     color: 'white',
-    fontFamily: 'ProductSans-Regular',
-    fontWeight: '700',
+    fontFamily: 'RalewayRoman-Regular',
+    fontWeight: '600',
     textAlign: 'center',
   },
   iconsContainer: {
@@ -140,7 +133,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     flex: Platform.OS === 'ios' ? 1.4 : 1.2,
     justifyContent: 'space-between',
-    // backgroundColor: 'purple',
   },
   button: {
     borderRadius: hp(3),
@@ -151,8 +143,8 @@ const styles = StyleSheet.create({
   },
   choiceText: {
     textAlign: 'center',
-    fontSize: hp(2),
-    fontFamily: 'ProductSans-Regular',
+    fontSize: hp(1.8),
+    fontFamily: 'Poppins-Light',
     color: 'grey',
   },
   wrapper: {

@@ -1,9 +1,8 @@
 import React,{useRef} from 'react';
-import {View, Text, ScrollView, Image, useWindowDimensions} from 'react-native';
+import {View, Text, Image, useWindowDimensions} from 'react-native';
 import ContentContainer from '../Components/HomeScreenComps/ContentContainer';
 import Animated from 'react-native-reanimated'
 import { heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import FadingBackScrollCard from './FadingBackScrollCard';
 
 const FadingBackScroll = ({height,headingText,backgroundImage,coverText,array,cardComponent:CardComponent,style}) => {
   const scrollX = useRef(new Animated.Value(0));

@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Modal from 'react-native-modal';
-import {View, Text, ScrollView, Pressable, Image, Platform} from 'react-native';
+import {View, Text, Pressable, Image} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import ScaleAnimation from './ScaleAnimation';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import Button from './Button';
 
 const PaymentInformationModal = props => {
   const insets = useSafeAreaInsets();

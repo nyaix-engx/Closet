@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from 'react';
 import {View, Text, Pressable, Platform} from 'react-native';
 import {Divider} from '@ui-kitten/components';
-import Animated, {EasingNode, Extrapolate} from 'react-native-reanimated';
+import Animated, { Extrapolate} from 'react-native-reanimated';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Modal from 'react-native-modal';
 import {View, Text, ScrollView, Pressable, Image, Platform} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -9,7 +9,6 @@ import Button from './Button';
 
 const AddressRemoveModal = props => {
   const insets = useSafeAreaInsets();
-  //   console.log("Scroll position",props.scrollRef.current)
   const handlePress = () => {
     let x = props.items.filter((data, itemIndex) => {
       return itemIndex !== props.index;

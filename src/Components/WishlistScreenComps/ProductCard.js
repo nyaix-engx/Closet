@@ -62,23 +62,22 @@ const ProductCard = (props) => {
         <View>
           <View style={{padding: hp(0.3)}}>
             <Text
-              style={{fontFamily: 'ProductSans-Regular', fontSize: hp(1.8),marginBottom:hp(0.5),fontWeight:'100'}}>
+              style={{fontFamily: 'Poppins-Medium', fontSize: hp(1.6),marginBottom:hp(0.5)}}>
               {props.data.brand}
             </Text>
           </View>
           <View style={{display: 'flex', flexDirection: 'row',alignItems:'center'}}>
             <Text
               style={{
-                fontFamily: 'ProductSans-Regular',
+                fontFamily: 'Poppins-Light',
                 marginRight: hp(0.6),
-                fontWeight: 'bold',
                 fontSize: hp(1.6),
               }}>
               ${props.data.price}
             </Text>
             <Text
               style={{
-                fontFamily: 'ProductSans-Regular',
+                fontFamily: 'Poppins-Light',
                 marginRight: hp(0.6),
                 fontSize: hp(1.6),
                 textDecorationLine:'line-through'
@@ -87,9 +86,9 @@ const ProductCard = (props) => {
             </Text>
             <Text
               style={{
-                fontFamily: 'ProductSans-Italic',
+                fontFamily: 'Poppins-Light',
                 color: '#fb7ca0',
-                fontSize: hp(1.6),
+                fontSize: hp(1.5),
               }}>
               ({props.data.discount} % OFF)
             </Text>
@@ -113,8 +112,8 @@ const ProductCard = (props) => {
           }}>
           <Text
             style={{
-              fontFamily: 'ProductSans-Bold',
-              fontWeight: 'bold',
+              fontFamily: 'RalewayRoman-Regular',
+              fontWeight:'600',
               color: '#fb7ca0',
               fontSize: Platform.OS==='ios'? hp(1.4) :hp(1.6),
             }}>

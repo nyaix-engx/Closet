@@ -41,7 +41,7 @@ const SizeSelectModal = props => {
         padding: 0,
         margin: 0,
       }}>
-      <View style={{backgroundColor: 'white', paddingTop:hp(2),paddingHorizontal:hp(2)}}>
+      <View style={{backgroundColor: 'white', paddingTop:hp(2),paddingHorizontal:hp(2),borderTopRightRadius:hp(1),borderTopLeftRadius:hp(1)}}>
         <View
           style={{
             paddingHorizontal: hp(1),
@@ -51,11 +51,12 @@ const SizeSelectModal = props => {
           }}>
           <Text
             style={{
-              fontFamily: 'ProductSans-Bold',
-              fontSize: hp(2),
+              fontFamily: 'RalewayRoman-Regular',
+              fontSize: hp(1.8),
+              fontWeight:'600',
               marginBottom: hp(2),
             }}>
-            Select Size
+            SELECT SIZE
           </Text>
           <Pressable onPress={props.setShowModal} style={{marginBottom:hp(2)}}>
             <Fontisto
@@ -71,8 +72,8 @@ const SizeSelectModal = props => {
             </ScrollView>
         </View>
         <ScaleAnimation onPress={handlePress} scaleTo={0.9} >
-          <Button viewProps={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.3),marginBottom:insets.bottom}}>
-            <Text style={{textAlign:'center',fontSize:hp(2),fontFamily:'ProductSans-Bold',color:'white'}} >Button</Text>
+          <Button viewProps={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.5),marginBottom:insets.bottom}}>
+            <Text style={{textAlign:'center',fontSize:hp(1.9),fontFamily:'RalewayRoman-Regular',color:'white',fontWeight:'600'}} >DONE</Text>
           </Button>
         </ScaleAnimation>
       </View>

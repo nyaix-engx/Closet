@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Modal from 'react-native-modal';
 import {View, Text, Pressable, Platform} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -28,15 +28,15 @@ const RemoveAllModal = props => {
           borderRadius:hp(1)
         }}>
         <View style={{ display: 'flex', justifyContent: 'center',paddingVertical:hp(2)}}>
-          <Text style={{fontFamily: 'ProductSans-Regular', fontWeight: 'bold'}}>
-            Remove from Wishlist
+          <Text style={{fontFamily: 'Poppins-Medium', fontSize:hp(1.6)}}>
+            REMOVE FROM WISHLIST
           </Text>
         </View>
         <View style={{display: 'flex', justifyContent: 'center',marginBottom:hp(2)}}>
-          <Text style={{fontFamily: 'ProductSans-Regular'}}>
+          <Text style={{fontFamily: 'Poppins-Light',fontSize:hp(1.5)}}>
             16 item(s) will be removed from your wishlist.
           </Text>
-          <Text>Are you sure you want to continue?</Text>
+          <Text style={{fontFamily: 'Poppins-Light',fontSize:hp(1.5)}}>Are you sure you want to continue?</Text>
         </View>
         <View
           style={{flexDirection: 'row', justifyContent: 'flex-end',paddingVertical:hp(1)}}>
@@ -44,15 +44,16 @@ const RemoveAllModal = props => {
             style={{padding: hp(2)}}
             onPress={() => props.setShowModal()}>
             <Text
-              style={{fontFamily: 'ProductSans-Regular', fontWeight: 'bold'}}>
+              style={{fontFamily: 'RalewayRoman-Regular', fontSize:hp(1.6),fontWeight:'600'}}>
               CANCEL
             </Text>
           </Pressable>
           <Pressable onPress={handlePress} style={{padding: hp(2)}}>
             <Text
               style={{
-                fontFamily: 'ProductSans-Regular',
-                fontWeight: 'bold',
+                fontFamily: 'RalewayRoman-Regular',
+                fontSize:hp(1.6),
+                fontWeight:'600',
                 color: '#fb7ca0',
               }}>
               REMOVE

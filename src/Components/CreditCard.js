@@ -47,7 +47,7 @@ const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRe
         <Text
           style={{
             fontFamily: 'Poppins-Medium',
-            fontSize: hp(1.8),
+            fontSize: hp(1.6),
             color: '#bababa',
             marginBottom: hp(0.5),
           }}>
@@ -55,8 +55,8 @@ const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRe
         </Text>
         <Text
           style={{
-            fontFamily: 'Poppins-Light',
-            fontSize: hp(2),
+            fontFamily: 'Poppins-Medium',
+            fontSize: hp(1.8)
           }}>
           {data.number}
         </Text>
@@ -71,7 +71,7 @@ const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRe
           <Text
             style={{
               fontFamily: 'Poppins-Medium',
-              fontSize: hp(1.8),
+              fontSize: hp(1.6),
               color: '#bababa',
               marginBottom: hp(0.5),
             }}>
@@ -79,8 +79,8 @@ const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRe
           </Text>
           <Text
             style={{
-              fontFamily: 'Poppins-Light',
-              fontSize: hp(2),
+              fontFamily: 'Poppins-Medium',
+              fontSize: hp(1.8),
             }}>
             {data.name}
           </Text>
@@ -89,7 +89,7 @@ const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRe
           <Text
             style={{
               fontFamily: 'Poppins-Medium',
-              fontSize: hp(1.8),
+              fontSize: hp(1.6),
               color: '#bababa',
               marginBottom: hp(0.5),
             }}>
@@ -97,8 +97,8 @@ const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRe
           </Text>
           <Text
             style={{
-              fontFamily: 'Poppins-Light',
-              fontSize: hp(2),
+              fontFamily: 'Poppins-Medium',
+              fontSize: hp(1.8),
               textAlign: 'center',
             }}>
             {data.expiry}

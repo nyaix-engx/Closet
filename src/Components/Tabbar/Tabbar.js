@@ -58,13 +58,13 @@ const MyTabBar = ({state, descriptors, navigation}) => {
                         color: '#fb7ca0',
                         fontSize: hp(1.6),
                         textAlign: 'center',
-                        fontFamily:'ProductSans-Bold'  
+                        fontFamily:'Poppins-Medium'  
                       }
                     : {
                         color: 'black',
-                        fontSize: hp(1.6),  
+                        fontSize: hp(1.4),  
                         textAlign: 'center',
-                        fontFamily:'ProductSans-Regular'
+                        fontFamily:'Poppins-Medium'
                       }
                 }>
                 {label}

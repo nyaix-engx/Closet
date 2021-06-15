@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, Pressable, ScrollView} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {Input, Radio, RadioGroup, CheckBox} from '@ui-kitten/components';
 import {SafeAreaView} from 'react-native-safe-area-context';

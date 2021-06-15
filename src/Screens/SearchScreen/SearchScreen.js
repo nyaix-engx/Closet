@@ -1,8 +1,7 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import {
   View,
   Text,
-  ScrollView,
   StyleSheet,
   Pressable,
   Image,
@@ -47,8 +46,8 @@ const SearchScreen = () => {
       title={() => (
         <Text
           style={{
-            fontFamily: 'ProductSans-Regular',
-            fontSize: hp(1.8),
+            fontFamily: 'Poppins-Medium',
+            fontSize: hp(1.6),
             paddingHorizontal: hp(1),
           }}>
           {item.brand}
@@ -57,9 +56,10 @@ const SearchScreen = () => {
       description={() => (
         <Text
           style={{
-            fontFamily: 'ProductSans-Regular',
-            fontSize: hp(1.8),
+            fontFamily: 'Poppins-Light',
+            fontSize: hp(1.55),
             paddingHorizontal: hp(1),
+            color:'grey',
           }}>
           {item.category}
         </Text>
@@ -146,9 +146,10 @@ const SearchScreen = () => {
                 backgroundColor: 'white',
               }}
               textStyle={{
-                fontSize: Platform.OS === 'android' ? hp(2.3) : hp(2.1),
+                fontSize: Platform.OS === 'android' ? hp(1.8) : hp(1.7),
                 paddingVertical: hp(1.5),
-                fontFamily: 'ProductSans-Regular',
+                fontFamily: 'Poppins-Light',
+                fontWeight:'300'
               }}
               onChangeText={(nextValue) => setSearchTerm(nextValue)}
             />
@@ -170,9 +171,9 @@ const SearchScreen = () => {
           }}>
           <Text
             style={{
-              fontFamily: 'ProductSans-Regular',
+              fontFamily: 'RalewayRoman-Regular',
               fontSize: Platform.OS === 'ios' ? hp(1.6) : hp(1.7),
-              fontWeight: '700',
+              fontWeight: '600',
               color: '#363636',
             }}>
             YOU MAY BE INTERESTED IN

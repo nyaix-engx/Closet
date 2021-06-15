@@ -111,11 +111,11 @@ const WishlistScreen = ({route}) => {
                   <View>
                     <Text
                       style={{
-                        fontFamily: 'ProductSans-Regular',
-                        fontWeight: 'bold',
-                        fontSize: Platform.OS === 'ios' ? hp(1.7) : hp(2),
+                        fontFamily: 'RalewayRoman-Regular',
+                        fontWeight: '600',
+                        fontSize: Platform.OS === 'ios' ? hp(1.6) : hp(2),
                       }}>
-                      Out of Stock Items
+                      OUT OF STOCK ITEMS
                     </Text>
                   </View>
                   <Pressable onPress={() => setShowRemoveModal(true)}>
@@ -128,7 +128,8 @@ const WishlistScreen = ({route}) => {
                       }}>
                       <Text
                         style={{
-                          fontWeight: 'bold',
+                          fontFamily:'RalewayRoman-Regular',
+                          fontWeight: '600',
                           fontSize: Platform.OS === 'ios' ? hp(1.5) : hp(1.6),
                         }}>
                         REMOVE ALL
@@ -176,8 +177,8 @@ const WishlistScreen = ({route}) => {
               <Animated.Text
                 style={{
                   textAlign: 'center',
-                  fontFamily: 'ProductSans-Bold',
-                  fontSize: hp(2),
+                  fontFamily: 'Poppins-Medium',
+                  fontSize: hp(1.8),
                   marginBottom:hp(1),
                   marginRight:hp(0.5),
                   transform: [{translateX: translateTitle.current}],
@@ -189,7 +190,7 @@ const WishlistScreen = ({route}) => {
                 Text
                 style={{
                   textAlign: 'center',
-                  fontFamily: 'ProductSans-Regular',
+                  fontFamily: 'ArchitectsDaughter-Regular',
                   fontSize: hp(1.8),
                   color: 'grey',
                   opacity:subTitleOpacity

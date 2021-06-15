@@ -29,7 +29,7 @@ const SelectQuantityModal = props => {
         padding: 0,
         margin: 0,
       }}>
-      <View style={{backgroundColor: 'white', paddingTop:hp(2),paddingHorizontal:hp(2)}}>
+      <View style={{backgroundColor: 'white', paddingTop:hp(2),paddingHorizontal:hp(2),borderTopLeftRadius:hp(1),borderTopRightRadius:hp(1)}}>
         <View
           style={{
             paddingHorizontal: hp(1),
@@ -39,11 +39,12 @@ const SelectQuantityModal = props => {
           }}>
           <Text
             style={{
-              fontFamily: 'ProductSans-Bold',
-              fontSize: hp(2),
+              fontFamily: 'RalewayRoman-Regular',
+              fontWeight:'600',
+              fontSize: hp(1.8),
               marginBottom: hp(2),
             }}>
-            Select Quantity
+            SELECT QUANTITY
           </Text>
           <Pressable onPress={props.setShowModal} style={{marginBottom:hp(2)}}>
             <Fontisto
@@ -59,8 +60,8 @@ const SelectQuantityModal = props => {
             </ScrollView>
         </View>
         <ScaleAnimation onPress={()=>{props.setShowModal();props.setQuantity(tempQuantity)}} scaleTo={0.9} >
-          <Button viewProps={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.3),marginBottom:insets.bottom}} >
-            <Text style={{textAlign:'center',fontSize:hp(2),fontFamily:'ProductSans-Bold',color:'white'}}>DONE</Text>
+          <Button viewProps={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.5),marginBottom:insets.bottom}} >
+            <Text style={{textAlign:'center',fontSize:hp(1.9),fontFamily:'RalewayRoman-Regular',color:'white',fontWeight:'600'}}>DONE</Text>
           </Button>
         </ScaleAnimation>
       </View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,StyleSheet} from 'react-native';
+import {View,StyleSheet} from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const Button=({ children,viewProps})=> {

@@ -1,53 +1,13 @@
 import React, {useState} from 'react';
 import Modal from 'react-native-modal';
-import {View, Text, ScrollView, Pressable, Image, Platform} from 'react-native';
+import {View, Text } from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import ScaleAnimation from './ScaleAnimation';
-import ImagePicker from 'react-native-image-picker';
 import Button from './Button';
 
 const UploadImageModal = props => {
   const insets = useSafeAreaInsets();
-  const [filePath, setFilePath] = useState({});
-
-  const chooseFile = () => {
-    let options = {
-      title: 'Select Image',
-      customButtons: [
-        {
-          name: 'customOptionKey',
-          title: 'Choose Photo from Custom Option'
-        },
-      ],
-      storageOptions: {
-        skipBackup: true,
-        path: 'images',
-      },
-    };
-    ImagePicker.showImagePicker(options, (response) => {
-      console.log('Response = ', response);
-
-      if (response.didCancel) {
-        console.log('User cancelled image picker');
-      } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
-      } else if (response.customButton) {
-        console.log(
-          'User tapped custom button: ',
-          response.customButton
-        );
-        alert(response.customButton);
-      } else {
-        let source = response;
-        // You can also display the image using data:
-        // let source = {
-        //   uri: 'data:image/jpeg;base64,' + response.data
-        // };
-        setFilePath(source);
-      }
-    });
-  };
 
   return (
     <Modal
@@ -124,7 +84,7 @@ const UploadImageModal = props => {
             </ScaleAnimation>
           </View>
           <View style={{paddingHorizontal:hp(3),marginBottom:hp(1)}}>
-            <ScaleAnimation onPress={chooseFile} scaleTo={0.9}>
+            <ScaleAnimation onPress={()=>{}} scaleTo={0.9}>
               <Button
                 viewProps={{
                   backgroundColor: '#fb7ca0',

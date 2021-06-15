@@ -52,7 +52,7 @@ const AuthInput = (props) => {
           onBlur={()=>setEmailBorderColor('#c3c3c3')}
           style={{borderRadius:hp(1.5),borderColor:emailBorderColor}}
           accessoryLeft={(props) =><View style={{height:hp(5), display:'flex',justifyContent:'center',paddingHorizontal:hp(1)}}><Entypo {...props} name={'email'} size={hp(2.5)} style={{color:emailBorderColor}}/></View> }
-          textStyle={{fontSize: Platform.OS ==='android'? hp(2.3): hp(2.1), paddingVertical: hp(0.5),fontFamily:'ProductSans-Regular'}}
+          textStyle={{fontSize: Platform.OS ==='android'? hp(1.95): hp(1.85), paddingVertical: hp(0.5),fontFamily:'Poppins-Light',fontWeight:'300'}}
           onChangeText={(nextValue) => setEmail(nextValue)}
         />
       </View>
@@ -62,7 +62,7 @@ const AuthInput = (props) => {
           onFocus={()=>setPasswordBorderColor('#fb7ca0')}
           onBlur={()=>setPasswordBorderColor('#c3c3c3')}
           style={{borderRadius:hp(1.5),borderColor:passwordBorderColor}}
-          textStyle={{fontSize: Platform.OS ==='android'? hp(2.3): hp(2.1), paddingVertical: hp(0.5),fontFamily:'ProductSans-Regular'}}
+          textStyle={{fontSize: Platform.OS ==='android'? hp(1.95): hp(1.85), paddingVertical: hp(0.5),fontFamily:'Poppins-Light',fontWeight:'300'}}
           placeholder="Password"
           accessoryLeft={renderIcon1}
           secureTextEntry={secureTextEntry1}
@@ -78,7 +78,7 @@ const AuthInput = (props) => {
             onFocus={()=>setConfirmBorderColor('#fb7ca0')}
             onBlur={()=>setConfirmBorderColor('#c3c3c3')}
             style={{borderRadius:hp(1.5),borderColor:confirmBorderColor}}
-            textStyle={{fontSize: Platform.OS ==='android'? hp(2.3): hp(2.1), paddingVertical: hp(0.5),fontFamily:'ProductSans-Regular'}}
+            textStyle={{fontSize: Platform.OS ==='android'? hp(1.95): hp(1.85), paddingVertical: hp(0.5),fontFamily:'Poppins-Light',fontWeight:'300'}}
             placeholder="Confirm Password"
             accessoryLeft={renderIcon2}
             secureTextEntry={secureTextEntry2}

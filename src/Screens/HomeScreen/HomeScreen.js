@@ -1,28 +1,21 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, { useRef } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   Pressable,
   ScrollView,
-  Image,
   Platform,
 } from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Logo from '../../Assets/Svg/logo.svg';
-import Search from '../../Assets/Svg/SEARCH.svg';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import CategoriesSlider from '../../Components/HomeScreenComps/CategoriesSlider';
 import Carousel from '../../Components/HomeScreenComps/Carousel';
 import {Divider} from '@ui-kitten/components';
 import ContentCards from '../../Components/HomeScreenComps/ContentCards';
 import ContentContainer from '../../Components/HomeScreenComps/ContentContainer';
 import Animated, {
-  interpolateColors,
-  Easing,
-  Extrapolate,
+  Extrapolate
 } from 'react-native-reanimated';
 import RowColContainer from '../../Components/HomeScreenComps/RowColContainer';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -32,24 +25,9 @@ import FadingBackScroll from '../../Components/FadingbackScroll';
 import Feather from 'react-native-vector-icons/Feather'
 
 const HomeScreen = (props) => {
-  const {Value, debug} = Animated;
-  const scrollX = useRef(new Animated.Value(0));
   const scrollY = useRef(new Animated.Value(0));
-  const sliderHeight = useRef(new Animated.Value(hp(13)));
   const diffClampScrollY = useRef(
     new Animated.diffClamp(scrollY.current, 0, hp(15)),
-  );
-
-  const color = Animated.interpolateColors(
-    scrollX.current,
-    {
-      inputRange: [0, hp(18)],
-      outputColorRange: ['rgba(0,0,0,0.5)', 'rgba(255,255,255,1)'],
-    },
-    {
-      inputRange: [hp(18), 0],
-      outputColorRange: ['rgba(255,255,255,1)', 'rgba(0,0,0,0.5)'],
-    },
   );
 
   const categoriesSlider = Animated.interpolateNode(diffClampScrollY.current, {
@@ -171,7 +149,6 @@ const HomeScreen = (props) => {
         showsVerticalScrollIndicator={false}
         stickyHeaderIndices={[0]}
         decelerationRate={'normal'}
-        // stickyHeaderHiddenOnScroll={[0]}
         bounces={false}
         contentContainerStyle={{
           backgroundColor: '#f7f7f8',

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, Image, useWindowDimensions, Pressable} from 'react-native';
+import {View, Text, Image, Pressable} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SizeSelectModal from './SizeSelectModal';
@@ -50,19 +50,20 @@ const ShoppingBagCard = ({data,index,setShoppingItems,shoppingItems,scrollRef,sc
             <Text
               style={{
                 fontSize: hp(1.8),
-                fontWeight: 'bold',
+                fontFamily:'Poppins-Medium',
                 marginBottom: hp(0.3),
               }}>
               {data.company}
             </Text>
             <Text
               style={{
-                fontFamily: 'ProductSans-Regular',
+                fontFamily: 'Poppins-Light',
                 marginBottom: hp(0.3),
+                fontSize:hp(1.5)
               }}>
               {data.title}
             </Text>
-            <Text style={{fontFamily: 'ProductSans-Regular', color: 'grey'}}>
+            <Text style={{fontFamily: 'Poppins-Light',fontSize:hp(1.5), color: 'grey'}}>
               Sold By: BEST UNITED PVT LTD
             </Text>
           </View>
@@ -88,8 +89,8 @@ const ShoppingBagCard = ({data,index,setShoppingItems,shoppingItems,scrollRef,sc
                   flexDirection: 'row',
                   alignItems: 'center',
                 }}>
-                <Text style={{fontSize: hp(1.6), fontWeight: 'bold'}}>
-                  Size: {size}
+                <Text style={{fontSize: hp(1.6),fontFamily:'Poppins-Medium',  marginRight:hp(0.5)}}>
+                  Size : {size}
                 </Text>
                 <Ionicons name="caret-down-sharp" size={hp(1.5)} />
               </View>
@@ -109,7 +110,7 @@ const ShoppingBagCard = ({data,index,setShoppingItems,shoppingItems,scrollRef,sc
                   flexDirection: 'row',
                   alignItems: 'center',
                 }}>
-                <Text style={{fontSize: hp(1.6), fontWeight: 'bold'}}>
+                <Text style={{fontSize: hp(1.6),fontFamily:'Poppins-Medium',  marginRight:hp(0.5)}}>
                   Qty: {quantity}
                 </Text>
                 <Ionicons name="caret-down-sharp" size={hp(1.5)} />
@@ -117,7 +118,7 @@ const ShoppingBagCard = ({data,index,setShoppingItems,shoppingItems,scrollRef,sc
             </Pressable>
           </View>
           <View>
-            <Text style={{fontSize: hp(1.8), fontWeight: 'bold'}}>${data.price}</Text>
+            <Text style={{fontSize: hp(1.9), fontFamily:'Poppins-Medium'}}>${data.price}</Text>
           </View>
         </View>
       </View>
@@ -133,7 +134,7 @@ const ShoppingBagCard = ({data,index,setShoppingItems,shoppingItems,scrollRef,sc
               borderRightColor: '#757575',
               borderRightWidth: hp(0.025),
             }}>
-            <Text style={{fontFamily: 'ProductSans-Bold'}}>REMOVE</Text>
+            <Text style={{fontFamily: 'RalewayRoman-Regular',fontWeight:'600'}}>REMOVE</Text>
           </Pressable>
           <Pressable
             style={{
@@ -144,7 +145,7 @@ const ShoppingBagCard = ({data,index,setShoppingItems,shoppingItems,scrollRef,sc
               borderLeftColor: '#757575',
               borderLeftWidth: hp(0.025),
             }}>
-            <Text style={{fontFamily: 'ProductSans-Bold', color: '#fb7ca0'}}>
+            <Text style={{fontFamily: 'RalewayRoman-Regular',fontWeight:'600', color: '#fb7ca0'}}>
               MOVE TO WISHLIST
             </Text>
           </Pressable>

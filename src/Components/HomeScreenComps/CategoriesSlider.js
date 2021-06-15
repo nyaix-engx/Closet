@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, ScrollView, StyleSheet, Image} from 'react-native';
+import { ScrollView, StyleSheet} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import CategoryAvatar from './CategoryAvatar';
 

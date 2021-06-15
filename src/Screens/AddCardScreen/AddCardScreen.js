@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, Pressable, TextInput, ImageBackground} from 'react-native';
+import {View, Text, TextInput, ImageBackground} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import BackButtonTitle from '../../Components/BackButtonTitle';
@@ -137,7 +137,7 @@ const AddCardScreen = ({route, navigation}) => {
           backgroundColor: 'white',
         }}>
         <View style={{marginBottom: hp(2), paddingVertical: hp(2)}}>
-          <Text style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2.1)}}>
+          <Text style={{fontFamily: 'RalewayRoman-Regular', fontSize: hp(2),fontWeight:'600'}}>
             Add New Credit/ Debit Card
           </Text>
         </View>
@@ -161,15 +161,16 @@ const AddCardScreen = ({route, navigation}) => {
             <View style={{marginBottom: hp(1)}}>
               <Text
                 style={{
-                  fontFamily: 'ProductSans-Bold',
+                  fontFamily: 'Poppins-Medium',
                   fontSize: hp(1.6),
+                  color:'grey',
                   marginBottom: hp(0.5),
                 }}>
                 NAME ON CARD
               </Text>
               <TextInput
                 placeholder="XXXXXX"
-                style={{fontFamily: 'ProductSans-Regular', fontSize: hp(1.8)}}
+                style={{fontFamily: 'Poppins-Medium', fontSize: hp(1.8)}}
                 value={name}
                 onChange={e => setName(e.nativeEvent.text)}
                 editable={false}
@@ -178,7 +179,8 @@ const AddCardScreen = ({route, navigation}) => {
             <View style={{marginBottom: hp(1)}}>
               <Text
                 style={{
-                  fontFamily: 'ProductSans-Bold',
+                  fontFamily: 'Poppins-Medium',
+                  color:'grey',
                   fontSize: hp(1.6),
                   marginBottom: hp(0.5),
                 }}>
@@ -186,7 +188,7 @@ const AddCardScreen = ({route, navigation}) => {
               </Text>
               <TextInput
                 placeholder="XXX XXXX XXXX XXXX"
-                style={{fontFamily: 'ProductSans-Regular', fontSize: hp(1.8)}}
+                style={{fontFamily: 'Poppins-Medium', fontSize: hp(1.8)}}
                 value={cardNumber}
                 onChange={e => setCardNumber(e.nativeEvent.text)}
                 editable={false}
@@ -195,15 +197,16 @@ const AddCardScreen = ({route, navigation}) => {
             <View style={{marginBottom: hp(1)}}>
               <Text
                 style={{
-                  fontFamily: 'ProductSans-Bold',
+                  fontFamily: 'Poppins-Medium',
                   fontSize: hp(1.6),
+                  color:'grey',
                   marginBottom: hp(0.5),
                 }}>
                 MONTH/YEAR
               </Text>
               <TextInput
                 placeholder="XX/XX"
-                style={{fontFamily: 'ProductSans-Regular', fontSize: hp(1.8)}}
+                style={{fontFamily: 'Poppins-Medium', fontSize: hp(1.8)}}
                 value={expiry}
                 onChange={e => setExpiry(e.nativeEvent.text)}
                 editable={false}
@@ -224,8 +227,9 @@ const AddCardScreen = ({route, navigation}) => {
             value={name}
             textStyle={{
               paddingVertical: hp(1),
-              fontSize: hp(1.8),
-              fontFamily: 'ProductSans-Bold',
+              fontSize: hp(1.7),
+              fontWeight:'300',
+              fontFamily: 'Poppins-Light',
             }}
             placeholder="Name on card"
             maxLength={25}
@@ -237,8 +241,9 @@ const AddCardScreen = ({route, navigation}) => {
             value={cardNumber}
             textStyle={{
               paddingVertical: hp(1),
-              fontSize: hp(1.8),
-              fontFamily: 'ProductSans-Bold',
+              fontSize: hp(1.7),
+              fontWeight:'300',
+              fontFamily: 'Poppins-Light',
             }}
             placeholder="Card Number"
             textContentType="creditCardNumber"
@@ -258,8 +263,9 @@ const AddCardScreen = ({route, navigation}) => {
             style={{borderColor: expiryBorder}}
             textStyle={{
               paddingVertical: hp(1),
-              fontSize: hp(1.8),
-              fontFamily: 'ProductSans-Bold',
+              fontSize: hp(1.7),
+              fontWeight:'300',
+              fontFamily: 'Poppins-Light',
             }}
             placeholder="Expiry"
             maxLength={5}
@@ -268,13 +274,14 @@ const AddCardScreen = ({route, navigation}) => {
         </View>
         <View style={{paddingVertical: hp(5), paddingHorizontal: hp(2)}}>
           <ScaleAnimation onPress={handlePress} scaleTo={0.9}>
-            <Button viewProps={{backgroundColor: '#34a880', borderRadius: hp(0.2)}}>
+            <Button viewProps={{backgroundColor: '#34a880', borderRadius: hp(0.5)}}>
               <Text
                 style={{
                   textAlign: 'center',
                   paddingVertical: hp(1.8),
-                  fontFamily: 'ProductSans-Bold',
-                  fontSize: hp(2),
+                  fontFamily: 'RalewayRoman-Regular',
+                  fontSize: hp(1.9),
+                  fontWeight:'600',
                   color: 'white',
                 }}>
                 SAVE

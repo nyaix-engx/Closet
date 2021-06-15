@@ -1,9 +1,8 @@
-import React, {Component, useState, useRef} from 'react';
+import React, { useState, useRef} from 'react';
 import {ScrollView} from 'react-native-gesture-handler';
 import CategoryComp from '../../Components/CategoryScreenComps/CategoryComp';
 import TitleHeader from '../../Components/CategoryScreenComps/TitleHeader';
 import {categories} from '../../Utils/arrays';
-import {View} from 'react-native';
 import {Platform, SafeAreaView, useWindowDimensions} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import EntryAnimation from '../../Components/EntryAnimation';
@@ -14,9 +13,7 @@ const CategoryScreen = () => {
   );
   const {height} = useWindowDimensions();
   const scrollRef = useRef();
-  // const onLayout=(e)=>{
-  //   setHeight(e.nativeEvent.layout.height)
-  // }
+
   const getCategories = () => {
     return categories.map((category, index) => {
       return (
@@ -40,7 +37,7 @@ const CategoryScreen = () => {
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-      <TitleHeader title="Categories" />
+      <TitleHeader title="CATEGORIES" />
       <ScrollView
         showsVerticalScrollIndicator={false}
         bounces={false}

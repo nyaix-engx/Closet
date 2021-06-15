@@ -70,7 +70,6 @@ const AddressScreen = ({navigation,route}) => {
           type="fade"
           durationMs={300}
           interpolation="easeOut"
-          // delayMs={20}
         />
       </Transition.Together>
       <Transition.Change interpolation="easeOut" durationMs={400} />
@@ -139,16 +138,16 @@ const AddressScreen = ({navigation,route}) => {
             />
           </View>
           <View style={{justifyContent: 'center', alignItems: 'center',paddingHorizontal:hp(2)}}>
-            <Text style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2)}}>
+            <Text style={{fontFamily: 'RalewayRoman-Regular', fontSize: hp(1.8),fontWeight:'600'}}>
               SAVE YOUR ADDRESSES NOW
             </Text>
             <Text
               style={{
-                // fontFamily: 'ProductSans-Regular',
-                fontSize: hp(1.8),
+                fontFamily: 'ArchitectsDaughter-Regular',
+                fontSize: hp(1.9),
                 textAlign: 'center',
                 marginTop: hp(2),
-                color: '#cfcfcf',
+                color: 'grey',
               }}>
               Add your home and office addresses and enjoy faster checkout
             </Text>
@@ -176,7 +175,8 @@ const AddressScreen = ({navigation,route}) => {
                 <Text
                   style={{
                     textAlign: 'center',
-                    fontFamily: 'ProductSans-Bold',
+                    fontFamily: 'RalewayRoman-Regular',
+                    fontWeight:'600',
                     color: 'blue',
                     fontSize:hp(1.8)
                   }}>

@@ -32,6 +32,8 @@ const ApplyCouponModal = props => {
           backgroundColor: 'white',
           paddingTop: hp(2),
           paddingHorizontal: hp(2),
+          borderTopLeftRadius:hp(1),
+          borderTopRightRadius:hp(1)
         }}>
         <View
           style={{
@@ -42,8 +44,9 @@ const ApplyCouponModal = props => {
           }}>
           <Text
             style={{
-              fontFamily: 'ProductSans-Bold',
-              fontSize: hp(2),
+              fontFamily: 'RalewayRoman-Regular',
+              fontSize: hp(1.8),
+              fontWeight:'600',
               marginBottom: hp(2),
             }}>
             APPLY COUPON
@@ -62,9 +65,10 @@ const ApplyCouponModal = props => {
             value={coupon}
             style={{borderRadius: hp(0.5)}}
             textStyle={{
-              fontSize: Platform.OS === 'android' ? hp(2.3) : hp(2.1),
+              fontSize: Platform.OS === 'android' ? hp(1.7) : hp(1.8),
               paddingVertical: hp(0.5),
-              fontFamily: 'ProductSans-Regular',
+              fontFamily: 'Poppins-Light',
+              fontWeight:"300"
             }}
             accessoryRight={() => {
               return (
@@ -92,14 +96,15 @@ const ApplyCouponModal = props => {
             viewProps={{
               backgroundColor: '#fb7ca0',
               paddingVertical: hp(1.4),
-              borderRadius: hp(0.3),
+              borderRadius: hp(0.5),
               marginBottom: insets.bottom,
             }}>
             <Text
               style={{
                 textAlign: 'center',
-                fontSize: hp(2),
-                fontFamily: 'ProductSans-Bold',
+                fontSize: hp(1.9),
+                fontFamily: 'RalewayRoman-Regular',
+                fontWeight:'600',
                 color: 'white',
               }}>
               DONE

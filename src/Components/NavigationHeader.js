@@ -31,7 +31,7 @@ const NavigationHeader = (props) => {
             display: 'flex',
             justifyContent: 'center',
           }}>
-          <Text style={{fontSize: hp(2.2), fontFamily: 'ProductSans-Regular',color:'#363636'}}>
+          <Text style={{fontSize: hp(2.2), fontFamily: 'RalewayRoman-Regular',color:'#363636',fontWeight:'500'}}>
             {props.title}
           </Text>
         </View>

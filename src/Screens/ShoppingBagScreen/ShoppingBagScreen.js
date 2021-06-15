@@ -17,7 +17,6 @@ import Animated, {
   withTiming,
   withRepeat,
   useAnimatedStyle,
-  sub,
 } from 'react-native-reanimated';
 import {
   offers,
@@ -116,7 +115,7 @@ const ShoppingBagScreen = ({navigation}) => {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <Text style={{textAlign: 'justify'}}>{data}</Text>
+          <Text style={{textAlign: 'justify',fontFamily:'Poppins-Light',fontSize:hp(1.4)}}>{data}</Text>
         </View>
       );
     });
@@ -127,8 +126,8 @@ const ShoppingBagScreen = ({navigation}) => {
       title={() => (
         <Text
           style={{
-            fontFamily: 'ProductSans-Regular',
-            fontSize: hp(1.8),
+            fontFamily: 'Poppins-Medium',
+            fontSize: hp(1.6),
             paddingHorizontal: hp(1),
           }}>
           {item.brand}
@@ -137,8 +136,8 @@ const ShoppingBagScreen = ({navigation}) => {
       description={() => (
         <Text
           style={{
-            fontFamily: 'ProductSans-Regular',
-            fontSize: hp(1.8),
+            fontFamily: 'Poppins-Light',
+            fontSize: hp(1.6),
             paddingHorizontal: hp(1),
           }}>
           {item.category}
@@ -154,18 +153,18 @@ const ShoppingBagScreen = ({navigation}) => {
           )}
         />
       )}
-      accessoryRight={() => <Fontisto size={hp(1.6)} name="angle-right" />}
+      accessoryRight={() => <Fontisto size={hp(1.4)} name="angle-right" />}
     />
   );
 
   let interpolatedValue = Animated.interpolateNode(height.current, {
-    inputRange: [hp(5.5), hp(27)],
+    inputRange: [hp(5.5), hp(24)],
     outputRange: ['0deg', '180deg'],
     extrapolate: Extrapolate.CLAMP,
   });
   const resize = () => {
     Animated.timing(height.current, {
-      toValue: showOffers ? hp(5.5) : hp(27),
+      toValue: showOffers ? hp(5.5) : hp(24),
       duration: 250,
       easing: EasingNode.inOut(EasingNode.cubic),
     }).start();
@@ -195,7 +194,8 @@ const ShoppingBagScreen = ({navigation}) => {
                 }}>
                 <Text
                   style={{
-                    fontFamily: 'ProductSans-Bold',
+                    fontFamily: 'RalewayRoman-Regular',
+                    fontWeight:'600',
                     fontSize: hp(2),
                     textAlign: 'center',
                     marginBottom: hp(1),
@@ -211,28 +211,26 @@ const ShoppingBagScreen = ({navigation}) => {
                   <View
                     style={{
                       paddingHorizontal: hp(0.5),
-                      borderRightWidth: hp(0.1),
-                      borderLeftColor: '#757575',
+                      borderLeftColor: '#d6d6d6',
                     }}>
-                    <Text>Original Products</Text>
+                    <Text style={{fontFamily:'Poppins-Light',fontSize:hp(1.5)}}>Original Products</Text>
                   </View>
                   <View
                     style={{
                       paddingHorizontal: hp(0.5),
                       borderLeftWidth: hp(0.1),
-                      borderLeftColor: '#757575',
+                      borderLeftColor: '#d6d6d6',
                       borderRightWidth: hp(0.1),
-                      borderRightColor: '#757575',
+                      borderRightColor: '#d6d6d6',
                     }}>
-                    <Text>Safe Payment</Text>
+                    <Text style={{fontFamily:'Poppins-Light',fontSize:hp(1.5)}}>Safe Payment</Text>
                   </View>
                   <View
                     style={{
                       paddingHorizontal: hp(0.5),
-                      borderLeftWidth: hp(0.1),
-                      borderLeftColor: '#757575',
+                      borderLeftColor: '#d6d6d6',
                     }}>
-                    <Text>Easy returns</Text>
+                    <Text style={{fontFamily:'Poppins-Light',fontSize:hp(1.5)}}>Easy returns</Text>
                   </View>
                 </View>
               </View>
@@ -249,22 +247,22 @@ const ShoppingBagScreen = ({navigation}) => {
                 <View style={{display: 'flex', flexDirection: 'row'}}>
                   <Text
                     style={{
-                      fontFamily: 'ProductSans-Regular',
-                      fontSize: hp(2),
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: hp(1.8),
                       marginRight: hp(1),
                     }}>
                     Deliver to:
                   </Text>
                   <Text
-                    style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2)}}>
+                    style={{fontFamily: 'Poppins-Light', fontSize: hp(1.8)}}>
                     {address.pincode}
                   </Text>
                 </View>
                 <Pressable onPress={() => setShowDeliveryModal(true)}>
                   <Text
                     style={{
-                      fontFamily: 'ProductSans-Bold',
-                      fontSize: hp(1.9),
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: hp(1.8),
                       color: '#fb7ca0',
                     }}>
                     CHANGE
@@ -282,7 +280,8 @@ const ShoppingBagScreen = ({navigation}) => {
                   style={{
                     display: 'flex',
                     flexDirection: 'row',
-                    marginBottom: hp(2),
+                    alignItems:'center',
+                    marginBottom: hp(1),
                   }}>
                   <View style={{marginRight: hp(1.5)}}>
                     <Image
@@ -292,7 +291,7 @@ const ShoppingBagScreen = ({navigation}) => {
                   </View>
                   <View>
                     <Text
-                      style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2)}}>
+                      style={{fontFamily: 'Poppins-Medium', fontSize: hp(1.7)}}>
                       Available Offers
                     </Text>
                   </View>
@@ -308,8 +307,9 @@ const ShoppingBagScreen = ({navigation}) => {
                   <View style={{flexDirection: 'row', alignItems: 'center'}}>
                     <Text
                       style={{
-                        fontSize: hp(1.8),
-                        fontFamily: 'ProductSans-Bold',
+                        fontSize: hp(1.7),
+                        fontFamily: 'Poppins-Medium',
+                        marginRight:hp(0.5),
                         color: '#fb7ca0',
                       }}>
                       Show More
@@ -337,13 +337,13 @@ const ShoppingBagScreen = ({navigation}) => {
                 }}>
                 <View>
                   <Text
-                    style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2)}}>
+                    style={{fontFamily: 'Poppins-Medium', fontSize: hp(1.9)}}>
                     {shoppingItems.length} ITEMS
                   </Text>
                 </View>
                 <View>
                   <Text
-                    style={{fontFamily: 'ProductSans-Bold', fontSize: hp(2)}}>
+                    style={{fontFamily: 'Poppins-Medium', fontSize: hp(1.9)}}>
                     Total: ${total}
                   </Text>
                 </View>
@@ -386,19 +386,18 @@ const ShoppingBagScreen = ({navigation}) => {
                       <View style={{display: 'flex', flexDirection: 'row'}}>
                         <Text
                           style={{
-                            fontFamily: 'ProductSans-Bold',
-                            fontSize: hp(2),
+                            fontFamily: 'Poppins-Medium',
+                            fontSize: hp(1.6),
                             marginBottom: hp(1),
-                            fontSize: hp(1.8),
                           }}>
                           1 Coupon applied
                         </Text>
                       </View>
                       <Text
                         style={{
-                          fontFamily: 'ProductSans-Bold',
+                          fontFamily: 'Poppins-Light',
                           color: 'green',
-                          fontSize: hp(1.8),
+                          fontSize: hp(1.6),
                         }}>
                         You saved additional 5% on MRP
                       </Text>
@@ -408,9 +407,8 @@ const ShoppingBagScreen = ({navigation}) => {
                   <View style={{flex: 1}}>
                     <Text
                       style={{
-                        fontFamily: 'ProductSans-Bold',
-                        fontSize: hp(2),
-                        fontSize: hp(1.8),
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: hp(1.7),
                       }}>
                       Apply Coupon
                     </Text>
@@ -422,7 +420,7 @@ const ShoppingBagScreen = ({navigation}) => {
                     justifyContent: 'center',
                     alignItems: 'center',
                   }}>
-                  <Fontisto name="angle-right" size={hp(2)} />
+                  <Fontisto name="angle-right" size={hp(1.5)} />
                 </View>
               </Pressable>
               <View
@@ -439,8 +437,8 @@ const ShoppingBagScreen = ({navigation}) => {
                   }}>
                   <Text
                     style={{
-                      fontFamily: 'ProductSans-Bold',
-                      fontSize: hp(1.8),
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: hp(1.7),
                     }}>
                     PRICE DETAILS ({shoppingItems.length} Items)
                   </Text>
@@ -462,15 +460,15 @@ const ShoppingBagScreen = ({navigation}) => {
                     }}>
                     <Text
                       style={{
-                        fontSize: hp(1.8),
-                        fontFamily: 'ProductSans-Regular',
+                        fontSize: hp(1.6),
+                        fontFamily: 'Poppins-Light',
                       }}>
                       Total MRP
                     </Text>
                     <Text
                       style={{
-                        fontSize: hp(1.8),
-                        fontFamily: 'ProductSans-Regular',
+                        fontSize: hp(1.6),
+                        fontFamily: 'Poppins-Light',
                       }}>
                       ${total}
                     </Text>
@@ -484,15 +482,15 @@ const ShoppingBagScreen = ({navigation}) => {
                     }}>
                     <Text
                       style={{
-                        fontSize: hp(1.8),
-                        fontFamily: 'ProductSans-Regular',
+                        fontSize: hp(1.6),
+                        fontFamily: 'Poppins-Light',
                       }}>
                       Coupon Discount
                     </Text>
                     <Text
                       style={{
-                        fontSize: hp(1.8),
-                        fontFamily: 'ProductSans-Regular',
+                        fontSize: hp(1.6),
+                        fontFamily: 'Poppins-Light',
                         color: 'green',
                       }}>
                       -${discount}
@@ -506,15 +504,15 @@ const ShoppingBagScreen = ({navigation}) => {
                     }}>
                     <Text
                       style={{
-                        fontSize: hp(1.8),
-                        fontFamily: 'ProductSans-Regular',
+                        fontSize: hp(1.6),
+                        fontFamily: 'Poppins-Light',
                       }}>
                       Delivery Fee
                     </Text>
                     <Text
                       style={{
-                        fontSize: hp(1.8),
-                        fontFamily: 'ProductSans-Regular',
+                        fontSize: hp(1.6),
+                        fontFamily: 'Poppins-Light',
                         color: 'green',
                       }}>
                       FREE
@@ -527,19 +525,18 @@ const ShoppingBagScreen = ({navigation}) => {
                       display: 'flex',
                       flexDirection: 'row',
                       justifyContent: 'space-between',
-                      marginBottom: hp(1),
                     }}>
                     <Text
                       style={{
-                        fontSize: hp(1.8),
-                        fontFamily: 'ProductSans-Bold',
+                        fontSize: hp(1.7),
+                        fontFamily: 'Poppins-Medium',
                       }}>
                       Total Amount
                     </Text>
                     <Text
                       style={{
-                        fontSize: hp(1.8),
-                        fontFamily: 'ProductSans-Bold',
+                        fontSize: hp(1.7),
+                        fontFamily: 'Poppins-Medium',
                       }}>
                       ${totalAmount}
                     </Text>
@@ -552,7 +549,7 @@ const ShoppingBagScreen = ({navigation}) => {
             style={{
               flex: 0.7,
               justifyContent: 'center',
-              paddingHorizontal: hp(1.5),
+              paddingHorizontal: hp(4),
               paddingVertical: hp(1),
             }}>
             <ScaleAnimation
@@ -562,7 +559,7 @@ const ShoppingBagScreen = ({navigation}) => {
               <Button
                 viewProps={{
                   borderRadius: hp(0.5),
-                  paddingVertical: hp(2),
+                  paddingVertical: hp(1.5),
                   justifyContent: 'center',
                   alignItems: 'center',
                   backgroundColor: '#fb7ca0',
@@ -570,8 +567,9 @@ const ShoppingBagScreen = ({navigation}) => {
                 <Text
                   style={{
                     color: 'white',
-                    fontFamily: 'ProductSans-Bold',
-                    fontSize: hp(2),
+                    fontFamily: 'RalewayRoman-Regular',
+                    fontWeight:'600',
+                    fontSize: hp(1.9),
                   }}>
                   PLACE ORDER
                 </Text>
@@ -595,22 +593,22 @@ const ShoppingBagScreen = ({navigation}) => {
         <View style={{flex: 1}}>
           <View
             style={{
-              height: hp(35),
+              height: hp(30),
               alignItems: 'center',
               backgroundColor: '#ffffff',
               marginBottom: hp(2),
             }}>
             <LottieView
-              source={require('../../Assets/lottie/emptyBag.json')}
+              source={require('../../Assets/lottie/emptyWishlist.json')}
               autoPlay
               loop={false}
-              style={{height: hp(25)}}
+              style={{height: hp(20)}}
             />
             <Animated.View style={[{flexDirection: 'row'}, style]}>
               <Text
                 style={{
-                  fontFamily: 'ProductSans-Bold',
-                  fontSize: hp(2.2),
+                  fontFamily: 'Poppins-medium',
+                  fontSize: hp(1.8),
                   marginBottom: hp(1),
                   marginRight: hp(0.7),
                 }}>
@@ -619,8 +617,8 @@ const ShoppingBagScreen = ({navigation}) => {
               <Animated.View style={animatedStyle}>
                 <Text
                   style={{
-                    fontFamily: 'ProductSans-Bold',
-                    fontSize: hp(2.2),
+                    fontFamily: 'Poppins-medium',
+                    fontSize: hp(1.8),
                     marginBottom: hp(1),
                     color: '#fb7ca0',
                   }}>
@@ -628,17 +626,20 @@ const ShoppingBagScreen = ({navigation}) => {
                 </Text>
               </Animated.View>
             </Animated.View>
+            <View style={{paddingHorizontal:hp(6)}}>
             <Animated.Text
               style={[
                 {
-                  fontFamily: 'ProductSans-Regular',
-                  fontSize: hp(1.7),
+                  fontFamily: 'ArchitectsDaughter-Regular',
+                  fontSize: hp(1.8),
+                  textAlign:'center',
                   color: 'grey',
                 },
                 opacity,
               ]}>
               There is nothing in your bag. Let's add some items.
             </Animated.Text>
+            </View>
           </View>
           <List
             bounces={false}
@@ -655,9 +656,9 @@ const ShoppingBagScreen = ({navigation}) => {
                 }}>
                 <Text
                   style={{
-                    fontFamily: 'ProductSans-Regular',
+                    fontFamily: 'RalewayRoman-Regular',
                     fontSize: Platform.OS === 'ios' ? hp(1.6) : hp(1.7),
-                    fontWeight: '700',
+                    fontWeight: '600',
                     color: '#363636',
                   }}>
                   YOU MAY BE INTERESTED IN

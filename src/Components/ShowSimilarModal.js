@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Modal from 'react-native-modal';
 import {View, Text, ScrollView, Pressable} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -26,7 +26,7 @@ const ShowSimilarModal = props => {
             }}>
             <Text
               style={{
-                fontFamily: 'ProductSans-Regular',
+                fontFamily: 'RalewayRoman-Regular',
                 fontWeight: 'bold',
                 color: 'grey',
                 fontSize: Platform.OS === 'ios' ? hp(1.6) : hp(1.7),

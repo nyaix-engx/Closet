@@ -4,13 +4,10 @@ import {
   Text,
   Image,
   StyleSheet,
-  ScrollView,
-  Pressable,
   Platform,
 } from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import TitleHeader from '../../Components/CategoryScreenComps/TitleHeader';
-import PageContainer from '../../Components/Formatters/PageContainer';
 import {Avatar} from '@ui-kitten/components';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {Divider, List, ListItem} from '@ui-kitten/components';
@@ -113,8 +110,8 @@ const ProfileScreen = props => {
           style={{
             fontSize: hp(1.6),
             paddingHorizontal: hp(1),
-            fontFamily: 'RalewayRoman-Regular',
-            fontWeight:'500'
+            fontFamily: 'Poppins-Medium',
+            fontWeight:'400'
           }}>
           {item.title}
         </Text>
@@ -140,8 +137,7 @@ const ProfileScreen = props => {
   );
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-      <PageContainer>
-        <TitleHeader title="Profile" />
+        <TitleHeader title="PROFILE" />
         <View style={{marginBottom: hp(2)}}>
           <List
             data={data}
@@ -229,7 +225,6 @@ const ProfileScreen = props => {
             renderItem={renderItem}
           />
         </View>
-      </PageContainer>
     </SafeAreaView>
   );
 };

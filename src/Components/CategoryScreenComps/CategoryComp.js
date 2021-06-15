@@ -1,5 +1,5 @@
 import React, {useState, useRef, useEffect, lazy, Suspense} from 'react';
-import Animated, {color, EasingNode, Extrapolate} from 'react-native-reanimated';
+import Animated, { EasingNode, Extrapolate} from 'react-native-reanimated';
 import {View, Text, Pressable, Platform} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Fontisto from 'react-native-vector-icons/Fontisto';
@@ -135,7 +135,7 @@ const CategoryComp = (props) => {
                   alignItems:'flex-start',
                   paddingLeft: hp(2),
                 }}>
-                <Text style={{fontSize:Platform.ios==='android'? hp(2):hp(1.8),fontFamily:'Poppins-Medium',fontWeight:'500'}}>{props.category.title}</Text>
+                <Text style={{fontSize:Platform.ios==='android'? hp(2):hp(1.8),fontFamily:'Poppins-Medium',fontWeight:'300'}}>{props.category.title}</Text>
               </View>
                 <View
                   style={{

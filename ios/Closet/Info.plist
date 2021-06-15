@@ -24,19 +24,12 @@
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
 		<string>Fontisto.ttf</string>
-		<string>fonts/ProductSansBoldItalic.ttf</string>
-		<string>fonts/ProductSansItalic.ttf</string>
-		<string>fonts/ProductSansBold.ttf</string>
-		<string>fonts/ProductSansRegular.ttf</string>
 		<string>fonts/Poppins-Light.ttf</string>
 		<string>fonts/Poppins-LightItalic.ttf</string>
 		<string>fonts/Poppins-Medium.ttf</string>
-		<string>fonts/NanumMyeongjo-Bold.ttf</string>
-		<string>fonts/NanumMyeongjo-Regular.ttf</string>
-		<string>fonts/NanumMyeongjo-ExtraBold.ttf</string>
 		<string>fonts/Raleway-Italic-VariableFont_wght.ttf</string>
 		<string>fonts/Raleway-VariableFont_wght.ttf</string>
-		<string>fonts/CormorantGaramond-Regular.ttf</string>
+		<string>fonts/ArchitectsDaughter-Regular.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

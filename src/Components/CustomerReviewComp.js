@@ -13,9 +13,9 @@ const CustomerReview = () => {
       }}>
       <Text
         style={{
-          fontSize: hp(2),
+          fontSize: hp(1.6),
           textAlign: 'justify',
-          fontFamily: 'CormorantGaramond-Regular',
+          fontFamily: 'Poppins-Light',
           marginBottom: hp(1),
         }}>
         Fitting is kind of slim fit and is very good. Cloth quality is real good

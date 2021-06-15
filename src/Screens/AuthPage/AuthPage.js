@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, ImageBackground, View} from 'react-native';
-import {Layout, Text, ViewPager} from '@ui-kitten/components';
+import {Layout, ViewPager} from '@ui-kitten/components';
 import {SigninScreen} from '../SigninScreen/SigninScreen';
 import SignupScreen from '../SignupScreen/SignupScreen';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';

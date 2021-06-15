@@ -32,7 +32,6 @@ const DescriptionScreen = () => {
   const [size,setSize]=useState('S')
   const insets = useSafeAreaInsets();
   let scrollY = useRef(new Animated.Value(0));
-  const [display, setDisplay] = useState('flex');
   const sizes=['S','M','L','XL','XXL']
   let backcolor = Animated.interpolateColors(
     scrollY.current,
@@ -45,14 +44,7 @@ const DescriptionScreen = () => {
       outputColorRange: ['rgba(255,255,255,1)', 'rgba(255,255,255,0)'],
     },
   );
-  const handleScroll = e => {
-    //   console.log("SCroll",e)
-    //  if(e[0]>270.76666666666666667){
-    //    setDisplay('none')
-    //  }else {
-    //    setDisplay('flex')
-    //  }
-  };
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <Animated.ScrollView
@@ -63,8 +55,7 @@ const DescriptionScreen = () => {
               contentOffset: {
                 y: y =>
                   Animated.block([
-                    Animated.set(scrollY.current, y),
-                    Animated.call([y], handleScroll),
+                    Animated.set(scrollY.current, y)
                   ]),
               },
             },
@@ -317,7 +308,7 @@ const DescriptionScreen = () => {
             </Text>
             <Text
               style={{
-                fontSize: hp(1.7),
+                fontSize: hp(1.6),
                 fontFamily: 'Poppins-light',
                 color: 'black',
                 marginBottom: hp(0.5),
@@ -339,7 +330,7 @@ const DescriptionScreen = () => {
               </Text>
               <Text
                 style={{
-                  fontSize: hp(1.7),
+                  fontSize: hp(1.6),
                   fontFamily: 'Poppins-light',
                   color: 'black',
                   marginBottom: hp(0.5),
@@ -363,7 +354,7 @@ const DescriptionScreen = () => {
               </Text>
               <Text
                 style={{
-                  fontSize: hp(1.7),
+                  fontSize: hp(1.6),
                   fontFamily: 'Poppins-light',
                   color: 'black',
                   marginBottom: hp(0.5),
@@ -387,7 +378,7 @@ const DescriptionScreen = () => {
               </Text>
               <Text
                 style={{
-                  fontSize: hp(1.7),
+                  fontSize: hp(1.6),
                   fontFamily: 'Poppins-light',
                   color: 'black',
                   marginBottom: hp(0.5),
@@ -397,7 +388,7 @@ const DescriptionScreen = () => {
               </Text>
               <Text
                 style={{
-                  fontSize: hp(1.7),
+                  fontSize: hp(1.6),
                   fontFamily: 'Poppins-light',
                   color: 'black',
                   marginBottom: hp(0.5),
@@ -422,7 +413,7 @@ const DescriptionScreen = () => {
               </Text>
               <Text
                 style={{
-                  fontSize: hp(1.7),
+                  fontSize: hp(1.6),
                   fontFamily: 'Poppins-light',
                   color: 'black',
                   marginBottom: hp(0.5),

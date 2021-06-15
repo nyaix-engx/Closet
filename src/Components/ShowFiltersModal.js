@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import Modal from 'react-native-modal';
 import {View, Text, ScrollView, Pressable} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import Fontisto from 'react-native-vector-icons/Fontisto';
-import Number from './number';
 import FilterCheck from './FilterCheck';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {
@@ -20,7 +18,6 @@ import ScaleAnimation from './ScaleAnimation';
 import Button from './Button';
 
 const ShowFiltersModal = props => {
-  const [selected, setSelected] = useState(null);
   const insets = useSafeAreaInsets();
   const [filterState, setFilterState] = useState(0);
   const [sizeFilters, setSizeFilters] = useState([]);

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Modal from 'react-native-modal';
 import {View, Text, Pressable} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';

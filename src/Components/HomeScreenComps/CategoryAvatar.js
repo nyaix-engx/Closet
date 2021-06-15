@@ -17,7 +17,7 @@ const CategoryAvatar = (props) => {
         )}
       />
       <View style={styles.avatarTextWrap}>
-        <Text style={{fontFamily:'NanumMyeongjoExtraBold',fontWeight:'bold', fontSize: Platform.OS==='android'? hp(1.4):hp(1.3),fontWeight:'100'}}>{props.text}</Text>
+        <Text style={{fontFamily:'RalewayRoman-Regular',fontWeight:'500', fontSize: Platform.OS==='android'? hp(1.4):hp(1.3)}}>{props.text}</Text>
       </View>
     </Pressable>
   );

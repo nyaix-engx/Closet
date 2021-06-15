@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, Pressable, SafeAreaView, Platform} from 'react-native';
-import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
+import { DrawerItem } from '@react-navigation/drawer';
 import {Avatar, Divider} from '@ui-kitten/components';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
@@ -8,10 +8,10 @@ import Feather from 'react-native-vector-icons/Feather';
 import Instagram from '../../Assets/Svg/instagram_circle.svg';
 import Twitter from '../../Assets/Svg/twitter_circle.svg';
 import Facebook from '../../Assets/Svg/facebook_circle.svg';
-import Fontisto from 'react-native-vector-icons/Fontisto'
+import { useNavigation } from '@react-navigation/native';
 
 
-const CustomDrawer = (props) => {
+const CustomDrawer = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={styles.header}>
@@ -32,7 +32,7 @@ const CustomDrawer = (props) => {
             />
           </View>
           <View style={{marginVertical:hp(1)}}>
-            <Text style={{fontSize: Platform.OS==='android'? hp(2.2) :hp(2),color:'#969696',fontFamily:'ProductSans-Bold'}}>
+            <Text style={{fontSize: Platform.OS==='android'? hp(2.2) :hp(2),color:'#000000',fontFamily:'RalewayRoman-Regular',fontWeight:'600'}}>
               Hugh Jackman
             </Text>
           </View>
@@ -42,62 +42,61 @@ const CustomDrawer = (props) => {
       <View style={styles.tabWrapper}>
           <DrawerItem
             style={{display: 'flex', justifyContent: 'center'}}
-            label="Home"
+            label="HOME"
             activeTintColor="yellow"
             activeBackgroundColor="purple"
-            
             labelStyle={styles.label}
             icon={({focused, color, size}) => (
-              <SimpleLineIcons color={'#969696'} size={hp(2.5)} name={'home'} />
+              <SimpleLineIcons color={'#000000'} size={hp(2.5)} name={'home'} />
             )}
-            onPress={() => {}}
+            onPress={() => navigation.navigate('Home')}
           />
           <DrawerItem
             style={{display: 'flex', justifyContent: 'center'}}
-            label="Profile"
+            label="PROFILE"
             activeTintColor="yellow"
             activeBackgroundColor="purple"
             labelStyle={styles.label}
             icon={({focused, color, size}) => (
-              <Feather color={'#969696'} size={hp(2.5)} name={'user'} />
+              <Feather color={'#000000'} size={hp(2.5)} name={'user'} />
             )}
-            onPress={() => {}}
+            onPress={()=>navigation.navigate('Profile')}
           />
           <DrawerItem
             style={{display: 'flex'}}
-            label="Orders"
+            label="ORDERS"
             activeTintColor="yellow"
             activeBackgroundColor="purple"
             labelStyle={styles.label}
             icon={({focused, color, size}) => (
               <SimpleLineIcons
-                color={'#969696'}
+                color={'#000000'}
                 size={hp(2.5)}
                 name={'social-dropbox'}
               />
             )}
-            onPress={() => {}}
+            onPress={() => navigation.navigate('OrdersPage')}
           />
             <DrawerItem
             style={{display: 'flex', justifyContent: 'center'}}
-            label="Wishlist"
+            label="WISHLIST"
             activeTintColor="yellow"
             activeBackgroundColor="purple"
             labelStyle={styles.label}
             icon={({focused, color, size}) => (
               <SimpleLineIcons
-                color={'#969696'}
+                color={'#000000'}
                 size={hp(2.5)}
                 name={'star'}
               />
             )}
-            onPress={() => {}}
+            onPress={() => navigation.navigate('Wishlist')}
           />
       </View>
       <Divider />
       <View style={styles.social}>
         <View style={{display:'flex',justifyContent:'center',flex:1,alignItems:'center',backgroundColor:'#cacaca'}}>
-          <Text style={{fontSize:hp(2.2),color:'white', fontFamily:'ProductSans-Bold'}}>Follow us on</Text>
+          <Text style={{fontSize:hp(2.2),color:'white', fontFamily:'RalewayRoman-Regular',fontWeight:'600'}}>Follow us on</Text>
         </View>
         <View
           style={{
@@ -152,12 +151,12 @@ const CustomDrawer = (props) => {
       <View style={styles.footer}>
         <DrawerItem
           style={{display: 'flex', justifyContent: 'center'}}
-          label="Signout"
+          label="LOGOUT"
           activeTintColor="yellow"
           activeBackgroundColor="purple"
           labelStyle={styles.label}
           icon={({focused, color, size}) => (
-            <SimpleLineIcons color={'#969696'} size={hp(2.5)} name={'logout'} />
+            <SimpleLineIcons color={'#000000'} size={hp(2.5)} name={'logout'} />
           )}
           onPress={() => {}}
         />
@@ -181,10 +180,10 @@ const styles = StyleSheet.create({
     borderRadius: hp(5),
   },
   label:{
-    fontSize: Platform.OS==='android'? hp(2): hp(1.8),
-    fontFamily:'ProductSans-Regular',
-    fontWeight:'100',
-    color:'#969696'
+    fontSize: Platform.OS==='android'? hp(2): hp(1.7),
+    fontFamily:'Poppins-Light',
+    fontWeight:'300',
+    color:'#000000'
   },
   tabWrapper: {
     flex: 2,

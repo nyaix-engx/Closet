@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
-import {View, Text, Pressable, Image, TextInput} from 'react-native';
+import {View, Text, Image, TextInput} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import Feather from 'react-native-vector-icons/Feather';
 import BackButtonTitle from '../../Components/BackButtonTitle';
 import Button from '../../Components/Button';
 import ReviewStars from '../../Components/ReviewStars';

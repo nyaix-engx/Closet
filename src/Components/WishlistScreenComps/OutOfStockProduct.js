@@ -59,7 +59,7 @@ const OutOfStockProduct = (props) => {
             borderTopRightRadius: hp(0.5),
             alignItems: 'center',
           }}>
-          <Text style={{color: '#a3a3a3'}}>OUT OF STOCK</Text>
+          <Text style={{color: '#a3a3a3',fontFamily:'RalewayRoman-Regular',fontWeight:"700",fontSize:hp(2)}}>OUT OF STOCK</Text>
         </View>
         <Pressable
           onPress={handlePress}
@@ -71,7 +71,7 @@ const OutOfStockProduct = (props) => {
           }}>
           <MaterialIcons
             name="cancel"
-            style={{fontSize: hp(2.7), color: '#c7c7c7'}}
+            style={{fontSize: hp(3), color: '#c7c7c7'}}
           />
         </Pressable>
       </View>
@@ -90,10 +90,9 @@ const OutOfStockProduct = (props) => {
           <View style={{padding: hp(0.3)}}>
             <Text
               style={{
-                fontFamily: 'ProductSans-Regular',
-                fontSize: hp(1.8),
+                fontFamily: 'Poppins-Medium',
+                fontSize: hp(1.6),
                 marginBottom: hp(0.5),
-                fontWeight: '100',
               }}>
               {props.data.brand}
             </Text>
@@ -106,9 +105,8 @@ const OutOfStockProduct = (props) => {
             }}>
             <Text
               style={{
-                fontFamily: 'ProductSans-Regular',
+                fontFamily: 'Poppins-Light',
                 marginRight: hp(0.6),
-                fontWeight: 'bold',
                 fontSize: hp(1.6),
               }}>
               ${props.data.price}
@@ -146,8 +144,8 @@ const OutOfStockProduct = (props) => {
           }}>
           <Text
             style={{
-              fontFamily: 'ProductSans-Bold',
-              fontWeight: 'bold',
+              fontFamily: 'RalewayRoman-Regular',
+              fontWeight: '600',
               color: '#fb7ca0',
               fontSize: Platform.OS === 'ios' ? hp(1.4) : hp(1.6),
             }}>

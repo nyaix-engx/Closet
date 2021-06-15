@@ -11,9 +11,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import Button from '../../Components/Button';
 import {
   Transitioning,
-  Transition,
-  EasingNode,
-  Extrapolate,
+  Transition
 } from 'react-native-reanimated';
 
 const SavedCardsScreen = ({navigation, route}) => {
@@ -35,7 +33,6 @@ const SavedCardsScreen = ({navigation, route}) => {
         type="fade"
         durationMs={400}
         interpolation="easeOut"
-        // delayMs={20}
       />
     </Transition.Sequence>
   );
@@ -61,8 +58,9 @@ const SavedCardsScreen = ({navigation, route}) => {
               <Text
                 style={{
                   textAlign: 'center',
-                  fontFamily: 'ProductSans-Bold',
-                  fontSize: hp(2.1),
+                  fontFamily: 'RalewayRoman-Regular',
+                  fontSize: hp(1.8),
+                  fontWeight:"600",
                   marginBottom: hp(1),
                 }}>
                 SAVE YOUR CREDIT/DEBIT CARDS
@@ -70,8 +68,9 @@ const SavedCardsScreen = ({navigation, route}) => {
               <Text
                 style={{
                   textAlign: 'center',
-                  fontFamily: 'ProductSans-Regular',
-                  fontSize: hp(1.9),
+                  fontFamily: 'ArchitectsDaughter-Regular',
+                  color:'grey',
+                  fontSize: hp(1.8),
                 }}>
                 It's convenient to pay with saved cards.
               </Text>
@@ -86,15 +85,15 @@ const SavedCardsScreen = ({navigation, route}) => {
                 }
                 style={{
                   backgroundColor: 'white',
-                  paddingVertical: hp(2),
-                  paddingHorizontal: hp(6),
+                  paddingVertical: hp(1.5),
+                  paddingHorizontal: hp(5),
                   borderColor: '#e0e0e0',
                   borderWidth: hp(0.1),
                 }}>
                 <Text
                   style={{
                     color: 'blue',
-                    fontFamily: 'ProductSans-Bold',
+                    fontFamily: 'Poppins-Medium',
                     fontSize: hp(2),
                   }}>
                   ADD CARD

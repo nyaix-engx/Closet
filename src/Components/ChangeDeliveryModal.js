@@ -40,10 +40,7 @@ const ChangeDeliveryModal = props => {
               alignItems: 'center',
               marginRight: hp(1),
             }}>
-            <Radio
-              status="info"
-              checked={selected === index ? true : false}
-            />
+            <Radio status="info" checked={selected === index ? true : false} />
           </View>
           <View style={{width: '90%'}}>
             <View
@@ -83,12 +80,10 @@ const ChangeDeliveryModal = props => {
               </View>
             </View>
             <View>
-              <Text
-                style={{fontFamily: 'Poppins-light', fontSize: hp(1.7)}}>
+              <Text style={{fontFamily: 'Poppins-light', fontSize: hp(1.7)}}>
                 {data.address}
               </Text>
-              <Text
-                style={{fontFamily: 'Poppins-light', fontSize: hp(1.7)}}>
+              <Text style={{fontFamily: 'Poppins-light', fontSize: hp(1.7)}}>
                 {data.city} - {data.pincode}
               </Text>
               <Text
@@ -121,8 +116,8 @@ const ChangeDeliveryModal = props => {
           backgroundColor: 'white',
           paddingTop: hp(2),
           paddingHorizontal: hp(2),
-          borderTopLeftRadius:hp(1),
-          borderTopRightRadius:hp(1),
+          borderTopLeftRadius: hp(1),
+          borderTopRightRadius: hp(1),
           maxHeight: hp(50),
         }}>
         <View
@@ -135,7 +130,7 @@ const ChangeDeliveryModal = props => {
           <Text
             style={{
               fontFamily: 'RalewayRoman-Regular',
-              fontWeight:'bold',
+              fontWeight: 'bold',
               fontSize: hp(1.9),
               marginBottom: hp(2),
             }}>
@@ -155,31 +150,33 @@ const ChangeDeliveryModal = props => {
           bounces={false}>
           {address()}
         </ScrollView>
-        <ScaleAnimation
-          onPress={() => {
-            props.setShowModal();
-            navigation.navigate('AddNewAddressPage',{type:"ADD"});
-          }}
-          scaleTo={0.9}>
-          <Button
-            viewProps={{
-              backgroundColor: '#fb7ca0',
-              paddingVertical: hp(1.4),
-              borderRadius: hp(0.3),
-              marginBottom: insets.bottom,
-            }}>
-            <Text
-              style={{
-                textAlign: 'center',
-                fontSize: hp(1.8),
-                fontFamily: 'RalewayRoman-Regular',
-                fontWeight:'bold',
-                color: 'white',
+        <View style={{paddingHorizontal:hp(3)}}>
+          <ScaleAnimation
+            onPress={() => {
+              props.setShowModal();
+              navigation.navigate('AddNewAddressPage', {type: 'ADD'});
+            }}
+            scaleTo={0.9}>
+            <Button
+              viewProps={{
+                backgroundColor: '#fb7ca0',
+                paddingVertical: hp(1.4),
+                borderRadius: hp(0.3),
+                marginBottom: insets.bottom,
               }}>
-              ADD NEW ADDRESS
-            </Text>
-          </Button>
-        </ScaleAnimation>
+              <Text
+                style={{
+                  textAlign: 'center',
+                  fontSize: hp(1.9),
+                  fontFamily: 'RalewayRoman-Regular',
+                  fontWeight: 'bold',
+                  color: 'white',
+                }}>
+                ADD NEW ADDRESS
+              </Text>
+            </Button>
+          </ScaleAnimation>
+        </View>
       </View>
     </Modal>
   );

@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, StyleSheet, Dimensions} from 'react-native';
+import { StyleSheet, Dimensions} from 'react-native';
 import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import {Card, Text} from '@ui-kitten/components';
+import {Card} from '@ui-kitten/components';
 
 const {width}=Dimensions.get('window')
 
