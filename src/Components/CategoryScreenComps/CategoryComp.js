@@ -1,6 +1,6 @@
-import React, {useState, useRef, useEffect, lazy, Suspense} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import Animated, { EasingNode, Extrapolate} from 'react-native-reanimated';
-import {View, Text, Pressable, Platform} from 'react-native';
+import {View, Text, Pressable, Platform, Image} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import CategorySubComp from './CategorySubComp';
@@ -119,7 +119,9 @@ const CategoryComp = (props) => {
             display: 'flex',
             flexDirection: 'column',
             backgroundColor: colors[props.index],
+            position:"relative"
           }}>
+          <Image source={require('../../Assets/1.png')} style={{width:hp(10),height:hp(15.5),right:hp(2),position:'absolute'}} />
           <View
             style={{
               height: '100%',

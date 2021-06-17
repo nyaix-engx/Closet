@@ -5,6 +5,8 @@ import {
   Image,
   StyleSheet,
   Platform,
+  useWindowDimensions,
+  ImageBackground
 } from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import TitleHeader from '../../Components/CategoryScreenComps/TitleHeader';
@@ -21,6 +23,7 @@ import Button from '../../Components/Button';
 import EntryAnimation from '../../Components/EntryAnimation';
 
 const ProfileScreen = props => {
+  const {width}=useWindowDimensions()
   const data = [
     {
       title: 'ORDERS',
@@ -101,7 +104,7 @@ const ProfileScreen = props => {
   };
 
   const renderItem = ({item, index}) => (
-    <EntryAnimation index={index+1} key={index}>
+    <EntryAnimation index={index+1} key={index} direction="TOP" >
       <ListItem
       onPress={() => handlePress(index)}
       title={props => (
@@ -182,7 +185,7 @@ const ProfileScreen = props => {
             ListHeaderComponent={
               <View
                 style={{
-                  height: hp(30),
+                  height: hp(25),
                   position: 'relative',
                   backgroundColor: 'grey',
                   marginBottom: hp(2),
@@ -191,8 +194,11 @@ const ProfileScreen = props => {
                   style={{
                     position: 'absolute',
                     zIndex: 300,
-                    top: hp(12.5),
-                    left: hp(2),
+                    top: hp(4.5),
+                    left: (width/2)-hp(10),
+                    width:hp(20),
+                    height:hp(16),
+                    alignItems:'center'
                   }}>
                   <Avatar
                     ImageComponent={() => (
@@ -202,15 +208,7 @@ const ProfileScreen = props => {
                       />
                     )}
                   />
-                </View>
-                <View style={{height: '60%', backgroundColor: 'blue'}}></View>
-                <View
-                  style={{
-                    height: '30%',
-                    paddingLeft: hp(15),
-                    paddingVertical: hp(1),
-                  }}>
-                  <View>
+                   <View style={{paddingVertical:hp(1)}}>
                     <Text
                       style={{
                         fontFamily:'Poppins-Medium',
@@ -231,8 +229,8 @@ const ProfileScreen = props => {
 
 const styles = StyleSheet.create({
   tinyLogo: {
-    width: hp(12),
-    height: hp(12),
+    width: hp(14),
+    height: hp(14),
     borderRadius: hp(1),
   },
   container: {

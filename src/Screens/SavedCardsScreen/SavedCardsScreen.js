@@ -9,16 +9,21 @@ import {cardData} from '../../Utils/arrays';
 import ScaleAnimation from '../../Components/ScaleAnimation';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Button from '../../Components/Button';
-import {
+import Animated, {
   Transitioning,
-  Transition
+  Transition,
+  EasingNode,
 } from 'react-native-reanimated';
+import EntryAnimation from '../../Components/EntryAnimation';
 
 const SavedCardsScreen = ({navigation, route}) => {
   const [cards, setCards] = useState(cardData);
   const scrollRef = useRef();
   const [scrollY, setScrollY] = useState(0);
   const savedScreenRef = useRef();
+  const subTextOpacity = new Animated.Value(0);
+  let lottieAnimation;
+  const scaleLottie = new Animated.Value(0.4);
   const handleScroll = e => {
     setScrollY(e.nativeEvent.contentOffset.y);
   };
@@ -26,14 +31,25 @@ const SavedCardsScreen = ({navigation, route}) => {
     if (route.params?.cards) {
       setCards(route.params.cards);
     }
-  }, [route.params?.cards]);
+    if (cards.length == 0) {
+      Animated.timing(subTextOpacity, {
+        duration: 1000,
+        toValue: 1,
+        easing: EasingNode.ease,
+      }).start();
+      Animated.timing(scaleLottie, {
+        duration: 1000,
+        toValue: 1,
+        easing: EasingNode.ease,
+      }).start();
+      setTimeout(() => {
+        lottieAnimation.play();
+      }, 1000);
+    }
+  }, [route.params?.cards, cards]);
   const transition = (
     <Transition.Sequence>
-      <Transition.Out
-        type="fade"
-        durationMs={400}
-        interpolation="easeOut"
-      />
+      <Transition.Out type="fade" durationMs={400} interpolation="easeOut" />
     </Transition.Sequence>
   );
   const getContent = () => {
@@ -41,64 +57,72 @@ const SavedCardsScreen = ({navigation, route}) => {
       <>
         {!cards.length > 0 ? (
           <View style={{flex: 1, backgroundColor: 'white'}}>
-            <View
+            <Animated.View
               style={{
                 height: hp(20),
                 justifyContent: 'center',
                 alignItems: 'center',
+                transform: [{scale: scaleLottie}],
               }}>
               <LottieView
                 source={require('../../Assets/lottie/visa_master.json')}
                 style={{height: hp(15), width: hp(15)}}
-                autoPlay
+                ref={animation => {
+                  lottieAnimation = animation;
+                }}
                 loop={false}
               />
-            </View>
+            </Animated.View>
             <View style={{paddingVertical: hp(2)}}>
               <Text
                 style={{
                   textAlign: 'center',
                   fontFamily: 'RalewayRoman-Regular',
                   fontSize: hp(1.8),
-                  fontWeight:"600",
+                  fontWeight: '600',
                   marginBottom: hp(1),
                 }}>
                 SAVE YOUR CREDIT/DEBIT CARDS
               </Text>
-              <Text
+              <Animated.Text
                 style={{
                   textAlign: 'center',
                   fontFamily: 'ArchitectsDaughter-Regular',
-                  color:'grey',
+                  color: 'grey',
                   fontSize: hp(1.8),
+                  opacity: subTextOpacity,
                 }}>
                 It's convenient to pay with saved cards.
-              </Text>
+              </Animated.Text>
             </View>
             <View style={{paddingVertical: hp(3), alignItems: 'center'}}>
-              <Pressable
-                onPress={() =>
-                  navigation.navigate('AddCardPage', {
-                    type: 'ADD',
-                    cards,
-                  })
-                }
-                style={{
-                  backgroundColor: 'white',
-                  paddingVertical: hp(1.5),
-                  paddingHorizontal: hp(5),
-                  borderColor: '#e0e0e0',
-                  borderWidth: hp(0.1),
-                }}>
-                <Text
+              <ScaleAnimation 
+              onPress={() =>
+                navigation.navigate('AddCardPage', {
+                  type: 'ADD',
+                  cards,
+                })
+              }
+              scaleTo={0.9}
+              >
+                <View
                   style={{
-                    color: 'blue',
-                    fontFamily: 'Poppins-Medium',
-                    fontSize: hp(2),
+                    backgroundColor: 'white',
+                    paddingVertical: hp(1.5),
+                    paddingHorizontal: hp(5),
+                    borderColor: '#e0e0e0',
+                    borderWidth: hp(0.1),
                   }}>
-                  ADD CARD
-                </Text>
-              </Pressable>
+                  <Text
+                    style={{
+                      color: 'blue',
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: hp(2),
+                    }}>
+                    ADD CARD
+                  </Text>
+                </View>
+              </ScaleAnimation>
             </View>
           </View>
         ) : (
@@ -113,7 +137,7 @@ const SavedCardsScreen = ({navigation, route}) => {
               style={{paddingHorizontal: hp(2), paddingVertical: hp(2)}}
               transition={transition}
               ref={savedScreenRef}>
-              <View style={{paddingHorizontal:hp(2)}}>
+              <View style={{paddingHorizontal: hp(2)}}>
                 <ScaleAnimation
                   onPress={() =>
                     navigation.navigate('AddCardPage', {
@@ -151,16 +175,17 @@ const SavedCardsScreen = ({navigation, route}) => {
               <View>
                 {cards.map((data, index) => {
                   return (
-                    <CreditCard
-                      data={data}
-                      key={index}
-                      index={index}
-                      cards={cards}
-                      setCards={setCards}
-                      scrollY={scrollY}
-                      scrollRef={scrollRef}
-                      savedScreenRef={savedScreenRef}
-                    />
+                    <EntryAnimation index={index + 1} key={index}>
+                      <CreditCard
+                        data={data}
+                        index={index}
+                        cards={cards}
+                        setCards={setCards}
+                        scrollY={scrollY}
+                        scrollRef={scrollRef}
+                        savedScreenRef={savedScreenRef}
+                      />
+                    </EntryAnimation>
                   );
                 })}
               </View>

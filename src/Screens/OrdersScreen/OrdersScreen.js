@@ -1,8 +1,9 @@
 import React from 'react';
 import {View, ScrollView} from 'react-native';
-import { heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import BackButtonTitle from '../../Components/BackButtonTitle';
+import EntryAnimation from '../../Components/EntryAnimation';
 import OrdersCard from '../../Components/OrdersCard';
 import {ordersData} from '../../Utils/arrays';
 
@@ -13,9 +14,15 @@ const OrderScreen = ({navigation}) => {
         <BackButtonTitle title="ORDERS" />
       </View>
       <View style={{flex: 8}}>
-       <ScrollView style={{paddingVertical:hp(2)}} bounces={false}>
-         {ordersData.map((data,index)=><OrdersCard data={data} key={index} /> )}
-       </ScrollView>
+        <ScrollView style={{paddingVertical: hp(2)}} bounces={false}>
+          {ordersData.map((data, index) => {
+            return (
+              <EntryAnimation index={index+1} key={index} direction="RIGHT" >
+                <OrdersCard data={data} />
+              </EntryAnimation>
+            );
+          })}
+        </ScrollView>
       </View>
     </SafeAreaView>
   );

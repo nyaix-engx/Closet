@@ -9,12 +9,16 @@ import Button from '../../Components/Button';
 import ScaleAnimation from '../../Components/ScaleAnimation';
 import {addresses} from '../../Utils/arrays';
 import LottieView from 'lottie-react-native';
-import {Transitioning, Transition} from 'react-native-reanimated';
+import Animated,{Transitioning, Transition, EasingNode} from 'react-native-reanimated';
+import EntryAnimation from '../../Components/EntryAnimation';
 
-const CustomButton = ({navigation, viewStyle, textStyle,userAddresses}) => {
+
+const CustomButton = ({navigation, viewStyle, textStyle, userAddresses}) => {
   return (
     <ScaleAnimation
-      onPress={() => navigation.navigate('AddNewAddressPage',{type:"ADD",userAddresses})}
+      onPress={() =>
+        navigation.navigate('AddNewAddressPage', {type: 'ADD', userAddresses})
+      }
       scaleTo={0.9}>
       <Button viewProps={viewStyle}>
         <>
@@ -30,28 +34,37 @@ const CustomButton = ({navigation, viewStyle, textStyle,userAddresses}) => {
   );
 };
 
-const AddressScreen = ({navigation,route}) => {
+const AddressScreen = ({navigation, route}) => {
   const [userAddresses, setUserAddresses] = useState(addresses);
   const addressRef = useRef();
   const [scrollY, setScrollY] = useState(0);
   const scrollRef = useRef();
-  useEffect(()=>{
-    if(route.params?.userAddresses){
-      setUserAddresses(route.params.userAddresses)
+  const opacity=new Animated.Value(0)
+  useEffect(() => {
+    if (route.params?.userAddresses) {
+      setUserAddresses(route.params.userAddresses);
     }
-  },[route.params?.userAddresses])
+    if(userAddresses.length==0){
+      Animated.timing(opacity,{
+        duration:1000,
+        toValue:1,
+        easing:EasingNode.ease
+      }).start()
+    }
+  }, [route.params?.userAddresses,userAddresses]);
   const getAddress = () => {
     return userAddresses.map((data, index) => (
-      <AddressCard
-        key={index}
-        data={data}
-        index={index}
-        scrollY={scrollY}
-        scrollRef={scrollRef}
-        addressRef={addressRef}
-        userAddresses={userAddresses}
-        setUserAddresses={setUserAddresses}
-      />
+      <EntryAnimation index={index+1} key={index}>
+        <AddressCard
+          data={data}
+          index={index}
+          scrollY={scrollY}
+          scrollRef={scrollRef}
+          addressRef={addressRef}
+          userAddresses={userAddresses}
+          setUserAddresses={setUserAddresses}
+        />
+      </EntryAnimation>
     ));
   };
   const handleScroll = e => {
@@ -66,11 +79,7 @@ const AddressScreen = ({navigation,route}) => {
           durationMs={400}
           interpolation="linear"
         />
-        <Transition.Out
-          type="fade"
-          durationMs={300}
-          interpolation="easeOut"
-        />
+        <Transition.Out type="fade" durationMs={300} interpolation="easeOut" />
       </Transition.Together>
       <Transition.Change interpolation="easeOut" durationMs={400} />
       <Transition.In type="fade" durationMs={400} />
@@ -80,14 +89,14 @@ const AddressScreen = ({navigation,route}) => {
     if (userAddresses.length > 0) {
       return (
         <>
-          <View style={{paddingHorizontal: hp(4),paddingVertical:hp(2)}}>
+          <View style={{paddingHorizontal: hp(4), paddingVertical: hp(2)}}>
             <CustomButton
               userAddresses={userAddresses}
               navigation={navigation}
               textStyle={{
                 fontFamily: 'RalewayRoman-Regular',
                 fontSize: hp(1.8),
-                fontWeight:'600',
+                fontWeight: '600',
                 textAlign: 'center',
                 color: '#ffffff',
               }}
@@ -117,7 +126,7 @@ const AddressScreen = ({navigation,route}) => {
                   style={{
                     fontFamily: 'RalewayRoman-Regular',
                     fontSize: hp(1.9),
-                    fontWeight:'600'
+                    fontWeight: '600',
                   }}>
                   ADDRESSES
                 </Text>
@@ -137,24 +146,40 @@ const AddressScreen = ({navigation,route}) => {
               loop={false}
             />
           </View>
-          <View style={{justifyContent: 'center', alignItems: 'center',paddingHorizontal:hp(2)}}>
-            <Text style={{fontFamily: 'RalewayRoman-Regular', fontSize: hp(1.8),fontWeight:'600'}}>
-              SAVE YOUR ADDRESSES NOW
-            </Text>
+          <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              paddingHorizontal: hp(4),
+            }}>
             <Text
               style={{
+                fontFamily: 'RalewayRoman-Regular',
+                fontSize: hp(1.8),
+                fontWeight: '600',
+              }}>
+              SAVE YOUR ADDRESSES NOW
+            </Text>
+            <Animated.Text
+              style={{
                 fontFamily: 'ArchitectsDaughter-Regular',
-                fontSize: hp(1.9),
+                fontSize: hp(1.8),
                 textAlign: 'center',
                 marginTop: hp(2),
                 color: 'grey',
+                opacity
               }}>
               Add your home and office addresses and enjoy faster checkout
-            </Text>
+            </Animated.Text>
           </View>
           <View style={{marginVertical: hp(5), paddingHorizontal: hp(9)}}>
             <ScaleAnimation
-              onPress={() => navigation.navigate('AddNewAddressPage',{type:"ADD",userAddresses})}
+              onPress={() =>
+                navigation.navigate('AddNewAddressPage', {
+                  type: 'ADD',
+                  userAddresses,
+                })
+              }
               scaleTo={0.9}>
               <View
                 style={{
@@ -163,9 +188,9 @@ const AddressScreen = ({navigation,route}) => {
                   borderRadius: hp(0.3),
                   borderWidth: hp(0.1),
                   borderColor: '#e6e6e6',
-                  flexDirection:'row',
-                  justifyContent:'center',
-                  alignItems:'center'
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
                 }}>
                 <Entypo
                   name="plus"
@@ -176,9 +201,9 @@ const AddressScreen = ({navigation,route}) => {
                   style={{
                     textAlign: 'center',
                     fontFamily: 'RalewayRoman-Regular',
-                    fontWeight:'600',
+                    fontWeight: '600',
                     color: 'blue',
-                    fontSize:hp(1.8)
+                    fontSize: hp(1.8),
                   }}>
                   ADD NEW ADDRESS
                 </Text>

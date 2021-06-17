@@ -17,7 +17,7 @@ const CategoryScreen = () => {
   const getCategories = () => {
     return categories.map((category, index) => {
       return (
-        <EntryAnimation index={index+1} key={index}>
+        <EntryAnimation index={index+1} key={index} direction="BOTTOM">
           <CategoryComp
             height={
               Platform.OS === 'android'

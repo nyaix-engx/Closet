@@ -61,8 +61,6 @@ const EditProfileScreen = ({navigation, route}) => {
               style={{
                 padding: hp(0.2),
                 position: 'relative',
-                borderWidth: hp(0.1),
-                borderColor: '#fb7ca0',
                 borderRadius: hp(1),
               }}>
               <Avatar
@@ -71,21 +69,14 @@ const EditProfileScreen = ({navigation, route}) => {
                     style={{
                       width: hp(15),
                       height: hp(15),
-                      borderRadius: hp(1),
+                      borderRadius: hp(7.5),
                     }}
                     source={require('../../Assets/Images/avatar.jpeg')}
                   />
                 )}
               />
               <Pressable onPress={()=>setUploadImageModal(true)} style={{position:"absolute",right:0}}>
-                <Feather
-                  name="edit"
-                  size={hp(2.5)}
-                  style={{
-                    padding: hp(0.5),
-                    color: 'grey',
-                  }}
-                />
+                <Image source={require('../../Assets/Images/camera.png')} style={{width:hp(5),height:hp(5)}} />
               </Pressable>
             </View>
           </View>
