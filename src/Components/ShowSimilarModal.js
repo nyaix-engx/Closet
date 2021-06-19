@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-native-modal';
-import {View, Text, ScrollView, Pressable} from 'react-native';
+import {View, Text, ScrollView, Pressable, Platform} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import SimilarStylesCard from './WishlistScreenComps/SimilarStylesCard';
@@ -18,7 +18,7 @@ const ShowSimilarModal = props => {
         paddingVertical:0,
         margin: 0,
       }}>
-       <View style={{backgroundColor:"white",paddingBottom:insets.bottom}}>
+       <View style={{backgroundColor:"white",paddingBottom:Platform.OS==='ios'? insets.bottom:hp(4)}}>
           <View
             style={{
               paddingVertical: hp(2.1),
@@ -26,8 +26,7 @@ const ShowSimilarModal = props => {
             }}>
             <Text
               style={{
-                fontFamily: 'RalewayRoman-Regular',
-                fontWeight: 'bold',
+                fontFamily: 'Raleway-Medium',
                 color: 'grey',
                 fontSize: Platform.OS === 'ios' ? hp(1.6) : hp(1.7),
               }}>

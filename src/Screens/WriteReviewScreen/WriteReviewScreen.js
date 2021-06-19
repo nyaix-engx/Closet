@@ -43,7 +43,7 @@ const WriteReviewScreen = ({navigation}) => {
         <View style={{paddingHorizontal: hp(2),marginBottom:hp(3)}}>
           <Text
             style={{
-              fontFamily: 'RalewayRoman-Regular',
+              fontFamily: 'Raleway-Medium',
               fontWeight:'500',
               fontSize: hp(1.8),
               marginBottom: hp(2),
@@ -60,7 +60,8 @@ const WriteReviewScreen = ({navigation}) => {
               paddingBottom: hp(2),
               fontSize: hp(1.7),
               borderWidth:hp(0.1),
-              borderColor:'grey'
+              borderColor:'grey',
+              textAlignVertical:'top'
             }}
             numberOfLines={10}
             multiline
@@ -75,7 +76,7 @@ const WriteReviewScreen = ({navigation}) => {
               <Button
                 viewProps={{backgroundColor:'#fb7ca0',paddingVertical:hp(2),borderRadius:hp(0.5)}}>
                 <Text
-                  style={{textAlign:'center',color:'white',fontFamily:'RalewayRoman-Regular',fontSize:hp(1.8),fontWeight:'600'}}>
+                  style={{textAlign:'center',color:'white',fontFamily:'Raleway-Medium',fontSize:hp(1.8),fontWeight:'600'}}>
                   SUBMIT
                 </Text>
               </Button>

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Modal from 'react-native-modal';
-import {View, Text, ScrollView, Pressable} from 'react-native';
+import {View, Text, ScrollView, Pressable, Platform} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -80,15 +80,15 @@ const ChangeDeliveryModal = props => {
               </View>
             </View>
             <View>
-              <Text style={{fontFamily: 'Poppins-light', fontSize: hp(1.7)}}>
+              <Text style={{fontFamily: 'Poppins-Light', fontSize: hp(1.7)}}>
                 {data.address}
               </Text>
-              <Text style={{fontFamily: 'Poppins-light', fontSize: hp(1.7)}}>
+              <Text style={{fontFamily: 'Poppins-Light', fontSize: hp(1.7)}}>
                 {data.city} - {data.pincode}
               </Text>
               <Text
                 style={{
-                  fontFamily: 'Poppins-light',
+                  fontFamily: 'Poppins-Light',
                   fontSize: hp(1.7),
                   marginBottom: hp(1),
                 }}>
@@ -129,8 +129,7 @@ const ChangeDeliveryModal = props => {
           }}>
           <Text
             style={{
-              fontFamily: 'RalewayRoman-Regular',
-              fontWeight: 'bold',
+              fontFamily: 'Raleway-Medium',
               fontSize: hp(1.9),
               marginBottom: hp(2),
             }}>
@@ -150,7 +149,7 @@ const ChangeDeliveryModal = props => {
           bounces={false}>
           {address()}
         </ScrollView>
-        <View style={{paddingHorizontal:hp(3)}}>
+        <View style={{paddingHorizontal:hp(3),marginBottom:Platform.OS==='android'?hp(2):hp(0)}}>
           <ScaleAnimation
             onPress={() => {
               props.setShowModal();
@@ -168,8 +167,7 @@ const ChangeDeliveryModal = props => {
                 style={{
                   textAlign: 'center',
                   fontSize: hp(1.9),
-                  fontFamily: 'RalewayRoman-Regular',
-                  fontWeight: 'bold',
+                  fontFamily: 'Raleway-Medium',
                   color: 'white',
                 }}>
                 ADD NEW ADDRESS

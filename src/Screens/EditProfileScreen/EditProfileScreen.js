@@ -2,8 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {View, Text, Pressable, ScrollView, Image} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import Feather from 'react-native-vector-icons/Feather';
-import {Datepicker, Avatar, Input} from '@ui-kitten/components';
+import { Avatar, Input} from '@ui-kitten/components';
 import Octicons from 'react-native-vector-icons/Octicons';
 import BackButtonTitle from '../../Components/BackButtonTitle';
 import ScaleAnimation from '../../Components/ScaleAnimation';
@@ -17,10 +16,7 @@ const EditProfileScreen = ({navigation, route}) => {
   const [email, setEmail] = useState('alex_mahone@gmail.com');
   const [gender, setGender] = useState('Male');
   const [location, setLocation] = useState('New York, USA');
-  const [date, setDate] = useState(new Date());
   const [uploadImageModal,setUploadImageModal]=useState(false);
-  const min = new Date('January 1, 1900');
-  const max = new Date();
 
   useEffect(() => {
     if (route.params?.mobile) {
@@ -190,7 +186,7 @@ const EditProfileScreen = ({navigation, route}) => {
                   color: gender === 'Male' ? 'white' : '#fb7ca0',
                   fontSize: hp(1.8),
                   fontWeight:'600',
-                  fontFamily: 'RalewayRoman-Regular',
+                  fontFamily: 'Raleway-Medium',
                 }}>
                 MALE
               </Text>
@@ -210,31 +206,12 @@ const EditProfileScreen = ({navigation, route}) => {
                 style={{
                   fontSize: hp(1.8),
                   fontWeight:'600',
-                  fontFamily: 'RalewayRoman-Regular',
+                  fontFamily: 'Raleway-Medium',
                   color: gender === 'Female' ? 'white' : '#fb7ca0',
                 }}>
                 FEMALE
               </Text>
             </Pressable>
-          </View>
-          <View style={{paddingHorizontal: hp(3)}}>
-            <Datepicker
-              min={min}
-              max={max}
-              label={() => (
-                <Text
-                  style={{
-                    fontSize: hp(1.7),
-                    fontFamily: 'Poppins-Medium',
-                    paddingVertical: hp(1),
-                  }}>
-                  BIRTHDAY
-                </Text>
-              )}
-              date={date}
-              accessoryRight={CalendarIcon}
-              onSelect={nextDate => setDate(nextDate)}
-            />
           </View>
           <View style={{paddingHorizontal: hp(3), marginBottom: hp(2)}}>
             <Input
@@ -298,7 +275,7 @@ const EditProfileScreen = ({navigation, route}) => {
               <Text
                 style={{
                   textAlign: 'center',
-                  fontFamily: 'RalewayRoman-Regular',
+                  fontFamily: 'Raleway-Medium',
                   fontSize:hp(1.9),
                   fontWeight:'600',
                   color: 'white',

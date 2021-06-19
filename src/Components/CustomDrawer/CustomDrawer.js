@@ -32,7 +32,7 @@ const CustomDrawer = ({navigation}) => {
             />
           </View>
           <View style={{marginVertical:hp(1)}}>
-            <Text style={{fontSize: Platform.OS==='android'? hp(2.2) :hp(2),color:'#000000',fontFamily:'RalewayRoman-Regular',fontWeight:'600'}}>
+            <Text style={{fontSize: Platform.OS==='android'? hp(2.2) :hp(2),color:'#000000',fontFamily:'Raleway-Medium',fontWeight:'600'}}>
               Hugh Jackman
             </Text>
           </View>
@@ -96,7 +96,7 @@ const CustomDrawer = ({navigation}) => {
       <Divider />
       <View style={styles.social}>
         <View style={{display:'flex',justifyContent:'center',flex:1,alignItems:'center',backgroundColor:'#cacaca'}}>
-          <Text style={{fontSize:hp(2.2),color:'white', fontFamily:'RalewayRoman-Regular',fontWeight:'600'}}>Follow us on</Text>
+          <Text style={{fontSize:hp(2.2),color:'white', fontFamily:'Raleway-Medium',fontWeight:'600'}}>Follow us on</Text>
         </View>
         <View
           style={{

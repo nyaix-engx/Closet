@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-native-modal';
-import {View, Text, Pressable} from 'react-native';
+import {View, Text, Pressable, Platform} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -11,7 +11,7 @@ const SortByModal = props => {
   const insets = useSafeAreaInsets();
   const renderItem = ({item, index}) => (
     <ListItem
-      style={{height: hp(6.7), paddingHorizontal: hp(2.5)}}
+      style={{height:Platform.OS==='android'? hp(7):hp(6.4), paddingHorizontal: hp(2.5)}}
       title={(props) => (
         <Text
           {...props}
@@ -52,7 +52,7 @@ const SortByModal = props => {
               justifyContent: 'center',
               paddingHorizontal: hp(2.5),
             }}>
-            <Text style={{fontSize: hp(2), fontFamily: 'RalewayRoman-Regular',fontWeight:'600'}}>
+            <Text style={{fontSize: hp(2), fontFamily: 'Raleway-Medium',fontWeight:'600'}}>
               SORT BY
             </Text>
           </View>
@@ -77,7 +77,7 @@ const SortByModal = props => {
                   flexDirection: 'row',
                   alignItems: 'center',
                 }}>
-                <Text style={{fontSize: hp(2), fontFamily: 'RalewayRoman-Regular',fontWeight:'600'}}>
+                <Text style={{fontSize: hp(2), fontFamily: 'Raleway-Medium',fontWeight:'600'}}>
                   ASC
                 </Text>
                 <FontAwesome5 name="sort-alpha-down" size={hp(2.3)} />
@@ -90,7 +90,7 @@ const SortByModal = props => {
                   flexDirection: 'row',
                   alignItems: 'center',
                 }}>
-                <Text style={{fontSize: hp(2), fontFamily: 'RalewayRoman-Regular',fontWeight:'600'}}>
+                <Text style={{fontSize: hp(2), fontFamily: 'Raleway-Medium'}}>
                   DESC
                 </Text>
                 <FontAwesome5 name="sort-alpha-up" size={hp(2.3)} />
@@ -99,7 +99,7 @@ const SortByModal = props => {
           </View>
         </View>
       </View>
-      <View style={{height: hp(38), backgroundColor: 'white',paddingBottom:insets.bottom}}>
+      <View style={{height: hp(36), backgroundColor: 'white',paddingBottom: insets.bottom}}>
         <List
           style={{flex: 1}}
           data={sortData}

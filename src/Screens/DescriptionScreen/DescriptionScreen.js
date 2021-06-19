@@ -82,7 +82,7 @@ const DescriptionScreen = () => {
           }}>
           <View style={{display: 'flex'}}>
             <View style={{display: 'flex', marginBottom: hp(1)}}>
-              <Text style={{fontFamily: 'RalewayRoman-Regular', fontSize: hp(2.5)}}>
+              <Text style={{fontFamily: 'Raleway-Medium', fontSize: hp(2.5)}}>
                 Moda Rapido
               </Text>
               <Text style={{color: '#363636', flexWrap: 'wrap',marginTop:hp(0.5),fontFamily:'Poppins-Light',fontSize:hp(1.5)}}>
@@ -106,7 +106,7 @@ const DescriptionScreen = () => {
               <Text
                 style={{
                   fontSize: hp(2),
-                  fontFamily: 'Poppins-light',
+                  fontFamily: 'Poppins-Light',
                   color: '#fb7ca0',
                 }}>
                 (40% OFF)
@@ -143,7 +143,7 @@ const DescriptionScreen = () => {
           <View>
             <Text
               style={{
-                fontFamily: 'Poppins-light',
+                fontFamily: 'Poppins-Light',
                 fontSize: hp(1.5),
                 color: '#757575',
               }}>
@@ -167,8 +167,7 @@ const DescriptionScreen = () => {
               }}>
               <Text
                 style={{
-                  fontFamily: 'RalewayRoman-Regular',
-                  fontWeight:'bold',
+                  fontFamily: 'Raleway-Medium',
                   fontSize: hp(1.8),
                   color: '#757575',
                   marginBottom: hp(2),
@@ -192,7 +191,7 @@ const DescriptionScreen = () => {
                     alignItems: 'center',
                     borderRadius: hp(3),
                   }}>
-                  <Text style={{fontSize: hp(2.2),color:size==data?'#ffffff':'#000000',fontFamily:'RalewayRoman-Regular'}}>{data}</Text>
+                  <Text style={{fontSize: hp(2.2),color:size==data?'#ffffff':'#000000',fontFamily:'Raleway-Medium'}}>{data}</Text>
                 </Pressable>
                 })}
               </View>
@@ -244,8 +243,7 @@ const DescriptionScreen = () => {
                         <Text
                           style={{
                             fontSize: hp(1.7),
-                            fontFamily: 'RalewayRoman-Regular',
-                            fontWeight:'bold'
+                            fontFamily: 'Raleway-Medium',
                           }}>
                           WISHLIST
                         </Text>
@@ -274,8 +272,7 @@ const DescriptionScreen = () => {
                         <Text
                           style={{
                             fontSize: hp(1.7),
-                            fontFamily: 'RalewayRoman-Regular',
-                            fontWeight:'bold',
+                            fontFamily: 'Raleway-Medium',
                             color: 'white',
                           }}>
                           ADD TO BAG
@@ -299,8 +296,7 @@ const DescriptionScreen = () => {
             <Text
               style={{
                 fontSize: hp(1.9),
-                fontFamily: 'RalewayRoman-Regular',
-                fontWeight:'bold',
+                fontFamily: 'Raleway-Medium',
                 color: '#757575',
                 marginBottom: hp(0.5),
               }}>
@@ -309,7 +305,7 @@ const DescriptionScreen = () => {
             <Text
               style={{
                 fontSize: hp(1.6),
-                fontFamily: 'Poppins-light',
+                fontFamily: 'Poppins-Light',
                 color: 'black',
                 marginBottom: hp(0.5),
               }}>
@@ -321,8 +317,7 @@ const DescriptionScreen = () => {
               <Text
                 style={{
                   fontSize: hp(1.9),
-                  fontFamily: 'RalewayRoman-Regular',
-                  fontWeight:'bold',
+                  fontFamily: 'Raleway-Medium',
                   color: '#757575',
                   marginBottom: hp(0.5),
                 }}>
@@ -331,7 +326,7 @@ const DescriptionScreen = () => {
               <Text
                 style={{
                   fontSize: hp(1.6),
-                  fontFamily: 'Poppins-light',
+                  fontFamily: 'Poppins-Light',
                   color: 'black',
                   marginBottom: hp(0.5),
                   textAlign: 'justify',
@@ -345,8 +340,7 @@ const DescriptionScreen = () => {
               <Text
                 style={{
                   fontSize: hp(1.9),
-                  fontFamily: 'RalewayRoman-Regular',
-                  fontWeight:'bold',
+                  fontFamily: 'Raleway-Medium',
                   color: '#757575',
                   marginBottom: hp(0.5),
                 }}>
@@ -355,7 +349,7 @@ const DescriptionScreen = () => {
               <Text
                 style={{
                   fontSize: hp(1.6),
-                  fontFamily: 'Poppins-light',
+                  fontFamily: 'Poppins-Light',
                   color: 'black',
                   marginBottom: hp(0.5),
                   textAlign: 'justify',
@@ -369,8 +363,7 @@ const DescriptionScreen = () => {
               <Text
                 style={{
                   fontSize: hp(1.9),
-                  fontFamily: 'RalewayRoman-Regular',
-                  fontWeight:'bold',
+                  fontFamily: 'Raleway-Medium',
                   color: '#757575',
                   marginBottom: hp(0.5),
                 }}>
@@ -379,7 +372,7 @@ const DescriptionScreen = () => {
               <Text
                 style={{
                   fontSize: hp(1.6),
-                  fontFamily: 'Poppins-light',
+                  fontFamily: 'Poppins-Light',
                   color: 'black',
                   marginBottom: hp(0.5),
                   textAlign: 'justify',
@@ -389,7 +382,7 @@ const DescriptionScreen = () => {
               <Text
                 style={{
                   fontSize: hp(1.6),
-                  fontFamily: 'Poppins-light',
+                  fontFamily: 'Poppins-Light',
                   color: 'black',
                   marginBottom: hp(0.5),
                   textAlign: 'justify',
@@ -403,8 +396,7 @@ const DescriptionScreen = () => {
               <Text
                 style={{
                   fontSize: hp(1.9),
-                  fontFamily: 'RalewayRoman-Regular',
-                  fontWeight:'bold',
+                  fontFamily: 'Raleway-Medium',
                   color: '#757575',
                   marginBottom: hp(0.5),
                   textAlign: 'justify',
@@ -414,7 +406,7 @@ const DescriptionScreen = () => {
               <Text
                 style={{
                   fontSize: hp(1.6),
-                  fontFamily: 'Poppins-light',
+                  fontFamily: 'Poppins-Light',
                   color: 'black',
                   marginBottom: hp(0.5),
                   textAlign: 'justify',
@@ -443,9 +435,8 @@ const DescriptionScreen = () => {
             <Text
               style={{
                 fontSize: hp(2),
-                fontFamily: 'RalewayRoman-Regular',
+                fontFamily: 'Raleway-Medium',
                 marginBottom: hp(1),
-                fontWeight:'bold'
               }}>
               Customer Reviews
             </Text>
@@ -476,7 +467,7 @@ const DescriptionScreen = () => {
             marginBottom: hp(2),
           }}>
           <View style={{paddingVertical: hp(2)}}>
-            <Text style={{fontSize: hp(1.8), fontFamily: 'RalewayRoman-Regular',fontWeight:'bold'}}>
+            <Text style={{fontSize: hp(1.8), fontFamily: 'Raleway-Medium'}}>
               DELIVERY & SERVICES FOR
             </Text>
           </View>
@@ -513,11 +504,10 @@ const DescriptionScreen = () => {
                 <Text
                   style={{
                     fontSize: hp(1.8),
-                    fontFamily: 'RalewayRoman-Regular',
-                    fontWeight:'bold',
+                    fontFamily: 'Raleway-Medium',
                     color: '#fb7ca0',
                   }}>
-                  Change
+                  CHANGE
                 </Text>
               </Pressable>
             </View>
@@ -573,6 +563,7 @@ const DescriptionScreen = () => {
                 flexDirection: 'row',
                 display: 'flex',
                 paddingVertical: hp(0.5),
+                marginBottom:hp(1),
                 alignItems: 'center',
               }}>
               <Ionicons
@@ -604,8 +595,7 @@ const DescriptionScreen = () => {
             }}>
             <Text
               style={{
-                fontFamily: 'RalewayRoman-Regular',
-                fontWeight: 'bold',
+                fontFamily: 'Raleway-Medium',
                 color: 'grey',
                 fontSize: Platform.OS === 'ios' ? hp(1.7) : hp(1.7),
               }}>

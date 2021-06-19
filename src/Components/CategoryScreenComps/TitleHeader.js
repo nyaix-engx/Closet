@@ -13,7 +13,7 @@ return (
       paddingVertical:hp(2),
       flex: 2.6,
     }}>
-    <Text style={{fontSize: hp(2.2),fontFamily:'RalewayRoman-Regular',fontWeight:'500'}}>{props.title}</Text>
+    <Text style={{fontSize: hp(2.2),fontFamily:'Raleway-Medium',fontWeight:'500'}}>{props.title}</Text>
   </View>
 </View>
 )

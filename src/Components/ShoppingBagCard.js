@@ -134,7 +134,7 @@ const ShoppingBagCard = ({data,index,setShoppingItems,shoppingItems,scrollRef,sc
               borderRightColor: '#757575',
               borderRightWidth: hp(0.025),
             }}>
-            <Text style={{fontFamily: 'RalewayRoman-Regular',fontWeight:'600'}}>REMOVE</Text>
+            <Text style={{fontFamily: 'Raleway-Medium',fontWeight:'600',fontSize:hp(1.6),color:"#000000"}}>REMOVE</Text>
           </Pressable>
           <Pressable
             style={{
@@ -145,7 +145,7 @@ const ShoppingBagCard = ({data,index,setShoppingItems,shoppingItems,scrollRef,sc
               borderLeftColor: '#757575',
               borderLeftWidth: hp(0.025),
             }}>
-            <Text style={{fontFamily: 'RalewayRoman-Regular',fontWeight:'600', color: '#fb7ca0'}}>
+            <Text style={{fontFamily: 'Raleway-Medium',fontWeight:'600', color: '#fb7ca0',fontSize:hp(1.6)}}>
               MOVE TO WISHLIST
             </Text>
           </Pressable>

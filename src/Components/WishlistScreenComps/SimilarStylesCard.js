@@ -40,7 +40,6 @@ const SimilarStylesCard = () => {
           <Text
             style={{
               fontFamily: 'Poppins-Medium',
-              fontWeight: 'bold',
               fontSize: hp(1.6),
             }}>
             Rs. 1000

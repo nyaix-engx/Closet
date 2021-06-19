@@ -111,11 +111,9 @@ const ShoppingBagScreen = ({navigation}) => {
         <View
           key={index}
           style={{
-            paddingVertical: hp(0.5),
-            justifyContent: 'center',
-            alignItems: 'center',
+            paddingVertical: hp(0.5)
           }}>
-          <Text style={{textAlign: 'justify',fontFamily:'Poppins-Light',fontSize:hp(1.4)}}>{data}</Text>
+          <Text style={{textAlign: 'left',fontFamily:'Poppins-Light',fontSize:hp(1.4)}}>{data}</Text>
         </View>
       );
     });
@@ -194,7 +192,7 @@ const ShoppingBagScreen = ({navigation}) => {
                 }}>
                 <Text
                   style={{
-                    fontFamily: 'RalewayRoman-Regular',
+                    fontFamily: 'Raleway-Medium',
                     fontWeight:'600',
                     fontSize: hp(2),
                     textAlign: 'center',
@@ -567,7 +565,7 @@ const ShoppingBagScreen = ({navigation}) => {
                 <Text
                   style={{
                     color: 'white',
-                    fontFamily: 'RalewayRoman-Regular',
+                    fontFamily: 'Raleway-Medium',
                     fontWeight:'600',
                     fontSize: hp(1.9),
                   }}>
@@ -656,7 +654,7 @@ const ShoppingBagScreen = ({navigation}) => {
                 }}>
                 <Text
                   style={{
-                    fontFamily: 'RalewayRoman-Regular',
+                    fontFamily: 'Raleway-Medium',
                     fontSize: Platform.OS === 'ios' ? hp(1.6) : hp(1.7),
                     fontWeight: '600',
                     color: '#363636',

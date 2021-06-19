@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Modal from 'react-native-modal';
-import {View, Text, ScrollView, Pressable} from 'react-native';
+import {View, Text, ScrollView, Pressable, Platform} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Number from './number';
@@ -39,7 +39,7 @@ const SelectQuantityModal = props => {
           }}>
           <Text
             style={{
-              fontFamily: 'RalewayRoman-Regular',
+              fontFamily: 'Raleway-Medium',
               fontWeight:'600',
               fontSize: hp(1.8),
               marginBottom: hp(2),
@@ -60,8 +60,8 @@ const SelectQuantityModal = props => {
             </ScrollView>
         </View>
         <ScaleAnimation onPress={()=>{props.setShowModal();props.setQuantity(tempQuantity)}} scaleTo={0.9} >
-          <Button viewProps={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.5),marginBottom:insets.bottom}} >
-            <Text style={{textAlign:'center',fontSize:hp(1.9),fontFamily:'RalewayRoman-Regular',color:'white',fontWeight:'600'}}>DONE</Text>
+          <Button viewProps={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.5),marginBottom:Platform.OS==='ios'? insets.bottom:hp(4)}} >
+            <Text style={{textAlign:'center',fontSize:hp(1.9),fontFamily:'Raleway-Medium',color:'white',fontWeight:'600'}}>DONE</Text>
           </Button>
         </ScaleAnimation>
       </View>

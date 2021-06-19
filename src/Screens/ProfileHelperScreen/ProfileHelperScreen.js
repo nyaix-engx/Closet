@@ -30,7 +30,7 @@ const ProfileHelperScreen = ({navigation, route}) => {
             <View style={{paddingHorizontal: hp(2), marginBottom: hp(2)}}>
               <Text
                 style={{
-                  fontFamily: 'RalewayRoman-Regular',
+                  fontFamily: 'Raleway-Medium',
                   fontSize: hp(2.2),
                   fontWeight:'600',
                   marginBottom: hp(1),
@@ -62,7 +62,7 @@ const ProfileHelperScreen = ({navigation, route}) => {
               <Pressable onPress={handlePress} style={{backgroundColor: '#fb7ca0',borderRadius:hp(0.5)}}>
                 <Text
                   style={{
-                    fontFamily: 'RalewayRoman-Regular',
+                    fontFamily: 'Raleway-Medium',
                     color: 'white',
                     textAlign: 'center',
                     fontSize:hp(1.9),
@@ -123,7 +123,7 @@ const ProfileHelperScreen = ({navigation, route}) => {
                 <Button viewProps={{backgroundColor: '#fb7ca0',borderRadius:hp(0.5),}}>
                   <Text
                     style={{
-                      fontFamily: 'RalewayRoman-Regular',
+                      fontFamily: 'Raleway-Medium',
                       fontWeight:'600',
                       fontSize:hp(1.7),
                       color: 'white',
@@ -171,7 +171,7 @@ const ProfileHelperScreen = ({navigation, route}) => {
             <Text
               style={{
                 fontSize: hp(1.9),
-                fontFamily: 'RalewayRoman-Regular',
+                fontFamily: 'Raleway-Medium',
                 fontWeight:'600',
                 color: '#363636',
               }}>

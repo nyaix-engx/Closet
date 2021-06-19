@@ -171,7 +171,7 @@ const ProfileScreen = props => {
                     <Text
                       style={{
                         color: '#fb7ca0',
-                        fontFamily: 'RalewayRoman-Regular',
+                        fontFamily: 'Raleway-Medium',
                         fontWeight:'600',
                         fontSize:hp(1.9),
                         color: 'white',

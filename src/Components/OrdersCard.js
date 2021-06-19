@@ -79,7 +79,7 @@ const OrdersCard = ({data}) => {
             style={{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
             <Text
               style={{
-                fontFamily: 'RalewayRoman-Regular',
+                fontFamily: 'Raleway-Medium',
                 fontWeight:'600',
                 fontSize: hp(1.8),
                 color: '#fb7ca0',

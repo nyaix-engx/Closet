@@ -646,11 +646,31 @@ export const DeliveryTime = [
 
 
 export const categoryImages=[
-  require('../Assets/Images/1.png'),
-  require('../Assets/Images/3.png'),
-  require('../Assets/Images/5.png'),
-  require('../Assets/Images/4.png'),
-  require('../Assets/Images/2.png'),
+  {
+    img:require('../Assets/Images/1.png'),
+    width:15,
+    height:15
+  },
+  {
+    img:require('../Assets/Images/2.png'),
+    width:12,
+    height:9
+  },
+  {
+    img:require('../Assets/Images/3.png'),
+    width:12,
+    height:10
+  },
+  {
+    img:require('../Assets/Images/4.png'),
+    width:12,
+    height:8
+  },
+  {
+    img:require('../Assets/Images/5.png'),
+    width:12,
+    height:7
+  },
 ]
 
 

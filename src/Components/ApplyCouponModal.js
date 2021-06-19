@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Modal from 'react-native-modal';
-import {View, Text, ScrollView, Pressable} from 'react-native';
+import {View, Text, Pressable, Platform} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -44,7 +44,7 @@ const ApplyCouponModal = props => {
           }}>
           <Text
             style={{
-              fontFamily: 'RalewayRoman-Regular',
+              fontFamily: 'Raleway-Medium',
               fontSize: hp(1.8),
               fontWeight:'600',
               marginBottom: hp(2),
@@ -97,13 +97,13 @@ const ApplyCouponModal = props => {
               backgroundColor: '#fb7ca0',
               paddingVertical: hp(1.4),
               borderRadius: hp(0.5),
-              marginBottom: insets.bottom,
+              marginBottom: Platform.OS==='ios'? insets.bottom:hp(4),
             }}>
             <Text
               style={{
                 textAlign: 'center',
                 fontSize: hp(1.9),
-                fontFamily: 'RalewayRoman-Regular',
+                fontFamily: 'Raleway-Medium',
                 fontWeight:'600',
                 color: 'white',
               }}>

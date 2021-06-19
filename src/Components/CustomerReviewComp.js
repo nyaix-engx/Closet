@@ -144,7 +144,7 @@ const CustomerReview = () => {
               size={hp(2.5)}
               style={{marginRight: hp(1)}}
             />
-            <Text style={{fontFamily:'Poppins-Light'}}>245</Text>
+            <Text style={{fontFamily:'Poppins-Light',fontSize:hp(1.6)}}>245</Text>
           </View>
           <View
             style={{
@@ -157,7 +157,7 @@ const CustomerReview = () => {
               size={hp(2.5)}
               style={{marginRight: hp(1)}}
             />
-            <Text style={{fontFamily:'Poppins-Light'}}>100</Text>
+            <Text style={{fontFamily:'Poppins-Light',fontSize:hp(1.6)}}>100</Text>
           </View>
         </View>
       </View>

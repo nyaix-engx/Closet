@@ -77,7 +77,7 @@ const SavedCardsScreen = ({navigation, route}) => {
               <Text
                 style={{
                   textAlign: 'center',
-                  fontFamily: 'RalewayRoman-Regular',
+                  fontFamily: 'Raleway-Medium',
                   fontSize: hp(1.8),
                   fontWeight: '600',
                   marginBottom: hp(1),
@@ -160,7 +160,7 @@ const SavedCardsScreen = ({navigation, route}) => {
                     />
                     <Text
                       style={{
-                        fontFamily: 'RalewayRoman-Regular',
+                        fontFamily: 'Raleway-Medium',
                         fontWeight: '600',
                         fontSize: hp(1.9),
                         paddingHorizontal: hp(2),

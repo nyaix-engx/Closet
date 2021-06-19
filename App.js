@@ -34,7 +34,6 @@ import SavedCardsScreen from './src/Screens/SavedCardsScreen/SavedCardsScreen';
 import AddCardScreen from './src/Screens/AddCardScreen/AddCardScreen';
 import AddressScreen from './src/Screens/AddressScreen/AddressScreen';
 import AddNewAddressScreen from './src/Screens/AddNewAddressScreen/AddNewAddressScreen';
-import NewCarousel from './src/Screens/NewCarousel';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -71,7 +70,6 @@ const ScreenPage = () => {
       <Stack.Screen name="AddCardPage" component={AddCardScreen} />
       <Stack.Screen name="AddressPage" component={AddressScreen} />
       <Stack.Screen name="AddNewAddressPage" component={AddNewAddressScreen} />
-      <Stack.Screen name="NewCarousel" component={NewCarousel} />
     </Stack.Navigator>
   );
 };

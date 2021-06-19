@@ -86,7 +86,7 @@ const SearchScreen = () => {
           height={hp(34)}
           headingText={'ITEMS YOU HAVE VIEWED'}
           backgroundImage={require('../../Assets/Images/background.jpg')}
-          coverText="Recently Viewed"
+          coverText="RECENTLY VIEWED"
           cardComponent={FadingBackScrollCard}
           array={brandsArray}
         />
@@ -107,38 +107,37 @@ const SearchScreen = () => {
     <SafeAreaView style={{flex: 1}}>
       <View
         style={{
-          height: hp(7),
+          height: hp(8),
           display: 'flex',
+          backgroundColor:'white',
           flexDirection: 'row',
           borderBottomColor: '#c7c7c7',
           borderBottomWidth: hp(0.1),
+          alignItems:'center'
         }}>
-        <View style={{flex: 1, backgroundColor: 'white'}}>
-          <Pressable
-            onPress={() => navigation.goBack()}
-            style={{
-              flex: 1,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <Feather
-              name="arrow-left"
-              size={hp(2.8)}
-              style={{color: '#363636'}}
-            />
-          </Pressable>
-        </View>
         <View style={styles.titleHeader}>
           <View
             style={{
               display: 'flex',
               flexDirection: 'row',
               justifyContent: 'center',
-              flex: 1,
             }}>
             <Input
               placeholder="Search for bands & products"
+              accessoryLeft={()=><Pressable
+                onPress={() => navigation.goBack()}
+                style={{
+                  flex: 0.5,
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Feather
+                  name="arrow-left"
+                  size={hp(2.8)}
+                  style={{color: '#363636'}}
+                />
+              </Pressable>}
               value={searchTerm}
               style={{
                 width: '100%',
@@ -171,7 +170,7 @@ const SearchScreen = () => {
           }}>
           <Text
             style={{
-              fontFamily: 'RalewayRoman-Regular',
+              fontFamily: 'Raleway-Medium',
               fontSize: Platform.OS === 'ios' ? hp(1.6) : hp(1.7),
               fontWeight: '600',
               color: '#363636',

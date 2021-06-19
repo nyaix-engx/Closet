@@ -130,7 +130,7 @@ const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRe
           <Text
             style={{
               textAlign: 'center',
-              fontFamily: 'RalewayRoman-Regular',
+              fontFamily: 'Raleway-Medium',
               fontWeight:'600',
               fontSize: hp(1.9),
               color: 'blue',
@@ -149,7 +149,7 @@ const CreditCard = ({data, index, cards,setCards,scrollY,scrollRef,savedScreenRe
           <Text
             style={{
               textAlign: 'center',
-              fontFamily: 'RalewayRoman-Regular',
+              fontFamily: 'Raleway-Medium',
               fontSize: hp(1.9),
               fontWeight:'600',
               color: 'blue',

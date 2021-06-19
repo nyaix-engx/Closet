@@ -44,14 +44,14 @@ const RemoveAllModal = props => {
             style={{padding: hp(2)}}
             onPress={() => props.setShowModal()}>
             <Text
-              style={{fontFamily: 'RalewayRoman-Regular', fontSize:hp(1.6),fontWeight:'600'}}>
+              style={{fontFamily: 'Raleway-Medium', fontSize:hp(1.6),fontWeight:'600'}}>
               CANCEL
             </Text>
           </Pressable>
           <Pressable onPress={handlePress} style={{padding: hp(2)}}>
             <Text
               style={{
-                fontFamily: 'RalewayRoman-Regular',
+                fontFamily: 'Raleway-Medium',
                 fontSize:hp(1.6),
                 fontWeight:'600',
                 color: '#fb7ca0',

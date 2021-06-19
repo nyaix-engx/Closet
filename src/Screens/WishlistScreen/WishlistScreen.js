@@ -111,7 +111,7 @@ const WishlistScreen = ({route}) => {
                   <View>
                     <Text
                       style={{
-                        fontFamily: 'RalewayRoman-Regular',
+                        fontFamily: 'Raleway-Medium',
                         fontWeight: '600',
                         fontSize: Platform.OS === 'ios' ? hp(1.6) : hp(2),
                       }}>
@@ -128,7 +128,7 @@ const WishlistScreen = ({route}) => {
                       }}>
                       <Text
                         style={{
-                          fontFamily:'RalewayRoman-Regular',
+                          fontFamily:'Raleway-Medium',
                           fontWeight: '600',
                           fontSize: Platform.OS === 'ios' ? hp(1.5) : hp(1.6),
                         }}>

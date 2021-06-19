@@ -58,14 +58,14 @@ const FadingBackScroll = ({height,headingText,backgroundImage,coverText,array,ca
                 justifyContent: 'center',
                 flex: 1,
                 paddingHorizontal: hp(2),
-                width:'35%'
+                width:'40%'
               }}>
               <Text
                 style={{
                   color: 'white',
-                  fontSize: hp(3.5),
+                  fontSize: hp(3),
                   fontWeight:'500',
-                  fontFamily: 'RalewayRoman-Regular',
+                  fontFamily: 'Raleway-Medium',
                 }}>
                 {coverText}
               </Text>

@@ -135,7 +135,7 @@ const ItemDetailsScreen = ({navigation, route}) => {
               }}>
               <View style={{paddingHorizontal: hp(2), marginBottom: hp(2)}}>
                 <Text
-                  style={{fontFamily: 'RalewayRoman-Regular', fontSize: hp(1.9),fontWeight:'600'}}>
+                  style={{fontFamily: 'Raleway-Medium', fontSize: hp(1.9),fontWeight:'600'}}>
                   Delivery Address
                 </Text>
               </View>
@@ -186,7 +186,7 @@ const ItemDetailsScreen = ({navigation, route}) => {
                 borderBottomWidth: hp(0.1),
                 paddingBottom: hp(1.5),
               }}>
-              <Text style={{fontFamily: 'RalewayRoman-Regular', fontSize: hp(1.9),fontWeight:'600'}}>
+              <Text style={{fontFamily: 'Raleway-Medium', fontSize: hp(1.9),fontWeight:'600'}}>
                 Refund Details
               </Text>
             </View>
@@ -203,7 +203,7 @@ const ItemDetailsScreen = ({navigation, route}) => {
                   marginBottom: hp(2),
                 }}>
                 <Text
-                  style={{fontFamily: 'RalewayRoman-Regular', fontSize: hp(1.9),fontWeight:'600'}}>
+                  style={{fontFamily: 'Raleway-Medium', fontSize: hp(1.9),fontWeight:'600'}}>
                   Total Refund Amount
                 </Text>
                 <Text
@@ -239,7 +239,7 @@ const ItemDetailsScreen = ({navigation, route}) => {
                 alignItems:'center',
                 marginBottom: hp(1),
               }}>
-              <Text style={{fontFamily: 'RalewayRoman-Regular', fontSize: hp(1.9),fontWeight:'600'}}>
+              <Text style={{fontFamily: 'Raleway-Medium', fontSize: hp(1.9),fontWeight:'600'}}>
                 Total Item Price
               </Text>
               <Text style={{fontFamily: 'Poppins-Medium', fontSize: hp(1.9)}}>
@@ -275,7 +275,7 @@ const ItemDetailsScreen = ({navigation, route}) => {
               <Pressable onPress={()=>setShowModal(true)}>
                 <Text
                   style={{
-                    fontFamily: 'RalewayRoman-Regular',
+                    fontFamily: 'Raleway-Medium',
                     fontSize: hp(1.8),
                     fontWeight:'700',
                     color: '#fb7ca0',
@@ -289,7 +289,7 @@ const ItemDetailsScreen = ({navigation, route}) => {
             <View style={{padding: hp(2), backgroundColor: 'white'}}>
               <View style={{marginBottom: hp(2)}}>
                 <Text
-                  style={{fontFamily: 'RalewayRoman-Regular', fontSize: hp(1.9),fontWeight:'600'}}>
+                  style={{fontFamily: 'Raleway-Medium', fontSize: hp(1.9),fontWeight:'600'}}>
                   Updates sent to
                 </Text>
               </View>

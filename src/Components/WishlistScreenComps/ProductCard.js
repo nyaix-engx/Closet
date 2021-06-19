@@ -112,7 +112,7 @@ const ProductCard = (props) => {
           }}>
           <Text
             style={{
-              fontFamily: 'RalewayRoman-Regular',
+              fontFamily: 'Raleway-Medium',
               fontWeight:'600',
               color: '#fb7ca0',
               fontSize: Platform.OS==='ios'? hp(1.4) :hp(1.6),

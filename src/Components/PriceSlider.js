@@ -9,7 +9,7 @@ const PriceSlider = ({min,max}) => {
   return (
     <View style={{paddingVertical:hp(2)}}>
       <View style={{paddingHorizontal: hp(1), paddingVertical: hp(1)}}>
-        <Text style={{fontSize: hp(1.8), fontFamily: 'RalewayRoman-Regular',fontWeight:'500'}}>
+        <Text style={{fontSize: hp(1.8), fontFamily: 'Raleway-Medium',fontWeight:'500'}}>
           Selected Price Range
         </Text>
       </View>

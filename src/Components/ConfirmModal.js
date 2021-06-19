@@ -53,9 +53,7 @@ const ConfirmModal = props => {
               <View
                 style={{
                   height: hp(13),
-                  width: hp(10),
-                  borderColor: '#e0e0e0',
-                  borderWidth: hp(0.05),
+                  width: hp(10)
                 }}>
                 <Image
                   style={{width: '100%', height: hp(12)}}
@@ -67,7 +65,7 @@ const ConfirmModal = props => {
           <View style={{flex: 5, paddingHorizontal: hp(1)}}>
             <Text
               style={{
-                fontFamily: 'RalewayRoman-Regular',
+                fontFamily: 'Raleway-Medium',
                 fontWeight:'600',
                 fontSize: hp(1.8),
                 paddingVertical: hp(1),
@@ -100,7 +98,7 @@ const ConfirmModal = props => {
             flexDirection: 'row',
             width: '100%',
             justifyContent: 'space-around',
-            marginBottom: insets.bottom,
+            marginBottom: Platform.OS==='ios'? insets.bottom:hp(4),
           }}>
           <View style={{width: '45%'}}>
             <ScaleAnimation onPress={() => props.setShowModal()} scaleTo={0.9}>
@@ -115,7 +113,7 @@ const ConfirmModal = props => {
                   style={{
                     textAlign: 'center',
                     fontSize: hp(1.7),
-                    fontFamily: 'RalewayRoman-Regular',
+                    fontFamily: 'Raleway-Medium',
                     fontWeight:'600',
                     color: 'white',
                   }}>
@@ -140,7 +138,7 @@ const ConfirmModal = props => {
                   style={{
                     textAlign: 'center',
                     fontSize: hp(1.7),
-                    fontFamily: 'RalewayRoman-Regular',
+                    fontFamily: 'Raleway-Medium',
                     fontWeight:'600',
                     color: 'white',
                   }}>

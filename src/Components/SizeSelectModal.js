@@ -51,7 +51,7 @@ const SizeSelectModal = props => {
           }}>
           <Text
             style={{
-              fontFamily: 'RalewayRoman-Regular',
+              fontFamily: 'Raleway-Medium',
               fontSize: hp(1.8),
               fontWeight:'600',
               marginBottom: hp(2),
@@ -72,8 +72,8 @@ const SizeSelectModal = props => {
             </ScrollView>
         </View>
         <ScaleAnimation onPress={handlePress} scaleTo={0.9} >
-          <Button viewProps={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.5),marginBottom:insets.bottom}}>
-            <Text style={{textAlign:'center',fontSize:hp(1.9),fontFamily:'RalewayRoman-Regular',color:'white',fontWeight:'600'}} >DONE</Text>
+          <Button viewProps={{backgroundColor:'#fb7ca0',paddingVertical:hp(1.4),borderRadius:hp(0.5),marginBottom:Platform.OS==='ios'? insets.bottom:hp(4)}}>
+            <Text style={{textAlign:'center',fontSize:hp(1.9),fontFamily:'Raleway-Medium',color:'white',fontWeight:'600'}} >DONE</Text>
           </Button>
         </ScaleAnimation>
       </View>

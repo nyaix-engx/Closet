@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text, ScrollView, Platform} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {Input, Radio, RadioGroup, CheckBox} from '@ui-kitten/components';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -77,14 +77,13 @@ const AddNewAddressScreen = ({navigation, route}) => {
         />
       </View>
       <View style={{flex: 8}}>
-        <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
+        <ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{marginBottom:hp(2)}} contentContainerStyle={{marginTop:hp(2)}} >
           <View
             style={{
               paddingHorizontal: hp(2),
-              paddingVertical: hp(4),
+              paddingVertical:hp(4),
+              marginBottom:hp(4),
               backgroundColor: 'white',
-              marginTop: hp(2),
-              marginBottom: hp(2),
             }}>
             <Input
               value={name}
@@ -175,9 +174,8 @@ const AddNewAddressScreen = ({navigation, route}) => {
           <View
             style={{
               paddingHorizontal: hp(2),
-              paddingTop: hp(3),
+              paddingVertical: hp(4),
               backgroundColor: 'white',
-              marginBottom: hp(2),
             }}>
             <View style={{marginBottom: hp(2)}}>
               <Text
@@ -222,7 +220,7 @@ const AddNewAddressScreen = ({navigation, route}) => {
             <View>
               <View
                 style={{
-                  paddingVertical: hp(3),
+                  paddingTop: hp(2),
                   borderTopColor: '#d6d6d6',
                   borderTopWidth: hp(0.1),
                 }}>
@@ -249,6 +247,7 @@ const AddNewAddressScreen = ({navigation, route}) => {
           style={{
             flexDirection: 'row',
             paddingHorizontal: hp(2),
+            marginBottom:Platform.OS==='android'?hp(2):hp(0),
             justifyContent: 'space-between',
           }}>
           <View style={{width: '48%'}}>
@@ -263,7 +262,7 @@ const AddNewAddressScreen = ({navigation, route}) => {
                 <Text
                   style={{
                     textAlign: 'center',
-                    fontFamily: 'RalewayRoman-Regular',
+                    fontFamily: 'Raleway-Medium',
                     fontSize: hp(1.9),
                     fontWeight:'600'
                   }}>
@@ -284,7 +283,7 @@ const AddNewAddressScreen = ({navigation, route}) => {
                 <Text
                   style={{
                     textAlign: 'center',
-                    fontFamily: 'RalewayRoman-Regular',
+                    fontFamily: 'Raleway-Medium',
                     fontWeight:'600',
                     color: 'white',
                     fontSize: hp(1.9),

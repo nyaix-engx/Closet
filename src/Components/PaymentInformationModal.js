@@ -40,7 +40,7 @@ const PaymentInformationModal = props => {
           <View style={{justifyContent: 'center'}}>
             <Text
               style={{
-                fontFamily: 'RalewayRoman-Regular',
+                fontFamily: 'Raleway-Medium',
                 fontSize: hp(2),
                 fontWeight:'600',
                 paddingVertical: hp(1),
@@ -160,7 +160,7 @@ const PaymentInformationModal = props => {
                 justifyContent: 'space-between',
                 alignItems: 'center',
               }}>
-              <Text style={{fontFamily: 'RalewayRoman-Regular', fontSize: hp(2),fontWeight:'600'}}>
+              <Text style={{fontFamily: 'Raleway-Medium', fontSize: hp(2),fontWeight:'600'}}>
                 Total Paid
               </Text>
               <Text style={{fontFamily: 'Poppins-Medium', fontSize: hp(2),fontWeight:'600'}}>
@@ -178,7 +178,7 @@ const PaymentInformationModal = props => {
                 borderRadius:hp(0.5)
               }}>
               <Image source={require('../Assets/Images/sbi.png')} style={{width:hp(4),height:hp(4),marginHorizontal:hp(2)}} />  
-              <Text style={{fontFamily:"RalewayRoman-Regular",fontSize:hp(1.9),fontWeight:'600'}}>Paid by SBI Netbanking</Text>
+              <Text style={{fontFamily:"RalewayRoman-Medium",fontSize:hp(1.9)}}>Paid by SBI Netbanking</Text>
             </View>
           </View>
         </View>

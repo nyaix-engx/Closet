@@ -47,7 +47,7 @@ const ListingPage = () => {
       </View>
       <View
         style={{
-          flex: 0.9,
+          flex: 0.8,
           display: 'flex',
           flexDirection: 'row',
           backgroundColor: 'white',
@@ -83,8 +83,7 @@ const ListingPage = () => {
             <Text
               style={{
                 fontSize: hp(1.8),
-                fontFamily: 'RalewayRoman-Regular',
-                fontWeight:'600',
+                fontFamily: 'Raleway-Medium',
                 color: '#363636',
               }}>
               SORT
@@ -118,8 +117,7 @@ const ListingPage = () => {
             <Text
               style={{
                 fontSize: hp(1.8),
-                fontFamily: 'RalewayRoman-Regular',
-                fontWeight:'600',
+                fontFamily: 'Raleway-Medium',
                 color: '#363636',
               }}>
               FILTER

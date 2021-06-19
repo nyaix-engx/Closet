@@ -8,18 +8,17 @@ import {
   Platform,
 } from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import { useNavigation } from '@react-navigation/native';
-
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {useNavigation} from '@react-navigation/native';
 
 const ListingCard = () => {
   const {width} = useWindowDimensions();
-  const navigation=useNavigation()
+  const navigation = useNavigation();
   return (
     <Pressable
-      onPress={()=> navigation.push('DescriptionPage') }
+      onPress={() => navigation.push('DescriptionPage')}
       style={{
-        width: (width) / 2,
+        width: width / 2,
         height: Platform.OS === 'ios' ? hp(40) : hp(45),
         borderWidth: hp(0.1),
         borderColor: '#c7c7c7',
@@ -42,43 +41,70 @@ const ListingCard = () => {
           paddingHorizontal: hp(0.8),
           borderBottomColor: '#c7c7c7',
         }}>
-          <View
-            style={{
-              display: 'flex',
-              flex:1.2,
-              flexDirection: 'row',
-              justifyContent:'space-between',
-              alignItems:'flex-end',
-            }}>
-            <View>
-              <Text
-                style={{
-                  fontFamily: 'RalewayRoman-Regular',
-                  fontWeight: '600',
-                  fontSize: hp(1.7),
-                  color: '#363636',
-                }}>
-                WROGN
-              </Text>
-            </View>
-            <View>
-                <FontAwesome size={hp(2.5)} name='heart-o' />
-            </View>
+        <View
+          style={{
+            display: 'flex',
+            flex: 1.2,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'flex-end',
+          }}>
+          <View>
+            <Text
+              style={{
+                fontFamily: 'Raleway-Medium',
+                fontWeight: '600',
+                fontSize: hp(1.7),
+                color: '#363636',
+              }}>
+              WROGN
+            </Text>
           </View>
-          <View
-            style={{
-              display: 'flex',
-              flex:1.2,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <Text style={{fontSize:hp(1.5),color:'#9c9c9c',fontFamily:'Poppins-Light'}}>Men Slim Fit Jeans</Text>
-          </View>
-          <View style={{display:'flex',flexDirection:'row',justifyContent:'space-between',flex:2}}>
-              <Text style={{fontWeight:'bold',fontFamily:'Poppins-Medium'}}>$124</Text>
-              <Text style={{color:'#fb7ca0',fontSize:hp(1.5),fontFamily:'Poppins-Medium'}}>40% OFF</Text>
+          <View>
+            <FontAwesome size={hp(2.5)} name="heart-o" />
           </View>
         </View>
+        <View
+          style={{
+            display: 'flex',
+            flex: 1.2,
+            flexDirection: 'row',
+            alignItems: 'center',
+          }}>
+          <Text
+            style={{
+              fontSize: hp(1.5),
+              color: '#9c9c9c',
+              fontFamily: 'Poppins-Light',
+            }}>
+            Men Slim Fit Jeans
+          </Text>
+        </View>
+        <View
+          style={{
+            display: 'flex',
+            flex: 2,
+          }}>
+          <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
+            <Text
+              style={{
+                fontWeight: 'bold',
+                fontFamily: 'Poppins-Medium',
+                fontSize: hp(1.8),
+              }}>
+              $124
+            </Text>
+            <Text
+              style={{
+                color: '#fb7ca0',
+                fontSize: hp(1.5),
+                fontFamily: 'Poppins-Medium',
+              }}>
+              40% OFF
+            </Text>
+          </View>
+        </View>
+      </View>
     </Pressable>
   );
 };

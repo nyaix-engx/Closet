@@ -94,7 +94,7 @@ const AddressScreen = ({navigation, route}) => {
               userAddresses={userAddresses}
               navigation={navigation}
               textStyle={{
-                fontFamily: 'RalewayRoman-Regular',
+                fontFamily: 'Raleway-Medium',
                 fontSize: hp(1.8),
                 fontWeight: '600',
                 textAlign: 'center',
@@ -124,7 +124,7 @@ const AddressScreen = ({navigation, route}) => {
               <View style={{paddingHorizontal: hp(2), paddingVertical: hp(1)}}>
                 <Text
                   style={{
-                    fontFamily: 'RalewayRoman-Regular',
+                    fontFamily: 'Raleway-Medium',
                     fontSize: hp(1.9),
                     fontWeight: '600',
                   }}>
@@ -154,7 +154,7 @@ const AddressScreen = ({navigation, route}) => {
             }}>
             <Text
               style={{
-                fontFamily: 'RalewayRoman-Regular',
+                fontFamily: 'Raleway-Medium',
                 fontSize: hp(1.8),
                 fontWeight: '600',
               }}>
@@ -200,7 +200,7 @@ const AddressScreen = ({navigation, route}) => {
                 <Text
                   style={{
                     textAlign: 'center',
-                    fontFamily: 'RalewayRoman-Regular',
+                    fontFamily: 'Raleway-Medium',
                     fontWeight: '600',
                     color: 'blue',
                     fontSize: hp(1.8),

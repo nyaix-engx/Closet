@@ -89,7 +89,7 @@ const SigninScreen = () => {
             }}>
             <Text
               style={{
-                fontFamily: 'RalewayRoman-Regular',
+                fontFamily: 'Raleway-Medium',
                 fontWeight: '600',
                 textAlign: 'center',
                 fontSize:hp(1.6)
@@ -116,13 +116,13 @@ export default SigninScreen;
 const styles = StyleSheet.create({
   headingText: {
     fontWeight: '500',
-    fontFamily: 'RalewayRoman-Regular',
+    fontFamily: 'Raleway-Medium',
     fontSize: hp(4),
   },
   signin: {
     fontSize: hp(2),
     color: 'white',
-    fontFamily: 'RalewayRoman-Regular',
+    fontFamily: 'Raleway-Medium',
     fontWeight: '600',
     textAlign: 'center',
   },

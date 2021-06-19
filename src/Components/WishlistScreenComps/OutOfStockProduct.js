@@ -59,7 +59,7 @@ const OutOfStockProduct = (props) => {
             borderTopRightRadius: hp(0.5),
             alignItems: 'center',
           }}>
-          <Text style={{color: '#a3a3a3',fontFamily:'RalewayRoman-Regular',fontWeight:"700",fontSize:hp(2)}}>OUT OF STOCK</Text>
+          <Text style={{color: '#a3a3a3',fontFamily:'Raleway-Medium',fontWeight:"700",fontSize:hp(2)}}>OUT OF STOCK</Text>
         </View>
         <Pressable
           onPress={handlePress}
@@ -144,7 +144,7 @@ const OutOfStockProduct = (props) => {
           }}>
           <Text
             style={{
-              fontFamily: 'RalewayRoman-Regular',
+              fontFamily: 'Raleway-Medium',
               fontWeight: '600',
               color: '#fb7ca0',
               fontSize: Platform.OS === 'ios' ? hp(1.4) : hp(1.6),

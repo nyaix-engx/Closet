@@ -116,7 +116,7 @@ const AddressRemoveModal = props => {
                   style={{
                     textAlign: 'center',
                     fontSize: hp(1.7),
-                    fontFamily: 'RalewayRoman-Regular',
+                    fontFamily: 'Raleway-Medium',
                     fontWeight:"600",
                     color: 'white',
                   }}>
@@ -140,7 +140,7 @@ const AddressRemoveModal = props => {
                 <Text
                   style={{
                     textAlign: 'center',
-                    fontFamily: 'RalewayRoman-Regular',
+                    fontFamily: 'Raleway-Medium',
                     fontSize:hp(1.7),
                     fontWeight:"600",
                     color: 'white',

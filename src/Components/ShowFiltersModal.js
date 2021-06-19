@@ -148,7 +148,7 @@ const ShowFiltersModal = props => {
             }}>
             <Text
               style={{
-                fontFamily: 'RalewayRoman-Regular',
+                fontFamily: 'Raleway-Medium',
                 fontWeight:'600',
                 fontSize: hp(2),
                 color: '#363636',
@@ -167,7 +167,7 @@ const ShowFiltersModal = props => {
             <Pressable onPress={handlePress} style={{padding: hp(2)}}>
               <Text
                 style={{
-                  fontFamily: 'RalewayRoman-Regular',
+                  fontFamily: 'Raleway-Medium',
                   fontWeight:'600', 
                   fontSize: hp(1.8),
                   color: '#fb7ca0',
@@ -221,7 +221,7 @@ const ShowFiltersModal = props => {
                 <Text
                   style={{
                     fontSize: hp(2),
-                    fontFamily: 'RalewayRoman-Regular',
+                    fontFamily: 'Raleway-Medium',
                     fontWeight:'600',
                     color: 'white',
                   }}>
@@ -244,7 +244,7 @@ const ShowFiltersModal = props => {
                 <Text
                   style={{
                     fontSize: hp(2),
-                    fontFamily: 'RalewayRoman-Regular',
+                    fontFamily: 'Raleway-Medium',
                     fontWeight:'600',
                     color: 'white',
                   }}>

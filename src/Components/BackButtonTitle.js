@@ -48,7 +48,7 @@ const BackButtonTitle = ({title}) => {
           <Text
             style={{
               fontSize: hp(2.2),
-              fontFamily: 'RalewayRoman-Regular',
+              fontFamily: 'Raleway-Medium',
               fontWeight:'500',
               color: '#363636',
             }}>

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Modal from 'react-native-modal';
-import {View, Text } from 'react-native';
+import {View, Text, Platform } from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import ScaleAnimation from './ScaleAnimation';
@@ -37,7 +37,7 @@ const UploadImageModal = props => {
           <View style={{flex: 5, paddingHorizontal: hp(1)}}>
             <Text
               style={{
-                fontFamily: 'RalewayRoman-Regular',
+                fontFamily: 'Raleway-Medium',
                 fontWeight:'600',
                 textAlign:'center',
                 fontSize: hp(1.8),
@@ -60,7 +60,7 @@ const UploadImageModal = props => {
           style={{
             width: '100%',
             justifyContent: 'space-between',
-            marginBottom: insets.bottom,
+            marginBottom: Platform.OS==='ios'? insets.bottom: hp(3),
           }}>
           <View style={{paddingHorizontal:hp(3),marginBottom:hp(1)}}>
             <ScaleAnimation onPress={()=>{}} scaleTo={0.9}>
