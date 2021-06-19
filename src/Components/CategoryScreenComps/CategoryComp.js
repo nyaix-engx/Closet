@@ -4,6 +4,7 @@ import {View, Text, Pressable, Platform, Image} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import CategorySubComp from './CategorySubComp';
+import { categoryImages } from '../../Utils/arrays';
 
 const CategoryComp = (props) => {
   const rowHeight1 = useRef(new Animated.Value(hp(0)));
@@ -121,7 +122,7 @@ const CategoryComp = (props) => {
             backgroundColor: colors[props.index],
             position:"relative"
           }}>
-          <Image source={require('../../Assets/1.png')} style={{width:hp(10),height:hp(15.5),right:hp(2),position:'absolute'}} />
+          <Image resizeMode="contain" source={categoryImages[props.index]} style={{width:hp(10),height:hp(15.5),right:hp(2),position:'absolute'}} />
           <View
             style={{
               height: '100%',

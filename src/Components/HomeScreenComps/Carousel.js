@@ -1,134 +1,137 @@
-import React, {useState, useRef, useEffect} from 'react';
+import * as React from 'react';
 import {
-  FlatList,
-  StyleSheet,
-  View,
-  Dimensions,
+  StatusBar,
   Image,
-  useWindowDimensions,
+  FlatList,
+  Dimensions,
   Animated,
+  View,
+  ImageBackground
 } from 'react-native';
-import { heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import {imageArray} from '../../Utils/arrays';
+const { width } = Dimensions.get('screen');
+import {carouselImages} from '../../Utils/arrays'
+import {
+  FlingGestureHandler,
+  Directions,
+  State,
+} from 'react-native-gesture-handler';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-const Paginator = ({data,scrollX}) => {
-  const { width } = useWindowDimensions()
+const VISIBLE_ITEMS = 3;
+
+
+export default function NewCarousel() {
+  const [data, setData] = React.useState(carouselImages);
+  console.log("Data",data)
+  const scrollXIndex = React.useRef(new Animated.Value(0)).current;
+  const scrollXAnimated = React.useRef(new Animated.Value(0)).current;
+  const width = Dimensions.get('window').width;
+  const [index, setIndex] = React.useState(0);
+  const setActiveIndex = React.useCallback((activeIndex) => {
+    scrollXIndex.setValue(activeIndex);
+    setIndex(activeIndex);
+  });
+
+  React.useEffect(() => {
+    Animated.spring(scrollXAnimated, {
+      toValue: scrollXIndex,
+      useNativeDriver: true,
+    }).start();
+  });
+
   return (
-    <View
-      style={{
-        height:'6%',
-        display: 'flex',
-        justifyContent:'center',
-        alignItems:'center',
-        flexDirection: 'row',
-      }}>
-      {data.map((item,index) => {
+    <View style={{height:hp(50)}}>
+    <FlingGestureHandler
+      key='left'
+      direction={Directions.LEFT}
+      onHandlerStateChange={(ev) => {
+        if (ev.nativeEvent.state === State.END) {
+          if (index === data.length - 1) {
+            return;
+          }
+          setActiveIndex(index + 1);
+        }
+      }}
+    >
+      <FlingGestureHandler
+        key='right'
+        direction={Directions.RIGHT}
+        onHandlerStateChange={(ev) => {
+          if (ev.nativeEvent.state === State.END) {
+            if (index === 0) {
+              return;
+            }
+            setActiveIndex(index - 1);
+          }
+        }}
+      >
+          <FlatList
+            data={data}
+            keyExtractor={(item) => item.img}
+            horizontal
+            contentContainerStyle={{
+              flex: 1,
+            }}
+            scrollEnabled={false}
+            removeClippedSubviews={false}
+            CellRendererComponent={({
+              item,
+              index,
+              children,
+              style,
+              ...props
+            }) => {
+              const newStyle = [style, { zIndex: data.length - index }];
+              return (
+                <View style={newStyle} index={index} {...props}>
+                  {children}
+                </View>
+              );
+            }}
+            renderItem={({ item, index }) => {
+              const inputRange = [index - 1, index, index + 1];
+              const translateX = scrollXAnimated.interpolate({
+                inputRange,
+                outputRange: [hp(7), 0, -hp(12)],
+              });
+              const scale = scrollXAnimated.interpolate({
+                inputRange,
+                outputRange: [0.8, 1, 1.3],
+              });
+              const opacity = scrollXAnimated.interpolate({
+                inputRange,
+                outputRange: [1 - 1 / VISIBLE_ITEMS, 1, 0],
+              });
 
-        const inputRange=[(index-1)*width,index*width,(index+1)*width]   
-        //initial scroll value is 0 and index is 0 as well so for 0th index the scrollX interpolated value will be hp(2)
-        // as the index increases the scrollX value will map to the index*width as the index is increasing as well
-        const dotWidth=scrollX.interpolate({
-          inputRange,
-          outputRange:[hp(1.1),hp(2),hp(1.1)],
-          extrapolate:'clamp'
-        })
-        const dotOpacity=scrollX.interpolate({
-          inputRange,
-          outputRange:[0.3,1,0.3],
-          extrapolate:'clamp'
-        })
-        return (
-          <Animated.View
-            key={index}
-            style={{
-              height: hp(1),
-              width:dotWidth,
-              borderRadius: hp(1),
-              backgroundColor: '#949494',
-              marginHorizontal: hp(0.7),
-              opacity:dotOpacity
+              return (
+                <Animated.View
+                  style={{
+                    position: 'absolute',
+                    left:(width-(width-hp(8)))/2,
+                    opacity,
+                    transform: [
+                      {
+                        translateX,
+                      },
+                      { scale },
+                    ],
+                  }}
+                >
+                  <Image
+                    source={item.img}
+                    style={{
+                      width: width-hp(8),
+                      height: hp(50),
+                      borderRadius: hp(1),
+                    }}
+                  />
+                </Animated.View>
+              );
             }}
           />
-        );
-      })}
+      </FlingGestureHandler>
+    </FlingGestureHandler>
     </View>
   );
-};
+}
 
-const Carousel = (props) => {
-  const scrollX = useRef(new Animated.Value(0)).current;
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const viewConfig = useRef({viewAreaCoveragePercentThreshold: 50}).current;
-  const slidesRef = useRef(null);
-  useEffect(() => {
-    const autoScroll = setInterval(() => {
-      if (currentIndex + 1 < imageArray.length) {
-        slidesRef.current.scrollToIndex({index:currentIndex+1})
-      } else {
-        slidesRef.current.scrollToIndex({index:0})
-      }
-    }, 3000);
-    return () => clearTimeout(autoScroll);
-  }, [currentIndex]);
-  const renderItem = ({item}) => {
-    const width = Dimensions.get('window').width;
-    return (
-      <Image
-        source={item.img}
-        style={{width, height: '100%'}}
-      />
-    );
-  };
-
-  const viewableItemsChanged = useRef(({viewableItems}) => {
-    setCurrentIndex(viewableItems[0].index);
-  }).current;
-
-  return (
-      <View style={props.style}>
-        <FlatList
-          style={{height:'90%'}}
-          data={imageArray}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-          horizontal
-          pagingEnabled
-          showsHorizontalScrollIndicator={false}
-          bounces={false}
-          onScroll={Animated.event(
-            [
-              {
-                nativeEvent: {
-                  contentOffset: {
-                    x: scrollX,
-                  },
-                },
-              },
-            ],
-            {
-              useNativeDriver: false,
-            },
-          )}
-          onViewableItemsChanged={viewableItemsChanged}
-          viewabilityConfig={viewConfig}
-          ref={slidesRef}
-        />
-        <Paginator data={imageArray} scrollX={scrollX} />
-      </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  tab: {
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  container:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center'
-  }
-});
-
-export default Carousel;

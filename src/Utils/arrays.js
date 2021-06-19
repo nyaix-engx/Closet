@@ -644,6 +644,16 @@ export const DeliveryTime = [
   },
 ];
 
+
+export const categoryImages=[
+  require('../Assets/Images/1.png'),
+  require('../Assets/Images/3.png'),
+  require('../Assets/Images/5.png'),
+  require('../Assets/Images/4.png'),
+  require('../Assets/Images/2.png'),
+]
+
+
 export const interestArray = [
   {
     brand: 'Jack & Jones',
@@ -840,5 +850,24 @@ export const ordersData=[
     productSubtitle:"Men Navy Blue Shirt",
     productImage:require('../Assets/Images/shirt.jpg'),
     size:"M"
+  }
+]
+
+export const carouselImages=[
+  {
+    img:require('../Assets/carousel3.png'),
+    id:1
+  },
+  {
+    img:require('../Assets/carousel1.png'),
+    id:2
+  },
+  {
+    img:require('../Assets/carousel4.png'),
+    id:3
+  },
+  {
+    img:require('../Assets/carousel2.png'),
+    id:4
   }
 ]
